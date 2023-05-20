@@ -21,17 +21,24 @@
 
     <title>:: Welcome to Sechsheba Tetulia ::</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/bangladesh-govt.png') }}" />
-    <!-- <link href="https://kit-pro.fontawesome.com/releases/v5.15.2/css/pro.min.css" rel="stylesheet" onload="if(media!=='all')media='all'"> -->
-    <!-- CSS only -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/pro.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css') }}">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="{{ asset('css/app.css?ver=1.0.0') }}">
 
 
-    <script type="text/javascript" src="{{asset('assets/js/jquery-1.12.4.min.js')}}"></script>
+
+
+
 
 <meta name="csrf-token"             ="{{ csrf_token() }}" />
 	<link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
@@ -56,7 +63,7 @@
 
             $users = Auth::user();
         }else{
-            $users = [];
+            $users = json_encode([]);
         }
 
        @endphp

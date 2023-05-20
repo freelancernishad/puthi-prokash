@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap");
+.top-header {
+  background-color: #f2e9d9;
+}
+* {
+  font-family: "Noto Serif Bengali", serif;
+}
+img.cart-icon {
+  width: 50px;
+}
+.font-size14px {
+  font-size: 14px;
+}
+
+.border-left-right{
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+.max-width-search-nav{
+    max-width: 550px;
+}
+img.search-icon {
+    width: 53px;
+}
+.home{
+  background-color: white;
+  border: 2px solid #1C98CE;
+  border-bottom: 0;
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+  color: #1C98CE !important;
+}
+.active-link{
+  border-bottom: 2px solid red;
+}
+
+.social-container{
+    position: absolute;
+    top: 50%;
+   left: 0;
+    transform: translateY(-50%);
+    padding: 20px;
+    text-align: left;
+    width: 259px;
+}
+
+.carousel-item .text-container {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    padding: 20px;
+    text-align: right;
+    width: 259px;
+  }
+ .banner-details{
+    background-color: #EDE78E;
+ }
+ .click-btn{
+    background-color: #BFD851;
+    width: 85%;
+ }
+
+ /* social */
+
+ .fa-facebook {
+    background: #3B5998;
+    color: white;
+    transition: all 0.3s ease;
+    width: 40px;
+  }
+  .fa-facebook:hover{
+    width: 100px;
+    transform: scale(1.2);
+  }
+
+  /* পুথিপ্রকাশ কার্য সমগ */
+
+  .btn-details{
+    border: 1px solid salmon;
+  }
+  .book-cover{
+    width: 200px;
+  }
+
+  p.book-badge {
+    background: #7D60A9;
+    width: 80px;
+    left: -20px;
+    top: 5px;
+    border-radius: 4px;
+}
+  p.book-badge2 {
+    background: #7D60A9;
+    width: 125px;
+    left: 25px;
+    top: 4px;
+    border-radius: 4px;
+}

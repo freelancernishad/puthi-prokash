@@ -10,6 +10,9 @@ let forget = require('./components/auth/forget.vue').default;
 
 let home = require('./components/home.vue').default;
 
+//books
+let flipbooks = require('./components/flipbook/home.vue').default;
+
 
 
 let PageNotFound = require('./components/404.vue').default;
@@ -25,7 +28,10 @@ export const routes = [
 
     { path:  `${prefix}register`, component: register, name:'register',meta: { layout: layout } },
     { path:  `${prefix}forget`, component: forget, name:'forget',meta: { layout: layout } },
-    
+
+
+    { path:  `${prefix}ebook`, component: flipbooks, name:'flipbooks',meta: { layout: blank } },
+
 
   { path: "*", component: PageNotFound }
 

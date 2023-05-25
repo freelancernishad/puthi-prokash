@@ -2,6 +2,7 @@
 <html>
     <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Basic HTML Template</title>
 
@@ -87,17 +88,113 @@ div#fbToolBar {
     display: flex;
     align-items: center;
 }
+.middleBooksMenu {
+    position: absolute;
+    height: 200px;
+    background: #bdbdbd;
+    padding: 14px 11px;
+    width: -webkit-fill-available;
+    top: 41%;
+    z-index: 99999;
+}
+
+.swiper-slide {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 27px;
+}
+
+.swiper-slide.active {
+    border: 2px solid red;
+
+}
+.displayNone{
+  display: none;
+}
+.displayBlock{
+  display: block;
+}
+
+
+.sideMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+    background: #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    width: 158px;
+}
+
+div.sideMenuItem {
+    border-bottom: 2px solid #cfcfcf;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+.sideMenuItem.active {
+    background: #706f6f59;
+}
 
 
     </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     </head>
     <body>
 
 
-      <header>
+      {{-- <header>
         <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="200px" alt="">
-      </header>
+      </header> --}}
+
+      <div class="sideMainContainer displayNone" id="sideMenu">
+
+
+      <div class="sideMenu" >
+        <div class="sideMenuItem" onclick="clicksideMenuItem(1)" id="sideMenuItem1">page1</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(2)" id="sideMenuItem2">page2</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(3)" id="sideMenuItem3">page3</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(4)" id="sideMenuItem4">page4</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(5)" id="sideMenuItem5">page5</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(6)" id="sideMenuItem6">page6</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(7)" id="sideMenuItem7">page7</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(8)" id="sideMenuItem8">page8</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(9)" id="sideMenuItem9">page9</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(10)" id="sideMenuItem10">page10</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(11)" id="sideMenuItem11">page11</div>
+        <div class="sideMenuItem" onclick="clicksideMenuItem(12)" id="sideMenuItem12">page12</div>
+      </div>
+      </div>
+
+    </div>
+
+
+      <div class="middleBooksMenu displayNone" id="middleBooksMenu">
+        <div class="middleBooksMenufix">
+
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(1)" id="middlepage1"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(2)" id="middlepage2"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(3)" id="middlepage3"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(4)" id="middlepage4"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(5)" id="middlepage5"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(6)" id="middlepage6"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(7)" id="middlepage7"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/07.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(8)" id="middlepage8"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/08.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(9)" id="middlepage9"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/09.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(10)" id="middlepage10"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/10.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(11)" id="middlepage11"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/11.jpg" draggable="false" alt="" /></div>
+              <div class="swiper-slide" onclick="clickMiddlebookMenu(12)" id="middlepage12"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/12.jpg" draggable="false" alt="" /></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        </div>
+
 
 
         <div class="wrapper">
@@ -110,10 +207,17 @@ div#fbToolBar {
                   <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg" draggable="false" alt="" /></div>
                   <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg" draggable="false" alt="" /></div>
                   <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/07.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/08.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/09.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/10.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/11.jpg" draggable="false" alt="" /></div>
+                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/12.jpg" draggable="false" alt="" /></div>
                 </div>
               </div>
             </div>
           </div>
+
 
 
 
@@ -133,7 +237,7 @@ div#fbToolBar {
                     />
 
                 </div>
-                <div class="button left" title="middleMenu" style="cursor: pointer; background-color: transparent;">
+                <div class="button left" title="middleMenu" id="middleMenu" style="cursor: pointer; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAFdJREFUSEtjZKARYKSRuQx0M/g/Hh/AHEGMGgwXgzRh8wWyODFqRg1GhAB6eBITfsSowRrGuBIGRamCavllNIPAQ4CuqWI0S4OTMDFFIjFq6FfQD/6cBwAQ4zAXl9lP9QAAAABJRU5ErkJggg=="
@@ -142,9 +246,7 @@ div#fbToolBar {
                 </div>
             </div>
             <div class="pageBar" >
-                <div class="pageNumber" id="tfPageIndex" style="left: 630px; top: 14px; width: 61px; display: block;">
-                    <input type="text" id="currentPageIndexTextField" size="4" autofill-prediction="UNKNOWN_TYPE" style="color: rgb(0, 0, 0); text-align: center;" />
-                </div>
+
                 <div class="button" title="firstpage" id="firstpage1" style="cursor: pointer; left: 535px; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
@@ -152,6 +254,7 @@ div#fbToolBar {
                     />
 
                 </div>
+
                 <div class="button" title="pevious" id="prePage" style="cursor: pointer; left: 580px; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
@@ -159,6 +262,12 @@ div#fbToolBar {
                     />
 
                 </div>
+
+
+                <div class="pageNumber" id="tfPageIndex" style="width: 61px; display: block;text-align:center" >
+
+                  {{-- <input type="text" id="currentPageIndexTextField" size="4" autofill-prediction="UNKNOWN_TYPE" style="color: rgb(0, 0, 0); text-align: center;" /> --}}
+              </div>
                 <div class="button" title="next" id="nextpage" style="cursor: pointer; left: 696px; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
@@ -183,7 +292,7 @@ div#fbToolBar {
                     />
 
                 </div>
-                <div class="button right" title="menu" style="cursor: pointer; background-color: transparent;">
+                <div class="button right" title="menu" id="sidemenuButton" style="cursor: pointer; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAFpJREFUSEtjZKARYKSRuQzDw+D/SMED8hEyn1DIwUMAW1CADIIZSHZQ4TIY5jKqupiQd4mSJ9urhEynq8GjqYJQdJAmT9fII81pOFTTNeeNlhVUiTO4ITRLbgBYIBIXn/upHQAAAABJRU5ErkJggg=="
@@ -199,26 +308,49 @@ div#fbToolBar {
 
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
           <script src="https://rkei0.csb.app/turn.min.js"></script>
+
+          <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+
     <script>
 
-    $(document).ready(function() {
+var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 8,
+      spaceBetween: 20,
+    });
+
+
+    function clicksideMenuItem(id){
+      flipToPage(id)
+    }
+    function clickMiddlebookMenu(id){
+      flipToPage(id)
+    }
+
+    // $(document).ready(function() {
   var currentPage = 1;
   var totalPages = $('#flipbook .page').length;
   var flipping = false;
   var way = 1;
-  var someCondition = 0;
-
-
+  var someCondition = 1;
 
 
 
 
 
   $( "#autoPlay" ).click(function() {
+
+    if(someCondition){
+      someCondition = 0
+    }else{
+      someCondition = 1
+    }
+
+
     var way = 1;
 
   // Start the interval
-  const intervalId = setInterval(autoPaly, 5000); // Execute myFunction every 1000 milliseconds (1 second)
+  const intervalId = setInterval(autoPaly, 1000); // Execute myFunction every 1000 milliseconds (1 second)
 
 
       function autoPaly() {
@@ -251,6 +383,26 @@ div#fbToolBar {
 
 
 
+  $( "#middleMenu" ).click(function() {
+    $("#middleBooksMenu").toggleClass("displayNone");
+    $("#middleBooksMenu").toggleClass("displayBlock");
+
+
+
+    // $('#middleBooksMenu').css({'dispaly':'block'});
+  });
+
+
+  $( "#sidemenuButton" ).click(function() {
+
+
+    $("#sideMenu").toggleClass("displayNone");
+    $("#sideMenu").toggleClass("displayBlock");
+
+    // $('#middleBooksMenu').css({'dispaly':'block'});
+  });
+
+
   $( "#firstpage" ).click(function() {
     flipToPage(1);
   });
@@ -281,12 +433,45 @@ var zoomValue = 1;
 
 
 
+  $("#flipbook").bind("start", (event, pageObject, corner)=> {
+    if(corner=='tr' || corner=='tl'){
+      $("#flipbook").turn("options", {turnCorners: "tl,tr"});
+    }else{
+      $("#flipbook").turn("options", {turnCorners: "bl,br"});
+
+    }
+
+      // $("#tfPageIndex").html(view[0]+'-'+view[1]+'/'+totalPages);
+  });
+
+
+
+  $("#flipbook").bind("turning", (event, page, view)=> {
+      $("#tfPageIndex").html(view[0]+'-'+view[1]+'/'+totalPages);
+  });
+
 
 
   function flipToPage(pageNumber) {
     if (pageNumber < 1 || pageNumber > totalPages || flipping) {
       return;
     }
+
+
+
+    $("#tfPageIndex").html('0-1'+'/'+totalPages);
+
+
+
+    $(".swiper-slide").removeClass("active");
+    $(".sideMenuItem").removeClass("active");
+
+    $("#middlepage"+pageNumber).addClass("active");
+    $("#sideMenuItem"+pageNumber).addClass("active");
+
+
+
+
 
     flipping = true;
 
@@ -304,10 +489,12 @@ var zoomValue = 1;
     flipping = false;
   }
 
+
+
   $('#flipbook').turn({
     direction:'ltr',
-    width:400,
-    height:300,
+    width:600,
+    height:500,
     pages:totalPages,
     // turnCorners: 'bl,br || tl,tr',
 
@@ -315,7 +502,13 @@ var zoomValue = 1;
 
   });
 
-
+  var windowWidth = $(window).width();
+  if(windowWidth<800){
+    $('#flipbook').turn('options', {
+      width: 500,
+      height: 400
+    });
+  }
 
 
 
@@ -351,7 +544,7 @@ var zoomValue = 1;
 
 
 
-});
+// });
 
     </script>
 

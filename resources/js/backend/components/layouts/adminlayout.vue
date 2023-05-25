@@ -126,7 +126,7 @@
 
                         <li class="nav-item sidebar-nav-item" :class="{ active: selected == 101 }">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(101)"><i
-                                    class="flaticon-technological"></i><span>নলকূপ লাইসেন্স</span>
+                                    class="flaticon-technological"></i><span>Category</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 101"

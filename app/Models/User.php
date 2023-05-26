@@ -60,5 +60,12 @@ class User extends Authenticatable
         $this->notify(new PasswordReset($token,$this->id));
     }
 
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+
 }
 

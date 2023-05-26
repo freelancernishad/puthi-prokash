@@ -3,9 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
 use App\Http\Controllers\ProductImageController;
@@ -70,7 +71,10 @@ Route::post('/products/{product}/images', [ProductImageController::class,'store'
 Route::delete('/products/{product}/images/{image}', [ProductImageController::class,'destroy']);
 
 
-
+Route::get('/cart', [CartController::class,'index'])->name('cart.index');
+Route::post('/cart', [CartController::class,'store'])->name('cart.store');
+Route::delete('/cart/{cart}', [CartController::class,'destroy'])->name('cart.destroy');
+Route::delete('/empty/cart', [CartController::class,'emptyCart'])->name('cart.empty');
 
 
 

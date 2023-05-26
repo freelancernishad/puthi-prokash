@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleController;
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
@@ -87,4 +88,8 @@ Route::delete('/orders/{id}', [OrderController::class,'destroy'])->name('orders.
 Route::put('orders/{id}/status', [OrderController::class,'updateStatus']);
 
 
-
+Route::get('payments', [PaymentController::class,'index']);
+Route::get('payments/{id}', [PaymentController::class,'show']);
+Route::post('payments', [PaymentController::class,'store']);
+Route::put('payments/{id}', [PaymentController::class,'update']);
+Route::delete('payments/{id}', [PaymentController::class,'destroy']);

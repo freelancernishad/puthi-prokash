@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleController;
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -93,3 +94,11 @@ Route::get('payments/{id}', [PaymentController::class,'show']);
 Route::post('payments', [PaymentController::class,'store']);
 Route::put('payments/{id}', [PaymentController::class,'update']);
 Route::delete('payments/{id}', [PaymentController::class,'destroy']);
+
+
+
+Route::get('galleries', [GalleryController::class, 'index']);
+Route::post('galleries', [GalleryController::class, 'store']);
+Route::get('galleries/{gallery}', [GalleryController::class, 'show']);
+Route::put('galleries/{gallery}', [GalleryController::class, 'update']);
+Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);

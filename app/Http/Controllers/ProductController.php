@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\CategoryProduct;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -22,18 +25,19 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
      // Validate the request data
      $validatedData = $request->validate([
         'name' => 'required',
         'description' => 'required',
         'price' => 'required|numeric',
+        'images' => 'required|array',
         'images.*' => 'required|image',
         'categories' => 'required|array',
         'categories.*' => 'exists:categories,id',
     ]);
-
     // Create the product
-    $product = Product::create([
+     $product = Product::create([
         'name' => $validatedData['name'],
         'description' => $validatedData['description'],
         'price' => $validatedData['price'],
@@ -54,6 +58,7 @@ class ProductController extends Controller
             'product_id' => $product->id,
         ]);
     }
+
 
     return response()->json($product, 201);
     }

@@ -11,14 +11,37 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('products','children')->whereNull('parent_id')->get();
+        $categories = Category::with('products','childrens')->whereNull('parent_id')->get();
         return response()->json($categories);
     }
 
 
-  public function indexAll()
+  public function indexAll(Request $request)
     {
-        $categories = Category::paginate(20);
+
+        $type = $request->type;
+        if($type=='withoutpaginate'){
+            $categories = Category::all();
+        }else{
+            $categories = Category::with('parent')->paginate(20);
+
+        }
+
+        return response()->json($categories);
+    }
+
+    public function SearchItem(Request $request)
+    {
+
+
+      
+        $searchTerm = $request->searchItem;
+        $categories = Category::with('parent')
+            ->where('name', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('slug', 'LIKE', "%{$searchTerm}%")
+            ->paginate(20);
+
+
         return response()->json($categories);
     }
 
@@ -43,7 +66,8 @@ class CategoryController extends Controller
     $category = Category::create([
         'cat_id' => '1234',
         'name' => $request->input('name'),
-        'slug' => $request->input('name'),
+        'slug' => $request->input('slug'),
+        'parent_id' => $request->input('parent_id'),
         'index_number' => 1,
 
     ]);

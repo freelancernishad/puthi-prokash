@@ -3,7 +3,19 @@
         <Breadcrumbs brename="Category List"/>
 
         <div class="card">
-            <div class="card-header"></div>
+            <div class="card-header">
+
+                
+                <form @submit.stop.prevent="SearchTable" class="d-flex" style="width:300px">
+                
+                        <input type="text" class="form-control" v-model="searchItem">
+                    <button v-if="tableSerching" type="button" class="btn btn-info" disabled>Searching.....</button>
+                    <button v-else type="submit" class="btn btn-info">Search</button>
+
+                </form>
+
+
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
@@ -11,6 +23,8 @@
                             <tr>
                                 <th>SL</th>
                                 <th>Name</th>
+                                <th>Type</th>
+                                <th>Parent</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -19,6 +33,8 @@
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
                                 <td>{{ list.name }}</td>
+                                <td><span v-if="list.parent">Sub category</span><span v-else>Main category</span></td>
+                                <td><span v-if="list.parent">{{ list.parent.name }}</span></td>
                                 <td>
 
 
@@ -47,6 +63,8 @@
 export default {
     data() {
         return {
+            tableSerching:false,
+            searchItem:'',
             lists:{},
             pageNO:1,
         }
@@ -64,12 +82,19 @@ export default {
             if(this.$route.query.page){
                 page = this.$route.query.page;
             }
-
             var res = await this.callApiPaginate(`/api/all/categories?page=${page}`,page);
             this.lists = res
-
-
-
+        },
+        
+        async SearchTable(){
+            this.tableSerching = true
+            var page=1;
+            if(this.$route.query.page){
+                page = this.$route.query.page;
+            }
+            var res = await this.callApiPaginate(`/api/serach/categories?page=${page}&searchItem=${this.searchItem}`,page);
+            this.lists = res
+            this.tableSerching = false
         }
     },
     mounted() {

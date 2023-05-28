@@ -59,6 +59,7 @@ Route::get('visitorcount',[VisitorController::class, 'visitorCount']);
 
 Route::get('/all/categories', [CategoryController::class,'indexAll']);
 Route::get('/categories', [CategoryController::class,'index']);
+Route::get('serach/categories', [CategoryController::class,'SearchItem']);
 Route::get('/categories/{category}', [CategoryController::class,'show']);
 Route::post('/categories', [CategoryController::class,'store']);
 Route::put('/categories/{category}', [CategoryController::class,'update']);

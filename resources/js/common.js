@@ -20,11 +20,18 @@ export default {
               Totalpage:[],
               Routename:'',
               Routeparams:{},
+              errors:{},
         }
     },
 
     methods: {
 
+        errorHandleing(col){
+            if(col in this.errors){
+                return 1;
+            }
+            return 0;
+        },
 
         async callApi(method, url, dataObj ){
             try {

@@ -3789,10 +3789,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       PerPageData: 0,
       Totalpage: [],
       Routename: '',
-      Routeparams: {}
+      Routeparams: {},
+      errors: {}
     };
   },
   methods: {
+    errorHandleing: function errorHandleing(col) {
+      if (col in this.errors) {
+        return 1;
+      }
+
+      return 0;
+    },
     callApi: function callApi(method, url, dataObj) {
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {

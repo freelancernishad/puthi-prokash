@@ -26,6 +26,14 @@ import Paginate from './components/paginate.vue'
 Vue.component('Paginate', Paginate)
 
 
+import CategoryTree from './components/category/categories.vue'
+Vue.component('CategoryTree', CategoryTree)
+
+
+import Fromerror from './components/formerrors.vue'
+Vue.component('Fromerror', Fromerror)
+
+
 
 
 Vue.prototype.$localStorage = localStorage;

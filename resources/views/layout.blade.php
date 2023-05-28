@@ -31,6 +31,7 @@
 
     background-color: var(--defaultColor) !important;
     border-color: var(--defaultColor) !important;
+    color:white !important;
 }
 .page-link {
 

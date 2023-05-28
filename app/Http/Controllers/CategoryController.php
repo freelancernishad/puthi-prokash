@@ -15,6 +15,13 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
+
+  public function indexAll()
+    {
+        $categories = Category::paginate(20);
+        return response()->json($categories);
+    }
+
     public function show(Category $category)
     {
         $category->load('products','parent');
@@ -37,7 +44,8 @@ class CategoryController extends Controller
         'cat_id' => '1234',
         'name' => $request->input('name'),
         'slug' => $request->input('name'),
-        'parent_id' => 1,
+        'index_number' => 1,
+
     ]);
 
     return response()->json($category, 201);

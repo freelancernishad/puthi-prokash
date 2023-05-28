@@ -13,11 +13,19 @@ export default {
                 7: "৭",
                 8: "৮",
                 9: "৯",
-              }
+              },
+              PaginateRows:20,
+              Totalrows:0,
+              PerPageData:0,
+              Totalpage:[],
+              Routename:'',
+              Routeparams:{},
         }
     },
 
     methods: {
+
+
         async callApi(method, url, dataObj ){
             try {
               return await axios({
@@ -29,6 +37,32 @@ export default {
                 return e.response
             }
         },
+
+
+        async callApiPaginate(url,page){
+            var res = await this.callApi('get',`${url}`,[]);
+            this.PaginateRows = res.data.per_page
+            this.Totalrows = res.data.total
+            this.Totalpage = res.data.links
+            this.PerPageData = res.data.per_page
+            this.Routename = 'categoryIndex'
+            this.Routeparams = {}
+            if(page==1){
+                this.pageNO = 1;
+            }else{
+                this.pageNO = (page-1)*this.PerPageData+1;
+            }
+            if(res.data.last_page<page){
+                this.$router.push({name:this.Routename,query:{page:res.data.last_page}});
+            }
+            return  res.data.data;
+
+        },
+
+
+
+
+
 
 
 
@@ -46,7 +80,25 @@ export default {
         },
 
 
+        DeleteAction(title='',text='',route='',notification='',callback){
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: `Yes`,
+                cancelButtonText: `No`
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    var res = await this.callApi('delete', `${route}`, []);
+                    Notification.customSuccess(notification);
+                    callback();
 
+                }
+            })
+        },
 
 
 

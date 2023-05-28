@@ -2169,7 +2169,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         7: "৭",
         8: "৮",
         9: "৯"
-      }
+      },
+      PaginateRows: 20,
+      Totalrows: 0,
+      PerPageData: 0,
+      Totalpage: [],
+      Routename: '',
+      Routeparams: {}
     };
   },
   methods: {
@@ -2203,6 +2209,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[0, 6]]);
       }))();
     },
+    callApiPaginate: function callApiPaginate(url, page) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this.callApi('get', "".concat(url), []);
+
+              case 2:
+                res = _context2.sent;
+                _this.PaginateRows = res.data.per_page;
+                _this.Totalrows = res.data.total;
+                _this.Totalpage = res.data.links;
+                _this.PerPageData = res.data.per_page;
+                _this.Routename = 'categoryIndex';
+                _this.Routeparams = {};
+
+                if (page == 1) {
+                  _this.pageNO = 1;
+                } else {
+                  _this.pageNO = (page - 1) * _this.PerPageData + 1;
+                }
+
+                if (res.data.last_page < page) {
+                  _this.$router.push({
+                    name: _this.Routename,
+                    query: {
+                      page: res.data.last_page
+                    }
+                  });
+                }
+
+                return _context2.abrupt("return", res.data.data);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
     dateformatGlobal: function dateformatGlobal() {
       var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       return User.dateformat(date);
@@ -2213,6 +2265,56 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else if (value == 'sub_admin') {
         return 'সাব-এডমিন';
       }
+    },
+    DeleteAction: function DeleteAction() {
+      var _this2 = this;
+
+      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      var route = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      var notification = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+      var callback = arguments.length > 4 ? arguments[4] : undefined;
+      Swal.fire({
+        title: title,
+        text: text,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+      }).then( /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(result) {
+          var res;
+          return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!result.isConfirmed) {
+                    _context3.next = 6;
+                    break;
+                  }
+
+                  _context3.next = 3;
+                  return _this2.callApi('delete', "".concat(route), []);
+
+                case 3:
+                  res = _context3.sent;
+                  Notification.customSuccess(notification);
+                  callback();
+
+                case 6:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
     },
     getMonthFromString: function getMonthFromString(mon) {
       return new Date(Date.parse(mon + " 10, 2022")).getMonth() + 1;

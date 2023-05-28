@@ -18,7 +18,12 @@ import {routes} from './routes';
 
 import store from '../store'
 
+import Breadcrumbs from './components/breadcrumbs.vue'
+Vue.component('Breadcrumbs', Breadcrumbs)
 
+
+import Paginate from './components/paginate.vue'
+Vue.component('Paginate', Paginate)
 
 
 

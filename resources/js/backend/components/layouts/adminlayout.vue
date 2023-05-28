@@ -115,10 +115,6 @@
 
 
 
-                        <li class="nav-item" @click="submenu(0)">
-                            <router-link :to="{ name: 'report' }" class="nav-link"><i
-                                    class="flaticon-dashboard"></i><span>সকল প্রতিবেদন</span></router-link>
-                        </li>
 
 
 
@@ -132,61 +128,59 @@
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 101"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'pending',name:'tube_well_license'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> নতুন আবেদন </router-link>
+                                        <router-link :to="{ name: 'categoryAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Category </router-link>
                                     </li>
                                     <li class="nav-item">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'processing',name:'tube_well_license'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> তদন্তাধীন আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'processied',name:'tube_well_license'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> তদন্তকৃত আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'approved',name:'tube_well_license'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> অনুমোদিত আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'canceled',name:'tube_well_license'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> বাতিলকৃত আবেদন </router-link>
+                                        <router-link :to="{ name: 'categoryIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Category List </router-link>
                                     </li>
                                 </ul>
                             </transition>
                         </li>
 
 
-
                         <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(102)"><i
-                                    class="flaticon-technological"></i><span>ভবনের নকশা</span>
+                                    class="flaticon-technological"></i><span>Products</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 102"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'pending',name:'building_design'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> নতুন আবেদন </router-link>
+                                        <router-link :to="{ name: 'productsAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Products </router-link>
                                     </li>
                                     <li class="nav-item">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'processing',name:'building_design'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> তদন্তাধীন আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'processied',name:'building_design'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> তদন্তকৃত আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'approved',name:'building_design'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> অনুমোদিত আবেদন </router-link>
-                                    </li>
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                        <router-link :to="{ name: 'applicationlist', params:{type:'canceled',name:'building_design'} }" class="nav-link"><i
-                                                class="fas fa-angle-right"></i> বাতিলকৃত আবেদন </router-link>
+                                        <router-link :to="{ name: 'productsIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Products List </router-link>
                                     </li>
                                 </ul>
                             </transition>
                         </li>
+
+
+
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(103)"><i
+                                    class="flaticon-technological"></i><span>Gallery</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 103"
+                                    style="display:block">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                        <router-link :to="{ name: 'galleryAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Gallery </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'galleryIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Gallery List </router-link>
+                                    </li>
+                                </ul>
+                            </transition>
+                        </li>
+
+
 
 
 

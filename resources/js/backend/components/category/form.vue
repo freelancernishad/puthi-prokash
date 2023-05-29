@@ -48,14 +48,6 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">File upload</label>
-                                        <multiple-file-upload></multiple-file-upload>
-
-                                    </div>
-                                </div>
-
                             </div>
 
                             <button class="btn btn-info">Submit</button>

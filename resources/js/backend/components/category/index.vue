@@ -5,9 +5,9 @@
         <div class="card">
             <div class="card-header">
 
-                
+
                 <form @submit.stop.prevent="SearchTable" class="d-flex" style="width:300px">
-                
+
                         <input type="text" class="form-control" v-model="searchItem">
                     <button v-if="tableSerching" type="button" class="btn btn-info" disabled>Searching.....</button>
                     <button v-else type="submit" class="btn btn-info">Search</button>
@@ -38,6 +38,7 @@
                                 <td>
 
 
+                                    <router-link class="btn btn-info" :to="{name:'categoryimages',params:{id:list.id}}">Image Upload</router-link>
                                     <router-link class="btn btn-info" :to="{name:'categoryEdit',params:{id:list.id}}">Edit</router-link>
                                     <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this category',`/api/categories/${list.id}`,'Category Deleted',getLists)">Delete</button>
 
@@ -85,7 +86,7 @@ export default {
             var res = await this.callApiPaginate(`/api/all/categories?page=${page}`,page);
             this.lists = res
         },
-        
+
         async SearchTable(){
             this.tableSerching = true
             var page=1;

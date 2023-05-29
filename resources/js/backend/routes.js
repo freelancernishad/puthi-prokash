@@ -12,6 +12,7 @@ let home = require('./components/home.vue').default;
 
 let categoryIndex = require('./components/category/index.vue').default;
 let categoryForm = require('./components/category/form.vue').default;
+let categoryimages = require('./components/category/images.vue').default;
 
 let productsIndex = require('./components/products/index.vue').default;
 let productsForm = require('./components/products/form.vue').default;
@@ -61,6 +62,7 @@ export const routes = [
   { path:  `${prefix}/category/list`, component: categoryIndex, name:'categoryIndex',meta: { layout: adminlayout } },
   { path:  `${prefix}/category/add`, component: categoryForm, name:'categoryAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/category/edit/:id`, component: categoryForm, name:'categoryEdit',meta: { layout: adminlayout } },
+  { path:  `${prefix}/category/images/:id`, component: categoryimages, name:'categoryimages',meta: { layout: adminlayout } },
 
 
 

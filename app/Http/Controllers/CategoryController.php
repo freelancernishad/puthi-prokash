@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Models\CategoryImage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -34,7 +35,7 @@ class CategoryController extends Controller
     {
 
 
-      
+
         $searchTerm = $request->searchItem;
         $categories = Category::with('parent')
             ->where('name', 'LIKE', "%{$searchTerm}%")
@@ -105,6 +106,38 @@ class CategoryController extends Controller
 
     return response()->json($category);
     }
+
+
+    public function uploadImages(Request $request, Category $category)
+    {
+
+         $imagesCount =  count($request->all());
+
+
+
+
+
+
+
+        if ($imagesCount>0) {
+            $images =  $request->all();
+            foreach ($images as $image) {
+                $imageCount =  count(explode(';', $image));
+                if ($imageCount > 1) {
+                    $categoryImage = new CategoryImage();
+                    $filePath =   fileupload($image, "sonod/category/image/");
+                    $categoryImage->image_path = $filePath;
+                    $category->categoryImages()->save($categoryImage);
+                }
+
+
+
+            }
+        }
+
+        return response()->json($category->load('categoryImages'), 201);
+    }
+
 
     public function destroy(Category $category)
     {

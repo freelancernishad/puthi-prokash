@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,7 +12,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::with('images')->get();
+        $galleries = Gallery::with('images')->paginate(20);
 
         return response()->json($galleries);
     }
@@ -23,8 +24,7 @@ class GalleryController extends Controller
     $validator = Validator::make($request->all(), [
         'title' => 'required',
         'description' => 'nullable',
-        'images' => 'required|array',
-        'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+
     ]);
     if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors()], 422);
@@ -61,8 +61,6 @@ class GalleryController extends Controller
               $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'description' => 'nullable',
-                'images' => 'required|array',
-                'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
             if ($validator->fails()) {
                 return response()->json(['errors' => $validator->errors()], 422);
@@ -89,6 +87,55 @@ class GalleryController extends Controller
 
         return response()->json($gallery);
     }
+
+
+
+
+
+
+    public function uploadImages(Request $request, Gallery $gallery)
+    {
+         $imagesCount =  count($request->all());
+        if ($gallery->images()->exists()) {
+            $gallery->images()->delete();
+        }
+        if ($imagesCount>0) {
+            $images =  $request->all();
+            foreach ($images as $image) {
+                $imageCount =  count(explode(';', $image));
+                if ($imageCount > 1) {
+                    $categoryImage = new GalleryImage();
+                    $filePath =   fileupload($image, "uploaded/gallery/image/");
+                    $categoryImage->image_path = $filePath;
+                    $gallery->images()->save($categoryImage);
+                }
+            }
+        }
+
+        return response()->json($gallery->load('images'), 201);
+    }
+
+    public function getImages(Request $request, Gallery $gallery)
+    {
+
+        $imagescount = count($gallery->load('images')->images);
+
+
+       $img = [];
+       if($imagescount>0){
+        $images =  $gallery->load('images')->images;
+        foreach ($images as $image) {
+            array_push($img,base64($image->image_path));
+       }
+
+       }else{
+        array_push($img,'');
+       }
+
+
+        return response()->json(['img'=>$img,'gallery'=>$gallery], 200);
+    }
+
 
     public function destroy(Gallery $gallery)
     {

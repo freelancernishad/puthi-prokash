@@ -10,7 +10,10 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
+                                <th>Image</th>
                                 <th>Name</th>
+                                <th>Price</th>
+                                <th>Categories</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -18,9 +21,14 @@
                         <tbody>
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
+                                <td><img :src="$asseturl+index.image" alt=""></td>
                                 <td>{{ list.name }}</td>
+                                <td>{{ list.price }}</td>
                                 <td>
-
+                                    <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
+                                </td>
+                                <td>
+                                    <router-link class="btn btn-info" :to="{name:'productsimages',params:{id:list.id}}">Image Upload</router-link>
 
                                     <router-link class="btn btn-info" :to="{name:'productsEdit',params:{id:list.id}}">Edit</router-link>
                                     <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this products',`/api/products/${list.id}`,'Product Deleted',getLists)">Delete</button>

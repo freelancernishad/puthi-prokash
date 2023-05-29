@@ -37,8 +37,6 @@ class ProductController extends Controller
         'short_description' => 'required',
         'description' => 'required',
         'price' => 'required|numeric',
-        'images' => 'required|array',
-        'images.*' => 'required|image',
         'categories' => 'required|array',
         'categories.*' => 'exists:categories,id',
     ]);
@@ -111,8 +109,6 @@ class ProductController extends Controller
                 'short_description' => 'required',
                 'description' => 'required',
                 'price' => 'required|numeric',
-                'images' => 'required|array',
-                'images.*' => 'required|image',
                 'categories' => 'required|array',
                 'categories.*' => 'exists:categories,id',
             ]);
@@ -154,6 +150,12 @@ class ProductController extends Controller
 
             return response()->json(['message' => 'Product updated successfully']);
     }
+
+
+
+
+
+
 
     public function destroy(Product $product)
     {

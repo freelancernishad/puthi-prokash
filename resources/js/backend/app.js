@@ -47,10 +47,14 @@ Vue.prototype.$localStorage = localStorage;
 
 
 import Multiselect from 'vue-multiselect'
-
-
-// register globally
 Vue.component('multiselect', Multiselect)
+
+
+
+import { VueEditor, Quill } from "vue2-editor";
+Vue.component('vue-editor', VueEditor);
+
+
 
 window.Reload = new Vue();
 const router = new VueRouter({

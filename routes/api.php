@@ -71,6 +71,8 @@ Route::delete('/categories/{category}', [CategoryController::class,'destroy']);
 
 
 Route::get('/products', [ProductController::class,'index']);
+
+
 Route::get('/products/{product}', [ProductController::class,'show']);
 Route::post('/products', [ProductController::class,'store']);
 Route::put('/products/{product}', [ProductController::class,'update']);
@@ -109,3 +111,5 @@ Route::post('galleries', [GalleryController::class, 'store']);
 Route::get('galleries/{gallery}', [GalleryController::class, 'show']);
 Route::put('galleries/{gallery}', [GalleryController::class, 'update']);
 Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);
+Route::get('galleries/{gallery}/images', [GalleryController::class,'getImages']);
+Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImages']);

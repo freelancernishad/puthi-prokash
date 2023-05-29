@@ -1,5 +1,186 @@
 <template>
     <div>
         <Breadcrumbs brename="Products Form"/>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form @submit.stop.prevent="onSubmit">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Product Name</label>
+                                        <input type="text" class="form-control" v-model="form.name">
+
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('name')" v-for="name in errors.name" :key="name">{{ name }}</span>
+                                        <!-- <Fromerror Fieldname="name"/> -->
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Price</label>
+                                        <input type="text" class="form-control" v-model="form.price">
+
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('price')" v-for="name in errors.price" :key="name">{{ name }}</span>
+                                        <!-- <Fromerror Fieldname="name"/> -->
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Product Slug</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Short Description</label>
+                                        <textarea  v-model="form.short_description" class="form-control" style="resize: none;height: 100px;"></textarea>
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Description</label>
+                                        <vue-editor v-model="form.description"></vue-editor>
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Product Category</label>
+                                        <multiselect v-model="categories" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="lists" :multiple="true"  label="name" track-by="id"></multiselect>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <button class="btn btn-info">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </template>
+
+<script>
+
+export default {
+    data() {
+        return {
+            lists:[],
+            form:{
+                name:'',
+                slug:'',
+                parent_id:'',
+                categories:[],
+            },
+            categories:[],
+            updateInsertApi:'/api/products',
+            Method:'post',
+            triggerRerender: false
+        }
+    },
+    watch: {
+        '$route': {
+            handler(newValue, oldValue) {
+                if(!this.$route.params.id){
+                this.form= {
+                    name:'',
+                    slug:'',
+                    parent_id:'',
+                }
+            }
+            },
+            deep: true
+        }
+    },
+    computed: {
+    selectedOptionIds() {
+        if (!Array.isArray(this.categories)) {
+        return []; // Return an empty array if this.categories is not an array
+      }
+      return this.categories.map(option => option.id);
+    }
+    },
+    methods: {
+        async getList(){
+            var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])
+
+
+            res.data.forEach(list => {
+                this.lists.push(
+                    {
+                        id:list.id,
+                        name:list.name,
+                    }
+
+                );
+            });
+
+        },
+        async getItems(){
+            var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[])
+            this.form = res.data
+                this.categories= res.data.categories
+        },
+
+        async onSubmit(){
+            this.form.categories = this.selectedOptionIds
+
+            var res = await this.callApi(`${this.Method}`,`${this.updateInsertApi}`,this.form);
+
+
+            if(res.status==200){
+                Notification.customSuccess(`Products Updated Successfull`);
+                this.$router.push({name:'productsIndex'});
+            }else if(res.status==201){
+                Notification.customSuccess(`Products Created Successfull`);
+
+                this.$router.push({name:'productsimages',params:{id:res.data.id}});
+
+
+            }else{
+                Notification.customError(`Something want wrong!`);
+                this.errors = res.data.errors
+            }
+        }
+    },
+    mounted(){
+        this.getList();
+        if(this.$route.params.id){
+            this.getItems();
+            this.updateInsertApi = `/api/products/${this.$route.params.id}`;
+            this.Method = 'put';
+        }else{
+            this.updateInsertApi = `/api/products`;
+            this.Method = 'post';
+
+        }
+
+
+    }
+}
+</script>

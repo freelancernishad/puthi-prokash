@@ -16,9 +16,11 @@ let categoryimages = require('./components/category/images.vue').default;
 
 let productsIndex = require('./components/products/index.vue').default;
 let productsForm = require('./components/products/form.vue').default;
+let productsimages = require('./components/products/images.vue').default;
 
 let galleryIndex = require('./components/gallery/index.vue').default;
 let galleryForm = require('./components/gallery/form.vue').default;
+let galleryimages = require('./components/gallery/images.vue').default;
 
 
 let profile = require('./components/profile.vue').default;
@@ -70,6 +72,7 @@ export const routes = [
   { path:  `${prefix}/products/list`, component: productsIndex, name:'productsIndex',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/add`, component: productsForm, name:'productsAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/edit/:id`, component: productsForm, name:'productsEdit',meta: { layout: adminlayout } },
+  { path:  `${prefix}/products/images/:id`, component: productsimages, name:'productsimages',meta: { layout: adminlayout } },
 
 
 
@@ -77,6 +80,7 @@ export const routes = [
   { path:  `${prefix}/gallery/list`, component: galleryIndex, name:'galleryIndex',meta: { layout: adminlayout } },
   { path:  `${prefix}/gallery/add`, component: galleryForm, name:'galleryAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/gallery/edit/:id`, component: galleryForm, name:'galleryEdit',meta: { layout: adminlayout } },
+  { path:  `${prefix}/gallery/images/:id`, component: galleryimages, name:'galleryimages',meta: { layout: adminlayout } },
 
 
 

@@ -11,7 +11,7 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -19,10 +19,10 @@
                         <tbody>
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
-                                <td>{{ list.name }}</td>
+                                <td>{{ list.title }}</td>
                                 <td>
 
-
+                                    <router-link class="btn btn-info" :to="{name:'galleryimages',params:{id:list.id}}">Image Upload</router-link>
                                     <router-link class="btn btn-info" :to="{name:'galleryEdit',params:{id:list.id}}">Edit</router-link>
                                     <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this gallery',`/api/galleries/${list.id}`,'Gallery Deleted',getLists)">Delete</button>
 
@@ -67,6 +67,7 @@ export default {
             }
 
             var res = await this.callApiPaginate(`/api/galleries?page=${page}`,page);
+            // console.log(res)
             this.lists = res
 
 

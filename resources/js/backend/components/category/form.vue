@@ -48,6 +48,13 @@
 
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">File upload</label>
+                                        <multiple-file-upload></multiple-file-upload>
+
+                                    </div>
+                                </div>
 
                             </div>
 
@@ -99,7 +106,7 @@ export default {
             let listsArray = res.data.filter((item)=> {
                     return item.id!=this.$route.params.id;
                 });
-             
+
 
             this.lists = listsArray
         },

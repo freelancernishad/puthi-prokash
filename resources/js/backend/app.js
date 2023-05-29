@@ -34,6 +34,13 @@ import Fromerror from './components/formerrors.vue'
 Vue.component('Fromerror', Fromerror)
 
 
+// Import the MultipleFileUpload component
+import MultipleFileUpload from './components/MultipleFileUpload.vue';
+
+// Register the MultipleFileUpload component globally
+Vue.component('multiple-file-upload', MultipleFileUpload);
+
+
 
 
 Vue.prototype.$localStorage = localStorage;

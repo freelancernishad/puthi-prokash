@@ -850,6 +850,10 @@ $ext =  pathinfo($Image, PATHINFO_EXTENSION);;
 
  function fileupload($Image,$path,$width='',$height='',$customname='')
 {
+    $Y = date('Y');
+    $m = date('m');
+    $d = date('d');
+    $path = $path."$Y/$m/$d/";
  // same file server
  if (!file_exists(env('FILE_PATH').$path)) {
     File::makeDirectory(env('FILE_PATH').$path, 0777, true, true);

@@ -38,13 +38,11 @@
 
 <script>
 export default {
-  props:['apimethod','apiurl'],
+  props:['apimethod','apiurl','images','redirectroute'],
   data() {
     return {
 
-      images:[
-        ''
-      ],
+
 
     }
   },
@@ -63,17 +61,17 @@ export default {
               var res = await this.callApi(`${this.apimethod}`,`${this.apiurl}`,this.images);
               console.log(res)
 
-            //   if(res.status==200){
-            //       Notification.customSuccess(`Updated Successfull`);
-            //       this.$router.push({name:'categoryIndex'});
-            //   }else if(res.status==201){
-            //       Notification.customSuccess(`Created Successfull`);
-            //       this.$router.push({name:'categoryIndex'});
+              if(res.status==200){
+                  Notification.customSuccess(`Updated Successfull`);
+                  this.$router.push({name:this.redirectroute});
+              }else if(res.status==201){
+                  Notification.customSuccess(`Created Successfull`);
+                  this.$router.push({name:this.redirectroute});
 
-            //   }else{
-            //       Notification.customError(`Something want wrong!`);
-            //       this.errors = res.data.errors
-            //   }
+              }else{
+                  Notification.customError(`Something want wrong!`);
+                  this.errors = res.data.errors
+              }
           },
 
     FileSelected($event, parent_index) {
@@ -111,7 +109,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.apiurl)
+
   },
 
 

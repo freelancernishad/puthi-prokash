@@ -45,9 +45,9 @@
                                             <option value="">Select</option>
                                             <option v-for="list in lists" :key="list.id" :value="list.id">{{ list.name }}</option>
                                         </select>
-
                                     </div>
                                 </div>
+
                             </div>
 
                             <button class="btn btn-info">Submit</button>
@@ -111,12 +111,15 @@ export default {
 
             var res = await this.callApi(`${this.Method}`,`${this.updateInsertApi}`,this.form);
 
+
             if(res.status==200){
                 Notification.customSuccess(`Category Updated Successfull`);
                 this.$router.push({name:'categoryIndex'});
             }else if(res.status==201){
                 Notification.customSuccess(`Category Created Successfull`);
-                this.$router.push({name:'categoryIndex'});
+
+                this.$router.push({name:'categoryimages',params:{id:res.data.id}});
+
 
             }else{
                 Notification.customError(`Something want wrong!`);

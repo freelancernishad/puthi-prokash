@@ -6,7 +6,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\CategoryImage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -48,7 +50,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        $category->load('products','parent');
+        $category->load('products','parent','categoryImages');
         return response()->json($category);
 
     }
@@ -110,32 +112,45 @@ class CategoryController extends Controller
 
     public function uploadImages(Request $request, Category $category)
     {
-
          $imagesCount =  count($request->all());
-
-
-
-
-
-
-
+        if ($category->categoryImages()->exists()) {
+            $category->categoryImages()->delete();
+        }
         if ($imagesCount>0) {
             $images =  $request->all();
             foreach ($images as $image) {
                 $imageCount =  count(explode(';', $image));
                 if ($imageCount > 1) {
                     $categoryImage = new CategoryImage();
-                    $filePath =   fileupload($image, "sonod/category/image/");
+                    $filePath =   fileupload($image, "uploaded/category/image/");
                     $categoryImage->image_path = $filePath;
                     $category->categoryImages()->save($categoryImage);
                 }
-
-
-
             }
         }
 
         return response()->json($category->load('categoryImages'), 201);
+    }
+
+    public function getImages(Request $request, Category $category)
+    {
+      
+        $imagescount = count($category->load('categoryImages')->categoryImages);
+
+
+       $img = [];
+       if($imagescount>0){
+        $images =  $category->load('categoryImages')->categoryImages;
+        foreach ($images as $image) {
+            array_push($img,base64($image->image_path));
+       } 
+       
+       }else{
+        array_push($img,'');
+       }
+
+
+        return response()->json(['img'=>$img,'category'=>$category], 200);
     }
 
 

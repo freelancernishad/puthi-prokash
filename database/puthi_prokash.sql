@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 07:31 PM
+-- Generation Time: May 31, 2023 at 06:52 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -76,7 +76,35 @@ INSERT INTO `categories` (`id`, `cat_id`, `name`, `slug`, `parent_id`, `index_nu
 (50, '1234', 'hello', 'hello', NULL, 1, '2023-05-28 16:42:50', '2023-05-28 16:42:50'),
 (51, '1234', 'rfsfr', 'rfsfr', NULL, 1, '2023-05-28 16:43:39', '2023-05-28 16:43:39'),
 (52, '1234', 'ewrrt', 'ewrrt', NULL, 1, '2023-05-28 16:44:26', '2023-05-28 16:44:26'),
-(53, '1234', 'tyryy', 'tyryy', NULL, 1, '2023-05-28 16:44:42', '2023-05-28 16:44:42');
+(53, '1234', 'tyryy', 'tyryy', NULL, 1, '2023-05-28 16:44:42', '2023-05-28 16:44:42'),
+(55, '1234', 'fff', 'fff', NULL, 1, '2023-05-29 10:17:23', '2023-05-29 10:17:23'),
+(56, '1234', 'Product Name', 'Product Slug', NULL, 1, '2023-05-29 18:30:43', '2023-05-29 18:30:43'),
+(57, '1234', 'sdf', 'dfgdfg', NULL, 1, '2023-05-29 18:39:44', '2023-05-29 18:39:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category_images`
+--
+
+CREATE TABLE `category_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `image_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category_images`
+--
+
+INSERT INTO `category_images` (`id`, `category_id`, `image_path`, `created_at`, `updated_at`) VALUES
+(12, 16, 'uploaded/category/image/2023/05/29/1685353677____52883.jpeg', '2023-05-29 09:47:57', '2023-05-29 09:47:57'),
+(13, 16, 'uploaded/category/image/2023/05/29/1685353677____46255.jpeg', '2023-05-29 09:47:57', '2023-05-29 09:47:57'),
+(14, 55, 'uploaded/category/image/2023/05/29/1685355787____56845.jpeg', '2023-05-29 10:23:07', '2023-05-29 10:23:07'),
+(15, 55, 'uploaded/category/image/2023/05/29/1685355787____40028.jpeg', '2023-05-29 10:23:07', '2023-05-29 10:23:07'),
+(16, 55, 'uploaded/category/image/2023/05/29/1685355787____68810.png', '2023-05-29 10:23:07', '2023-05-29 10:23:07');
 
 -- --------------------------------------------------------
 
@@ -90,6 +118,23 @@ CREATE TABLE `category_product` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category_product`
+--
+
+INSERT INTO `category_product` (`category_id`, `product_id`, `created_at`, `updated_at`) VALUES
+(16, 10, NULL, NULL),
+(16, 11, NULL, NULL),
+(16, 12, NULL, NULL),
+(16, 13, NULL, NULL),
+(16, 14, NULL, NULL),
+(16, 15, NULL, NULL),
+(16, 16, NULL, NULL),
+(16, 18, NULL, NULL),
+(17, 18, NULL, NULL),
+(18, 18, NULL, NULL),
+(21, 18, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -110,6 +155,34 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `flipping_books`
+--
+
+CREATE TABLE `flipping_books` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `flipping_books`
+--
+
+INSERT INTO `flipping_books` (`id`, `name`, `slug`, `page`, `image`, `type`, `status`, `product_id`, `created_at`, `updated_at`) VALUES
+(4, 'page 1', 'page-1', NULL, 'uploaded/products/fliping/2023/05/31/1685551033____15050.jpeg', NULL, NULL, 10, '2023-05-31 16:37:13', '2023-05-31 16:37:13'),
+(5, 'page2', 'page2', NULL, 'uploaded/products/fliping/2023/05/31/1685551033____67003.jpeg', NULL, NULL, 10, '2023-05-31 16:37:13', '2023-05-31 16:37:13'),
+(6, 'page 3', 'page-3', NULL, 'uploaded/products/fliping/2023/05/31/1685551033____92155.jpeg', NULL, NULL, 10, '2023-05-31 16:37:13', '2023-05-31 16:37:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `galleries`
 --
 
@@ -126,8 +199,9 @@ CREATE TABLE `galleries` (
 --
 
 INSERT INTO `galleries` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'title', NULL, '2023-05-26 18:12:32', '2023-05-26 18:12:32'),
-(3, 'title', NULL, '2023-05-26 18:16:44', '2023-05-26 18:16:44');
+(1, 'title', 'fg', '2023-05-26 18:12:32', '2023-05-29 20:17:16'),
+(3, 'title', NULL, '2023-05-26 18:16:44', '2023-05-26 18:16:44'),
+(4, 'sdfsfdsdf', NULL, '2023-05-29 20:07:07', '2023-05-29 20:07:07');
 
 -- --------------------------------------------------------
 
@@ -148,7 +222,10 @@ CREATE TABLE `gallery_images` (
 --
 
 INSERT INTO `gallery_images` (`id`, `gallery_id`, `image_path`, `created_at`, `updated_at`) VALUES
-(2, 3, 'gallery_images/T4hPWyHGmsEh6g4etjF1bnuB58XtfZ7WCYI0Uuyo.jpg', '2023-05-26 18:16:44', '2023-05-26 18:16:44');
+(3, 4, 'uploaded/gallery/image/2023/05/30/1685391128____78070.jpeg', '2023-05-29 20:12:08', '2023-05-29 20:12:08'),
+(4, 1, 'uploaded/gallery/image/2023/05/30/1685391568____51967.png', '2023-05-29 20:19:28', '2023-05-29 20:19:28'),
+(5, 1, 'uploaded/gallery/image/2023/05/30/1685391568____24328.jpeg', '2023-05-29 20:19:28', '2023-05-29 20:19:28'),
+(6, 3, 'uploaded/gallery/image/2023/05/30/1685391579____93894.jpeg', '2023-05-29 20:19:39', '2023-05-29 20:19:39');
 
 -- --------------------------------------------------------
 
@@ -186,7 +263,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2023_05_26_174353_add_status_to_orders', 7),
 (19, '2023_05_26_230046_create_payments_table', 8),
 (20, '2023_05_26_235857_create_galleries_table', 9),
-(21, '2023_05_26_235909_create_gallery_images_table', 9);
+(21, '2023_05_26_235909_create_gallery_images_table', 9),
+(22, '2023_05_29_120624_create_category_images_table', 10),
+(23, '2023_05_31_144610_create_flipping_books_table', 11);
 
 -- --------------------------------------------------------
 
@@ -211,12 +290,16 @@ CREATE TABLE `oauth_access_tokens` (
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('14d2e1d02fa0a227c2c07526c8266c631a6ad9e4a8f0c3c3a78c65f27a87f540b97cac737ac6c9da', 1, 1, 'accessToken', '[]', 0, '2023-05-31 16:04:34', '2023-05-31 16:04:34', '2024-05-31 22:04:34'),
 ('1c14bb8f299954f256294396ced3f3bf6573988586efc7b8bc741bec9345fed51db0ab96800ea1d2', 1, 1, 'accessToken', '[]', 0, '2023-05-28 15:01:46', '2023-05-28 15:01:46', '2024-05-28 21:01:46'),
+('43d4a42d3040ed1c402191c47fa3d95478199f47585dea9eda8f0a00e2d5d3bc085f134934ff35c0', 1, 1, 'accessToken', '[]', 0, '2023-05-29 17:40:30', '2023-05-29 17:40:30', '2024-05-29 23:40:30'),
 ('9d89ed79d096d18769329ab6aa22ef35c69649c1af396ee4b079feec33c518cc07de321271fb78c9', 1, 1, 'accessToken', '[]', 0, '2023-05-15 14:50:07', '2023-05-15 14:50:07', '2024-05-15 20:50:07'),
 ('a245fb578664c29152014474e5e300d52aceda83cfd3756ae87f674851bcab23814c62356638bf7f', 1, 1, 'accessToken', '[]', 0, '2023-05-28 10:06:56', '2023-05-28 10:06:56', '2024-05-28 16:06:56'),
 ('b0ed77e659e07046cf90c83af6057192dd1af8d1d1ea7df752b9d60ab159bb4501480f03599caaa8', 1, 1, 'accessToken', '[]', 0, '2023-05-25 10:30:21', '2023-05-25 10:30:21', '2024-05-25 16:30:21'),
 ('c34fa4d27e73cf9365ebbb0e1c095198a01dc6e83528ebe9dc478a8b8b1c0b663e03a76d1d325b87', 1, 1, 'accessToken', '[]', 0, '2023-05-15 17:40:17', '2023-05-15 17:40:17', '2024-05-15 23:40:17'),
-('f151f64313e4ebeeafa995d532ae1e8355793d5311baada9e72f6a4ac328079334354d8b9783ce39', 1, 1, 'accessToken', '[]', 0, '2023-05-27 17:18:03', '2023-05-27 17:18:03', '2024-05-27 23:18:03');
+('ee3fcf3389028286be48a24655ec151c65d227a74ec966ab59c615ded3ace73b1cee062b2e7dd061', 1, 1, 'accessToken', '[]', 0, '2023-05-29 04:26:54', '2023-05-29 04:26:54', '2024-05-29 10:26:54'),
+('f151f64313e4ebeeafa995d532ae1e8355793d5311baada9e72f6a4ac328079334354d8b9783ce39', 1, 1, 'accessToken', '[]', 0, '2023-05-27 17:18:03', '2023-05-27 17:18:03', '2024-05-27 23:18:03'),
+('f4dea12229648d3d0b7a4106d256860309d9beda83e99f65c4e2819b44bc268eb5086ffc26b25bca', 1, 1, 'accessToken', '[]', 0, '2023-05-31 08:29:09', '2023-05-31 08:29:09', '2024-05-31 14:29:09');
 
 -- --------------------------------------------------------
 
@@ -413,6 +496,20 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `product_id`, `category_id`, `name`, `slug`, `short_description`, `description`, `price`, `visit`, `share`, `buy`, `image`, `created_at`, `updated_at`) VALUES
+(10, '123', 16, 'book3', 'slug', 'short_description', '<p>description</p>', 200, 0, 0, 0, 'image', '2023-05-29 17:42:11', '2023-05-29 19:37:37'),
+(11, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:14', '2023-05-29 17:42:14'),
+(12, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:16', '2023-05-29 17:42:16'),
+(13, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:19', '2023-05-29 17:42:19'),
+(14, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:20', '2023-05-29 17:42:20'),
+(15, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:21', '2023-05-29 17:42:21'),
+(16, '123', 16, 'book3', 'slug', 'short_description', 'description', 200, 0, 0, 0, 'image', '2023-05-29 17:42:22', '2023-05-29 17:42:22'),
+(18, '123', 16, 'book3', 'slug', 'short_description', '<p>description</p>', 200, 0, 0, 0, 'image', '2023-05-29 17:43:01', '2023-05-29 19:37:52');
+
 -- --------------------------------------------------------
 
 --
@@ -426,6 +523,20 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `product_id`, `image_path`, `created_at`, `updated_at`) VALUES
+(18, 11, 'product_images/RefaWH7NPP8McPPZKKhgVfLQtWNS0ovgTgQy9w8r.png', '2023-05-29 17:42:14', '2023-05-29 17:42:14'),
+(19, 12, 'product_images/7miYkncSeiOujksJ6tyAYEXm2HzP4wHAjBgdiFE4.png', '2023-05-29 17:42:16', '2023-05-29 17:42:16'),
+(20, 13, 'product_images/8eoiAUAFZ4RvlOz7s15O9ggroT4offGW5r1jMbpy.png', '2023-05-29 17:42:19', '2023-05-29 17:42:19'),
+(21, 14, 'product_images/Wl1UKlPl1lQgguoqO5ieqPFlmUH0orYxfdtvB7yH.png', '2023-05-29 17:42:20', '2023-05-29 17:42:20'),
+(22, 15, 'product_images/L393Rb0sb2pl9CEnJsi72jTUyCL5DfNZGjAK4LaG.png', '2023-05-29 17:42:21', '2023-05-29 17:42:21'),
+(23, 16, 'product_images/PCf1hOEhawnQTMEniCxArJeto1PjbUZMY41QFduW.png', '2023-05-29 17:42:22', '2023-05-29 17:42:22'),
+(28, 10, 'uploaded/category/image/2023/05/30/1685387272____48063.jpeg', '2023-05-29 19:07:52', '2023-05-29 19:07:52'),
+(29, 18, 'uploaded/category/image/2023/05/30/1685389102____78575.jpeg', '2023-05-29 19:38:22', '2023-05-29 19:38:22');
 
 -- --------------------------------------------------------
 
@@ -477,6 +588,13 @@ ALTER TABLE `categories`
   ADD KEY `categories_parent_id_foreign` (`parent_id`);
 
 --
+-- Indexes for table `category_images`
+--
+ALTER TABLE `category_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_images_category_id_foreign` (`category_id`);
+
+--
 -- Indexes for table `category_product`
 --
 ALTER TABLE `category_product`
@@ -489,6 +607,13 @@ ALTER TABLE `category_product`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `flipping_books`
+--
+ALTER TABLE `flipping_books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `flipping_books_product_id_foreign` (`product_id`);
 
 --
 -- Indexes for table `galleries`
@@ -614,7 +739,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `category_images`
+--
+ALTER TABLE `category_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -623,22 +754,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `flipping_books`
+--
+ALTER TABLE `flipping_books`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `gallery_images`
 --
 ALTER TABLE `gallery_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -680,13 +817,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -712,11 +849,23 @@ ALTER TABLE `categories`
   ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `category_images`
+--
+ALTER TABLE `category_images`
+  ADD CONSTRAINT `category_images_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `category_product`
 --
 ALTER TABLE `category_product`
   ADD CONSTRAINT `category_product_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `category_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `flipping_books`
+--
+ALTER TABLE `flipping_books`
+  ADD CONSTRAINT `flipping_books_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `gallery_images`

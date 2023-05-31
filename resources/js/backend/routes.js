@@ -17,6 +17,7 @@ let categoryimages = require('./components/category/images.vue').default;
 let productsIndex = require('./components/products/index.vue').default;
 let productsForm = require('./components/products/form.vue').default;
 let productsimages = require('./components/products/images.vue').default;
+let flipingbooks = require('./components/products/flipingbooks.vue').default;
 
 let galleryIndex = require('./components/gallery/index.vue').default;
 let galleryForm = require('./components/gallery/form.vue').default;
@@ -73,6 +74,7 @@ export const routes = [
   { path:  `${prefix}/products/add`, component: productsForm, name:'productsAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/edit/:id`, component: productsForm, name:'productsEdit',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/images/:id`, component: productsimages, name:'productsimages',meta: { layout: adminlayout } },
+  { path:  `${prefix}/products/fliping/books/:id`, component: flipingbooks, name:'flipingbooks',meta: { layout: adminlayout } },
 
 
 

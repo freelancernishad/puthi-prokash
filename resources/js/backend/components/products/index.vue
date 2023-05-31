@@ -28,6 +28,7 @@
                                     <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
                                 </td>
                                 <td>
+                                    <router-link class="btn btn-info" :to="{name:'flipingbooks',params:{id:list.id}}">Fliping Books</router-link>
                                     <router-link class="btn btn-info" :to="{name:'productsimages',params:{id:list.id}}">Image Upload</router-link>
 
                                     <router-link class="btn btn-info" :to="{name:'productsEdit',params:{id:list.id}}">Edit</router-link>

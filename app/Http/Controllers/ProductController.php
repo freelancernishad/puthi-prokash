@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\FlippingBook;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\CategoryProduct;
+use Illuminate\Validation\Rule;
+
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -154,6 +155,32 @@ class ProductController extends Controller
 
 
 
+    public function uploadFlipingImages(Request $request, Product $product)
+    {
+         $flipingBooksCount =  count($request->all());
+        if ($product->flippingBooks()->exists()) {
+            $product->flippingBooks()->delete();
+        }
+
+        if ($flipingBooksCount>0) {
+             $flipingBooks =  $request->all();
+            foreach ($flipingBooks as $flipingBook) {
+                $booksDatas = [
+                    'name'=>$flipingBook['name'],
+                    'slug'=>str_replace(' ', '-', $flipingBook['slug']),
+                ];
+                $imageCount =  count(explode(';', $flipingBook['image']));
+                if ($imageCount > 1) {
+                    $filePath =   fileupload($flipingBook['image'], "uploaded/products/fliping/");
+                    $booksDatas['image'] = $filePath;
+                }
+                return $booksDatas;
+                $flippingBook = FlippingBook::create($booksDatas);
+            }
+        }
+
+        return response()->json($product->load('images'), 201);
+    }
 
 
 

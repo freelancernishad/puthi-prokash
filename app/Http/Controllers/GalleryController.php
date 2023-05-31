@@ -115,6 +115,7 @@ class GalleryController extends Controller
         return response()->json($gallery->load('images'), 201);
     }
 
+
     public function getImages(Request $request, Gallery $gallery)
     {
 

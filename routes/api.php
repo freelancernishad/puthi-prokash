@@ -77,10 +77,14 @@ Route::get('/products/{product}', [ProductController::class,'show']);
 Route::post('/products', [ProductController::class,'store']);
 Route::put('/products/{product}', [ProductController::class,'update']);
 Route::delete('/products/{product}', [ProductController::class,'destroy']);
+Route::post('/products/{product}/fliping/book', [ProductController::class,'uploadFlipingImages']);
+
+
 
 Route::get('/products/{product}/images', [ProductImageController::class,'index']);
 Route::post('/products/{product}/images', [ProductImageController::class,'store']);
 Route::delete('/products/{product}/images/{image}', [ProductImageController::class,'destroy']);
+
 
 
 Route::get('/cart', [CartController::class,'index'])->name('cart.index');
@@ -113,3 +117,4 @@ Route::put('galleries/{gallery}', [GalleryController::class, 'update']);
 Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);
 Route::get('galleries/{gallery}/images', [GalleryController::class,'getImages']);
 Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImages']);
+

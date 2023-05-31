@@ -43,4 +43,8 @@ class Product extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
+    public function flippingBooks()
+    {
+        return $this->hasMany(FlippingBook::class);
+    }
 }

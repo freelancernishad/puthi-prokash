@@ -77,6 +77,7 @@ Route::get('/products/{product}', [ProductController::class,'show']);
 Route::post('/products', [ProductController::class,'store']);
 Route::put('/products/{product}', [ProductController::class,'update']);
 Route::delete('/products/{product}', [ProductController::class,'destroy']);
+Route::get('/products/{product}/fliping/book', [ProductController::class,'getFlipingImages']);
 Route::post('/products/{product}/fliping/book', [ProductController::class,'uploadFlipingImages']);
 
 

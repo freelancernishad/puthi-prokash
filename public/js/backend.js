@@ -3242,11 +3242,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/products/".concat(_this.$route.params.id, "/images"), []);
+                return _this.callApi('get', "/api/products/".concat(_this.$route.params.id, "/fliping/book"), []);
 
               case 2:
                 res = _context.sent;
-                _this.images = res.data.img;
+                _this.forms = res.data.books;
 
               case 4:
               case "end":

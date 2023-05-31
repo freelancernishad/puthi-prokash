@@ -73,9 +73,8 @@ export default {
 
     methods: {
         async getItems(){
-            var res = await this.callApi('get',`/api/products/${this.$route.params.id}/images`,[])
-
-            this.images = res.data.img
+            var res = await this.callApi('get',`/api/products/${this.$route.params.id}/fliping/book`,[])
+            this.forms = res.data.books
         },
 
 

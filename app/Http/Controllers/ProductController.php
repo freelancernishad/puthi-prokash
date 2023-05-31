@@ -164,6 +164,7 @@ class ProductController extends Controller
 
         if ($flipingBooksCount>0) {
              $flipingBooks =  $request->all();
+             $flippingBooks = [];
             foreach ($flipingBooks as $flipingBook) {
                 $booksDatas = [
                     // 'product_id'=>$flipingBook['product_id'],
@@ -178,11 +179,45 @@ class ProductController extends Controller
                 }
 
                 $flippingBook = FlippingBook::create($booksDatas);
+                $flippingBook->load('product');
+
+                $flippingBooks[] = $flippingBook;
             }
-            return $flippingBook;
+
+            return $flippingBooks;
         }
 
         return response()->json($product->load('images'), 201);
+    }
+
+    public function getFlipingImages(Request $request, Product $product)
+    {
+
+        $bookscount = count($product->load('flippingBooks')->flippingBooks);
+
+
+       $books =  [];
+       if($bookscount>0){
+        $flipBooks =  $product->load('flippingBooks')->flippingBooks;
+        foreach ($flipBooks as $flipBook) {
+            array_push($books,[
+                            'name'=>$flipBook->name,
+                            'image'=>base64($flipBook->image)
+                        ]
+        );
+       }
+
+       }else{
+        array_push($books,
+        [
+            'name'=>'',
+            'image'=>'',
+        ]
+    );
+       }
+
+
+        return response()->json(['books'=>$books,'product'=>$product], 200);
     }
 
 

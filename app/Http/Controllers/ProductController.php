@@ -166,17 +166,20 @@ class ProductController extends Controller
              $flipingBooks =  $request->all();
             foreach ($flipingBooks as $flipingBook) {
                 $booksDatas = [
+                    // 'product_id'=>$flipingBook['product_id'],
+                    'product_id'=>10,
                     'name'=>$flipingBook['name'],
-                    'slug'=>str_replace(' ', '-', $flipingBook['slug']),
+                    'slug'=>str_replace(' ', '-', $flipingBook['name']),
                 ];
                 $imageCount =  count(explode(';', $flipingBook['image']));
                 if ($imageCount > 1) {
                     $filePath =   fileupload($flipingBook['image'], "uploaded/products/fliping/");
                     $booksDatas['image'] = $filePath;
                 }
-                return $booksDatas;
+
                 $flippingBook = FlippingBook::create($booksDatas);
             }
+            return $flippingBook;
         }
 
         return response()->json($product->load('images'), 201);

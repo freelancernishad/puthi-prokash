@@ -15,9 +15,9 @@ class CreateFlippingBooksTable extends Migration
     {
         Schema::create('flipping_books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('page');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('page')->nullable();
             $table->string('image')->nullable();
             $table->string('type')->nullable();
             $table->string('status')->nullable();

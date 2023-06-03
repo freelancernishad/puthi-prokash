@@ -198,7 +198,7 @@ div.sideMenuItem {
               <div class="aspect-inner">
                 <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
                     @foreach ($flipping_books as $item)
-                    <div class="page"><img class="sliderimage" src="placeholder.jpg" data-src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
+                    <div class="page"><img class="sliderimage" src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
                     @endforeach
                 </div>
               </div>

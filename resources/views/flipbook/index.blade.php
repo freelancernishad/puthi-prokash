@@ -180,7 +180,7 @@ div.sideMenuItem {
                 @endphp
                 @foreach ($flipping_books as $item)
 
-                <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img class="sliderimage" width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
                 @php
                 $i2++;
                 @endphp
@@ -304,6 +304,32 @@ div.sideMenuItem {
 
 document.addEventListener('DOMContentLoaded', function() {
     var lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
+
+    if ('IntersectionObserver' in window) {
+      var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers without Intersection Observer support
+      lazyImages.forEach(function(lazyImage) {
+        lazyImage.src = lazyImage.dataset.src;
+      });
+    }
+  });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var lazyImages = [].slice.call(document.querySelectorAll('img.sliderimage[data-src]'));
 
     if ('IntersectionObserver' in window) {
       var lazyImageObserver = new IntersectionObserver(function(entries, observer) {

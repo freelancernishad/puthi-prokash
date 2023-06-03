@@ -180,7 +180,7 @@ div.sideMenuItem {
                 @endphp
                 @foreach ($flipping_books as $item)
 
-                <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img class="sliderimage" width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
                 @php
                 $i2++;
                 @endphp
@@ -198,7 +198,7 @@ div.sideMenuItem {
               <div class="aspect-inner">
                 <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
                     @foreach ($flipping_books as $item)
-                    <div class="page"><img src="placeholder.jpg" data-src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
+                    <div class="page"><img class="sliderimage" src="placeholder.jpg" data-src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
                     @endforeach
                 </div>
               </div>

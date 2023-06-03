@@ -535,7 +535,7 @@ var zoomValue = 1;
   $('#flipbook').turn({
     direction:'ltr',
     width:600,
-    height:500,
+    height:400,
     pages:totalPages,
     // turnCorners: 'bl,br || tl,tr',
 

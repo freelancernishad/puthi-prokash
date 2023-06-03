@@ -3279,16 +3279,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context2.sent;
-                console.log(res); //   if(res.status==200){
-                //       Notification.customSuccess(`Updated Successfull`);
-                //       this.$router.push({name:this.redirectroute});
-                //   }else if(res.status==201){
-                //       Notification.customSuccess(`Created Successfull`);
-                //       this.$router.push({name:this.redirectroute});
-                //   }else{
-                //       Notification.customError(`Something want wrong!`);
-                //       this.errors = res.data.errors
-                //   }
+
+                if (res.status == 200) {
+                  Notification.customSuccess("Updated Successfull");
+
+                  _this2.$router.push({
+                    name: _this2.redirectroute
+                  });
+                } else if (res.status == 201) {
+                  Notification.customSuccess("Created Successfull");
+
+                  _this2.$router.push({
+                    name: _this2.redirectroute
+                  });
+                } else {
+                  Notification.customError("Something want wrong!");
+                  _this2.errors = res.data.errors;
+                }
 
               case 4:
               case "end":

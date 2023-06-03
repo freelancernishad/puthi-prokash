@@ -21,6 +21,7 @@ class Product extends Model
         'share',
         'buy',
         'image',
+        'author_id',
     ];
 
     public function images()
@@ -46,5 +47,9 @@ class Product extends Model
     public function flippingBooks()
     {
         return $this->hasMany(FlippingBook::class);
+    }
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
     }
 }

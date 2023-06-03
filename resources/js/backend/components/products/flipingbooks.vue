@@ -92,19 +92,19 @@ export default {
 
               var res = await this.callApi(`${this.apimethod}`,`${this.apiurl}`,this.forms);
 
-              console.log(res);
+      
 
-            //   if(res.status==200){
-            //       Notification.customSuccess(`Updated Successfull`);
-            //       this.$router.push({name:this.redirectroute});
-            //   }else if(res.status==201){
-            //       Notification.customSuccess(`Created Successfull`);
-            //       this.$router.push({name:this.redirectroute});
+              if(res.status==200){
+                  Notification.customSuccess(`Updated Successfull`);
+                  this.$router.push({name:this.redirectroute});
+              }else if(res.status==201){
+                  Notification.customSuccess(`Created Successfull`);
+                  this.$router.push({name:this.redirectroute});
 
-            //   }else{
-            //       Notification.customError(`Something want wrong!`);
-            //       this.errors = res.data.errors
-            //   }
+              }else{
+                  Notification.customError(`Something want wrong!`);
+                  this.errors = res.data.errors
+              }
 
 
           },

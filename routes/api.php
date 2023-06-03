@@ -79,7 +79,7 @@ Route::put('/products/{product}', [ProductController::class,'update']);
 Route::delete('/products/{product}', [ProductController::class,'destroy']);
 Route::get('/products/{product}/fliping/book', [ProductController::class,'getFlipingImages']);
 Route::post('/products/{product}/fliping/book', [ProductController::class,'uploadFlipingImages']);
-
+Route::get('/filter/products', [ProductController::class, 'filter'])->name('products.filter');
 
 
 Route::get('/products/{product}/images', [ProductImageController::class,'index']);

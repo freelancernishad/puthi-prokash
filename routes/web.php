@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-
-
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +29,18 @@ use App\Http\Controllers\Auth\LoginController;
 Route::post('login',[LoginController::class,'login']);
 Route::post('logout',[LoginController::class,'logout']);
 
-Route::get('/books', function () {
+Route::get('/books/{slug}/{id}', function ($slug,$id) {
 
+    $BooksCount =  Product::with('flippingBooks')->where(['slug'=>$slug,'id'=>$id])->count();
 
-    return view('flipbook.index');
+    if($BooksCount>0){
+
+        $Books =  Product::with('flippingBooks')->where(['slug'=>$slug,'id'=>$id])->first();
+         $flipping_books = $Books->flippingBooks;
+        return view('flipbook.index',compact('Books','flipping_books'));
+    }else{
+        echo "Books Not Found";
+    }
 
 });
 

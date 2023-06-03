@@ -146,6 +146,7 @@ div.sideMenuItem {
     <body>
 
 
+
       {{-- <header>
         <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="200px" alt="">
       </header> --}}
@@ -154,18 +155,15 @@ div.sideMenuItem {
 
 
       <div class="sideMenu" >
-        <div class="sideMenuItem" onclick="clicksideMenuItem(1)" id="sideMenuItem1">page1</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(2)" id="sideMenuItem2">page2</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(3)" id="sideMenuItem3">page3</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(4)" id="sideMenuItem4">page4</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(5)" id="sideMenuItem5">page5</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(6)" id="sideMenuItem6">page6</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(7)" id="sideMenuItem7">page7</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(8)" id="sideMenuItem8">page8</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(9)" id="sideMenuItem9">page9</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(10)" id="sideMenuItem10">page10</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(11)" id="sideMenuItem11">page11</div>
-        <div class="sideMenuItem" onclick="clicksideMenuItem(12)" id="sideMenuItem12">page12</div>
+        @php
+            $i = 1;
+        @endphp
+        @foreach ($flipping_books as $item)
+        <div class="sideMenuItem" onclick="clicksideMenuItem('{{ $i }}')" id="sideMenuItem{{ $i }}">{{ $item->name }}</div>
+        @php
+            $i++;
+        @endphp
+        @endforeach
       </div>
       </div>
 
@@ -177,18 +175,16 @@ div.sideMenuItem {
 
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(1)" id="middlepage1"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(2)" id="middlepage2"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(3)" id="middlepage3"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(4)" id="middlepage4"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(5)" id="middlepage5"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(6)" id="middlepage6"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(7)" id="middlepage7"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/07.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(8)" id="middlepage8"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/08.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(9)" id="middlepage9"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/09.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(10)" id="middlepage10"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/10.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(11)" id="middlepage11"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/11.jpg" draggable="false" alt="" /></div>
-              <div class="swiper-slide" onclick="clickMiddlebookMenu(12)" id="middlepage12"><img width="100%" src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/12.jpg" draggable="false" alt="" /></div>
+                @php
+                $i2 = 1;
+                @endphp
+                @foreach ($flipping_books as $item)
+
+                <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                @php
+                $i2++;
+                @endphp
+                @endforeach
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -201,18 +197,9 @@ div.sideMenuItem {
             <div class="aspect">
               <div class="aspect-inner">
                 <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/07.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/08.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/09.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/10.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/11.jpg" draggable="false" alt="" /></div>
-                  <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/12.jpg" draggable="false" alt="" /></div>
+                    @foreach ($flipping_books as $item)
+                    <div class="page"><img src="placeholder.jpg" data-src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
+                    @endforeach
                 </div>
               </div>
             </div>
@@ -304,7 +291,7 @@ div.sideMenuItem {
 
 
 
-
+<input type="hidden" id="MainPage" value="{{ "/books/$Books->slug/$Books->id?page=" }}">
 
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
           <script src="https://rkei0.csb.app/turn.min.js"></script>
@@ -313,6 +300,34 @@ div.sideMenuItem {
 
 
     <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
+
+    if ('IntersectionObserver' in window) {
+      var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers without Intersection Observer support
+      lazyImages.forEach(function(lazyImage) {
+        lazyImage.src = lazyImage.dataset.src;
+      });
+    }
+  });
+
+
 
 var swiper = new Swiper(".mySwiper", {
       slidesPerView: 8,
@@ -481,9 +496,9 @@ var zoomValue = 1;
 
 
 
-
+    var MainPage = document.getElementById('MainPage').value;
     // Change the route based on the page number
-    var newRoute = '/books?page=' + currentPage;
+    var newRoute = MainPage + currentPage;
     history.pushState(null, null, newRoute);
 
     flipping = false;

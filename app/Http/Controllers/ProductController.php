@@ -21,6 +21,76 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+
+
+    
+    public function filter(Request $request)
+    {
+      
+        $query = Product::query();
+
+        // Filter by category
+        if ($request->has('category')) {
+            $categoryId = $request->input('category');
+            $query->whereHas('categories', function ($q) use ($categoryId) {
+                $q->where('id', $categoryId);
+            });
+        }
+
+        // Filter by author
+        if ($request->has('author')) {
+            $authorId = $request->input('author');
+            $query->where('author_id', $authorId);
+        }
+
+        // Filter by price range
+        if ($request->has('min_price')) {
+            $minPrice = $request->input('min_price');
+            $query->where('price', '>=', $minPrice);
+        }
+        if ($request->has('max_price')) {
+            $maxPrice = $request->input('max_price');
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        // Sort products
+        if ($request->has('sort')) {
+            $sort = $request->input('sort');
+            switch ($sort) {
+                case 'az':
+                    $query->orderBy('name', 'asc');
+                    break;
+                case 'za':
+                    $query->orderBy('name', 'desc');
+                    break;
+                case 'latest':
+                    $query->latest();
+                    break;
+                case 'oldest':
+                    $query->oldest();
+                    break;
+                case 'price_low_high':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_high_low':
+                    $query->orderBy('price', 'desc');
+                    break;
+                default:
+                    // Handle invalid sort value, if needed
+                    break;
+            }
+        }
+
+        // Retrieve the filtered and sorted products
+        $products = $query->get();
+
+        // Return the filtered products as a response
+        return response()->json($products);
+    }
+
+
+
+
     public function show(Product $product)
     {
         $product->load('categories', 'images');

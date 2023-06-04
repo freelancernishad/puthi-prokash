@@ -137,7 +137,25 @@ div.sideMenuItem {
 .sideMenuItem.active {
     background: #706f6f59;
 }
+.page.even:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(to left,#38383859, #14141424, #ffffff00);
+}
 
+.page.odd:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(to right,#14141457, #14141424, #ffffff00);
+}
 
     </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />

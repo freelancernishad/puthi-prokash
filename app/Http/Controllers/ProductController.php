@@ -23,10 +23,10 @@ class ProductController extends Controller
 
 
 
-    
+
     public function filter(Request $request)
     {
-      
+
         $query = Product::query();
 
         // Filter by category
@@ -104,10 +104,15 @@ class ProductController extends Controller
      // Validate the request data
     $validator = Validator::make($request->all(), [
         'name' => 'required',
+        'price' => 'required|numeric',
+        'prossod' => 'required',
+        'total_page' => 'required|numeric',
+        'release_date' => 'required',
+        'cover_type' => 'required',
+        'ISBN' => 'required',
         'slug' => 'required',
         'short_description' => 'required',
         'description' => 'required',
-        'price' => 'required|numeric',
         'categories' => 'required|array',
         'categories.*' => 'exists:categories,id',
     ]);

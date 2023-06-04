@@ -13,7 +13,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="">Product Name</label>
+                                        <label for="">বইয়ের নাম</label>
                                         <input type="text" class="form-control" v-model="form.name">
 
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('name')" v-for="name in errors.name" :key="name">{{ name }}</span>
@@ -24,12 +24,90 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="">Price</label>
+                                        <label for="">দাম</label>
                                         <input type="text" class="form-control" v-model="form.price">
 
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('price')" v-for="name in errors.price" :key="name">{{ name }}</span>
                                         <!-- <Fromerror Fieldname="name"/> -->
+                                    </div>
+                                </div>
 
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">ডিসকাউন্ট ধরণ</label>
+                                        <select class="form-control" v-model="form.discount_type">
+                                            <option value="">নির্বাচন করুন</option>
+                                            <option value="Fixed">ফিক্স</option>
+                                            <option value="percent">শতকরা</option>
+                                        </select>
+                                        <input type="text" class="form-control" v-model="form.price">
+
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('price')" v-for="name in errors.price" :key="name">{{ name }}</span>
+                                        <!-- <Fromerror Fieldname="name"/> -->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="" >ডিসকাউন্ট 
+                                            <span v-if="form.discount_type=='Fixed'">(ডিসকাউন্ট এর টাকার পরিমাণ)</span> 
+                                            <span v-else>(ডিসকাউন্ট এর শতকরা পরিমাণ)</span></label>
+                                        <input type="text" class="form-control" v-model="form.price">
+
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('price')" v-for="name in errors.price" :key="name">{{ name }}</span>
+                                        <!-- <Fromerror Fieldname="name"/> -->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">বিষয়</label>
+                                        <multiselect v-model="categories" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="lists" :multiple="true"  label="name" track-by="id"></multiselect>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">প্রচ্ছদ</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">মোট পৃষ্ঠা</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">প্রকাশের তারিখ</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">কভার টাইপ</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">ISBN</label>
+                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
 
@@ -63,12 +141,7 @@
 
 
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Product Category</label>
-                                        <multiselect v-model="categories" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="lists" :multiple="true"  label="name" track-by="id"></multiselect>
-                                    </div>
-                                </div>
+
 
 
                             </div>

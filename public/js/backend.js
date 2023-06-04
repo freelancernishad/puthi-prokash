@@ -5773,7 +5773,7 @@ var render = function render() {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Product Name")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("বইয়ের নাম")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5807,7 +5807,7 @@ var render = function render() {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Price")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("দাম")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5830,6 +5830,300 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm._l(_vm.errors.price, function (name) {
     return _vm.errorHandleing("price") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("ডিসকাউন্ট ধরণ")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.discount_type,
+      expression: "form.discount_type"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.form, "discount_type", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("নির্বাচন করুন")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "Fixed"
+    }
+  }, [_vm._v("ফিক্স")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "percent"
+    }
+  }, [_vm._v("শতকরা")])]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.price,
+      expression: "form.price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "price", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.price, function (name) {
+    return _vm.errorHandleing("price") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("ডিসকাউন্ট \n                                        "), _vm.form.discount_type == "Fixed" ? _c("span", [_vm._v("(ডিসকাউন্ট এর টাকার পরিমাণ)")]) : _c("span", [_vm._v("(ডিসকাউন্ট এর শতকরা পরিমাণ)")])]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.price,
+      expression: "form.price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "price", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.price, function (name) {
+    return _vm.errorHandleing("price") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("বিষয়")]), _vm._v(" "), _c("multiselect", {
+    attrs: {
+      "tag-placeholder": "Add this as new tag",
+      placeholder: "Search or add a tag",
+      options: _vm.lists,
+      multiple: true,
+      label: "name",
+      "track-by": "id"
+    },
+    model: {
+      value: _vm.categories,
+      callback: function callback($$v) {
+        _vm.categories = $$v;
+      },
+      expression: "categories"
+    }
+  })], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("প্রচ্ছদ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.slug,
+      expression: "form.slug"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.slug
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "slug", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.slug, function (name) {
+    return _vm.errorHandleing("slug") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("মোট পৃষ্ঠা")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.slug,
+      expression: "form.slug"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.slug
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "slug", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.slug, function (name) {
+    return _vm.errorHandleing("slug") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("প্রকাশের তারিখ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.slug,
+      expression: "form.slug"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.slug
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "slug", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.slug, function (name) {
+    return _vm.errorHandleing("slug") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("কভার টাইপ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.slug,
+      expression: "form.slug"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.slug
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "slug", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.slug, function (name) {
+    return _vm.errorHandleing("slug") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("ISBN")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.slug,
+      expression: "form.slug"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.slug
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "slug", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.slug, function (name) {
+    return _vm.errorHandleing("slug") ? _c("span", {
       key: name,
       staticClass: "text-danger font-weight-bold"
     }, [_vm._v(_vm._s(name))]) : _vm._e();
@@ -5923,31 +6217,7 @@ var render = function render() {
       key: name,
       staticClass: "text-danger font-weight-bold"
     }, [_vm._v(_vm._s(name))]) : _vm._e();
-  })], 2)]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-12"
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Product Category")]), _vm._v(" "), _c("multiselect", {
-    attrs: {
-      "tag-placeholder": "Add this as new tag",
-      placeholder: "Search or add a tag",
-      options: _vm.lists,
-      multiple: true,
-      label: "name",
-      "track-by": "id"
-    },
-    model: {
-      value: _vm.categories,
-      callback: function callback($$v) {
-        _vm.categories = $$v;
-      },
-      expression: "categories"
-    }
-  })], 1)])]), _vm._v(" "), _c("button", {
+  })], 2)])]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-info"
   }, [_vm._v("Submit")])])])])])])], 1);
 };

@@ -2,13 +2,13 @@
     <div>
         <Breadcrumbs brename="Products Form"/>
 
+        <form @submit.stop.prevent="onSubmit">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
 
-                        <form @submit.stop.prevent="onSubmit">
                             <div class="row">
 
                                 <div class="col-md-12">
@@ -22,6 +22,52 @@
                                     </div>
                                 </div>
 
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Short Description</label>
+                                        <textarea  v-model="form.short_description" class="form-control" style="resize: none;height: 100px;"></textarea>
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Description</label>
+                                        <vue-editor v-model="form.description"></vue-editor>
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+
+                            <div class="row">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button class="btn btn-info">Published Now</button>
+                                    </div>
+                                </div>
+
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">দাম</label>
@@ -32,6 +78,13 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <label for="">ডিসকাউন্ট কি আছে?</label> <br/>
+                                    <label class="switch">
+                                        <input type="checkbox" v-model="form.status" >
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -115,47 +168,15 @@
                                 </div>
 
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Product Slug</label>
-                                        <input type="text" class="form-control" v-model="form.slug">
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
-                                    </div>
+                                </div>
+                                </div>
                                 </div>
 
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Short Description</label>
-                                        <textarea  v-model="form.short_description" class="form-control" style="resize: none;height: 100px;"></textarea>
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Description</label>
-                                        <vue-editor v-model="form.description"></vue-editor>
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
-                                    </div>
-                                </div>
-
-
-
-
-
-
-                            </div>
-
-                            <button class="btn btn-info">Submit</button>
-                        </form>
-
-                    </div>
-                </div>
             </div>
+
+
         </div>
+    </form>
 
 
     </div>
@@ -225,6 +246,7 @@ export default {
 
         async onSubmit(){
             this.form.categories = this.selectedOptionIds
+            this.form.slug = this.makeSug(this.form.name);
 
             var res = await this.callApi(`${this.Method}`,`${this.updateInsertApi}`,this.form);
 

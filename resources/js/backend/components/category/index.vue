@@ -33,7 +33,7 @@
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
                                 <td>{{ list.name }}</td>
-                                <td><span v-if="list.parent">Sub category</span><span v-else>Main category</span></td>
+                                <td><span v-if="list.parent">Child category</span><span v-else>Parent category</span></td>
                                 <td><span v-if="list.parent">{{ list.parent.name }}</span></td>
                                 <td>
 

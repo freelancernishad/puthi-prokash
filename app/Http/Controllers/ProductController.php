@@ -127,6 +127,13 @@ class ProductController extends Controller
         'category_id' => $category_id,
         'name' => $request->name,
         'slug' => $request->slug,
+        'discount_type' => $request->discount_type,
+        'discount' => $request->discount,
+        'prossod' => $request->prossod,
+        'total_page' => $request->total_page,
+        'release_date' => $request->release_date,
+        'cover_type' => $request->cover_type,
+        'ISBN' => $request->ISBN,
         'short_description' => $request->short_description,
         'description' => $request->description,
         'price' => $request->price,
@@ -182,6 +189,11 @@ class ProductController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'slug' => 'required',
+                'prossod' => 'required',
+                'total_page' => 'required|numeric',
+                'release_date' => 'required',
+                'cover_type' => 'required',
+                'ISBN' => 'required',
                 'short_description' => 'required',
                 'description' => 'required',
                 'price' => 'required|numeric',
@@ -197,6 +209,13 @@ class ProductController extends Controller
             // Update product details
             $product->name = $request->name;
             $product->slug = $request->slug;
+            $product->discount_type = $request->discount_type;
+            $product->discount = $request->discount;
+            $product->prossod = $request->prossod;
+            $product->total_page = $request->total_page;
+            $product->release_date = $request->release_date;
+            $product->cover_type = $request->cover_type;
+            $product->ISBN = $request->ISBN;
             $product->short_description = $request->short_description;
             $product->description = $request->description;
             $product->price = $request->price;

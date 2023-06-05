@@ -3831,6 +3831,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[0, 6]]);
       }))();
     },
+    makeSug: function makeSug() {
+      var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      return str.replace(" ", "-");
+    },
     callApiPaginate: function callApiPaginate(url, page) {
       var _this = this;
 

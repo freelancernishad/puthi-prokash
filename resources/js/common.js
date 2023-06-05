@@ -46,6 +46,13 @@ export default {
         },
 
 
+        makeSug(str=''){
+
+            return str.replace(" ", "-");
+        },
+
+
+
         async callApiPaginate(url,page){
             var res = await this.callApi('get',`${url}`,[]);
             this.PaginateRows = res.data.per_page

@@ -17,6 +17,16 @@ class Product extends Model
         'short_description',
         'description',
         'price',
+
+        'discount_type',
+        'discount',
+        'prossod',
+        'total_page',
+        'release_date',
+        'cover_type',
+        'ISBN',
+
+
         'visit',
         'share',
         'buy',

@@ -202,7 +202,7 @@ div.sideMenuItem {
     z-index: 1;
 }
 
-@media  (max-width: 700px){
+@media  (max-width: 768px){
 
 #fbToolBar, .leftArrow , .rightArrow{
     display: none !important;
@@ -579,16 +579,19 @@ var zoomValue = 1;
 
 
   $("#flipbook").bind("turning", (event, page, view)=> {
-      $("#tfPageIndex").html(view[0]+'-'+view[1]+'/'+totalPages);
+
+    var windowWidth = $(window).width();
+    if(windowWidth<768){
+        $("#tfPageIndex").html(view[0]+'/'+totalPages);
+      }else{
+        $("#tfPageIndex").html(view[0]+'-'+view[1]+'/'+totalPages);
+    }
+
   });
 
 
 
   function flipToPage(pageNumber) {
-
-
-
-
     if (pageNumber < 1 || pageNumber > totalPages || flipping) {
       return;
     }
@@ -686,9 +689,9 @@ if(windowWidth<401){
     }else if(windowWidth<961){
       $('#flipbook').turn('options', {
         direction:'ltr',
-        width: 400,
+        width: 600,
         height: 570,
-        display:'single',
+        display:'double',
         pages:totalPages,
         autoCenter: true,
       });

@@ -667,16 +667,28 @@ var zoomValue = 1;
         pages:totalPages,
         autoCenter: true,
       });
+    }else if(windowWidth<768){
+      $('#flipbook').turn('options', {
+        direction:'ltr',
+        width: 350,
+        height: 570,
+        display:'single',
+        pages:totalPages,
+        autoCenter: true,
+      });
     }else if(windowWidth<501){
       $('#flipbook').turn('options', {
         direction:'ltr',
-        width: 450,
-        height: 670,
+        width: 350,
+        height: 470,
         display:'single',
         pages:totalPages,
         autoCenter: true,
       });
     }
+
+
+
   }
 
 

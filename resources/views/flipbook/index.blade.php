@@ -641,13 +641,13 @@ var zoomValue = 1;
     var windowWidth = $(window).width();
 
 
-  if(windowWidth<800){
-    $('#flipbook').turn('options', {
-      width: 700,
-      height: 500,
-      display:'double'
-    });
-  }
+//   if(windowWidth<800){
+//     $('#flipbook').turn('options', {
+//       width: 700,
+//       height: 500,
+//       display:'double'
+//     });
+//   }
 
 //   if(windowWidth<700){
 //     $('#flipbook').turn('options', {

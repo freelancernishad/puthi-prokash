@@ -656,22 +656,11 @@ var zoomValue = 1;
 //     });
 //   }
 
-
-
-    if(windowWidth<961){
+if(windowWidth<401){
       $('#flipbook').turn('options', {
         direction:'ltr',
-        width: 400,
-        height: 570,
-        display:'single',
-        pages:totalPages,
-        autoCenter: true,
-      });
-    }else if(windowWidth<768){
-      $('#flipbook').turn('options', {
-        direction:'ltr',
-        width: 350,
-        height: 570,
+        width: 300,
+        height: 400,
         display:'single',
         pages:totalPages,
         autoCenter: true,
@@ -685,11 +674,20 @@ var zoomValue = 1;
         pages:totalPages,
         autoCenter: true,
       });
-    }else if(windowWidth<401){
+    }else if(windowWidth<768){
       $('#flipbook').turn('options', {
         direction:'ltr',
-        width: 200,
-        height: 250,
+        width: 350,
+        height: 570,
+        display:'single',
+        pages:totalPages,
+        autoCenter: true,
+      });
+    }else if(windowWidth<961){
+      $('#flipbook').turn('options', {
+        direction:'ltr',
+        width: 400,
+        height: 570,
         display:'single',
         pages:totalPages,
         autoCenter: true,

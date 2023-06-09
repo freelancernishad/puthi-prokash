@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Basic HTML Template</title>
-
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css" rel="stylesheet">
     <style>
 
 html,
@@ -49,6 +49,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: relative;
 }
 
 .flipbook .page {
@@ -126,6 +127,7 @@ div#fbToolBar {
     display: flex;
     flex-direction: column;
     width: 158px;
+    z-index: 99;
 }
 
 div.sideMenuItem {
@@ -142,9 +144,9 @@ div.sideMenuItem {
     position: absolute;
     top: 0;
     right: 0px;
-    width: 25%;
+    width: 8%;
     height: 100%;
-    background: linear-gradient(to left,#38383859, #14141424, #ffffff00);
+    background: linear-gradient(to left,#38383852, #14141424, #ffffff00);
 }
 
 .page.odd:after {
@@ -152,9 +154,9 @@ div.sideMenuItem {
     position: absolute;
     top: 0;
     left: 0;
-    width: 25%;
+    width: 8%;
     height: 100%;
-    background: linear-gradient(to right,#14141457, #14141424, #ffffff00);
+    background: linear-gradient(to right,#38383852, #14141424, #ffffff00);
 }
 
 @media  (max-width: 700px){
@@ -163,12 +165,52 @@ div.sideMenuItem {
         display: none !important;
     }
 }
-#flipbook {
-  /* Other existing styles */
-
-  /* Add left and right shadows */
-  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3), 10px 0 20px rgba(0, 0, 0, 0.3);
+#flipbook .shadow,
+#flipbook.shadow{
+  -webkit-box-shadow: 0 4px 10px #666;
+  -moz-box-shadow: 0 4px 10px #666;
+  -ms-box-shadow: 0 4px 10px #666;
+  -o-box-shadow: 0 4px 10px #666;
+  box-shadow: 0 4px 10px #666;
 }
+
+#flipbook .page-wrapper{
+   -webkit-perspective:2000px;
+   -moz-perspective: 2000px;
+   -ms-perspective: 2000px;
+   perspective: 2000px;
+}
+
+.leftArrow {
+  position: absolute;
+    height: 100%;
+    top: 0;
+    font-size: 50px;
+    color: #939393bf;
+    cursor: pointer;
+    left: 10px;
+    align-items: center;
+    display: flex;
+    z-index: 1;
+}
+
+.rightArrow {
+  position: absolute;
+    height: 100%;
+    top: 0;
+    font-size: 50px;
+    color: #939393bf;
+    cursor: pointer;
+    right: 10px;
+    align-items: center;
+    display: flex;
+    z-index: 1;
+}
+
+
+
+
+
     </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
@@ -181,7 +223,7 @@ div.sideMenuItem {
         <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
       </header>
 
-      <div class="sideMainContainer displayNone" id="sideMenu">
+      <div class="sideMainContainer displayNone" id="sideMenu" style="z-index: 99999;">
 
 
       <div class="sideMenu" >
@@ -222,24 +264,35 @@ div.sideMenuItem {
         </div>
 
 
+        <div class="leftArrow" onclick="prePage()">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
 
         <div class="wrapper">
             <div class="aspect">
               <div class="aspect-inner">
+
+
                 <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
                     @foreach ($flipping_books as $item)
-                    <div class="page"><img class="sliderimage" src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
-
+                    <div class="page">
+                      <img class="sliderimage" src="{{ asset($item->image) }}"  draggable="false" alt="" />
+                    </div>
                     @endforeach
-                </div>
+                  </div>
+
+
               </div>
             </div>
           </div>
 
+          <div class="rightArrow"  onclick="nextPage()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
 
 
 
-          <div id="fbToolBar" class="fbToolBar" style="background-color: rgb(255, 255, 255); transform: translate3d(0px, 0px, 0px);">
+          <div id="fbToolBar" class="fbToolBar" style="background-color: rgb(255, 255, 255); transform: translate3d(0px, 0px, 0px);z-index: 99999;">
             <div class="buttonBar left" >
                 <div class="button left" title="Home"  id="firstpage" style="cursor: pointer;">
                     <img
@@ -273,7 +326,7 @@ div.sideMenuItem {
 
                 </div>
 
-                <div class="button" title="pevious" id="prePage" style="cursor: pointer; left: 580px; background-color: transparent;">
+                <div class="button" title="pevious" id="prePage" onclick="prePage()" style="cursor: pointer; left: 580px; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGNJREFUSEvd0jEOACAIA0D4/6M1DLohbQ2D8oBLgbo1jTe59j88zLAtmVPAaPwNhSkUhWkUgSW0gmX0BF+hGRyoOrsMWStaEq+0V3jVYxmv4Egv4Qgs4ShM4wxM4SwM9/s9eAKzYA8X49tYJAAAAABJRU5ErkJggg=="
@@ -286,7 +339,7 @@ div.sideMenuItem {
 
                   {{-- <input type="text" id="currentPageIndexTextField" size="4" autofill-prediction="UNKNOWN_TYPE" style="color: rgb(0, 0, 0); text-align: center;" /> --}}
               </div>
-                <div class="button" title="next" id="nextpage" style="cursor: pointer; left: 696px; background-color: transparent;">
+                <div class="button" title="next" id="nextpage" onclick="nextPage()" style="cursor: pointer; left: 696px; background-color: transparent;">
                     <img
                         style="pointer-events: none;"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGZJREFUSEvd08ENACAIA0DYf2gNH18gUEQTGeBSpTA1DTe59D88iGKvRL4ihCOw7NvFUdjFK/AWr8ImfgJWcQ2WxaCzvKuJs2nV6lUTm32uwNsjQeGWy3NRWVI2cQhF4HBjsonfwxNjUQ8XZQkFVgAAAABJRU5ErkJggg=="
@@ -483,13 +536,19 @@ var swiper = new Swiper(".mySwiper", {
   $( "#firstpage1" ).click(function() {
     flipToPage(1);
   });
-  $( "#prePage" ).click(function() {
-    $("#flipbook").turn("previous");
-  });
 
-  $( "#nextpage" ).click(function() {
+
+
+  function prePage(){
+    $("#flipbook").turn("previous");
+  }
+  function nextPage(){
     $("#flipbook").turn("next");
-  });
+  }
+
+
+
+
 
 var zoomValue = 1;
 
@@ -622,7 +681,6 @@ var zoomValue = 1;
   };
 
   $('#flipbook').bind('turning', function(event, page, view) {
-
     flipToPage(page);
   });
 

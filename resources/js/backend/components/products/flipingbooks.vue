@@ -92,7 +92,7 @@ export default {
 
               var res = await this.callApi(`${this.apimethod}`,`${this.apiurl}`,this.forms);
 
-      
+
 
               if(res.status==200){
                   Notification.customSuccess(`Updated Successfull`);

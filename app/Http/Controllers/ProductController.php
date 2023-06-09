@@ -262,7 +262,7 @@ class ProductController extends Controller
             foreach ($flipingBooks as $flipingBook) {
                 $booksDatas = [
                     // 'product_id'=>$flipingBook['product_id'],
-                    'product_id'=>10,
+                    'product_id'=>$product->id,
                     'name'=>$flipingBook['name'],
                     'slug'=>str_replace(' ', '-', $flipingBook['name']),
                 ];

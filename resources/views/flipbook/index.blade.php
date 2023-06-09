@@ -157,6 +157,18 @@ div.sideMenuItem {
     background: linear-gradient(to right,#14141457, #14141424, #ffffff00);
 }
 
+@media  (max-width: 700px){
+
+    #fbToolBar{
+        display: none !important;
+    }
+}
+#flipbook {
+  /* Other existing styles */
+
+  /* Add left and right shadows */
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3), 10px 0 20px rgba(0, 0, 0, 0.3);
+}
     </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
@@ -165,9 +177,9 @@ div.sideMenuItem {
 
 
 
-      {{-- <header>
-        <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="200px" alt="">
-      </header> --}}
+      <header>
+        <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
+      </header>
 
       <div class="sideMainContainer displayNone" id="sideMenu">
 
@@ -217,6 +229,7 @@ div.sideMenuItem {
                 <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
                     @foreach ($flipping_books as $item)
                     <div class="page"><img class="sliderimage" src="{{ asset($item->image) }}"  draggable="false" alt="" /></div>
+
                     @endforeach
                 </div>
               </div>
@@ -397,6 +410,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
+
   $( "#autoPlay" ).click(function() {
 
     if(someCondition){
@@ -512,9 +526,14 @@ var zoomValue = 1;
 
 
   function flipToPage(pageNumber) {
+
+
+
+
     if (pageNumber < 1 || pageNumber > totalPages || flipping) {
       return;
     }
+
 
 
 
@@ -552,25 +571,48 @@ var zoomValue = 1;
 
   $('#flipbook').turn({
     direction:'ltr',
-    width:600,
-    height:400,
+    width:730,
+    height:520,
     pages:totalPages,
-    // turnCorners: 'bl,br || tl,tr',
-
-
+    autoCenter: true,
 
   });
 
-  var windowWidth = $(window).width();
+  window.addEventListener("resize", () => {
+    var windowWidth = $(window).width();
+
+
   if(windowWidth<800){
     $('#flipbook').turn('options', {
-      width: 500,
-      height: 400
+      width: 700,
+      height: 500,
+      display:'double'
     });
   }
 
+  if(windowWidth<700){
+    $('#flipbook').turn('options', {
+      width: 650,
+      height: 470,
+      display:'double'
+    });
+  }
+  if(windowWidth<501){
+    $('#flipbook').turn('options', {
+      width: 450,
+      height: 670,
+      display:'single'
+    });
+  }
+});
 
 
+
+
+
+  // Add overlay to prevent click events
+  var overlay = $('<div id="flipbook-overlay"></div>');
+  $('#flipbook').append(overlay);
 
 
    // Define pages with specific turn corners
@@ -596,6 +638,7 @@ var zoomValue = 1;
       flipToPage(currentPageFromRoute);
     }
   };
+
 
 
 

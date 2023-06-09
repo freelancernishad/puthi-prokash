@@ -661,8 +661,8 @@ var zoomValue = 1;
     if(windowWidth<961){
       $('#flipbook').turn('options', {
         direction:'ltr',
-        width: 450,
-        height: 670,
+        width: 400,
+        height: 570,
         display:'single',
         pages:totalPages,
         autoCenter: true,

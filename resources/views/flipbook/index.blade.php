@@ -649,13 +649,13 @@ var zoomValue = 1;
     });
   }
 
-  if(windowWidth<700){
-    $('#flipbook').turn('options', {
-      width: 650,
-      height: 470,
-      display:'double'
-    });
-  }
+//   if(windowWidth<700){
+//     $('#flipbook').turn('options', {
+//       width: 650,
+//       height: 470,
+//       display:'double'
+//     });
+//   }
   if(windowWidth<768){
     $('#flipbook').turn('options', {
       width: 450,

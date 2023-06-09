@@ -628,16 +628,9 @@ var zoomValue = 1;
 
 
 
-  $('#flipbook').turn({
-    direction:'ltr',
-    width:730,
-    height:520,
-    pages:totalPages,
-    autoCenter: true,
 
-  });
 
-  window.addEventListener("resize", () => {
+  function turnEx(){
     var windowWidth = $(window).width();
 
 
@@ -656,22 +649,38 @@ var zoomValue = 1;
 //       display:'double'
 //     });
 //   }
-  if(windowWidth<961){
-    $('#flipbook').turn('options', {
-      width: 450,
-      height: 670,
-      display:'single'
-    });
+
+
+
+    if(windowWidth<961){
+      $('#flipbook').turn('options', {
+        width: 450,
+        height: 670,
+        display:'single'
+      });
+    }else if(windowWidth<501){
+      $('#flipbook').turn('options', {
+        width: 450,
+        height: 670,
+        display:'single'
+      });
+    }else{
+        $('#flipbook').turn({
+        direction:'ltr',
+        width:730,
+        height:520,
+        pages:totalPages,
+        autoCenter: true,
+      });
+    }
   }
 
-  if(windowWidth<501){
-    $('#flipbook').turn('options', {
-      width: 450,
-      height: 670,
-      display:'single'
-    });
-  }
-});
+
+  turnEx();
+  window.addEventListener("resize", () => {
+    turnEx();
+  });
+
 
 
 

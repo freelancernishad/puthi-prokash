@@ -159,12 +159,7 @@ div.sideMenuItem {
     background: linear-gradient(to right,#38383852, #14141424, #ffffff00);
 }
 
-@media  (max-width: 700px){
 
-    #fbToolBar{
-        display: none !important;
-    }
-}
 #flipbook .shadow,
 #flipbook.shadow{
   -webkit-box-shadow: 0 4px 10px #666;
@@ -207,7 +202,12 @@ div.sideMenuItem {
     z-index: 1;
 }
 
+@media  (max-width: 700px){
 
+#fbToolBar, .leftArrow , .rightArrow{
+    display: none !important;
+}
+}
 
 
 
@@ -681,6 +681,15 @@ var zoomValue = 1;
         direction:'ltr',
         width: 350,
         height: 470,
+        display:'single',
+        pages:totalPages,
+        autoCenter: true,
+      });
+    }else if(windowWidth<401){
+      $('#flipbook').turn('options', {
+        direction:'ltr',
+        width: 200,
+        height: 250,
         display:'single',
         pages:totalPages,
         autoCenter: true,

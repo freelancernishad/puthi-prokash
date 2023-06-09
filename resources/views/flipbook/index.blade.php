@@ -626,7 +626,13 @@ var zoomValue = 1;
     flipping = false;
   }
 
-
+  $('#flipbook').turn({
+        direction:'ltr',
+        width:730,
+        height:520,
+        pages:totalPages,
+        autoCenter: true,
+      });
 
 
 
@@ -654,21 +660,19 @@ var zoomValue = 1;
 
     if(windowWidth<961){
       $('#flipbook').turn('options', {
+        direction:'ltr',
         width: 450,
         height: 670,
-        display:'single'
+        display:'single',
+        pages:totalPages,
+        autoCenter: true,
       });
     }else if(windowWidth<501){
       $('#flipbook').turn('options', {
+        direction:'ltr',
         width: 450,
         height: 670,
-        display:'single'
-      });
-    }else{
-        $('#flipbook').turn({
-        direction:'ltr',
-        width:730,
-        height:520,
+        display:'single',
         pages:totalPages,
         autoCenter: true,
       });

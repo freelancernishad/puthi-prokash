@@ -656,6 +656,14 @@ var zoomValue = 1;
       display:'double'
     });
   }
+  if(windowWidth<768){
+    $('#flipbook').turn('options', {
+      width: 450,
+      height: 670,
+      display:'single'
+    });
+  }
+});
   if(windowWidth<501){
     $('#flipbook').turn('options', {
       width: 450,

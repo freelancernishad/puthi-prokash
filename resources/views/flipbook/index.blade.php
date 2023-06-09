@@ -656,7 +656,7 @@ var zoomValue = 1;
 //       display:'double'
 //     });
 //   }
-  if(windowWidth<800){
+  if(windowWidth<961){
     $('#flipbook').turn('options', {
       width: 450,
       height: 670,

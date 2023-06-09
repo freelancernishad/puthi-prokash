@@ -663,7 +663,7 @@ var zoomValue = 1;
       display:'single'
     });
   }
-});
+
   if(windowWidth<501){
     $('#flipbook').turn('options', {
       width: 450,

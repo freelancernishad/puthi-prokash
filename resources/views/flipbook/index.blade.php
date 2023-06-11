@@ -561,6 +561,14 @@ var swiper = new Swiper(".mySwiper", {
     }
     function clickMiddlebookMenu(id){
       flipToPage(id)
+
+      var windowWidth = $(window).width();
+    if(windowWidth<768){
+        middleMenu2()
+    }else{
+          middleMenu()
+    }
+
     }
 // $(document).ready(function() {
   var currentPage = 1;

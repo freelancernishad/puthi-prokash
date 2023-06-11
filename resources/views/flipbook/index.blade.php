@@ -287,6 +287,10 @@ div.sideMenuItem {
     font-size: 24px;
 }
 
+.mobileMiddleMenu {
+    display: flex;
+    flex-wrap: wrap;
+}
 @media  (max-width: 768px){
     .mobileNav{
         display: block;
@@ -362,6 +366,26 @@ div.sideMenuItem {
                 @endforeach
             </div>
             <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        </div>
+
+
+      <div class="middleBooksMenu2 displayNone" id="middleBooksMenu2">
+        <div class="middleBooksMenufix">
+
+          <div class="mobileMiddleMenu">
+
+                @php
+                $i2 = 1;
+                @endphp
+                @foreach ($flipping_books as $item)
+                <div class="swiper-slide" style="width:40%" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                @php
+                $i2++;
+                @endphp
+                @endforeach
+
           </div>
         </div>
         </div>

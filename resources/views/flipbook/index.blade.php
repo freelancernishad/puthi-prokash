@@ -20,7 +20,7 @@ header{
     display: flex;
     align-items: center;
     grid-gap: 14px;
-    padding: 0 20px;
+    padding: 11px 20px;
     justify-content: space-between;
 }
 .headerLeft{
@@ -339,7 +339,7 @@ div#middleBooksMenu2 {
 
         <div class="headerLeft">
           <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
-          <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
+          <img src="{{ asset('assets/image/logo.jpg') }}" width="100px" alt="">
         </div>
 
         <div class="headerRight">

@@ -21,6 +21,13 @@ header{
     align-items: center;
     grid-gap: 14px;
     padding: 0 20px;
+    justify-content: space-between;
+}
+.headerLeft{
+    display: flex;
+    align-items: center;
+    grid-gap: 14px;
+    padding: 0 20px;
 }
 .wrapper {
   align-items: center;
@@ -307,8 +314,15 @@ div.sideMenuItem {
 
       <header>
 
-        <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
-        <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
+        <div class="headerLeft">
+          <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
+          <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
+        </div>
+
+        <div class="headerRight">
+          <span onclick="middleMenu2()"><i class="fa-sharp fa-light fa-grid-2"></i></span>
+        </div>
+
 
       </header>
 
@@ -386,7 +400,7 @@ div.sideMenuItem {
                 <div class="button left deskFooterIcon" title="Home"  id="firstpage"  onclick="firstpage()" style="cursor: pointer;"><i class="fa-light fa-house"></i></div>
 
                 <div class="button left deskFooterIcon" title="zoom" id="zoompage" onclick="zoompage()" style="cursor: pointer; background-color: transparent;"><i class="fa-light fa-magnifying-glass-plus"></i></div>
-                <div class="button left deskFooterIcon" title="middleMenu" id="middleMenu" style="cursor: pointer; background-color: transparent;"><i class="fa-sharp fa-light fa-grid-2"></i></div>
+                <div class="button left deskFooterIcon" title="middleMenu" id="middleMenu" onclick="middleMenu()" style="cursor: pointer; background-color: transparent;"><i class="fa-sharp fa-light fa-grid-2"></i></div>
             </div>
             <div class="pageBar" >
 
@@ -559,14 +573,26 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
-  $( "#middleMenu" ).click(function() {
-    $("#middleBooksMenu").toggleClass("displayNone");
-    $("#middleBooksMenu").toggleClass("displayBlock");
+  // $( "#middleMenu" ).click(function() {
+
+    function middleMenu(){
+
+
+      $("#middleBooksMenu").toggleClass("displayNone");
+      $("#middleBooksMenu").toggleClass("displayBlock");
+    }
+
+    function middleMenu2(){
+
+
+      $("#middleBooksMenu2").toggleClass("displayNone");
+      $("#middleBooksMenu2").toggleClass("displayBlock");
+    }
 
 
 
     // $('#middleBooksMenu').css({'dispaly':'block'});
-  });
+  // });
 
 
 

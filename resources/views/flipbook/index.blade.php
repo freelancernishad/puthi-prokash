@@ -16,6 +16,12 @@ body {
   overflow: hidden;
 }
 
+header{
+    display: flex;
+    align-items: center;
+    grid-gap: 14px;
+    padding: 0 20px;
+}
 .wrapper {
   align-items: center;
   display: flex;
@@ -126,7 +132,7 @@ div#fbToolBar {
     background: #dfdfdf;
     display: flex;
     flex-direction: column;
-    width: 158px;
+    width: 255px;
     z-index: 99;
 }
 
@@ -178,8 +184,7 @@ div.sideMenuItem {
 
 .leftArrow {
   position: absolute;
-    height: 100%;
-    top: 0;
+    top: 50%;
     font-size: 50px;
     color: #939393bf;
     cursor: pointer;
@@ -191,8 +196,8 @@ div.sideMenuItem {
 
 .rightArrow {
   position: absolute;
-    height: 100%;
-    top: 0;
+
+    top: 50%;
     font-size: 50px;
     color: #939393bf;
     cursor: pointer;
@@ -202,8 +207,89 @@ div.sideMenuItem {
     z-index: 1;
 }
 
-@media  (max-width: 768px){
+.mobileNavClose,.mobileNav{
+    cursor: pointer;
+    padding: 6px 6px;
+    font-size: 24px;
+}
+.mobileNav{
+    display: none;
+}
 
+.mobileNavClose{
+    position: absolute;
+    top: 6px;
+    left: 264px;
+    font-size: 23px;
+}
+.deskFooterIcon i {
+    font-size: 23px;
+    margin: 0px 6px;
+    padding: 6px 8px;
+}
+
+
+
+
+.mbFooter ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 0px;
+}
+
+.mbFooter ul li {
+    padding: 6px 7px;
+    font-size: 24px;
+}
+
+.mbFooter {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 99999;
+    background: white;
+    padding: 0;
+    margin: 0;
+    height: 60px;
+    display: none;
+}
+
+.mb2Footer {
+    position: fixed;
+    width: 100%;
+    bottom: 61px;
+    z-index: 99999;
+    background: white;
+    padding: 0;
+    margin: 0;
+    height: 60px;
+    display: none;
+}
+.mb2Footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 0px;
+}
+
+.mb2Footer ul li {
+    padding: 6px 7px;
+    font-size: 24px;
+}
+
+@media  (max-width: 768px){
+    .mobileNav{
+        display: block;
+    }
+    .mbFooter{
+        display: block;
+    }
+    .mb2Footer.activeMenu{
+      display: block;
+    }
 #fbToolBar, .leftArrow , .rightArrow{
     display: none !important;
 }
@@ -220,11 +306,15 @@ div.sideMenuItem {
 
 
       <header>
+
+        <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
         <img src="https://panjeree.com/ebook/class-four-4/files/mobile-ext/appLogoIcon.png" width="100px" alt="">
+
       </header>
 
       <div class="sideMainContainer displayNone" id="sideMenu" style="z-index: 99999;">
 
+        <div class="mobileNavClose" onclick="sidemenuButton()"><i class="fa-solid fa-xmark"></i></div>
 
       <div class="sideMenu" >
         @php
@@ -251,7 +341,6 @@ div.sideMenuItem {
                 $i2 = 1;
                 @endphp
                 @foreach ($flipping_books as $item)
-
                 <div class="swiper-slide" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
                 @php
                 $i2++;
@@ -294,83 +383,47 @@ div.sideMenuItem {
 
           <div id="fbToolBar" class="fbToolBar" style="background-color: rgb(255, 255, 255); transform: translate3d(0px, 0px, 0px);z-index: 99999;">
             <div class="buttonBar left" >
-                <div class="button left" title="Home"  id="firstpage" style="cursor: pointer;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAHlJREFUSEvt1dsKgCAQBNDx/z+6EFpQ28ussFGQTz2sh3EQayharcjFK+DjOh0VhhoC0FGZHb/NJhlYg0I8gj3AxT04TLVUNNViwQwqkDqrwRnUxFd4B1XxR6voCTLJ6Y5/eLrf3+w48w+4XdvoEcrg1FuxDcrGssQnCrAeF82smX4AAAAASUVORK5CYII="
-                    />
+                <div class="button left deskFooterIcon" title="Home"  id="firstpage"  onclick="firstpage()" style="cursor: pointer;"><i class="fa-light fa-house"></i></div>
 
-                </div>
-                <div class="button left" title="zoom" id="zoompage" style="cursor: pointer; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAASBJREFUSEvV1L0uBWEQxvHfSYgboBBciY9bUKBAIQoNCo2rkJOQoFGIhoKKO/BxJ4KEO1CQkXeTPee862yxG/F2m8z+Z+aZZ6ajpddpietPwHPYwTwm8I4HnOBxWKe5ikdwhO0EusMLJrGISHiKPXxWJciBz7CGDdxkflzGBS6xVRc8m9pcqYAWnIBfp+qfcvD+iqOKmaRrOf6LgUGH3s9YrQN+QxcHfcE58H7SeaoOOADrSb+Ij+/+V3QZczjHWB1waxVfYboNjcOjMZRhrlhKronlyS5LzsfH2Kzh49B3t66PI24Uh2nz7nGL19LmRZWxebGZlbfmtyNU3IoFjOMDkah8K3I2/GmiieuWhTcBLvzew2oKPABvEtxjkP8H/gZVwzsXFKqvdQAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
-                <div class="button left" title="middleMenu" id="middleMenu" style="cursor: pointer; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAFdJREFUSEtjZKARYKSRuQx0M/g/Hh/AHEGMGgwXgzRh8wWyODFqRg1GhAB6eBITfsSowRrGuBIGRamCavllNIPAQ4CuqWI0S4OTMDFFIjFq6FfQD/6cBwAQ4zAXl9lP9QAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
+                <div class="button left deskFooterIcon" title="zoom" id="zoompage" onclick="zoompage()" style="cursor: pointer; background-color: transparent;"><i class="fa-light fa-magnifying-glass-plus"></i></div>
+                <div class="button left deskFooterIcon" title="middleMenu" id="middleMenu" style="cursor: pointer; background-color: transparent;"><i class="fa-sharp fa-light fa-grid-2"></i></div>
             </div>
             <div class="pageBar" >
 
-                <div class="button" title="firstpage" id="firstpage1" style="cursor: pointer; left: 535px; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGxJREFUSEvV1MEKACAIA1D7/48uOhQUpNvEQ13DV8msWdFqRa79D3cz9xXR/u7s3QqvEEanjsIUisI0isASGsEy6sEp9AVnhnGH4ZWKkhuvw1J4lGMZj+DZbwlHYAlHYRpnYAr//6PPTN1ROwBkPx0X8urPnQAAAABJRU5ErkJggg=="
-                    />
+                <div class="button deskFooterIcon" title="firstpage" id="firstpage1" onclick="firstpage()" style="cursor: pointer; left: 535px; background-color: transparent;"><i class="fa-sharp fa-light fa-arrow-left-to-line"></i></div>
 
-                </div>
-
-                <div class="button" title="pevious" id="prePage" onclick="prePage()" style="cursor: pointer; left: 580px; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGNJREFUSEvd0jEOACAIA0D4/6M1DLohbQ2D8oBLgbo1jTe59j88zLAtmVPAaPwNhSkUhWkUgSW0gmX0BF+hGRyoOrsMWStaEq+0V3jVYxmv4Egv4Qgs4ShM4wxM4SwM9/s9eAKzYA8X49tYJAAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
+                <div class="button deskFooterIcon" title="pevious" id="prePage" onclick="prePage()" style="cursor: pointer; left: 580px; background-color: transparent;"><i class="fa-thin fa-arrow-left"></i></div>
 
 
                 <div class="pageNumber" id="tfPageIndex" style="width: 61px; display: block;text-align:center" >
 
                   {{-- <input type="text" id="currentPageIndexTextField" size="4" autofill-prediction="UNKNOWN_TYPE" style="color: rgb(0, 0, 0); text-align: center;" /> --}}
               </div>
-                <div class="button" title="next" id="nextpage" onclick="nextPage()" style="cursor: pointer; left: 696px; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGZJREFUSEvd08ENACAIA0DYf2gNH18gUEQTGeBSpTA1DTe59D88iGKvRL4ihCOw7NvFUdjFK/AWr8ImfgJWcQ2WxaCzvKuJs2nV6lUTm32uwNsjQeGWy3NRWVI2cQhF4HBjsonfwxNjUQ8XZQkFVgAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
-                <div class="button" title="lastpage" id="lastpage" style="cursor: pointer; left: 741px; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAGtJREFUSEvd1EEKACAIBED7/6OLDoWFSuLupa7CWLbVhLQayZW/4S4SnvCoZ0cR4SV43rWHl2EPh8AWDoNvHAprPIRnsbJ2yrJxs5qunUJHoTEYfOcZAluPpAxTXh7lr6D+bs8ZR+TYbEaDBwQDHRdsi2UGAAAAAElFTkSuQmCC"
-                    />
-
-                </div>
+                <div class="button deskFooterIcon" title="next" id="nextpage" onclick="nextPage()" style="cursor: pointer; left: 696px; background-color: transparent;"><i class="fa-thin fa-arrow-right"></i></div>
+                <div class="button deskFooterIcon" title="lastpage" id="lastpage" onclick="lastpage()" style="cursor: pointer; left: 741px; background-color: transparent;"><i class="fa-sharp fa-light fa-arrow-right-to-line"></i></div>
             </div>
             <div class="buttonBar right" >
-
-                <div class="button right" title="auto play" id="autoPlay" style="cursor: pointer; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAHJJREFUSEvVlDkOACAIBOX/j9ZQUKAgEcTDUsO4LAeUpANJ3HIMXJ0ZDAL7CwSvZkExLPYq2MrCrZh81ywKgRGqKQ+DsWEk+LvgFCvQhrTiaUPp9tia8vtgS6H0PvT56sKZfTpdQjQEHtWsc3YqZmL+AzfGizUX2WhiUQAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
-                <div class="button right" title="menu" id="sidemenuButton" style="cursor: pointer; background-color: transparent;">
-                    <img
-                        style="pointer-events: none;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAFpJREFUSEtjZKARYKSRuQzDw+D/SMED8hEyn1DIwUMAW1CADIIZSHZQ4TIY5jKqupiQd4mSJ9urhEynq8GjqYJQdJAmT9fII81pOFTTNeeNlhVUiTO4ITRLbgBYIBIXn/upHQAAAABJRU5ErkJggg=="
-                    />
-
-                </div>
+            <div class="button right deskFooterIcon" title="auto play" id="autoPlay" onclick="autoPlay()" style="cursor: pointer; background-color: transparent;"><i class="fa-sharp fa-light fa-circle-play"></i></div>
+            <div class="button right deskFooterIcon" title="menu" id="sidemenuButton" onclick="sidemenuButton()" style="cursor: pointer; background-color: transparent;"><i class="fa-solid fa-list"></i></div>
             </div>
+        </div>
+
+        <div class="mbFooter">
+            <ul>
+                <li onclick="sidemenuButton()"><i class="fa-solid fa-list"></i></li>
+                <li onclick="showSubmenu()"><i class="fa-thin fa-arrows-left-right-to-line"></i></li>
+                <li onclick="autoPlay()"><i class="fa-light fa-stopwatch"></i></li>
+                <li onclick="zoompage()"><i class="fa-light fa-magnifying-glass-plus"></i></li>
+            </ul>
+        </div>
+
+        <div class="mb2Footer" id="mb2Footer">
+            <ul>
+                <li  onclick="firstpage()"><i class="fa-sharp fa-light fa-arrow-left-to-line"></i></</li>
+                <li onclick="prePage()"><i class="fa-thin fa-arrow-left"></i></li>
+                <li onclick="nextPage()"><i class="fa-thin fa-arrow-right"></i></li>
+                <li onclick="lastpage()"><i class="fa-sharp fa-light fa-arrow-right-to-line"></i></li>
+            </ul>
         </div>
 
 
@@ -443,16 +496,13 @@ var swiper = new Swiper(".mySwiper", {
       slidesPerView: 8,
       spaceBetween: 20,
     });
-
-
     function clicksideMenuItem(id){
       flipToPage(id)
     }
     function clickMiddlebookMenu(id){
       flipToPage(id)
     }
-
-    // $(document).ready(function() {
+// $(document).ready(function() {
   var currentPage = 1;
   var totalPages = $('#flipbook .page').length;
   var flipping = false;
@@ -464,8 +514,8 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
-  $( "#autoPlay" ).click(function() {
 
+    function autoPlay(){
     if(someCondition){
       someCondition = 0
     }else{
@@ -500,7 +550,7 @@ var swiper = new Swiper(".mySwiper", {
             clearInterval(intervalId); // Clear the interval
           }
       };
-  });
+  };
 
 
 
@@ -519,23 +569,25 @@ var swiper = new Swiper(".mySwiper", {
   });
 
 
-  $( "#sidemenuButton" ).click(function() {
 
 
+    function showSubmenu(){
+    $("#mb2Footer").toggleClass("activeMenu");
+    // $("#mb2Footer").toggleClass("activeMenu");
+    }
+
+
+    function sidemenuButton(){
     $("#sideMenu").toggleClass("displayNone");
     $("#sideMenu").toggleClass("displayBlock");
-
-    // $('#middleBooksMenu').css({'dispaly':'block'});
-  });
+    }
 
 
-  $( "#firstpage" ).click(function() {
-    flipToPage(1);
-  });
+    function firstpage(){
 
-  $( "#firstpage1" ).click(function() {
-    flipToPage(1);
-  });
+      flipToPage(1);
+    }
+
 
 
 
@@ -552,15 +604,17 @@ var swiper = new Swiper(".mySwiper", {
 
 var zoomValue = 1;
 
-  $( "#zoompage" ).click(function() {
+
+    function zoompage(){
     zoomValue+=0.5;
     $("#flipbook").turn("zoom", zoomValue);
-  });
+  };
 
 
-  $( "#lastpage" ).click(function() {
+  function lastpage(){
     flipToPage(totalPages);
-  });
+  }
+
 
 
 

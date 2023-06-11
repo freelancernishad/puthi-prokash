@@ -399,7 +399,7 @@ div#middleBooksMenu2 {
                 $i2 = 1;
                 @endphp
                 @foreach ($flipping_books as $item)
-                <div class="swiper-slide" style="width:130px" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                <div class="swiper-slidess" style="width:130px" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
                 @php
                 $i2++;
                 @endphp

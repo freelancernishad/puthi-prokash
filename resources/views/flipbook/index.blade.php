@@ -152,25 +152,7 @@ div.sideMenuItem {
 .sideMenuItem.active {
     background: #706f6f59;
 }
-.page.even:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0px;
-    width: 8%;
-    height: 100%;
-    background: linear-gradient(to left,#38383852, #14141424, #ffffff00);
-}
 
-.page.odd:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8%;
-    height: 100%;
-    background: linear-gradient(to right,#38383852, #14141424, #ffffff00);
-}
 
 
 #flipbook .shadow,
@@ -306,6 +288,27 @@ div#middleBooksMenu2 {
 }
 .headerRight{
     display:none;
+}
+@media  (min-width: 768px){
+    .page.even:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 8%;
+    height: 100%;
+    background: linear-gradient(to left,#38383852, #14141424, #ffffff00);
+}
+
+.page.odd:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8%;
+    height: 100%;
+    background: linear-gradient(to right,#38383852, #14141424, #ffffff00);
+}
 }
 @media  (max-width: 768px){
     .mobileNav{

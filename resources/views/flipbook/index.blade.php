@@ -558,6 +558,9 @@ var swiper = new Swiper(".mySwiper", {
     });
     function clicksideMenuItem(id){
       flipToPage(id)
+ 
+            sidemenuButton()
+
     }
     function clickMiddlebookMenu(id){
       flipToPage(id)

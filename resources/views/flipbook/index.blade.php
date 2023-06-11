@@ -287,9 +287,25 @@ div.sideMenuItem {
     font-size: 24px;
 }
 
+div#middleBooksMenu2 {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    background: #0000009e;
+    z-index: 9999999;
+    padding: 40px 5px;
+    overflow: scroll;
+    height: 100vh;
+}
+
 .mobileMiddleMenu {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    grid-gap:20px;
+}
+.headerRight{
+    display:none;
 }
 @media  (max-width: 768px){
     .mobileNav{
@@ -300,6 +316,9 @@ div.sideMenuItem {
     }
     .mb2Footer.activeMenu{
       display: block;
+    }
+    .headerRight{
+        display:block;
     }
 #fbToolBar, .leftArrow , .rightArrow{
     display: none !important;
@@ -380,7 +399,7 @@ div.sideMenuItem {
                 $i2 = 1;
                 @endphp
                 @foreach ($flipping_books as $item)
-                <div class="swiper-slide" style="width:40%" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
+                <div class="swiper-slide" style="width:35%" onclick="clickMiddlebookMenu('{{ $i2 }}')" id="middlepage'{{ $i2 }}'"><img  width="100%" src="placeholder.jpg" data-src="{{ asset($item->image) }}" draggable="false" alt="" /></div>
                 @php
                 $i2++;
                 @endphp

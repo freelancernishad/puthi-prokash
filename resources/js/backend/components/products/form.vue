@@ -38,7 +38,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Description</label>
-                                        <vue-editor v-model="form.description"></vue-editor>
+                                        <vue-editor v-model="form.description" ></vue-editor>
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
@@ -179,14 +179,26 @@
     </form>
 
 
+
+
+
+
     </div>
 </template>
 
 <script>
 
+
+
 export default {
+
+
+
+
     data() {
         return {
+
+
             lists:[],
             form:{
                 name:'',
@@ -267,6 +279,9 @@ export default {
         }
     },
     mounted(){
+
+
+
         this.getList();
         if(this.$route.params.id){
             this.getItems();
@@ -282,3 +297,4 @@ export default {
     }
 }
 </script>
+

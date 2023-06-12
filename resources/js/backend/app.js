@@ -51,8 +51,12 @@ Vue.component('multiselect', Multiselect)
 
 
 
-import { VueEditor, Quill } from "vue2-editor";
-Vue.component('vue-editor', VueEditor);
+// import { VueEditor, Quill } from "vue2-editor";
+// Vue.component('vue-editor', VueEditor);
+
+
+import Editor from '@tinymce/tinymce-vue'
+Vue.component('vue-editor', Editor);
 
 
 

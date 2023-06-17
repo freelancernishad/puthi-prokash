@@ -3704,7 +3704,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         importcss_append: true,
         file_picker_callback: function file_picker_callback(callback, value, meta) {
           /* Provide file and text for the link dialog */
-          console.log(meta);
+
           if (meta.filetype === 'file') {
             callback('https://www.google.com/logos/google.jpg', {
               text: 'My text'

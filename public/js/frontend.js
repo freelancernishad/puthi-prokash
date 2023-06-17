@@ -3551,6 +3551,473 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("main", [_c("section", {
+    staticClass: "mx-2 px-2"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "my-4 row w-100"
+  }, [_c("div", {
+    staticClass: "align-items-center col-md-6 d-flex justify-content-between"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.$asseturl + "assets/image/lore-bg.png",
+      alt: "",
+      srcset: "",
+      width: "50px"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "d-inline fs-2 fw-normal mb-0 me-auto ps-4"
+  }, [_vm._v("প্রাক-প্রাথমিক")]), _vm._v(" "), _c("p", {
+    staticClass: "border-3 border-bottom border-top d-inline fs-4 mb-0 px-4"
+  }, [_vm._v("৬০")])]), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c("section", {
+    staticClass: "container mb-3"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(4)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(5)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(6)]), _vm._v(" "), _vm._m(7)])]), _vm._v(" "), _c("section", {
+    staticClass: "container mb-3"
+  }, [_vm._m(8), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(9)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(10)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(11)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(12)]), _vm._v(" "), _vm._m(13)])]), _vm._v(" "), _c("section", {
+    staticClass: "container mb-3"
+  }, [_vm._m(14), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(15)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(16)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(17)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/pre-view.png",
+      alt: "",
+      width: "200px",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(18)]), _vm._v(" "), _vm._m(19)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("nav", {
+    staticStyle: {
+      "--bs-breadcrumb-divider": "url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;)"
+    },
+    attrs: {
+      "aria-label": "breadcrumb"
+    }
+  }, [_c("ol", {
+    staticClass: "breadcrumb ms-5 mt-3"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item active",
+    attrs: {
+      "aria-current": "page"
+    }
+  }, [_vm._v("হোম")]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active",
+    attrs: {
+      "aria-current": "page"
+    }
+  }, [_vm._v("পুথি প্রকাশের বই")]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active text-dark",
+    attrs: {
+      "aria-current": "page"
+    }
+  }, [_vm._v("প্রাক-প্রাথমিক")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-6 d-flex gap-5 py-2"
+  }, [_c("select", {
+    staticClass: "form-select",
+    attrs: {
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: ""
+    }
+  }, [_vm._v("বাছাইয়ের ধরণ")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("  One")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("Two")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("Three")])]), _vm._v(" "), _c("select", {
+    staticClass: "form-select",
+    attrs: {
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: ""
+    }
+  }, [_vm._v("ফিল্টার ")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("One")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("Two")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("Three")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "align-items-center d-flex fs-3 gap-2 text-white py-1",
+    staticStyle: {
+      width: "200px",
+      "background-color": "#F35B43"
+    }
+  }, [_c("i", {
+    staticClass: "ms-4 fa-solid fa-bars fs-3"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("প্লে শ্রেণী")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark",
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("পরবর্তী  "), _c("i", {
+    staticClass: "fa-regular fa-chevron-right ms-2 text-danger"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "align-items-center d-flex fs-3 gap-2 text-white py-1",
+    staticStyle: {
+      width: "200px",
+      "background-color": "#F35B43"
+    }
+  }, [_c("i", {
+    staticClass: "ms-4 fa-solid fa-bars fs-3"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("নার্সারি শ্রেণী")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark",
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("পরবর্তী  "), _c("i", {
+    staticClass: "fa-regular fa-chevron-right ms-2 text-danger"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "align-items-center d-flex fs-3 gap-2 text-white py-1",
+    staticStyle: {
+      width: "200px",
+      "background-color": "#F35B43"
+    }
+  }, [_c("i", {
+    staticClass: "ms-4 fa-solid fa-bars fs-3"
+  }), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("কেজি শ্রেণী")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "category-book-details text-center w-75"
+  }, [_c("p", {
+    staticClass: "mb-0 fs-5 text-dark"
+  }, [_vm._v("এসো বাংলা শিখি")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Regular Price : 200")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark",
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("পরবর্তী  "), _c("i", {
+    staticClass: "fa-regular fa-chevron-right ms-2 text-danger"
+  })]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -3882,6 +4349,7 @@ var login = (__webpack_require__(/*! ./components/auth/login.vue */ "./resources
 var register = (__webpack_require__(/*! ./components/auth/register.vue */ "./resources/js/frontend/components/auth/register.vue")["default"]);
 var forget = (__webpack_require__(/*! ./components/auth/forget.vue */ "./resources/js/frontend/components/auth/forget.vue")["default"]);
 var home = (__webpack_require__(/*! ./components/home.vue */ "./resources/js/frontend/components/home.vue")["default"]);
+var categoryProduct = (__webpack_require__(/*! ./components/pages/categoryProduct.vue */ "./resources/js/frontend/components/pages/categoryProduct.vue")["default"]);
 
 //books
 var flipbooks = (__webpack_require__(/*! ./components/flipbook/home.vue */ "./resources/js/frontend/components/flipbook/home.vue")["default"]);
@@ -3916,11 +4384,11 @@ var routes = [{
     layout: layout
   }
 }, {
-  path: "".concat(prefix, "ebook"),
-  component: flipbooks,
-  name: 'flipbooks',
+  path: "".concat(prefix, "product/:category"),
+  component: categoryProduct,
+  name: 'categoryProduct',
   meta: {
-    layout: blank
+    layout: layout
   }
 }, {
   path: "*",
@@ -22696,7 +23164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nsection.vh-100[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\r\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\r\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\r\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\r\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\r\n.divider[data-v-2a1c1b9c]:before {\r\n    content: \"\";\r\n    flex: 1;\r\n    height: 1px;\r\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\r\n*[data-v-2a1c1b9c]:focus {\r\n    outline: none;\n}\r\n\r\n/* .form{\r\n  width: 500px;\r\n  margin: 0 auto;\r\n  margin-top: 150px;\r\n  font-family: sans-serif;\r\n  background: #fff\r\n} */\n.form-item[data-v-2a1c1b9c] {\r\n    position: relative;\r\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    background: transparent;\r\n    border: solid 1px #ccc;\r\n    transition: all 0.3s ease;\r\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\r\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    cursor: text;\r\n    z-index: 2;\r\n    top: 13px;\r\n    left: 10px;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    background: #fff;\r\n    padding: 0 10px;\r\n    color: #999;\r\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\r\n.form-item input:valid+label[data-v-2a1c1b9c] {\r\n    font-size: 11px;\r\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\r\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\r\n    width: 370px !important;\r\n    margin: 0 auto;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\r\n    height: 100vh;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection.vh-100[data-v-2a1c1b9c] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\n.divider[data-v-2a1c1b9c]:before {\n    content: \"\";\n    flex: 1;\n    height: 1px;\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\n*[data-v-2a1c1b9c]:focus {\n    outline: none;\n}\n\n/* .form{\n  width: 500px;\n  margin: 0 auto;\n  margin-top: 150px;\n  font-family: sans-serif;\n  background: #fff\n} */\n.form-item[data-v-2a1c1b9c] {\n    position: relative;\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\n    display: block;\n    width: 100%;\n    height: 40px;\n    background: transparent;\n    border: solid 1px #ccc;\n    transition: all 0.3s ease;\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\n    position: absolute;\n    cursor: text;\n    z-index: 2;\n    top: 13px;\n    left: 10px;\n    font-size: 12px;\n    font-weight: bold;\n    background: #fff;\n    padding: 0 10px;\n    color: #999;\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\n.form-item input:valid+label[data-v-2a1c1b9c] {\n    font-size: 11px;\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\n    width: 370px !important;\n    margin: 0 auto;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\n    height: 100vh;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50797,6 +51265,43 @@ component.options.__file = "resources/js/frontend/components/layouts/layout.vue"
 
 /***/ }),
 
+/***/ "./resources/js/frontend/components/pages/categoryProduct.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/frontend/components/pages/categoryProduct.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./categoryProduct.vue?vue&type=template&id=23c78348& */ "./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__.render,
+  _categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/frontend/components/pages/categoryProduct.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/frontend/components/auth/forget.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/frontend/components/auth/forget.vue?vue&type=script&lang=js& ***!
@@ -51091,6 +51596,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_layout_vue_vue_type_template_id_597ba4ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_layout_vue_vue_type_template_id_597ba4ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./layout.vue?vue&type=template&id=597ba4ca& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=template&id=597ba4ca&");
+
+
+/***/ }),
+
+/***/ "./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_categoryProduct_vue_vue_type_template_id_23c78348___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./categoryProduct.vue?vue&type=template&id=23c78348& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/pages/categoryProduct.vue?vue&type=template&id=23c78348&");
 
 
 /***/ }),

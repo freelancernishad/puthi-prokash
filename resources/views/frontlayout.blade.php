@@ -19,7 +19,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-    <title>:: Welcome to Sechsheba Tetulia ::</title>
+    <title>::  ::</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/bangladesh-govt.png') }}" />
 
 

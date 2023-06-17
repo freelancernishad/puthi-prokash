@@ -2325,6 +2325,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      submenu1: false,
+      submenu2: false
+    };
+  },
+  methods: {
+    level1Submenu: function level1Submenu() {
+      if (this.submenu1 == false) {
+        this.submenu1 = true;
+      } else {
+        this.submenu1 = false;
+        this.submenu2 = false;
+      }
+    },
+    level2Submenu: function level2Submenu() {
+      if (this.submenu2 == false) {
+        this.submenu2 = true;
+      } else {
+        this.submenu2 = false;
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=script&lang=js& ***!
@@ -2336,11 +2375,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.vue */ "./resources/js/frontend/components/layouts/header.vue");
+/* harmony import */ var _footer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.vue */ "./resources/js/frontend/components/layouts/footer.vue");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Headercomponent: _header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Footercomponent: _footer_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   props: ['user'],
   created: function created() {
     var _this = this;
@@ -2940,343 +2987,97 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("main", [_vm._m(0), _vm._v(" "), _c("section", {
-    staticClass: "top-header"
+  return _c("main", [_vm._m(0), _vm._v(" "), _c("section", {
+    staticClass: "mx-auto my-5"
   }, [_c("h2", {
-    staticClass: "py-4 text-center"
-  }, [_vm._v("পুথিপ্রকাশ কার্য সমগ্র")]), _vm._v(" "), _c("div", {
-    staticClass: "carousel slide",
-    attrs: {
-      id: "myCarousel",
-      "data-bs-ride": "carousel"
-    }
-  }, [_c("div", {
-    staticClass: "carousel-inner"
-  }, [_c("div", {
-    staticClass: "carousel-item active"
-  }, [_c("div", {
-    staticClass: "row gx-0"
-  }, [_c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_1.jpg",
-      alt: "Image 1"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_2.jpg",
-      alt: "Image 2"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_3.jpg",
-      alt: "Image 3"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_4.jpg",
-      alt: "Image 4"
-    }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "carousel-item"
-  }, [_c("div", {
-    staticClass: "row gx-0"
-  }, [_c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_5.jpg",
-      alt: "Image 5"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_6.jpg",
-      alt: "Image 6"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_1.jpg",
-      alt: "Image 7"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-3"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/img_5.jpg",
-      alt: "Image 8"
-    }
-  })])])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)]), _vm._v(" "), _c("swiper", {
-    staticClass: "swiper",
-    attrs: {
-      options: _vm.swiperOption
-    }
-  }, [_c("swiper-slide", [_c("div", {
-    staticClass: "swiper-zoom-container"
-  }, [_c("img", {
-    attrs: {
-      width: "100%",
-      src: _vm.$asseturl + "assets/image/img_1.jpg"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "social-container"
-  }, [_c("div", {
-    staticClass: "d-flex flex-column"
-  }, [_c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "text-container"
-  }, [_c("p", {
-    staticClass: "banner-details p-2 rounded-4 text-center"
-  }, [_vm._v("\n              সপ্তাহে ১৫ মিনিটের রেডিও অনুষ্ঠান দিয়ে যাত্রা শুরু করে বিবিসি\n              ওয়ার্ল্ড সার্ভিসের বাংলা বিভাগ। এখন প্রতিদিন মোট এক ঘণ্টার\n              সংবাদ ও সাময়িক প্রসঙ্গের অনুষ্ঠান প্রচারিত হয়, যেখানে থাকে\n              সংবাদ এবং লাইভ ফোন-ইন অনুষ্ঠান।\n              "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n              অফারটি পেতে নিচের বাটনে ক্লিক করুন\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "text-center"
-  }, [_c("button", {
-    staticClass: "border-0 click-btn rounded p-2"
-  }, [_vm._v("\n                এখানে ক্লিক করুন\n              ")])])])])]), _vm._v(" "), _c("swiper-slide", [_c("div", {
-    staticClass: "swiper-zoom-container"
-  }, [_c("img", {
-    attrs: {
-      width: "100%",
-      src: _vm.$asseturl + "assets/image/img_2.jpg"
+  }, [_vm._v("পুথি প্রকাশের বই")]), _vm._v(" "), _c("hr", {
+    staticClass: "mx-auto hr-1"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-flex gap-2"
+  }, [_c("div", {
+    staticClass: "position-relative"
+  }, [_c("div", {
+    staticStyle: {
+      "background-color": "#ebeff2"
     }
-  })])]), _vm._v(" "), _c("swiper-slide", [_c("div", {
-    staticClass: "swiper-zoom-container"
-  }, [_c("img", {
+  }, [_c("p", {
+    staticClass: "booktitle"
+  }, [_vm._v("পাঠ্যবই")]), _vm._v(" "), _c("img", {
+    staticClass: "img-fluid px-4 py-5",
     attrs: {
-      width: "100%",
-      src: _vm.$asseturl + "assets/image/img_3.jpg"
+      src: _vm.$asseturl + "assets/image/book-img-work.png",
+      alt: "",
+      srcset: ""
     }
   })])]), _vm._v(" "), _c("div", {
-    staticClass: "swiper-pagination swiper-pagination-white",
+    staticClass: "position-relative"
+  }, [_c("div", {
+    staticStyle: {
+      "background-color": "#ebeff2"
+    }
+  }, [_c("p", {
+    staticClass: "booktitle"
+  }, [_vm._v("পাঠ্যবই")]), _vm._v(" "), _c("img", {
+    staticClass: "img-fluid px-4 py-5",
     attrs: {
-      slot: "pagination"
-    },
-    slot: "pagination"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "swiper-button-prev",
+      src: _vm.$asseturl + "assets/image/book-img-work.png",
+      alt: "",
+      srcset: ""
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "position-relative"
+  }, [_c("div", {
+    staticStyle: {
+      "background-color": "#ebeff2"
+    }
+  }, [_c("p", {
+    staticClass: "booktitle"
+  }, [_vm._v("পাঠ্যবই")]), _vm._v(" "), _c("img", {
+    staticClass: "img-fluid px-4 py-5",
     attrs: {
-      slot: "button-prev"
-    },
-    slot: "button-prev"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "swiper-button-next",
+      src: _vm.$asseturl + "assets/image/book-img-work.png",
+      alt: "",
+      srcset: ""
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "position-relative"
+  }, [_c("div", {
+    staticStyle: {
+      "background-color": "#ebeff2"
+    }
+  }, [_c("p", {
+    staticClass: "booktitle"
+  }, [_vm._v("পাঠ্যবই")]), _vm._v(" "), _c("img", {
+    staticClass: "img-fluid px-4 py-5",
     attrs: {
-      slot: "button-next"
-    },
-    slot: "button-next"
-  })], 1)], 1);
+      src: _vm.$asseturl + "assets/image/book-img-work.png",
+      alt: "",
+      srcset: ""
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "position-relative"
+  }, [_c("div", {
+    staticStyle: {
+      "background-color": "#ebeff2"
+    }
+  }, [_c("p", {
+    staticClass: "booktitle"
+  }, [_vm._v("পাঠ্যবই")]), _vm._v(" "), _c("img", {
+    staticClass: "img-fluid px-4 py-5",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/book-img-work.png",
+      alt: "",
+      srcset: ""
+    }
+  })])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("section", {
-    staticClass: "w-100 container"
-  }, [_c("div", {
-    staticClass: "row my-5 py-2"
-  }, [_c("div", {
-    staticClass: "col-md-6"
-  }, [_c("h3", [_vm._v("আমাদের সম্পর্কে")]), _vm._v(" "), _c("h4", [_vm._v("\n            সপ্তাহে ১৫ মিনিটের রেডিও অনুষ্ঠান দিয়ে যাত্রা শুরু করে বিবিসি\n            ওয়ার্ল্ড সার্ভিসের বাংলা বিভাগ। এখন প্রতিদিন মোট এক ঘণ্টার সংবাদ\n            ও সাময়িক প্রসঙ্গের অনুষ্ঠান প্রচারিত হয়, যেখানে থাকে সংবাদ, নানা\n            ধরনের ম্যাগাজিন, শ্রোতাদের চিঠিপত্রের আয়োজন এবং লাইভ ফোন-ইন\n            অনুষ্ঠান।\n          ")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6"
-  }, [_c("p", [_vm._v("\n            রেডিও-টিভির পর বিবিসি নিউজ বাংলা যোগ দিয়েছে ডিজিটাল ভুবনে। বিবিসি\n            বাংলার অনলাইন সাইট, ফেসবুক পেজ আর ইউটিউব চ্যানেল প্রতিদিন পরিবেশন\n            করছে বিভিন্ন রকমের খবর, বিশ্লেষণ আর শিক্ষণীয় প্রতিবেদন, অডিও\n            ভিডিও এবং টেক্সট ফরম্যাটে। বিবিসি নিউজ বাংলা থেকে প্রচারিত উন্নত\n            মানের ও বিশ্বাসযোগ্য পরিবেশনা বাংলাদেশ ও ভারত ছাড়াও মধ্যপ্রাচ্য,\n            দূরপ্রাচ্য, আমেরিকা এবং ইয়োরোপের বহু শ্রোতা এখন ইন্টারনেটের\n            মাধ্যমে শোনেন, পড়েন এবং দেখেন। বিবিসি নিউজ বাংলার কর্মকাণ্ড\n            পরিচালিত হয় লন্ডনে নিউ ব্রডকাস্টিং হাউজের সদর দপ্তর থেকে। ঢাকা,\n            দিল্লি এবং কলকাতায় আমাদের নিজস্ব ব্যুরোতে কর্মরত সংবাদদাতারা\n            ছাড়াও লন্ডনে বিবিসি অফিসে কাজ করছেন একদল সাংবাদিক/প্রযোজক।\n          ")]), _vm._v(" "), _c("button", {
-    staticClass: "bg-white border border-dark fs-5 p-3 px-5 text-secondary"
-  }, [_vm._v("\n            বিস্তারিত\n          ")])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "carousel-control-prev",
-    attrs: {
-      type: "button",
-      "data-bs-target": "#myCarousel",
-      "data-bs-slide": "prev"
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-angle-left fs-1 fw-bold me-auto text-dark"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "visually-hidden"
-  }, [_vm._v("Previous")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "carousel-control-next",
-    attrs: {
-      type: "button",
-      "data-bs-target": "#myCarousel",
-      "data-bs-slide": "next"
-    }
-  }, [_c("i", {
-    staticClass: "fa-angle-right fa-solid fs-1 fw-bold ms-auto text-dark"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "visually-hidden"
-  }, [_vm._v("Next")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "py-3 text-end w-100 pe-3"
-  }, [_c("h4", {
-    staticClass: "d-inline"
-  }, [_vm._v("\n          আমাদের কার্যসমূহ সম্পর্কে বিশদ ধারণা পেতে ক্লিক করুন\n        ")]), _vm._v(" "), _c("button", {
-    staticClass: "btn-details d-inline px-4 py-2 ms-3"
-  }, [_vm._v("বিস্তারিত")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("section", {
-    staticClass: "container"
-  }, [_c("h2", {
-    staticClass: "mt-3 text-center"
-  }, [_vm._v("নতুন সংস্করণ")]), _vm._v(" "), _c("p", {
-    staticClass: "mx-auto text-center"
-  }, [_vm._v("\n        জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে\n        সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে\n        প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য\n        হাতে মুঠো বেঁধে। মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির\n        ভূরিব্যয়ের পালা শেষ হয়ে এসেছে।\n      ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "row container mx-auto"
-  }, [_c("div", {
-    staticClass: "col-6 col-lg-2"
-  }, [_c("div", {
-    staticClass: "card-body position-relative"
-  }, [_c("div", {
-    staticClass: "overlay position-absolute"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "text-white text-center position-absolute book-badge"
-  }, [_vm._v("গল্প ")]), _vm._v(" "), _c("img", {
-    staticClass: "img-fluid book-cover",
-    attrs: {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm33lv0W92j2lTEfjP-AkuRKY1z7vPlKfYbQ&usqp=CAU",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("p", {
-    staticClass: "book-name mb-0"
-  }, [_vm._v("ফক্সি জাম্প")]), _vm._v(" "), _c("p", {
-    staticClass: "book-version mb-0"
-  }, [_vm._v("সংঙ্করণ-১")]), _vm._v(" "), _c("p", {
-    staticClass: "book-price mb-0"
-  }, [_vm._v("১০০ টাকা")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-lg-2"
-  }, [_c("div", {
-    staticClass: "card-body position-relative"
-  }, [_c("div", {
-    staticClass: "overlay position-absolute"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "text-white text-center position-absolute book-badge"
-  }, [_vm._v("গল্প ")]), _vm._v(" "), _c("img", {
-    staticClass: "img-fluid book-cover",
-    attrs: {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm33lv0W92j2lTEfjP-AkuRKY1z7vPlKfYbQ&usqp=CAU",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("p", {
-    staticClass: "book-name mb-0"
-  }, [_vm._v("ফক্সি জাম্প")]), _vm._v(" "), _c("p", {
-    staticClass: "book-version mb-0"
-  }, [_vm._v("সংঙ্করণ-১")]), _vm._v(" "), _c("p", {
-    staticClass: "book-price mb-0"
-  }, [_vm._v("১০০ টাকা")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-lg-4 text-center"
-  }, [_c("div", {
-    staticClass: "card-body position-relative"
-  }, [_c("div", {
-    staticClass: "overlay position-absolute"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "text-white text-center position-absolute book-badge2"
-  }, [_vm._v("গল্প ")]), _vm._v(" "), _c("img", {
-    staticClass: "img-fluid book-cover",
-    attrs: {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm33lv0W92j2lTEfjP-AkuRKY1z7vPlKfYbQ&usqp=CAU",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("p", {
-    staticClass: "book-name mb-0"
-  }, [_vm._v("ফক্সি জাম্প")]), _vm._v(" "), _c("p", {
-    staticClass: "book-version mb-0"
-  }, [_vm._v("সংঙ্করণ-১")]), _vm._v(" "), _c("p", {
-    staticClass: "book-price mb-0"
-  }, [_vm._v("১০০ টাকা")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-lg-2"
-  }, [_c("div", {
-    staticClass: "card-body position-relative"
-  }, [_c("div", {
-    staticClass: "overlay position-absolute"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "text-white text-center position-absolute book-badge"
-  }, [_vm._v("গল্প ")]), _vm._v(" "), _c("img", {
-    staticClass: "img-fluid book-cover",
-    attrs: {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm33lv0W92j2lTEfjP-AkuRKY1z7vPlKfYbQ&usqp=CAU",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("p", {
-    staticClass: "book-name mb-0"
-  }, [_vm._v("ফক্সি জাম্প")]), _vm._v(" "), _c("p", {
-    staticClass: "book-version mb-0"
-  }, [_vm._v("সংঙ্করণ-১")]), _vm._v(" "), _c("p", {
-    staticClass: "book-price mb-0"
-  }, [_vm._v("১০০ টাকা")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-lg-2"
-  }, [_c("div", {
-    staticClass: "card-body position-relative"
-  }, [_c("div", {
-    staticClass: "overlay position-absolute"
-  }), _vm._v(" "), _c("p", {
-    staticClass: "text-white text-center position-absolute book-badge"
-  }, [_vm._v("গল্প ")]), _vm._v(" "), _c("img", {
-    staticClass: "img-fluid book-cover",
-    attrs: {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm33lv0W92j2lTEfjP-AkuRKY1z7vPlKfYbQ&usqp=CAU",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("p", {
-    staticClass: "book-name mb-0"
-  }, [_vm._v("ফক্সি জাম্প")]), _vm._v(" "), _c("p", {
-    staticClass: "book-version mb-0"
-  }, [_vm._v("সংঙ্করণ-১")]), _vm._v(" "), _c("p", {
-    staticClass: "book-price mb-0"
-  }, [_vm._v("১০০ টাকা")])])])])]);
+    staticClass: "container w-75 mx-auto my-5"
+  }, [_c("div", [_vm._v("\n         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ipsum\n         asperiores, eligendi, velit aliquid dolorum doloribus quis eveniet\n         adipisci inventore, dolor sapiente odio maiores laborum natus ut!\n         Odio, assumenda atque. Lorem ipsum dolor sit amet consectetur\n         adipisicing elit. Doloribus necessitatibus magni consequuntur suscipit\n         aut tenetur. Quas maxime quaerat ipsa eaque beatae excepturi quod?\n         Unde magnam quasi nesciunt? Quas, nobis aliquam?\n       ")])]);
 }];
 render._withStripped = true;
 
@@ -3306,9 +3107,145 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=template&id=597ba4ca&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=template&id=597ba4ca& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("footer", [_c("div", {
+    attrs: {
+      id: "footer"
+    }
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "fWrapper mt-lg-4"
+  }, [_c("div", {
+    staticClass: "col-lg-12 col-md-12 col-sm-12"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-3"
+  }, [_c("div", {
+    staticClass: "footer_logo"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.$asseturl + "assets/image/logo (1).png",
+      alt: "",
+      width: "200px"
+    }
+  })]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "copyright"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "title_footer"
+  }, [_c("h5", [_vm._v("copyright@2023 puthiprokash. All Right Reserved")]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: _vm.$asseturl + "assets/images/bkash.png",
+      alt: ""
+    }
+  })])])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "ftext pt-3"
+  }, [_c("p", [_vm._v("I have been working with WordPress for 5+ years. I have extensive knowledge in developing a wordpress site ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-lg-6"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "fborder"
+  }, [_c("h2", [_vm._v("গুরুত্বপূর্ণ লিঙ্ক")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "fborder2"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6 col-lg-6 col-md-6 col-sm-6"
+  }, [_c("h2", [_vm._v("আমাদের সম্পর্কে")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-lg-6 col-md-6 col-sm-6"
+  }, [_c("h2", [_vm._v("রেজিস্ট্রেশন")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "fborder2"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6 col-lg-6 col-md-6 col-sm-6"
+  }, [_c("h2", [_vm._v("যোগাযোগ")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-lg-6 col-md-6 col-sm-6"
+  }, [_c("h2", [_vm._v("ডাউনলোড")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-lg-3"
+  }, [_c("div", {
+    staticClass: "fborder"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _c("div", {
+    staticClass: "shareIcon"
+  }, [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fa-brands fa-facebook text-secondary"
+  })]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fa-brands fa-youtube text-secondary"
+  })]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fa-brands fa-whatsapp text-secondary"
+  })]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fa-sharp fa-regular fa-envelope text-secondary"
+  })]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fa-brands fa-square-instagram text-secondary"
+  })])])])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -3322,9 +3259,11 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("header", {
-    staticClass: "top-header"
+    staticStyle: {
+      "background-color": "#ced9df"
+    }
   }, [_c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-body-tertiary"
+    staticClass: "navbar navbar-expand-lg container p-0 mt-0"
   }, [_c("div", {
     staticClass: "container-fluid"
   }, [_c("a", {
@@ -3333,66 +3272,187 @@ var render = function render() {
       href: "#"
     }
   }, [_c("img", {
+    staticClass: "puthi-logo",
     attrs: {
-      src: _vm.$asseturl + "assets/image/logo.png",
+      src: _vm.$asseturl + "assets/image//logo.png",
       alt: "",
-      srcset: ""
+      srcset: "",
+      width: "180px"
     }
   })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse navbar-collapse",
+    attrs: {
+      id: "navbarNavDropdown"
+    }
+  }, [_c("ul", {
+    staticClass: "navbar-nav ms-auto justify-content-end align-items-center"
+  }, [_c("li", {
+    staticClass: "nav-item"
+  }, [_c("a", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      "aria-current": "page",
+      href: "#"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.$asseturl + "assets/image/cart-icon.png",
+      alt: "",
+      srcset: "",
+      width: "50px"
+    }
+  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("li", {
+    staticClass: "nav-item dropdown dark-bars px-3 py-2",
+    on: {
+      click: _vm.level1Submenu
+    }
+  }, [_vm._m(5), _vm._v(" "), _vm._m(6)])])])])])]), _vm._v(" "), _vm.submenu1 ? _c("section", {
+    staticClass: "mt-4",
+    staticStyle: {
+      "background-color": "#CED9DF"
+    }
+  }, [_c("nav", {
+    staticClass: "navbar navbar-expand-lg d-flex justify-content-center p-0"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_vm._m(7), _vm._v(" "), _c("div", {
     staticClass: "collapse navbar-collapse",
     attrs: {
       id: "navbarNavAltMarkup"
     }
   }, [_c("div", {
-    staticClass: "navbar-nav ms-auto"
+    staticClass: "navbar-nav justify-content-between w-100"
   }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark my-auto",
-    attrs: {
-      "aria-current": "page",
-      href: "#"
-    }
-  }, [_vm._v("যোগাযোগ")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark",
+    staticClass: "fs-5 nav-link text-dark",
     attrs: {
       href: "#"
     }
-  }, [_c("img", {
-    staticClass: "cart-icon",
+  }, [_vm._v("হোম")]), _vm._v(" "), _c("a", {
+    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
     attrs: {
-      src: _vm.$asseturl + "assets/image/cart-icon.png",
-      alt: "",
-      srcset: ""
+      href: "#"
     }
-  })])])])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("div", {
-    staticClass: "max-width-search-nav mx-auto"
-  }, [_c("div", {
-    staticClass: "position-relative"
-  }, [_c("input", {
-    staticClass: "border-0 my-2 p-1 shadow-lg text-center w-100 py-2 pl-5",
+  }, [_vm._v("লেখক")]), _vm._v(" "), _c("a", {
+    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
     attrs: {
-      type: "search",
-      placeholder: "আপনার কাঙ্খিত বইটি খুঁজে বের করুন",
-      id: ""
+      href: "#"
     }
-  }), _vm._v(" "), _c("i", {
-    staticClass: "position-absolute",
-    staticStyle: {
-      right: "-12px",
-      top: "7px"
-    }
-  }, [_c("img", {
-    staticClass: "search-icon",
+  }, [_vm._v("পুথিপ্রকাশের বই")]), _vm._v(" "), _c("a", {
+    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
     attrs: {
-      src: _vm.$asseturl + "assets/image/search.png",
-      draggable: "false",
-      alt: "",
-      srcset: ""
+      href: "#"
+    },
+    on: {
+      click: _vm.level2Submenu
     }
-  })])])])]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _c("footer")], 2);
+  }, [_vm._v("বিষয়")]), _vm._v(" "), _c("a", {
+    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("মাল্টিমিডিয়া")])])])])])]) : _vm._e(), _vm._v(" "), _vm.submenu1 && _vm.submenu2 ? _c("section", {
+    staticClass: "px-2"
+  }, [_vm._m(8)]) : _vm._e()]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "navbar-toggler",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#navbarNavDropdown",
+      "aria-controls": "navbarNavDropdown",
+      "aria-expanded": "false",
+      "aria-label": "Toggle navigation"
+    }
+  }, [_c("span", {
+    staticClass: "navbar-toggler-icon"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "border-3 border-start border-white nav-item px-2"
+  }, [_c("a", {
+    staticClass: "fw-light my-choice fs-5 nav-link text-dark px-3 py-2 shadow text-dark",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("আমার পছন্দ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "border-3 border-start border-white nav-item px-2"
+  }, [_c("a", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("রেজিস্টার")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "border-3 border-start border-white nav-item px-2"
+  }, [_c("a", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("সাইন ইন\n                  "), _c("i", {
+    staticClass: "fa-sharp fa-regular fa-arrow-right-to-arc"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "border-3 border-start border-white nav-item px-2"
+  }, [_c("a", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("অনুসন্ধান "), _c("i", {
+    staticClass: "fa-solid fa-magnifying-glass"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("span", {
+    staticClass: "nav-link text-dark dropdown-toggle text-white",
+    attrs: {
+      role: "button",
+      "data-bs-toggle": "dropdown",
+      "aria-expanded": "false"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-bars fs-3"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("ul", {
+    staticClass: "dropdown-menu dropdown-menu-end"
+  }, [_c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Menu Item 1")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Menu Item 2")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Menu Item 3")])])]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("button", {
@@ -3411,210 +3471,81 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "border-left-right d-flex flex-column my-auto px-2"
-  }, [_c("a", {
-    staticClass: "text-decoration-none font-size14px my-0 py-0 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("লগিন\n            ")]), _vm._v(" "), _c("a", {
-    staticClass: "font-size14px my-0 text-decoration-none py-0 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("রেজিস্টার")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("nav", {
-    staticClass: "navbar navbar-expand-md navbar-light",
-    staticStyle: {
-      "background-color": "#cbcbcb"
-    }
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_c("button", {
-    staticClass: "mb-2 navbar-toggler",
-    attrs: {
-      type: "button",
-      "data-bs-toggle": "collapse",
-      "data-bs-target": "#navbarNav",
-      "aria-controls": "navbarNav",
-      "aria-expanded": "false",
-      "aria-label": "Toggle navigation"
-    }
-  }, [_c("span", {
-    staticClass: "navbar-toggler-icon"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse justify-content-center",
-    attrs: {
-      id: "navbarNav"
-    }
-  }, [_c("ul", {
-    staticClass: "navbar-nav max-width-search-nav"
-  }, [_c("li", {
-    staticClass: "nav-item"
-  }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 home px-3",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("হোম ")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item px-2"
-  }, [_c("a", {
-    staticClass: "active-link mx-1 nav-link pb-1 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("নতুন প্রকাশ")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item px-2"
-  }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("বই ঘর")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item px-2"
-  }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("কিডস জোন")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item px-2"
-  }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("লেখক")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item px-2"
-  }, [_c("a", {
-    staticClass: "mx-1 nav-link pb-1 text-dark",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("মাল্টিমিডিয়া")])])])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "carousel slide",
-    attrs: {
-      id: "carouselExample"
-    }
-  }, [_c("div", {
-    staticClass: "carousel-inner"
-  }, [_c("div", {
-    staticClass: "carousel-item active position-relative border-0"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      alt: "...",
-      height: "400px"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "social-container"
-  }, [_c("div", {
-    staticClass: "d-flex flex-column"
-  }, [_c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "text-container"
-  }, [_c("p", {
-    staticClass: "banner-details p-2 rounded-4 text-center"
-  }, [_vm._v("\n            সপ্তাহে ১৫ মিনিটের রেডিও অনুষ্ঠান দিয়ে যাত্রা শুরু করে বিবিসি\n            ওয়ার্ল্ড সার্ভিসের বাংলা বিভাগ। এখন প্রতিদিন মোট এক ঘণ্টার\n            সংবাদ ও সাময়িক প্রসঙ্গের অনুষ্ঠান প্রচারিত হয়, যেখানে থাকে\n            সংবাদ এবং লাইভ ফোন-ইন অনুষ্ঠান।\n            "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n            অফারটি পেতে নিচের বাটনে ক্লিক করুন\n          ")]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("button", {
-    staticClass: "border-0 click-btn rounded p-2"
-  }, [_vm._v("\n              এখানে ক্লিক করুন\n            ")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "carousel-item"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: "https://images.unsplash.com/photo-1414124488080-0188dcbb8834?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      alt: "...",
-      height: "400px"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "social-container"
-  }, [_c("div", {
-    staticClass: "d-flex flex-column"
-  }, [_c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "text-container"
-  }, [_c("p", {
-    staticClass: "banner-details p-2 rounded-4 text-center"
-  }, [_vm._v("\n            সপ্তাহে ১৫ মিনিটের রেডিও অনুষ্ঠান দিয়ে যাত্রা শুরু করে বিবিসি\n            ওয়ার্ল্ড সার্ভিসের বাংলা বিভাগ। এখন প্রতিদিন মোট এক ঘণ্টার\n            সংবাদ ও সাময়িক প্রসঙ্গের অনুষ্ঠান প্রচারিত হয়, যেখানে থাকে\n            সংবাদ এবং লাইভ ফোন-ইন অনুষ্ঠান।\n            "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n            অফারটি পেতে নিচের বাটনে ক্লিক করুন\n          ")]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("button", {
-    staticClass: "border-0 click-btn rounded p-2"
-  }, [_vm._v("\n              এখানে ক্লিক করুন\n            ")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "carousel-item"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: "https://images.unsplash.com/photo-1466386460451-cbc548bf581b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      alt: "...",
-      height: "400px"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "social-container"
-  }, [_c("div", {
-    staticClass: "d-flex flex-column"
-  }, [_c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-facebook fs-4 px-2 py-1 fa-facebook"
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "text-container"
-  }, [_c("p", {
-    staticClass: "banner-details p-2 rounded-4 text-center"
-  }, [_vm._v("\n            সপ্তাহে ১৫ মিনিটের রেডিও অনুষ্ঠান দিয়ে যাত্রা শুরু করে বিবিসি\n            ওয়ার্ল্ড সার্ভিসের বাংলা বিভাগ। এখন প্রতিদিন মোট এক ঘণ্টার\n            সংবাদ ও সাময়িক প্রসঙ্গের অনুষ্ঠান প্রচারিত হয়, যেখানে থাকে\n            সংবাদ এবং লাইভ ফোন-ইন অনুষ্ঠান।\n            "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n            অফারটি পেতে নিচের বাটনে ক্লিক করুন\n          ")]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("button", {
-    staticClass: "border-0 click-btn rounded p-2"
-  }, [_vm._v("\n              এখানে ক্লিক করুন\n            ")])])])])]), _vm._v(" "), _c("button", {
-    staticClass: "carousel-control-next",
-    attrs: {
-      type: "button",
-      "data-bs-target": "#carouselExample",
-      "data-bs-slide": "next"
-    }
-  }, [_c("span", {
-    staticClass: "carousel-control-next-icon",
-    attrs: {
-      "aria-hidden": "true"
-    }
-  }), _vm._v(" "), _c("span", {
-    staticClass: "visually-hidden"
-  }, [_vm._v("Next")])])]);
+  return _c("table", {
+    staticClass: "table mb-0"
+  }, [_c("tbody", [_c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")]), _vm._v(" "), _c("td", {
+    staticClass: "table-data"
+  }, [_vm._v("ভাষা ও সাহিত্য")])])])]);
 }];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=template&id=597ba4ca&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/layout.vue?vue&type=template&id=597ba4ca& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("Headercomponent"), _vm._v(" "), _vm._t("default"), _vm._v(" "), _c("Footercomponent")], 2);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -22765,7 +22696,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nsection.vh-100[data-v-2a1c1b9c] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\n.divider[data-v-2a1c1b9c]:before {\n    content: \"\";\n    flex: 1;\n    height: 1px;\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\n*[data-v-2a1c1b9c]:focus {\n    outline: none;\n}\n\n/* .form{\n  width: 500px;\n  margin: 0 auto;\n  margin-top: 150px;\n  font-family: sans-serif;\n  background: #fff\n} */\n.form-item[data-v-2a1c1b9c] {\n    position: relative;\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\n    display: block;\n    width: 100%;\n    height: 40px;\n    background: transparent;\n    border: solid 1px #ccc;\n    transition: all 0.3s ease;\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\n    position: absolute;\n    cursor: text;\n    z-index: 2;\n    top: 13px;\n    left: 10px;\n    font-size: 12px;\n    font-weight: bold;\n    background: #fff;\n    padding: 0 10px;\n    color: #999;\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\n.form-item input:valid+label[data-v-2a1c1b9c] {\n    font-size: 11px;\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\n    width: 370px !important;\n    margin: 0 auto;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\n    height: 100vh;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection.vh-100[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\r\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\r\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\r\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\r\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\r\n.divider[data-v-2a1c1b9c]:before {\r\n    content: \"\";\r\n    flex: 1;\r\n    height: 1px;\r\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\r\n*[data-v-2a1c1b9c]:focus {\r\n    outline: none;\n}\r\n\r\n/* .form{\r\n  width: 500px;\r\n  margin: 0 auto;\r\n  margin-top: 150px;\r\n  font-family: sans-serif;\r\n  background: #fff\r\n} */\n.form-item[data-v-2a1c1b9c] {\r\n    position: relative;\r\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    background: transparent;\r\n    border: solid 1px #ccc;\r\n    transition: all 0.3s ease;\r\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\r\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    cursor: text;\r\n    z-index: 2;\r\n    top: 13px;\r\n    left: 10px;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    background: #fff;\r\n    padding: 0 10px;\r\n    color: #999;\r\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\r\n.form-item input:valid+label[data-v-2a1c1b9c] {\r\n    font-size: 11px;\r\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\r\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\r\n    width: 370px !important;\r\n    margin: 0 auto;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\r\n    height: 100vh;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50751,6 +50682,82 @@ component.options.__file = "resources/js/frontend/components/layouts/blank.vue"
 
 /***/ }),
 
+/***/ "./resources/js/frontend/components/layouts/footer.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/frontend/components/layouts/footer.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.vue?vue&type=template&id=cc6a828a& */ "./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/frontend/components/layouts/footer.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/components/layouts/header.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/frontend/components/layouts/header.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.vue?vue&type=template&id=8a05baa6& */ "./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6&");
+/* harmony import */ var _header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header.vue?vue&type=script&lang=js& */ "./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/frontend/components/layouts/header.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/frontend/components/layouts/layout.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/frontend/components/layouts/layout.vue ***!
@@ -50886,6 +50893,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/frontend/components/layouts/layout.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************!*\
   !*** ./resources/js/frontend/components/layouts/layout.vue?vue&type=script&lang=js& ***!
@@ -51017,6 +51040,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_blank_vue_vue_type_template_id_1a063ce4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_blank_vue_vue_type_template_id_1a063ce4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./blank.vue?vue&type=template&id=1a063ce4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/blank.vue?vue&type=template&id=1a063ce4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_cc6a828a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./footer.vue?vue&type=template&id=cc6a828a& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/footer.vue?vue&type=template&id=cc6a828a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_8a05baa6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=template&id=8a05baa6& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/frontend/components/layouts/header.vue?vue&type=template&id=8a05baa6&");
 
 
 /***/ }),

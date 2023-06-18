@@ -24,6 +24,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
 
     <!-- Bootstrap CSS v5.2.1 -->

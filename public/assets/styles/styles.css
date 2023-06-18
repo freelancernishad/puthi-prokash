@@ -91,10 +91,35 @@ div#footer {
 }
 
 .table-data {
-  border-left: 4px solid #ced9df;
-  border-bottom: 2px solid #ffa29f;
+  border-left: 5px solid #ced9df;
+  border-bottom: 2px solid #FFD5CE;
+  color: #000;
 }
 
 .category-book-details {
   color: #8d8d8d;
+}
+
+.hoverMenu {
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  background: #f7f7f7;
+  border: none;
+  margin-top: 0;
+  padding-top: 0px;
+}
+
+
+#hoverMenu {
+  display: none;
+}
+/* --------- */
+
+p.mb-0.position-absolute.pre-view {
+  top: -67px;
+  right: -28px;
+  border-radius: 50%;
+  background: #E0E564;
+  padding: 15px;
+  color: black;
+  clip-path: polygon(50% 2%, 79% 13%, 94% 34%, 96% 66%, 80% 90%, 50% 100%, 20% 90%, 4% 68%, 3% 36%, 22% 11%);
 }

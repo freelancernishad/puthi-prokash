@@ -41,36 +41,44 @@
 
     <div class="row ">
         <div class="col-md-3">
-            <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
-           <div class="category-book-details text-center w-75">
-            <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
-            <p class="mb-0">Price : 150</p>
-            <p class="mb-0">Regular Price : 200</p>
-           </div>
+            <router-link to="/product/single/1" class="text-decoration-none">
+                <img :src="$asseturl+'assets/image/pre-view.png'" alt="" width="200px"  srcset="" class="my-3 shadow">
+                <div class="category-book-details text-center w-75">
+                <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
+                <p class="mb-0">Price : 150</p>
+                <p class="mb-0">Regular Price : 200</p>
+            </div>
+            </router-link>
         </div>
         <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
             <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
            <div class="category-book-details text-center w-75">
             <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
             <p class="mb-0">Price : 150</p>
             <p class="mb-0">Regular Price : 200</p>
            </div>
+            </router-link>
         </div>
         <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
             <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
            <div class="category-book-details text-center w-75">
             <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
             <p class="mb-0">Price : 150</p>
             <p class="mb-0">Regular Price : 200</p>
            </div>
+            </router-link>
         </div>
         <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
             <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
            <div class="category-book-details text-center w-75">
             <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
             <p class="mb-0">Price : 150</p>
             <p class="mb-0">Regular Price : 200</p>
            </div>
+            </router-link>
         </div>
 
         <a class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark" href="">পরবর্তী  <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></a>
@@ -84,36 +92,44 @@
 
     <div class="row ">
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
 
       <a class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark" href="">পরবর্তী  <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></a>
@@ -126,36 +142,44 @@
 
     <div class="row">
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
       <div class="col-md-3">
+            <router-link to="/product/single/1" class="text-decoration-none">
           <img :src="$asseturl+'assets/image/pre-view.png'" alt=""width="200px"  srcset="" class="my-3 shadow">
          <div class="category-book-details text-center w-75">
           <p class="mb-0 fs-5 text-dark">এসো বাংলা শিখি</p>
           <p class="mb-0">Price : 150</p>
           <p class="mb-0">Regular Price : 200</p>
          </div>
+            </router-link>
       </div>
 
       <a class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark" href="">পরবর্তী  <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></a>

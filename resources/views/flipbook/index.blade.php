@@ -289,7 +289,28 @@ div#middleBooksMenu2 {
 .headerRight{
     display:none;
 }
+
+
+
+
+p.bookMenuList {
+    position: absolute;
+    left: calc(1% + 250px);
+    transform: rotate(-90deg);
+    margin: 0;
+    padding: 7px 13px;
+    top: calc(15% + 19px);
+    background: #4596c5;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+
+
 @media  (min-width: 768px){
+
     .page.even:after {
     content: '';
     position: absolute;
@@ -311,6 +332,9 @@ div#middleBooksMenu2 {
 }
 }
 @media  (max-width: 768px){
+    .bookMenuList{
+        display: none;
+    }
     .mobileNav{
         display: block;
     }
@@ -398,6 +422,7 @@ div#middleBooksMenu2 {
 
           <div class="mobileMiddleMenu">
 
+
                 @php
                 $i2 = 1;
                 @endphp
@@ -422,7 +447,8 @@ div#middleBooksMenu2 {
               <div class="aspect-inner">
 
 
-                <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
+                  <p class="bookMenuList" id="bookMenuList" onclick="sidemenuButton()" style="display: none">সূচি পত্র</p>
+                  <div class="flipbook" id="flipbook" style="margin: 0 auto !important">
                     @foreach ($flipping_books as $item)
                     <div class="page">
                       <img class="sliderimage" src="{{ asset($item->image) }}"  draggable="false" alt="" />
@@ -558,7 +584,7 @@ var swiper = new Swiper(".mySwiper", {
     });
     function clicksideMenuItem(id){
       flipToPage(id)
- 
+
             sidemenuButton()
 
     }
@@ -717,11 +743,19 @@ var zoomValue = 1;
 
   $("#flipbook").bind("turning", (event, page, view)=> {
 
+    console.log(page)
     var windowWidth = $(window).width();
     if(windowWidth<768){
         $("#tfPageIndex").html(view[0]+'/'+totalPages);
       }else{
         $("#tfPageIndex").html(view[0]+'-'+view[1]+'/'+totalPages);
+    }
+    if(currentPage==1){
+        document.getElementById('bookMenuList').style.display= `none`;
+
+    }else{
+
+        document.getElementById('bookMenuList').style.display= `block`;
     }
 
   });
@@ -730,6 +764,7 @@ var zoomValue = 1;
 
   function flipToPage(pageNumber) {
     if (pageNumber < 1 || pageNumber > totalPages || flipping) {
+
       return;
     }
 
@@ -737,7 +772,7 @@ var zoomValue = 1;
 
 
     $("#tfPageIndex").html('0-1'+'/'+totalPages);
-
+    document.getElementById('bookMenuList').style.display= `none`;
 
 
     $(".swiper-slide").removeClass("active");
@@ -778,6 +813,28 @@ var zoomValue = 1;
 
   function turnEx(){
     var windowWidth = $(window).width();
+
+
+    if(windowWidth<769){
+
+        document.getElementById('bookMenuList').style.left= `calc(1% + 27px)`;
+    }else if(windowWidth<1025){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 86px)`;
+    }else if(windowWidth<1314){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 228px)`;
+    }else if(windowWidth<1341){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 242px)`;
+    }else if(windowWidth<1361){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 250px)`;
+    }else if(windowWidth<1441){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 290px)`;
+
+    }else if(windowWidth<2561){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 840px)`;
+
+    }
+
+
 
 
 //   if(windowWidth<800){
@@ -824,6 +881,7 @@ if(windowWidth<401){
         autoCenter: true,
       });
     }else if(windowWidth<961){
+
       $('#flipbook').turn('options', {
         direction:'ltr',
         width: 600,
@@ -841,7 +899,12 @@ if(windowWidth<401){
 
   turnEx();
   window.addEventListener("resize", () => {
+
     turnEx();
+
+
+
+
   });
 
 

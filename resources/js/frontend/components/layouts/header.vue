@@ -61,7 +61,7 @@
 
 
 
-        <header class="" style="background-color: #ced9df">
+        <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
       <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: 63px;">
         <div class="container-fluid" style="padding-right:0px !important;">
           <router-link class="navbar-brand" to="/">
@@ -252,6 +252,8 @@ export default {
         return {
             submenu1:false,
             submenu2:false,
+            isFixed: false,
+            lastScrollPosition: 0
         }
     },
     watch: {
@@ -276,8 +278,21 @@ export default {
             }else{
                 this.submenu2 = false
             }
+        },
+        handleScroll() {
+            const header = document.querySelector('.header');
+      const rect = header.getBoundingClientRect();
+      console.log(rect)
+      this.isFixed = rect.top <= 0;
         }
+
     },
+    mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
 }
 </script>
 
@@ -307,6 +322,11 @@ li.submenu1 {
     width: 100%;
 }
 
-
+header.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
 
 </style>

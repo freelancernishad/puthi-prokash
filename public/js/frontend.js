@@ -2344,7 +2344,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       submenu1: false,
-      submenu2: false
+      submenu2: false,
+      isFixed: false,
+      lastScrollPosition: 0
     };
   },
   watch: {
@@ -2384,7 +2386,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else {
         this.submenu2 = false;
       }
+    },
+    handleScroll: function handleScroll() {
+      var header = document.querySelector('.header');
+      var rect = header.getBoundingClientRect();
+      console.log(rect);
+      this.isFixed = rect.top <= 0;
     }
+  },
+  mounted: function mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount: function beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 });
 
@@ -3405,6 +3419,10 @@ var render = function render() {
       alt: ""
     }
   })]), _vm._v(" "), _c("header", {
+    staticClass: "header",
+    "class": {
+      "fixed-header": _vm.isFixed
+    },
     staticStyle: {
       "background-color": "#ced9df"
     }
@@ -25660,7 +25678,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1.submenuhave a[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    width: 100%;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1.submenuhave a[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    width: 100%;\n}\nheader.fixed-header[data-v-8a05baa6] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

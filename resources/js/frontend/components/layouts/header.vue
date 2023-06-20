@@ -1,8 +1,14 @@
 <template>
     <div>
+
+        
+
+
+
+
         <header class="" style="background-color: #ced9df">
-      <nav class="navbar navbar-expand-lg container p-0 mt-0" style="    height: 63px;">
-        <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: 63px;">
+        <div class="container-fluid" style="padding-right:0px !important;">
           <router-link class="navbar-brand" to="/">
             <img
               :src="$asseturl+'assets/image//logo.png'"

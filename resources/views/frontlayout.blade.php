@@ -48,7 +48,15 @@
 *{
     --defaultColor: green;
 }
-
+ol#carousel-1___BV_indicators_ li {
+    background: white;
+    margin: 3px 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}ol#carousel-1___BV_indicators_ li.active {
+    background: #F05D41;
+}
 </style>
 
 
@@ -82,7 +90,7 @@
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.0') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.1') }}" async ></script>
 
 <script>
 

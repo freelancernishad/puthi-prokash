@@ -8,9 +8,12 @@ Vue.component('swiper', Swiper)
 Vue.component('swiper-slide', SwiperSlide)
 
 
-import { BButton, BModal,VBModal  } from 'bootstrap-vue'
+import { BButton, BModal,VBModal,BCarousel,BCarouselSlide,CarouselPlugin  } from 'bootstrap-vue'
+Vue.use(CarouselPlugin)
 Vue.component('b-modal', BModal)
 Vue.component('b-button', BButton)
+Vue.component('b-carousel', BCarousel)
+Vue.component('b-carousel-slide', BCarouselSlide)
 
 
 

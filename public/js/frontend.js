@@ -2388,10 +2388,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     handleScroll: function handleScroll() {
-      var header = document.querySelector('.header');
-      var rect = header.getBoundingClientRect();
-      console.log(rect);
-      this.isFixed = rect.top <= 0;
+      var scrollPosition = window.pageYOffset;
+      this.isFixed = scrollPosition === 0;
     }
   },
   mounted: function mounted() {

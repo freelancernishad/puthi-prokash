@@ -280,8 +280,21 @@ export default {
             }
         },
         handleScroll() {
+            const header = this.$el.querySelector('.header');
+            const rect = header.getBoundingClientRect();
+            const headerOffsetTop = rect.top + window.pageYOffset;
+            console.log(headerOffsetTop)
             const scrollPosition = window.pageYOffset;
-            this.isFixed = scrollPosition === 0;
+            if(scrollPosition >= headerOffsetTop){
+
+                this.isFixed = scrollPosition >= headerOffsetTop;
+            }else{
+                this.isFixed = false;
+
+            }
+
+
+
         }
 
     },

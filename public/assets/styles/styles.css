@@ -48,7 +48,7 @@ span.nav-link::after {
 .fborder2 h2 {
   font-size: 18px;
   line-height: 44px;
-  font-weight: 700;
+
 }
 .fmiddle {
   display: flex;
@@ -60,11 +60,9 @@ span.nav-link::after {
 
 .fborder h2 {
   border-bottom: 2px solid #ffa29f;
-  font-weight: 700;
+
 }
-.fborder h5 {
-  font-weight: 700;
-}
+
 .fborder2 {
   border-bottom: 2px solid #000;
 }

@@ -3020,7 +3020,7 @@ var render = function render() {
   }, [_vm._v("পুথি প্রকাশের বই")]), _vm._v(" "), _c("hr", {
     staticClass: "mx-auto hr-1"
   }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex gap-2"
+    staticClass: "d-flex justify-content-center flex-wrap gap-2"
   }, [_c("div", {
     staticClass: "position-relative"
   }, [_c("div", {
@@ -3211,10 +3211,16 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("footer", [_c("div", {
+    staticStyle: {
+      "background-image": "url('/assets/image/border.png')",
+      "background-repeat": "no-repeat",
+      "background-position": "top",
+      "background-size": "contain"
+    },
     attrs: {
       id: "footer"
     }
-  }, [_c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "fWrapper mt-lg-4"
@@ -3228,11 +3234,11 @@ var render = function render() {
     staticClass: "footer_logo"
   }, [_c("img", {
     attrs: {
-      src: _vm.$asseturl + "assets/image/logo (1).png",
+      src: _vm.$asseturl + "assets/image//logo.png",
       alt: "",
       width: "200px"
     }
-  })]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])])])])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])])]), _vm._v(" "), _c("div", {
     staticClass: "copyright"
   }, [_c("div", {
     staticClass: "container"
@@ -3251,8 +3257,52 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "bg-white my-2"
+  }, [_c("div", {
+    staticClass: "container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5"
+  }, [_c("div", {
+    staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
+  }, [_c("span", [_vm._v("অনুসরন করুনঃ ")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex fs-5 gap-3 text-secondary"
+  }, [_c("i", {
+    staticClass: "fa-brands fa-square-facebook"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-brands fa-twitter"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-brands fa-instagram"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-brands fa-youtube"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-brands fa-pinterest"
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
+  }, [_c("span", [_vm._v("যোগাযোগঃ")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex fs-5 gap-3 text-secondary"
+  }, [_c("i", {
+    staticClass: "fa-sharp fa-solid fa-envelope"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-brands fa-square-whatsapp"
+  })])]), _vm._v(" "), _c("div", [_c("span", {
+    staticClass: "fs-5"
+  }, [_vm._v("আমাদের অন্যান্য প্রতিষ্ঠানঃ Bloomy")])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "ftext pt-3"
-  }, [_c("p", [_vm._v("I have been working with WordPress for 5+ years. I have extensive knowledge in developing a wordpress site ")])]);
+  }, [_c("div", {
+    staticClass: "align-items-center d-flex"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-quote-left fs-1 text-secondary"
+  }), _vm._v(" "), _c("span", {
+    staticClass: "fs-5 ms-2 mt-2"
+  }, [_vm._v("আমাদের কথাঃ")])]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Error exercitationem eum necessitatibus ")]), _vm._v(" "), _c("div", {
+    staticClass: "text-end text-secondary"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-quote-right fs-1"
+  })])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -3348,54 +3398,13 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("div", {
     staticClass: "mainHeadSlider"
-  }, [_c("b-carousel", {
+  }, [_c("img", {
     attrs: {
-      id: "carousel-1",
-      fade: "",
-      interval: 4000,
-      controls: "",
-      indicators: "",
-      background: "#ababab",
-      "img-width": "1024",
-      "img-height": "480"
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/Banner.gif",
+      alt: ""
     }
-  }, [_c("b-carousel-slide", {
-    attrs: {
-      caption: "First slide",
-      text: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
-      "img-src": "https://picsum.photos/1024/480/?image=52"
-    }
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      "img-src": "https://picsum.photos/1024/480/?image=54"
-    }
-  }, [_c("h1", [_vm._v("Hello world!")])]), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      "img-src": "https://picsum.photos/1024/480/?image=58"
-    }
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    scopedSlots: _vm._u([{
-      key: "img",
-      fn: function fn() {
-        return [_c("img", {
-          staticClass: "d-block img-fluid w-100",
-          attrs: {
-            width: "1024",
-            height: "480",
-            src: "https://picsum.photos/1024/480/?image=55",
-            alt: "image slot"
-          }
-        })];
-      },
-      proxy: true
-    }])
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      caption: "Blank Image",
-      "img-blank": "",
-      "img-alt": "Blank image"
-    }
-  }, [_c("p", [_vm._v("\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt\n          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.\n        ")])])], 1)], 1), _vm._v(" "), _c("header", {
+  })]), _vm._v(" "), _c("header", {
     staticStyle: {
       "background-color": "#ced9df"
     }

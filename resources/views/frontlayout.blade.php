@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/bangladesh-govt.png') }}" />
 
 
-    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.0') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
 
@@ -90,7 +90,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.1') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.10') }}" async ></script>
 
 <script>
 

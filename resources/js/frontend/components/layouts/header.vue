@@ -52,7 +52,7 @@
 
 
 
-        <img width="100%" :src="$asseturl+'assets/image/Banner_Comp.gif'" alt="">
+        <img  v-if="homePage" width="100%" :src="$asseturl+'assets/image/Banner_Comp.gif'" alt="">
 
 
 
@@ -299,6 +299,7 @@
 export default {
     data() {
         return {
+            homePage:true,
             submenu1:false,
             submenu2:false,
             submenu3:false,
@@ -312,6 +313,19 @@ export default {
               this.submenu1 = false
               this.submenu2 = false
               this.submenu3 = false
+
+
+
+
+      if(this.$router.history.current.path=='/'){
+        this.homePage = true;
+
+      }else{
+        this.homePage = false
+      }
+
+
+
 
         }
     },
@@ -372,7 +386,6 @@ export default {
 
             const scrollPosition = window.pageYOffset;
             if(mainHeadSliderOffsetTop>0){
-              console.log('ssss')
                 this.isFixed = false;
             }else if(scrollPosition >= headerOffsetTop){
 
@@ -392,6 +405,15 @@ export default {
     },
     mounted() {
     window.addEventListener('scroll', this.handleScroll);
+
+      if(this.$router.history.current.path=='/'){
+        this.homePage = true;
+
+      }else{
+        this.homePage = false
+      }
+
+
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);

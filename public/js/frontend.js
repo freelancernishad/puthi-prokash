@@ -2387,6 +2387,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      homePage: true,
       submenu1: false,
       submenu2: false,
       submenu3: false,
@@ -2405,7 +2406,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.submenu1 = false;
                 this.submenu2 = false;
                 this.submenu3 = false;
-              case 3:
+                if (this.$router.history.current.path == '/') {
+                  this.homePage = true;
+                } else {
+                  this.homePage = false;
+                }
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2462,7 +2468,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var headerOffsetTop = rect.top + window.pageYOffset;
       var scrollPosition = window.pageYOffset;
       if (mainHeadSliderOffsetTop > 0) {
-        console.log('ssss');
         this.isFixed = false;
       } else if (scrollPosition >= headerOffsetTop) {
         this.isFixed = scrollPosition >= headerOffsetTop;
@@ -2471,6 +2476,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    if (this.$router.history.current.path == '/') {
+      this.homePage = true;
+    } else {
+      this.homePage = false;
+    }
   },
   beforeUnmount: function beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -3186,7 +3196,7 @@ var render = function render() {
       srcset: ""
     }
   })])])])]), _vm._v(" "), _c("section", {
-    style: "padding: 99px 0px;background: url(".concat(_vm.$asseturl, "assets/image/uddomSection.jpg);background-size: cover;")
+    style: "padding: 55px 0px;background: url(".concat(_vm.$asseturl, "assets/image/uddomSection.jpg);background-size: cover;")
   }, [_vm._m(1)])]);
 };
 var staticRenderFns = [function () {
@@ -3329,34 +3339,20 @@ var render = function render() {
       alt: "",
       width: "200px"
     }
-  })]), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-3"
-  }, [_c("div", {
-    staticClass: "fborder"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-lg-12"
-  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("img", {
-    staticStyle: {
-      margin: "0 auto"
-    },
-    attrs: {
-      width: "100%",
-      src: _vm.$asseturl + "assets/image/payment_baner.jpg",
-      alt: ""
-    }
-  })])])])])])])])])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])])]), _vm._v(" "), _c("div", {
     staticClass: "copyright"
   }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "title_footer"
-  }, [_c("h5", [_vm._v("copyright@2023 puthiprokash. All Right Reserved")]), _vm._v(" "), _c("img", {
+    staticClass: "title_footer pb-2"
+  }, [_c("h5", {
+    staticClass: "mb-0"
+  }, [_vm._v("copyright@2023 puthiprokash. All Right Reserved")]), _vm._v(" "), _c("img", {
     attrs: {
-      src: _vm.$asseturl + "assets/images/bkash.png",
+      width: "170px",
+      src: _vm.$asseturl + "assets/image/payment_baner.jpg",
       alt: ""
     }
   })])])])])]), _vm._v(" "), _c("div", {
@@ -3461,6 +3457,14 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "col-lg-3"
+  }, [_c("div", {
+    staticClass: "fborder"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _c("div", {
     staticClass: "shareIcon"
   }, [_c("a", {
     attrs: {
@@ -3492,7 +3496,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa-brands fa-square-instagram text-secondary linkHover"
-  })])]);
+  })])])])])])]);
 }];
 render._withStripped = true;
 
@@ -3516,13 +3520,13 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("div", {
     staticClass: "mainHeadSlider"
-  }, [_c("img", {
+  }, [_vm.homePage ? _c("img", {
     attrs: {
       width: "100%",
       src: _vm.$asseturl + "assets/image/Banner_Comp.gif",
       alt: ""
     }
-  })]), _vm._v(" "), _c("header", {
+  }) : _vm._e()]), _vm._v(" "), _c("header", {
     staticClass: "header",
     "class": {
       "fixed-header": _vm.isFixed
@@ -25923,7 +25927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\r\n    width: 240px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\n    width: 240px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25947,7 +25951,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.3s, visibility 0.3s;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n\n/* Add any additional styles as needed */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.3s, visibility 0.3s;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n\n/* Add any additional styles as needed */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

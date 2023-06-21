@@ -95,7 +95,7 @@
                     <a href="#"><i class="fa-sharp fa-regular fa-envelope text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-brands fa-square-instagram text-secondary linkHover"></i></a>
                   </div>
-                  <img width="100%" style="margin:0 auto" :src="$asseturl+'assets/image/payment_baner.jpg'" alt=""/>
+                  <!-- <img width="100%" style="margin:0 auto" :src="$asseturl+'assets/image/payment_baner.jpg'" alt=""/> -->
                 </div>
               </div>
             </div>
@@ -110,8 +110,8 @@
 <div class="copyright">
   <div class="container">
     <div class="row">
-      <div class="title_footer">
-        <h5>copyright@2023 puthiprokash. All Right Reserved</h5> <img :src="$asseturl+'assets/images/bkash.png'" alt="">
+      <div class="title_footer pb-2">
+        <h5 class="mb-0">copyright@2023 puthiprokash. All Right Reserved</h5> <img width="170px" :src="$asseturl+'assets/image/payment_baner.jpg'" alt="">
       </div>
     </div>
   </div>
@@ -188,6 +188,13 @@ export default {
 
 .scroll-top-btn i {
   font-size: 20px;
+}
+
+.title_footer {
+    display: flex;
+    justify-content: center;
+    grid-gap: 12px;
+    align-items: center;
 }
 
 /* Add any additional styles as needed */

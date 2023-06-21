@@ -71,8 +71,9 @@ span.nav-link::after {
 }
 div#footer {
   background-color: #ced9df;
-  padding-top: 20px;
+  padding-top: 85px;
   margin-top: 0px;
+  padding-bottom: 45px;
 }
 .copyright {
   background: #f25c43;

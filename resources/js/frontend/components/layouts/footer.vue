@@ -4,10 +4,7 @@
 
 
 <footer>
-
-<div id="footer"
-  style="background-repeat: no-repeat;background-position: top;background-size:contain;">
-  <div class="bg-white my-2 ">
+    <div class="bg-white my-2 ">
     <div class="container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5">
       <div class="align-items-center  d-flex flex-wrap fs-5 gap-2 ">
         <span>অনুসরন করুনঃ </span>
@@ -32,14 +29,17 @@
       </div>
     </div>
   </div>
+<div id="footer"
+  style="background-repeat: no-repeat;background-position: top;background-size:contain;">
+
   <div class="container">
     <div class="fWrapper mt-lg-4">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
           <div class="col-lg-3">
-            <div class="footer_logo">
+            <router-link to="/" class="footer_logo">
               <img :src="$asseturl+'assets/image/logo.png'" alt="" width="200px">
-            </div>
+            </router-link>
             <div class="ftext pt-3">
               <div class="align-items-center d-flex"> <i class="fa-solid fa-quote-left fs-1 text-secondary"></i>
                 <span class="fs-5 ms-2 mt-2">আমাদের কথাঃ</span>

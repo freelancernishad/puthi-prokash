@@ -110,7 +110,7 @@
                 <a class="fs-5 nav-link text-dark" href="javascript:void(0)">ভাষা</a>
 
                 <ul class="DownItems list-unstyled">
-                    <li>বাংল</li>
+                    <li>বাংলা</li>
                     <li>English</li>
                 </ul>
 
@@ -125,8 +125,8 @@
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
                 ></a>
               </li>
-              <li class="border-3 border-start border-white nav-item px-2">
-                <a class="fs-5 nav-link text-dark" href="#"
+              <li class="border-3 border-start border-white nav-item px-2" @click="MainSearchFun">
+                <a class="fs-5 nav-link text-dark" href="javascript:void(0)"
                   >অনুসন্ধান <i class="fa-solid fa-magnifying-glass"></i
                 ></a>
               </li>
@@ -142,6 +142,18 @@
           </div>
         </div>
       </nav>
+
+
+      <section class="container" v-if="MainSearch">
+        <div class="mainSearchBox d-flex">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" class="book-search-input">
+          <button type="button" class="book-search-button"><i class="fa-regular fa-magnifying-glass"></i></button>
+        </div>
+
+      </section>
+
+
+
 
 
       <section style="background-color: #CED9DF" class="mt-4" v-if="submenu1">
@@ -291,6 +303,7 @@ export default {
             submenu2:false,
             submenu3:false,
             isFixed: false,
+            MainSearch: false,
             lastScrollPosition: 0
         }
     },
@@ -329,6 +342,13 @@ export default {
             }else{
                 this.submenu3 = false
                 this.submenu2 = false
+            }
+        },
+        MainSearchFun(){
+            if(this.MainSearch==false){
+                this.MainSearch = true
+            }else{
+                this.MainSearch = false
             }
         },
         handleScroll() {
@@ -433,6 +453,7 @@ ul.DownItems {
     background: wheat;
     width: 111px;
     display: none;
+    z-index: 999;
 }
 li.DropItem:hover .DownItems {
     display: block;
@@ -446,6 +467,43 @@ ul.DownItems li {
 
 ul.DownItems li:hover {
     background: #f5c263;
+}
+
+
+
+.mainSearchBox{
+  display: flex!important;
+    box-shadow: 0px 0px 16px -3px #0000008a;
+    background: white;
+    margin: 11px auto;
+    padding: 2px 3px;
+    width: 50%;
+
+}
+input.book-search-input {
+    width: 90%;
+    /* margin: 6px 0px; */
+    padding: 8px 6px;
+    border: 0px solid #F05C41;
+    border-right: 0px;
+    background: transparent;
+}
+
+button.book-search-button {
+    width: 10%;
+    /* margin: 6px 0; */
+    background: transparent;
+    border: 0px solid #F05C41;
+    border-left: 0px;
+    position:  relative;
+}
+
+i.fa-regular.fa-magnifying-glass {
+    position: absolute;
+    top: 3px;
+    right: -7px;
+    font-size: 45px;
+    color: #c4614f;
 }
 
 </style>

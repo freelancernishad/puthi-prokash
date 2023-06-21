@@ -51,5 +51,8 @@ export default {
 .linkHover:hover{
     color: #F05C41 !important;
 }
+input:focus{
+    outline: none;
+}
 
 </style>

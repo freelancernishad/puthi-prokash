@@ -6,25 +6,25 @@
 <footer>
 
 <div id="footer"
-  style="background-image: url('/assets/image/border.png');background-repeat: no-repeat;background-position: top;background-size:contain;">
+  style="background-repeat: no-repeat;background-position: top;background-size:contain;">
   <div class="bg-white my-2 ">
     <div class="container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5">
       <div class="align-items-center  d-flex flex-wrap fs-5 gap-2 ">
         <span>অনুসরন করুনঃ </span>
         <div class="d-flex fs-5 gap-3 text-secondary">
-          <i class="fa-brands fa-square-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-youtube"></i>
-          <i class="fa-brands fa-pinterest"></i>
+          <i class="fa-brands fa-square-facebook linkHover"></i>
+          <i class="fa-brands fa-twitter linkHover"></i>
+          <i class="fa-brands fa-instagram linkHover"></i>
+          <i class="fa-brands fa-youtube linkHover"></i>
+          <i class="fa-brands fa-pinterest linkHover"></i>
         </div>
       </div>
 
       <div class="align-items-center d-flex flex-wrap fs-5 gap-2">
         <span>যোগাযোগঃ</span>
-        <div class="d-flex fs-5 gap-3 text-secondary">
-          <i class="fa-sharp fa-solid fa-envelope"></i>
-          <i class="fa-brands fa-square-whatsapp"></i>
+        <div class="d-flex fs-5 gap-3 text-secondary linkHover">
+          <i class="fa-sharp fa-solid fa-envelope linkHover"></i>
+          <i class="fa-brands fa-square-whatsapp linkHover"></i>
         </div>
       </div>
       <div>
@@ -62,20 +62,20 @@
             <div class="fborder2">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2>আমাদের সম্পর্কে</h2>
+                  <h2 class="linkHover">আমাদের সম্পর্কে</h2>
                 </div>
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2>রেজিস্ট্রেশন</h2>
+                  <h2 class="linkHover">রেজিস্ট্রেশন</h2>
                 </div>
               </div>
             </div>
             <div class="fborder2">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2>যোগাযোগ</h2>
+                  <h2 class="linkHover">যোগাযোগ</h2>
                 </div>
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2>ডাউনলোড</h2>
+                  <h2 class="linkHover">ডাউনলোড</h2>
                 </div>
               </div>
             </div>
@@ -89,11 +89,11 @@
                   <h5>ঢাকা- ১২১৭</h5>
                   <h5>Phone: +8800000000000</h5>
                   <div class="shareIcon">
-                    <a href="#"><i class="fa-brands fa-facebook text-secondary"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube text-secondary"></i></i></a>
-                    <a href="#"><i class="fa-brands fa-whatsapp text-secondary"></i></i></a>
-                    <a href="#"><i class="fa-sharp fa-regular fa-envelope text-secondary"></i></i></a>
-                    <a href="#"><i class="fa-brands fa-square-instagram text-secondary"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook text-secondary linkHover"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube text-secondary linkHover"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp text-secondary linkHover"></i></a>
+                    <a href="#"><i class="fa-sharp fa-regular fa-envelope text-secondary linkHover"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram text-secondary linkHover"></i></a>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@
 </div>
   </footer>
 <div class="scroll-top-btn" :class="{ 'show': isScrolled }" @click="scrollToTop">
-      <i class="fas fa-chevron-up"></i>
+      <i class="fas fa-chevron-up linkHover"></i>
     </div>
 </div>
 </template>

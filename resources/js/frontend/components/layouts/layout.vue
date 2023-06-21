@@ -42,3 +42,14 @@ export default {
     }
 }
 </script>
+<style>
+
+.linkHover{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.linkHover:hover{
+    color: #F05C41 !important;
+}
+
+</style>

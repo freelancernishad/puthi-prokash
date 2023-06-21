@@ -17,7 +17,7 @@
         <hr class="mx-auto  hr-1" />
 
         <div class="d-flex justify-content-center flex-wrap gap-2">
-          <div class="position-relative">
+          <div class="position-relative homeBooks">
             <div style="background-color: #ebeff2">
               <p class="booktitle">পাঠ্যবই</p>
               <img
@@ -28,7 +28,7 @@
               />
             </div>
           </div>
-          <div class="position-relative">
+          <div class="position-relative homeBooks">
             <div style="background-color: #ebeff2">
               <p class="booktitle">পাঠ্যবই</p>
               <img
@@ -39,7 +39,7 @@
               />
             </div>
           </div>
-          <div class="position-relative">
+          <div class="position-relative homeBooks">
             <div style="background-color: #ebeff2">
               <p class="booktitle">পাঠ্যবই</p>
               <img
@@ -50,7 +50,7 @@
               />
             </div>
           </div>
-          <div class="position-relative">
+          <div class="position-relative homeBooks">
             <div style="background-color: #ebeff2">
               <p class="booktitle">পাঠ্যবই</p>
               <img
@@ -61,7 +61,7 @@
               />
             </div>
           </div>
-          <div class="position-relative">
+          <div class="position-relative homeBooks">
             <div style="background-color: #ebeff2">
               <p class="booktitle">পাঠ্যবই</p>
               <img
@@ -77,12 +77,12 @@
 
 
 
-      <section style="background-color: #88A4B2;">
+      <section style="background-color: #88A4B2;    padding: 99px 0;">
       <div
-        style="background-image: url('https://i.ibb.co/k30M9Cb/border.png');background-repeat: no-repeat;background-size:contain;"
+        style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">
-        <h1 class="text-center text-white pt-5"> <span style="font-size: 66px;">বই</span> সর্বোত্তম উপহার</h1>
-        <p class="col-7 mx-auto text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, dolorem!
+        <h1 class="text-center text-white"> <span style="font-size: 66px;">বই</span> সর্বোত্তম উপহার</h1>
+        <p class="col-7 mx-auto text-white" style="padding-bottom: 30px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, dolorem!
           Rem unde
           saepe eos et quas
           obcaecati. Mollitia placeat velit alias ratione porro tempora sequi iusto recusandae ducimus delectus ullam
@@ -174,6 +174,11 @@ export default {
 
 
 
+<style>
 
+.position-relative.homeBooks {
+    width: 240px;
+}
+</style>
 
 

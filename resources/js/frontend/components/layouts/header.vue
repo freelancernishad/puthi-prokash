@@ -52,7 +52,7 @@
 
 
 
-        <img width="100%" :src="$asseturl+'assets/image/Banner-compress.gif'" alt="">
+        <img width="100%" :src="$asseturl+'assets/image/Banner_Comp.gif'" alt="">
 
 
 
@@ -105,6 +105,17 @@
                   >আমার পছন্দ</a
                 >
               </li>
+
+              <li class="border-3 border-start border-white nav-item px-2 position-relative DropItem">
+                <a class="fs-5 nav-link text-dark" href="javascript:void(0)">ভাষা</a>
+
+                <ul class="DownItems list-unstyled">
+                    <li>বাংল</li>
+                    <li>English</li>
+                </ul>
+
+              </li>
+
               <li class="border-3 border-start border-white nav-item px-2">
                 <a class="fs-5 nav-link text-dark" href="#">রেজিস্টার</a>
               </li>
@@ -242,7 +253,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-                <ul class="nav row mt-2">
+                <ul class="nav row mt-2 nav-single">
                     <li class="nav-item  col-12"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
                     <li class="nav-item  col-12"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
                     <li class="nav-item  col-12"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
@@ -408,4 +419,33 @@ header.fixed-header {
     height: 78vh;
     overflow: scroll;
 }
+
+
+.nav-single{
+    width: 25%;
+    margin: 0 auto;
+}
+
+ul.DownItems {
+    position: absolute;
+    top: 63px;
+    left: 0;
+    background: wheat;
+    width: 111px;
+    display: none;
+}
+li.DropItem:hover .DownItems {
+    display: block;
+}
+
+ul.DownItems li {
+    padding: 5px 8px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+ul.DownItems li:hover {
+    background: #f5c263;
+}
+
 </style>

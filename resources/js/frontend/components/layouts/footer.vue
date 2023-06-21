@@ -1,5 +1,7 @@
 <template>
 
+<div>
+
 
 <footer>
 
@@ -112,4 +114,74 @@
   </div>
 </div>
   </footer>
+<div class="scroll-top-btn" :class="{ 'show': isScrolled }" @click="scrollToTop">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+</div>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      isScrolled: false
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const scrollPosition = window.pageYOffset;
+      this.isScrolled = scrollPosition > 0;
+    },
+    scrollToTop() {
+      const scrollDuration = 500; // Adjust this value for the desired scroll duration
+      const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+      const scrollInterval = setInterval(() => {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 15);
+    }
+  }
+};
+</script>
+
+<style>
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn i {
+  font-size: 20px;
+}
+
+/* Add any additional styles as needed */
+</style>

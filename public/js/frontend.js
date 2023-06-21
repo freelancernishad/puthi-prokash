@@ -3348,11 +3348,14 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "title_footer pb-2"
   }, [_c("h5", {
-    staticClass: "mb-0"
+    staticClass: "mb-0",
+    staticStyle: {
+      "font-size": "14px"
+    }
   }, [_vm._v("copyright@2023 puthiprokash. All Right Reserved")]), _vm._v(" "), _c("img", {
     attrs: {
-      width: "170px",
-      src: _vm.$asseturl + "assets/image/payment_baner.jpg",
+      width: "200px",
+      src: _vm.$asseturl + "assets/image/payment_banner.png",
       alt: ""
     }
   })])])])])]), _vm._v(" "), _c("div", {

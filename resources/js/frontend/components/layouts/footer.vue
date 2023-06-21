@@ -111,7 +111,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0">copyright@2023 puthiprokash. All Right Reserved</h5> <img width="170px" :src="$asseturl+'assets/image/payment_baner.jpg'" alt="">
+        <h5 class="mb-0" style="font-size: 14px;">copyright@2023 puthiprokash. All Right Reserved</h5> <img width="200px" :src="$asseturl+'assets/image/payment_banner.png'" alt="">
       </div>
     </div>
   </div>

@@ -3177,7 +3177,9 @@ var render = function render() {
       alt: "",
       srcset: ""
     }
-  })])])])]), _vm._v(" "), _vm._m(1)]);
+  })])])])]), _vm._v(" "), _c("section", {
+    style: "padding: 99px 0px;background: url(".concat(_vm.$asseturl, "assets/image/uddomSection.jpg);background-size: cover;")
+  }, [_vm._m(1)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3188,12 +3190,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", {
-    staticStyle: {
-      "background-color": "#88A4B2",
-      padding: "99px 0"
-    }
-  }, [_c("div", {
+  return _c("div", {
     staticClass: "py-3",
     staticStyle: {
       "background-repeat": "no-repeat",
@@ -3249,7 +3246,7 @@ var staticRenderFns = [function () {
     staticClass: "border border-dark btn fs-5 px-4 rounded-0 text-white"
   }, [_vm._v("শিশুতোষ")]), _vm._v(" "), _c("button", {
     staticClass: "border border-dark btn fs-5 px-4 rounded-0 text-white"
-  }, [_vm._v("শিশুতোষ")])])])])]);
+  }, [_vm._v("শিশুতোষ")])])])]);
 }];
 render._withStripped = true;
 
@@ -3317,11 +3314,28 @@ var render = function render() {
     staticClass: "footer_logo"
   }, [_c("img", {
     attrs: {
-      src: _vm.$asseturl + "assets/image//logo.png",
+      src: _vm.$asseturl + "assets/image/logo.png",
       alt: "",
       width: "200px"
     }
-  })]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3"
+  }, [_c("div", {
+    staticClass: "fborder"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("img", {
+    staticStyle: {
+      margin: "0 auto"
+    },
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/payment_baner.jpg",
+      alt: ""
+    }
+  })])])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "copyright"
   }, [_c("div", {
     staticClass: "container"
@@ -3436,14 +3450,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "col-lg-3"
-  }, [_c("div", {
-    staticClass: "fborder"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-lg-12"
-  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _c("div", {
     staticClass: "shareIcon"
   }, [_c("a", {
     attrs: {
@@ -3475,7 +3481,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa-brands fa-square-instagram text-secondary linkHover"
-  })])])])])])]);
+  })])]);
 }];
 render._withStripped = true;
 

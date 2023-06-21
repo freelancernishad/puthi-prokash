@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="footer_logo">
-              <img :src="$asseturl+'assets/image//logo.png'" alt="" width="200px">
+              <img :src="$asseturl+'assets/image/logo.png'" alt="" width="200px">
             </div>
             <div class="ftext pt-3">
               <div class="align-items-center d-flex"> <i class="fa-solid fa-quote-left fs-1 text-secondary"></i>
@@ -95,6 +95,7 @@
                     <a href="#"><i class="fa-sharp fa-regular fa-envelope text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-brands fa-square-instagram text-secondary linkHover"></i></a>
                   </div>
+                  <img width="100%" style="margin:0 auto" :src="$asseturl+'assets/image/payment_baner.jpg'" alt=""/>
                 </div>
               </div>
             </div>
@@ -104,6 +105,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="copyright">
   <div class="container">
     <div class="row">
@@ -113,6 +116,10 @@
     </div>
   </div>
 </div>
+
+
+
+
   </footer>
 <div class="scroll-top-btn" :class="{ 'show': isScrolled }" @click="scrollToTop">
       <i class="fas fa-chevron-up linkHover"></i>

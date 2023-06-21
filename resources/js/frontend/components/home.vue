@@ -77,7 +77,7 @@
 
 
 
-      <section style="background-color: #88A4B2;    padding: 99px 0;">
+      <section :style="`padding: 99px 0px;background: url(${$asseturl}assets/image/uddomSection.jpg);background-size: cover;`">
       <div
         style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">

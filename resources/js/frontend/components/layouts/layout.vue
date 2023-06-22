@@ -54,5 +54,8 @@ export default {
 input:focus{
     outline: none;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 
 </style>

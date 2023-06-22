@@ -168,7 +168,7 @@
                     <a class="fs-5 nav-link text-dark" href="#">হোম</a>
                   </li>
                   <li class="submenu1">
-                  <a class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" href="#">লেখক</a>
+                  <router-link class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" :to="{name:'writer'}">লেখক</router-link>
 
                   <li class="submenu1 submenuhave">
                     <a class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" @click="level3Submenu" href="javascript:void(0)" >পুথিপ্রকাশের বই <i class="fa-light fa-arrow-down-long"></i></a>
@@ -313,6 +313,7 @@ export default {
               this.submenu1 = false
               this.submenu2 = false
               this.submenu3 = false
+              this.isFixed = false;
 
 
 
@@ -369,6 +370,8 @@ export default {
 
 
 
+            if(this.homePage){
+
 
 
             const mainHeadSlider = this.$el.querySelector('.mainHeadSlider');
@@ -392,7 +395,9 @@ export default {
                 this.isFixed = scrollPosition >= headerOffsetTop;
 
             }
-
+        }else{
+            this.isFixed = true;
+        }
 
 
 
@@ -527,5 +532,8 @@ i.fa-regular.fa-magnifying-glass {
     font-size: 45px;
     color: #c4614f;
 }
+
+
+
 
 </style>

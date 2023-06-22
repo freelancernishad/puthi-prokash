@@ -72,7 +72,7 @@
             <div class="fborder2">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2 class="linkHover">যোগাযোগ</h2>
+                  <router-link :to="{name:'contact'}" class="linkHover">যোগাযোগ</router-link>
                 </div>
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                   <h2 class="linkHover">ডাউনলোড</h2>
@@ -135,6 +135,16 @@ export default {
       isScrolled: false
     };
   },
+
+  watch: {
+        '$route': async function (to, from) {
+            this.scrollToTop();
+
+
+
+
+        }
+    },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
   },

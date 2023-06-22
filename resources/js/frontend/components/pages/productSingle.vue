@@ -1,6 +1,6 @@
 <template>
     <main>
-        <section class="container d-md-flex my-5">
+        <section class="container d-md-flex my-5" style="padding-top: 50px;">
             <div class="col-md-3 col-sm-5 col-sm-12">
                 <img src="https://kathaprokash.com/market-admin/images/product/1673087508.png" alt="" srcset="">
             </div>

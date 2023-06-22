@@ -4,6 +4,10 @@
   font-family: "Tiro Bangla", serif;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 span.nav-link::after {
   content: none;
 }
@@ -48,7 +52,17 @@ span.nav-link::after {
 .fborder2 h2 {
   font-size: 18px;
   line-height: 44px;
+}
+.fborder a {
+  font-size: 18px;
+  line-height: 44px;
+  color: black;
 
+}
+.fborder2 a {
+  font-size: 18px;
+  line-height: 44px;
+  color: black;
 }
 .fmiddle {
   display: flex;

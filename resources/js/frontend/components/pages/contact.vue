@@ -10,7 +10,7 @@
         </ol>
       </nav>
 
-        <h3><img src="/assets/image/lore-bg.png" alt="" srcset="" width="50px"/>&nbsp;&nbsp;&nbsp; যোগাযোগ করুন</h3>
+        <h3><img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px"/>&nbsp;&nbsp;&nbsp; যোগাযোগ করুন</h3>
         <p>আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।</p>
 
         <div class="row">

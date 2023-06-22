@@ -5243,17 +5243,24 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", [_c("div", {
     staticClass: "container mt-4",
     staticStyle: {
       "padding-top": "50px"
     }
-  }, [_c("nav", {
+  }, [_vm._m(0), _vm._v(" "), _c("h3", [_c("img", {
+    attrs: {
+      src: _vm.$asseturl + "assets/image/lore-bg.png",
+      alt: "",
+      srcset: "",
+      width: "50px"
+    }
+  }), _vm._v("    যোগাযোগ করুন")]), _vm._v(" "), _c("p", [_vm._v("আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।")]), _vm._v(" "), _vm._m(1)])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("nav", {
     staticStyle: {
       "--bs-breadcrumb-divider": "url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;)"
     },
@@ -5272,14 +5279,11 @@ var staticRenderFns = [function () {
     attrs: {
       "aria-current": "page"
     }
-  }, [_vm._v("যোগাযোগ")])])]), _vm._v(" "), _c("h3", [_c("img", {
-    attrs: {
-      src: "/assets/image/lore-bg.png",
-      alt: "",
-      srcset: "",
-      width: "50px"
-    }
-  }), _vm._v("    যোগাযোগ করুন")]), _vm._v(" "), _c("p", [_vm._v("আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("যোগাযোগ")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-6"
@@ -5384,7 +5388,7 @@ var staticRenderFns = [function () {
       frameborder: "0",
       allowfullscreen: ""
     }
-  })])])])])]);
+  })])])]);
 }];
 render._withStripped = true;
 

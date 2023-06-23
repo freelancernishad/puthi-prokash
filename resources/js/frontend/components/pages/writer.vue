@@ -74,114 +74,114 @@
 
 
 <section class="row w-100 mx-auto gap-3 my-4">
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <!--  -->
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
     <!--  -->
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <!--  -->
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+    </div>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
 
     <!--  -->
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
 
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
-    <div class="col-md-2 mx-auto" style="background-color: #d1d2d4; height: 180px; width: 180px;">
-        <img src="https://thedailynewnation.com/library/1653411575_6.jpg" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">কাজী নজরুল ইসলাম</h5>
+    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
+        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
+        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
     </div>
 </section>
 

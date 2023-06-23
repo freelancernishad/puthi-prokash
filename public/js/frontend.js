@@ -4708,7 +4708,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4725,7 +4725,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4742,7 +4742,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4759,7 +4759,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4776,7 +4776,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4793,7 +4793,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4803,11 +4803,20 @@ var render = function render() {
     staticStyle: {
       "grid-gap": "15px"
     }
-  }, [_vm._m(9), _vm._v(" "), _c("div", [_c("p", {
+  }, [_c("div", [_c("img", {
+    staticStyle: {
+      width: "195px",
+      height: "210px"
+    },
+    attrs: {
+      src: _vm.$asseturl + "assets/image/sample_book.png",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", [_c("p", {
     staticClass: "mb-0"
   }, [_vm._v("Product Code : ")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("বাছাই গল্প")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c("span", {
+  }, [_vm._v("বাছাই গল্প")]), _vm._v(" "), _vm._m(9), _vm._v(" "), _c("span", {
     staticClass: "text-success"
   }, [_vm._v("৫০% ছাড়")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 text-secondary"
@@ -4818,11 +4827,11 @@ var render = function render() {
     }
   }, [_vm._v("Details")]), _vm._v(" "), _c("button", {
     staticClass: "bg-secondary border-0 btn-wishlist my-1 text-nowrap text-white ms-3"
-  }, [_vm._v("Add to\n                                wishlist")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c("br"), _vm._v(" "), _c("button", {
+  }, [_vm._v("Add to\n                                wishlist")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c("br"), _vm._v(" "), _c("button", {
     staticClass: "border-0 my-1 text-nowrap text-white btn-cart"
-  }, [_vm._v("Add to\n                                cart")])], 1)])]) : _vm._e(), _vm._v(" "), _vm._m(12)])]), _vm._v(" "), _c("section", {
+  }, [_vm._v("Add to\n                                cart")])], 1)])]) : _vm._e(), _vm._v(" "), _vm._m(11)])]), _vm._v(" "), _c("section", {
     staticClass: "container mb-3"
-  }, [_vm._m(13), _vm._v(" "), _c("div", {
+  }, [_vm._m(12), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-2 cursor-pointer"
@@ -4831,7 +4840,19 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
+      alt: "",
+      width: "100%",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(13)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 cursor-pointer"
+  }, [_c("div", {
+    staticClass: "text-decoration-none"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4843,7 +4864,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4855,7 +4876,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4867,7 +4888,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4879,26 +4900,14 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
     }
-  }), _vm._v(" "), _vm._m(18)])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 cursor-pointer"
-  }, [_c("div", {
-    staticClass: "text-decoration-none"
-  }, [_c("img", {
-    staticClass: "my-3 shadow",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
-      alt: "",
-      width: "100%",
-      srcset: ""
-    }
-  }), _vm._v(" "), _vm._m(19)])]), _vm._v(" "), _vm._m(20)])]), _vm._v(" "), _c("section", {
+  }), _vm._v(" "), _vm._m(18)])]), _vm._v(" "), _vm._m(19)])]), _vm._v(" "), _c("section", {
     staticClass: "container mb-3"
-  }, [_vm._m(21), _vm._v(" "), _c("div", {
+  }, [_vm._m(20), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-md-2 cursor-pointer"
@@ -4907,7 +4916,19 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
+      alt: "",
+      width: "100%",
+      srcset: ""
+    }
+  }), _vm._v(" "), _vm._m(21)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 cursor-pointer"
+  }, [_c("div", {
+    staticClass: "text-decoration-none"
+  }, [_c("img", {
+    staticClass: "my-3 shadow",
+    attrs: {
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4919,7 +4940,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4931,7 +4952,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4943,7 +4964,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
@@ -4955,24 +4976,12 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "my-3 shadow",
     attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
+      src: _vm.$asseturl + "assets/image/sample_book.png",
       alt: "",
       width: "100%",
       srcset: ""
     }
-  }), _vm._v(" "), _vm._m(26)])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 cursor-pointer"
-  }, [_c("div", {
-    staticClass: "text-decoration-none"
-  }, [_c("img", {
-    staticClass: "my-3 shadow",
-    attrs: {
-      src: _vm.$asseturl + "assets/image/pre-view.png",
-      alt: "",
-      width: "100%",
-      srcset: ""
-    }
-  }), _vm._v(" "), _vm._m(27)])]), _vm._v(" "), _vm._m(28)])])]);
+  }), _vm._v(" "), _vm._m(26)])]), _vm._v(" "), _vm._m(27)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5136,19 +5145,6 @@ var staticRenderFns = [function () {
   }, [_vm._v("Price : 150")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 fs-8 product-lebel-text orgPrice"
   }, [_vm._v("Regular Price : 200")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("img", {
-    staticStyle: {
-      width: "195px",
-      height: "210px"
-    },
-    attrs: {
-      src: "https://images-na.ssl-images-amazon.com/images/I/71+vQyk44IL._AC_UL127_SR127,127_.jpg",
-      alt: ""
-    }
-  })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -5779,7 +5775,425 @@ var render = function render() {
     staticClass: "d-inline fs-2 fw-normal mb-0 me-auto ps-4"
   }, [_vm._v("লেখক")]), _vm._v(" "), _c("p", {
     staticClass: "border-3 border-bottom border-top d-inline fs-4 mb-0 px-4"
-  }, [_vm._v("৬০")])]), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)]);
+  }, [_vm._v("৬০")])]), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("section", {
+    staticClass: "row w-100 mx-auto gap-3 my-4"
+  }, [_c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/man.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-2 mx-auto text-center",
+    staticStyle: {
+      "background-color": "#d1d2d4",
+      width: "180px"
+    }
+  }, [_c("img", {
+    staticClass: "img-fluid mt-1",
+    attrs: {
+      width: "100%",
+      src: _vm.$asseturl + "assets/image/woman.png",
+      alt: "",
+      srcset: ""
+    }
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "fs-6 mt-2 text-end w-100"
+  }, [_vm._v("লেখকের নাম")])])]), _vm._v(" "), _vm._m(3)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6000,428 +6414,6 @@ var staticRenderFns = [function () {
       "background-color": "#D1D2D4"
     }
   }, [_vm._v("z")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("section", {
-    staticClass: "row w-100 mx-auto gap-3 my-4"
-  }, [_c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-2 mx-auto",
-    staticStyle: {
-      "background-color": "#d1d2d4",
-      height: "180px",
-      width: "180px"
-    }
-  }, [_c("img", {
-    staticClass: "img-fluid mt-1",
-    attrs: {
-      src: "https://thedailynewnation.com/library/1653411575_6.jpg",
-      alt: "",
-      srcset: ""
-    }
-  }), _vm._v(" "), _c("h5", {
-    staticClass: "fs-6 mt-2 text-end w-100"
-  }, [_vm._v("কাজী নজরুল ইসলাম")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

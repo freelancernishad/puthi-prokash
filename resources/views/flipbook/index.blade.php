@@ -289,6 +289,9 @@ div#middleBooksMenu2 {
 .headerRight{
     display:none;
 }
+.headerRight2{
+    display:block;
+}
 
 
 
@@ -306,6 +309,14 @@ p.bookMenuList {
     cursor: pointer;
 }
 
+.searchBox:focus{
+    outline: none;
+}
+.searchBox{
+    border: 1px solid #F15C46;
+    padding: 5px 5px;
+    border-radius: 7px;
+}
 
 
 
@@ -347,6 +358,9 @@ p.bookMenuList {
     .headerRight{
         display:block;
     }
+    .headerRight2{
+        display:none;
+    }
 #fbToolBar, .leftArrow , .rightArrow{
     display: none !important;
 }
@@ -366,11 +380,15 @@ p.bookMenuList {
 
         <div class="headerLeft">
           <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
-          <img src="{{ asset('assets/image/logo.jpg') }}" width="100px" alt="">
+          <img src="{{ asset('assets/image/logo.jpg') }}" width="170px" alt="">
         </div>
 
         <div class="headerRight">
           <span onclick="middleMenu2()"><i class="fa-sharp fa-light fa-grid-2"></i></span>
+        </div>
+
+        <div class="headerRight2">
+          Search: <input type="Number" id="searchItem" class="searchBox"> <button onclick="SearchItem()">Go</button>
         </div>
 
 
@@ -692,8 +710,15 @@ var swiper = new Swiper(".mySwiper", {
     }
 
 
-    function firstpage(){
+    function SearchItem(){
+        var element = document.getElementById('searchItem');
+        var pageNo = element.value;
+        flipToPage(pageNo);
+        element.value = "";
 
+    }
+
+    function firstpage(){
       flipToPage(1);
     }
 

@@ -20,10 +20,13 @@
     <div class="col-md-6 d-flex gap-5 py-2">
         <select class="form-select" aria-label="Default select example">
         <option selected>বাছাইয়ের ধরণ</option>
-        <option value="1">  One</option>
 
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="1">  কবি</option>
+        <option value="2">সাহিত্যিক</option>
+        <option value="3">গল্পকার</option>
+        <option value="3">প্রাবন্ধিক</option>
+        <option value="3">জীবন-আদশ</option>
+        <option value="3">ধম</option>
       </select>
     <select class="form-select" aria-label="Default select example">
         <option selected>ফিল্টার </option>
@@ -182,6 +185,24 @@
     </div>
 </section>
 
+<nav aria-label="...">
+  <ul class="pagination  justify-content-center">
+    <li class="page-item disabled">
+      <span class="page-link">Previous</span>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item">
+      <span class="page-link">
+        2
+        <span class="sr-only">(current)</span>
+      </span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
     </main>
 

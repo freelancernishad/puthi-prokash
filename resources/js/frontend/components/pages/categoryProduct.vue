@@ -128,7 +128,7 @@
                         <span class="text-success">৫০% ছাড়</span>
                         <p class="mb-0 text-secondary">Regular Shipping</p>
                         <div>
-                            <button class="border-0 btn-details my-1  text-white">Details</button>
+                            <router-link to="/product/single/1" class="border-0 btn-details my-1  text-white">Details</router-link>
                             <button class="bg-secondary border-0 btn-wishlist my-1 text-nowrap text-white ms-3">Add to
                                 wishlist</button>
 
@@ -369,6 +369,7 @@ export default {
             border-radius: 16px 5px 16px 5px;
             background: #030454;
             width: 100px;
+            padding: 5px 20px;
         }
 
         .btn-wishlist {

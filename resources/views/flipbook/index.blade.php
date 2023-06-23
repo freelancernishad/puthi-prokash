@@ -814,20 +814,30 @@ var zoomValue = 1;
   function turnEx(){
     var windowWidth = $(window).width();
 
+    console.log(windowWidth)
 
     if(windowWidth<769){
 
         document.getElementById('bookMenuList').style.left= `calc(1% + 27px)`;
     }else if(windowWidth<1025){
         document.getElementById('bookMenuList').style.left= `calc(1% + 86px)`;
+    }else if(windowWidth<1193){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 170px)`;
+    }else if(windowWidth<1312){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 228px)`;
     }else if(windowWidth<1314){
         document.getElementById('bookMenuList').style.left= `calc(1% + 228px)`;
     }else if(windowWidth<1341){
         document.getElementById('bookMenuList').style.left= `calc(1% + 242px)`;
     }else if(windowWidth<1361){
         document.getElementById('bookMenuList').style.left= `calc(1% + 250px)`;
+    }else if(windowWidth<1367){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 228px)`;
     }else if(windowWidth<1441){
         document.getElementById('bookMenuList').style.left= `calc(1% + 290px)`;
+
+    }else if(windowWidth<1457){
+        document.getElementById('bookMenuList').style.left= `calc(1% + 300px)`;
 
     }else if(windowWidth<2561){
         document.getElementById('bookMenuList').style.left= `calc(1% + 840px)`;

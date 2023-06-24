@@ -2428,16 +2428,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.submenu1 = false;
                 this.submenu2 = false;
                 this.submenu3 = false;
                 this.isFixed = false;
                 if (this.$router.history.current.path == '/') {
                   this.homePage = true;
+                  this.submenu1 = false;
                 } else {
                   this.homePage = false;
+                  this.submenu1 = true;
                 }
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2508,8 +2509,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     window.addEventListener('scroll', this.handleScroll);
     if (this.$router.history.current.path == '/') {
       this.homePage = true;
+      this.submenu1 = false;
     } else {
       this.homePage = false;
+      this.submenu1 = true;
     }
   },
   beforeUnmount: function beforeUnmount() {
@@ -3611,10 +3614,10 @@ var render = function render() {
     staticStyle: {
       "background-color": "#ced9df"
     }
-  }, [_c("nav", {
+  }, [_vm.homePage ? _c("nav", {
     staticClass: "navbar navbar-expand-lg p-0 mt-0",
     staticStyle: {
-      height: "63px"
+      height: "var(--headerHight)"
     }
   }, [_c("div", {
     staticClass: "container-fluid",
@@ -3651,73 +3654,86 @@ var render = function render() {
     }
   }, [_c("img", {
     attrs: {
-      src: _vm.$asseturl + "assets/image/cart-icon.png",
-      alt: "",
-      srcset: "",
-      width: "50px"
+      width: "35px",
+      src: _vm.$asseturl + "assets/image/cart-icon.png"
     }
-  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("li", {
-    staticClass: "border-3 border-start border-white nav-item px-2",
+  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("li", {
+    staticClass: "border-3 border-start border-white nav-item nav-item-menu",
     on: {
       click: _vm.MainSearchFun
     }
-  }, [_vm._m(5)]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item dark-bars px-3 py-2",
-    on: {
-      click: _vm.level1Submenu
+  }, [_vm._m(4)]), _vm._v(" "), _c("li", {
+    staticClass: "nav-item position-relative DropItem"
+  }, [_vm._m(5), _vm._v(" "), _c("ul", {
+    staticClass: "DownItems list-unstyled"
+  }, [_c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: "/product/cat1"
     }
-  }, [_vm._m(6)])])])], 1)]), _vm._v(" "), _vm.MainSearch ? _c("section", {
+  }, [_vm._v("আমাদের কথা")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: "/writer"
+    }
+  }, [_vm._v("লেখক পরিচিতি")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: "/product/cat1"
+    }
+  }, [_vm._v("একাডেমিক বই")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: "/product/cat1"
+    }
+  }, [_vm._v("সৃজনশীল বই")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: "/product/cat1"
+    }
+  }, [_vm._v("মাল্টিমিডিয়া")])], 1)])])])])], 1)]) : _vm._e(), _vm._v(" "), _vm.MainSearch ? _c("section", {
     staticClass: "container"
-  }, [_vm._m(7)]) : _vm._e(), _vm._v(" "), _vm.submenu1 ? _c("section", {
-    staticClass: "mt-4",
+  }, [_vm._m(6)]) : _vm._e(), _vm._v(" "), _vm.submenu1 ? _c("section", {
     staticStyle: {
-      "background-color": "#CED9DF"
+      "background-color": "#CED9DF",
+      height: "var(--headerHight)"
     }
-  }, [_c("nav", {
-    staticClass: "navbar navbar-expand-lg d-flex justify-content-center p-0"
   }, [_c("div", {
-    staticClass: "container-fluid"
-  }, [_vm._m(8), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
-    attrs: {
-      id: "navbarNavAltMarkup"
-    }
+    staticClass: "container"
   }, [_c("ul", {
-    staticClass: "navbar-nav d-flex justify-content-between w-100"
-  }, [_vm._m(9), _vm._v(" "), _c("li", {
-    staticClass: "submenu1"
+    staticClass: "nav row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5"
+  }, [_c("li", {
+    staticClass: "nav-item col"
   }, [_c("router-link", {
-    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
+    staticClass: "nav-link border-3 border-start border-white text-dark",
     attrs: {
-      to: {
-        name: "writer"
-      }
+      to: "/product/cat1"
     }
-  }, [_vm._v("লেখক")])], 1), _c("li", {
-    staticClass: "submenu1 submenuhave"
+  }, [_vm._v("আমাদের কথা")])], 1), _vm._v(" "), _vm._m(7), _vm._v(" "), _c("li", {
+    staticClass: "nav-item col submenu1 submenuhave"
   }, [_c("a", {
-    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
+    staticClass: "nav-link border-3 border-start border-white text-dark",
     attrs: {
       href: "javascript:void(0)"
     },
     on: {
       click: _vm.level3Submenu
     }
-  }, [_vm._v("পুথিপ্রকাশের বই "), _c("i", {
+  }, [_vm._v("একাডেমিক বই "), _c("i", {
     staticClass: "fa-light fa-arrow-down-long"
   })])]), _vm._v(" "), _c("li", {
-    staticClass: "submenu1 submenuhave"
+    staticClass: "nav-item col submenu1 submenuhave"
   }, [_c("a", {
-    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
+    staticClass: "nav-link border-3 border-start border-white text-dark",
     attrs: {
       href: "javascript:void(0)"
     },
     on: {
       click: _vm.level2Submenu
     }
-  }, [_vm._v("বিষয় "), _c("i", {
+  }, [_vm._v("সৃজনশীল বই "), _c("i", {
     staticClass: "fa-light fa-arrow-down-long"
-  })])]), _vm._v(" "), _vm._m(10)])])])])]) : _vm._e(), _vm._v(" "), _vm.submenu1 && _vm.submenu2 ? _c("div", {
+  })])]), _vm._v(" "), _vm._m(8)])])]) : _vm._e(), _vm._v(" "), _vm.submenu1 && _vm.submenu2 ? _c("div", {
     staticClass: "dropdown-menus",
     attrs: {
       "aria-labelledby": "menuthree"
@@ -3729,15 +3745,15 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-12 mt-2"
   }, [_c("ul", {
-    staticClass: "nav row mt-2"
+    staticClass: "nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5"
   }, [_c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
       to: "/product/cat1"
     }
-  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(11), _vm._v(" "), _vm._m(12), _vm._v(" "), _vm._m(13), _vm._v(" "), _vm._m(14), _vm._v(" "), _vm._m(15), _vm._v(" "), _vm._m(16), _vm._v(" "), _vm._m(17), _vm._v(" "), _vm._m(18), _vm._v(" "), _vm._m(19), _vm._v(" "), _vm._m(20), _vm._v(" "), _vm._m(21), _vm._v(" "), _vm._m(22), _vm._v(" "), _vm._m(23), _vm._v(" "), _vm._m(24), _vm._v(" "), _vm._m(25), _vm._v(" "), _vm._m(26), _vm._v(" "), _vm._m(27), _vm._v(" "), _vm._m(28), _vm._v(" "), _vm._m(29), _vm._v(" "), _vm._m(30), _vm._v(" "), _vm._m(31), _vm._v(" "), _vm._m(32), _vm._v(" "), _vm._m(33), _vm._v(" "), _vm._m(34), _vm._v(" "), _vm._m(35), _vm._v(" "), _vm._m(36), _vm._v(" "), _vm._m(37), _vm._v(" "), _vm._m(38), _vm._v(" "), _vm._m(39), _vm._v(" "), _vm._m(40), _vm._v(" "), _vm._m(41), _vm._v(" "), _vm._m(42), _vm._v(" "), _vm._m(43), _vm._v(" "), _vm._m(44), _vm._v(" "), _vm._m(45), _vm._v(" "), _vm._m(46), _vm._v(" "), _vm._m(47), _vm._v(" "), _vm._m(48), _vm._v(" "), _vm._m(49), _vm._v(" "), _vm._m(50), _vm._v(" "), _vm._m(51), _vm._v(" "), _vm._m(52), _vm._v(" "), _vm._m(53), _vm._v(" "), _vm._m(54), _vm._v(" "), _vm._m(55), _vm._v(" "), _vm._m(56), _vm._v(" "), _vm._m(57), _vm._v(" "), _vm._m(58), _vm._v(" "), _vm._m(59), _vm._v(" "), _vm._m(60), _vm._v(" "), _vm._m(61), _vm._v(" "), _vm._m(62), _vm._v(" "), _vm._m(63), _vm._v(" "), _vm._m(64), _vm._v(" "), _vm._m(65), _vm._v(" "), _vm._m(66), _vm._v(" "), _vm._m(67), _vm._v(" "), _vm._m(68)])])])])]) : _vm._e(), _vm._v(" "), _vm.submenu1 && _vm.submenu3 ? _c("div", {
+  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(9), _vm._v(" "), _vm._m(10), _vm._v(" "), _vm._m(11), _vm._v(" "), _vm._m(12), _vm._v(" "), _vm._m(13), _vm._v(" "), _vm._m(14), _vm._v(" "), _vm._m(15), _vm._v(" "), _vm._m(16), _vm._v(" "), _vm._m(17), _vm._v(" "), _vm._m(18), _vm._v(" "), _vm._m(19), _vm._v(" "), _vm._m(20), _vm._v(" "), _vm._m(21), _vm._v(" "), _vm._m(22), _vm._v(" "), _vm._m(23), _vm._v(" "), _vm._m(24), _vm._v(" "), _vm._m(25), _vm._v(" "), _vm._m(26), _vm._v(" "), _vm._m(27), _vm._v(" "), _vm._m(28), _vm._v(" "), _vm._m(29), _vm._v(" "), _vm._m(30), _vm._v(" "), _vm._m(31), _vm._v(" "), _vm._m(32), _vm._v(" "), _vm._m(33), _vm._v(" "), _vm._m(34), _vm._v(" "), _vm._m(35), _vm._v(" "), _vm._m(36), _vm._v(" "), _vm._m(37), _vm._v(" "), _vm._m(38), _vm._v(" "), _vm._m(39), _vm._v(" "), _vm._m(40), _vm._v(" "), _vm._m(41), _vm._v(" "), _vm._m(42), _vm._v(" "), _vm._m(43), _vm._v(" "), _vm._m(44), _vm._v(" "), _vm._m(45), _vm._v(" "), _vm._m(46), _vm._v(" "), _vm._m(47), _vm._v(" "), _vm._m(48), _vm._v(" "), _vm._m(49), _vm._v(" "), _vm._m(50), _vm._v(" "), _vm._m(51), _vm._v(" "), _vm._m(52), _vm._v(" "), _vm._m(53), _vm._v(" "), _vm._m(54), _vm._v(" "), _vm._m(55), _vm._v(" "), _vm._m(56), _vm._v(" "), _vm._m(57), _vm._v(" "), _vm._m(58), _vm._v(" "), _vm._m(59), _vm._v(" "), _vm._m(60), _vm._v(" "), _vm._m(61), _vm._v(" "), _vm._m(62), _vm._v(" "), _vm._m(63), _vm._v(" "), _vm._m(64), _vm._v(" "), _vm._m(65), _vm._v(" "), _vm._m(66)])])])])]) : _vm._e(), _vm._v(" "), _vm.submenu1 && _vm.submenu3 ? _c("div", {
     staticClass: "dropdown-menus",
     attrs: {
       "aria-labelledby": "menuthree"
@@ -3757,7 +3773,7 @@ var render = function render() {
     attrs: {
       to: "/product/cat1"
     }
-  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(69), _vm._v(" "), _vm._m(70), _vm._v(" "), _vm._m(71), _vm._v(" "), _vm._m(72), _vm._v(" "), _vm._m(73), _vm._v(" "), _vm._m(74), _vm._v(" "), _vm._m(75), _vm._v(" "), _vm._m(76)])])])])]) : _vm._e()])]);
+  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(67), _vm._v(" "), _vm._m(68), _vm._v(" "), _vm._m(69), _vm._v(" "), _vm._m(70), _vm._v(" "), _vm._m(71), _vm._v(" "), _vm._m(72), _vm._v(" "), _vm._m(73), _vm._v(" "), _vm._m(74)])])])])]) : _vm._e()])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3779,21 +3795,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "border-3 border-start border-white nav-item px-2"
-  }, [_c("a", {
-    staticClass: "fw-light my-choice fs-5 nav-link text-dark px-3 py-2 shadow text-dark",
-    staticStyle: {
-      padding: "4px 13px !important"
-    },
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("আমার পছন্দ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("li", {
-    staticClass: "border-3 border-start border-white nav-item px-2 position-relative DropItem"
+    staticClass: "border-3 border-start border-white nav-item nav-item-menu position-relative DropItem"
   }, [_c("a", {
     staticClass: "fs-5 nav-link text-dark",
     attrs: {
@@ -3806,7 +3808,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "border-3 border-start border-white nav-item px-2"
+    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
   }, [_c("a", {
     staticClass: "fs-5 nav-link text-dark",
     attrs: {
@@ -3817,7 +3819,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "border-3 border-start border-white nav-item px-2"
+    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
   }, [_c("a", {
     staticClass: "fs-5 nav-link text-dark",
     attrs: {
@@ -3841,7 +3843,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("span", {
-    staticClass: "nav-link text-dark text-white"
+    staticClass: "nav-link dark-bars text-dark text-white"
   }, [_c("i", {
     staticClass: "fa-solid fa-bars fs-3"
   })]);
@@ -3867,37 +3869,21 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "navbar-toggler",
-    attrs: {
-      type: "button",
-      "data-bs-toggle": "collapse",
-      "data-bs-target": "#navbarNavAltMarkup",
-      "aria-controls": "navbarNavAltMarkup",
-      "aria-expanded": "false",
-      "aria-label": "Toggle navigation"
-    }
-  }, [_c("span", {
-    staticClass: "navbar-toggler-icon"
-  })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("li", {
-    staticClass: "submenu1"
+    staticClass: "nav-item col"
   }, [_c("a", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "nav-link border-3 border-start border-white text-dark",
     attrs: {
       href: "#"
     }
-  }, [_vm._v("হোম")])]);
+  }, [_vm._v("লেখক পরিচিতি")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "submenu1"
+    staticClass: "nav-item col"
   }, [_c("a", {
-    staticClass: "border-3 border-start border-white fs-5 nav-link ps-3 text-dark",
+    staticClass: "nav-link border-3 border-start border-white text-dark",
     attrs: {
       href: "#"
     }
@@ -3906,7 +3892,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3917,7 +3903,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3928,7 +3914,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3939,7 +3925,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3950,7 +3936,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3961,7 +3947,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3972,7 +3958,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3983,7 +3969,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -3994,7 +3980,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4005,7 +3991,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4016,7 +4002,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4027,7 +4013,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4038,7 +4024,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4049,7 +4035,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4060,7 +4046,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4071,7 +4057,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4082,7 +4068,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4093,7 +4079,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4104,7 +4090,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4115,7 +4101,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4126,7 +4112,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4137,7 +4123,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4148,7 +4134,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4159,7 +4145,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4170,7 +4156,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4181,7 +4167,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4192,7 +4178,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4203,7 +4189,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4214,7 +4200,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4225,7 +4211,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4236,7 +4222,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4247,7 +4233,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4258,7 +4244,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4269,7 +4255,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4280,7 +4266,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4291,7 +4277,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4302,7 +4288,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4313,7 +4299,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4324,7 +4310,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4335,7 +4321,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4346,7 +4332,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4357,7 +4343,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4368,7 +4354,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4379,7 +4365,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4390,7 +4376,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4401,7 +4387,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4412,7 +4398,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4423,7 +4409,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4434,7 +4420,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4445,7 +4431,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4456,7 +4442,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4467,7 +4453,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4478,7 +4464,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4489,7 +4475,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4500,7 +4486,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4511,7 +4497,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4522,7 +4508,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -4533,7 +4519,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "nav-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"
+    staticClass: "nav-item col"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
@@ -27228,7 +27214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1.submenuhave a[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    width: 100%;\n}\nheader.fixed-header[data-v-8a05baa6] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus[data-v-8a05baa6] {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single[data-v-8a05baa6]{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems[data-v-8a05baa6] {\n    position: absolute;\n    top: 63px;\n    left: 0;\n    background: wheat;\n    width: 111px;\n    display: none;\n    z-index: 999;\n}\nli.DropItem:hover .DownItems[data-v-8a05baa6] {\n    display: block;\n}\nul.DownItems li[data-v-8a05baa6] {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li[data-v-8a05baa6]:hover {\n    background: #f5c263;\n}\n.mainSearchBox[data-v-8a05baa6]{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input[data-v-8a05baa6] {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button[data-v-8a05baa6] {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\ni.fa-regular.fa-magnifying-glass[data-v-8a05baa6] {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: #c4614f;\n}\n\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a[data-v-8a05baa6] {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1 a[data-v-8a05baa6] {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a[data-v-8a05baa6] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px 16px;\n    width: 100%;\n}\nheader.fixed-header[data-v-8a05baa6] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus[data-v-8a05baa6] {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single[data-v-8a05baa6]{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems[data-v-8a05baa6] {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems[data-v-8a05baa6] {\n    display: block;\n}\nul.DownItems li[data-v-8a05baa6] {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li[data-v-8a05baa6]:hover {\n    background: #f5c263;\n}\n.mainSearchBox[data-v-8a05baa6]{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input[data-v-8a05baa6] {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button[data-v-8a05baa6] {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\ni.fa-regular.fa-magnifying-glass[data-v-8a05baa6] {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: #c4614f;\n}\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

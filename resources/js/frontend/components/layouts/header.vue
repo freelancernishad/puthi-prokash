@@ -62,7 +62,9 @@
 
 
         <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
-      <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: 63px;">
+
+
+      <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: var(--headerHight);" v-if="homePage">
         <div class="container-fluid" style="padding-right:0px !important;">
           <router-link class="navbar-brand" to="/">
             <img
@@ -90,53 +92,56 @@
             >
               <li class="nav-item">
                 <a class="fs-5 nav-link text-dark" aria-current="page" href="#">
-                  <img
-                    :src="$asseturl+'assets/image/cart-icon.png'"
-                    alt=""
-                    srcset=""
-                    width="50px"
-                  />
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
                 </a>
               </li>
-              <li class="border-3 border-start border-white nav-item px-2">
+              <!-- <li class="border-3 border-start border-white nav-item nav-item-menu">
                 <a style="    padding: 4px 13px !important;"
                   class="fw-light my-choice fs-5 nav-link text-dark px-3 py-2 shadow text-dark"
                   href="#"
                   >আমার পছন্দ</a
                 >
-              </li>
+              </li> -->
 
-              <li class="border-3 border-start border-white nav-item px-2 position-relative DropItem">
+              <li class="border-3 border-start border-white nav-item nav-item-menu position-relative DropItem">
                 <a class="fs-5 nav-link text-dark" href="javascript:void(0)">ভাষা</a>
-
                 <ul class="DownItems list-unstyled">
                     <li>বাংলা</li>
                     <li>English</li>
                 </ul>
-
               </li>
 
-              <li class="border-3 border-start border-white nav-item px-2">
+              <li class="border-3 border-start border-white nav-item nav-item-menu">
                 <a class="fs-5 nav-link text-dark" href="#">রেজিস্টার</a>
               </li>
-              <li class="border-3 border-start border-white nav-item px-2">
+              <li class="border-3 border-start border-white nav-item nav-item-menu">
                 <a class="fs-5 nav-link text-dark" href="#"
                   >সাইন ইন
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
                 ></a>
               </li>
-              <li class="border-3 border-start border-white nav-item px-2" @click="MainSearchFun">
+              <li class="border-3 border-start border-white nav-item nav-item-menu" @click="MainSearchFun">
                 <a class="fs-5 nav-link text-dark" href="javascript:void(0)"
                   >অনুসন্ধান <i class="fa-solid fa-magnifying-glass"></i
                 ></a>
               </li>
-              <li class="nav-item dark-bars px-3 py-2" @click="level1Submenu">
-                <span
-                  class="nav-link text-dark text-white"
+              <li class="nav-item  position-relative DropItem" >
 
-                >
+                <span class="nav-link dark-bars text-dark text-white">
                   <i class="fa-solid fa-bars fs-3"></i>
                 </span>
+
+                <ul class="DownItems list-unstyled">
+                    <li><router-link to="/product/cat1" class="text-dark">আমাদের কথা</router-link></li>
+                    <li><router-link to="/writer" class="text-dark">লেখক পরিচিতি</router-link></li>
+                    <li><router-link to="/product/cat1" class="text-dark">একাডেমিক বই</router-link></li>
+                    <li><router-link to="/product/cat1" class="text-dark">সৃজনশীল বই</router-link></li>
+                    <li><router-link to="/product/cat1" class="text-dark">মাল্টিমিডিয়া</router-link></li>
+
+                </ul>
+
+
+
               </li>
             </ul>
           </div>
@@ -156,36 +161,16 @@
 
 
 
-      <section style="background-color: #CED9DF" class="mt-4" v-if="submenu1">
-        <nav class="navbar navbar-expand-lg d-flex justify-content-center p-0">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav d-flex justify-content-between w-100">
-                  <li class="submenu1">
-                    <a class="fs-5 nav-link text-dark" href="#">হোম</a>
-                  </li>
-                  <li class="submenu1">
-                  <router-link class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" :to="{name:'writer'}">লেখক</router-link>
-
-                  <li class="submenu1 submenuhave">
-                    <a class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" @click="level3Submenu" href="javascript:void(0)" >পুথিপ্রকাশের বই <i class="fa-light fa-arrow-down-long"></i></a>
-                  </li>
-
-                  <li class="submenu1 submenuhave">
-
-                  <a class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" @click="level2Submenu" href="javascript:void(0)" >বিষয় <i class="fa-light fa-arrow-down-long"></i></a>
-
-                </li>
-                  <li class="submenu1">
-                  <a class="border-3 border-start border-white fs-5 nav-link ps-3 text-dark" href="#">মাল্টিমিডিয়া</a>
-                </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <section style="background-color: #CED9DF;height: var(--headerHight);" v-if="submenu1">
+        <div class="container">
+            <ul class="nav row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">
+                    <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link border-3 border-start border-white text-dark">আমাদের কথা</router-link></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link border-3 border-start border-white text-dark">লেখক পরিচিতি</a></li>
+                    <li class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level3Submenu">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+                    <li class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</a></li>
+            </ul>
+    </div>
     </section>
 
 
@@ -193,66 +178,66 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-                <ul class="nav row mt-2">
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">শিশু-কিশোর</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">শ্রেষ্ঠ কবিতা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">বিবিধ সমগ্র</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">গবেষণা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">উপন্যাস</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">প্রবন্ধ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ভৌতিক গল্প</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">প্রবন্ধ সংকলন</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কাব্য সমালোচনা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কমিকস্</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ভাষা আন্দোলন</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">অভিধান</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">জীবনী গ্রন্থমালা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">নাটক</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">গণিত ও বিজ্ঞান</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">প্যারাসাইকোলজি</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সাহিত্যসমালোচনা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">জীবন দর্শন</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">আন্তর্জাতিক রাজনীতি</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কিশোর উপন্যাস</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ব্যক্তিত্ব</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">বইমেলা ২০২২</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">শিক্ষা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সমাজ সংস্কৃতি রাজনীতি</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">শিশু-শিক্ষা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ধর্মবিষয়ক</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ভ্রমণ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রচনাবলি</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কবিতা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">মুক্তিযুদ্ধ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সম্পাদিত গ্রন্থ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">প্রবন্ধ-নিবন্ধ-গবেষণা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রেফারেন্স/চিরায়ত</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রবীন্দ্র-নজরুল</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">বঙ্গবন্ধু : নানাপ্রসঙ্গ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">অনুবাদ গ্রন্থ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ভাষা ও সাহিত্য</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">আত্মজীবনী/স্মৃতিকথা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সম্মাননা সংকলন/স্মরণগ্রন্থ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">গণমাধ্যম ও চলচ্চিত্র</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">স্বাস্থ্য ও চিকিৎসা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">গল্প</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">বিজ্ঞান/সাধারণ জ্ঞান</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সাক্ষাৎকার/নাটক</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">প্রকৃতি ও পরিবেশ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ইতিহাস</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রম্যরচনা</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রান্না</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কিশোর গল্প</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">কিশোর রহস্য</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">শিশিলিন কিশোর গোয়েন্দা সিরিজ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">গোয়েন্দা কাহিনি</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">রূপকথা সিরিজ</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ভৌতিক উপন্যাস</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">সায়েন্স ফিকশন</a></li>
-                    <li class="nav-item  col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"><a href="#" class="nav-link">ক্যারিয়ার</a></li>
+                <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">
+                    <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">শিশু-কিশোর</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">শ্রেষ্ঠ কবিতা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">বিবিধ সমগ্র</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">গবেষণা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">উপন্যাস</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ভৌতিক গল্প</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ সংকলন</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কাব্য সমালোচনা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কমিকস্</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ভাষা আন্দোলন</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">অভিধান</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">জীবনী গ্রন্থমালা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">নাটক</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">গণিত ও বিজ্ঞান</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">প্যারাসাইকোলজি</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সাহিত্যসমালোচনা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">জীবন দর্শন</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">আন্তর্জাতিক রাজনীতি</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর উপন্যাস</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ব্যক্তিত্ব</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">বইমেলা ২০২২</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">শিক্ষা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সমাজ সংস্কৃতি রাজনীতি</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">শিশু-শিক্ষা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ধর্মবিষয়ক</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ভ্রমণ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রচনাবলি</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কবিতা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">মুক্তিযুদ্ধ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সম্পাদিত গ্রন্থ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ-নিবন্ধ-গবেষণা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রেফারেন্স/চিরায়ত</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রবীন্দ্র-নজরুল</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">বঙ্গবন্ধু : নানাপ্রসঙ্গ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">অনুবাদ গ্রন্থ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ভাষা ও সাহিত্য</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">আত্মজীবনী/স্মৃতিকথা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সম্মাননা সংকলন/স্মরণগ্রন্থ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">গণমাধ্যম ও চলচ্চিত্র</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">স্বাস্থ্য ও চিকিৎসা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">গল্প</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">বিজ্ঞান/সাধারণ জ্ঞান</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সাক্ষাৎকার/নাটক</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">প্রকৃতি ও পরিবেশ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ইতিহাস</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রম্যরচনা</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রান্না</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর গল্প</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর রহস্য</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">শিশিলিন কিশোর গোয়েন্দা সিরিজ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">গোয়েন্দা কাহিনি</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">রূপকথা সিরিজ</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ভৌতিক উপন্যাস</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">সায়েন্স ফিকশন</a></li>
+                    <li class="nav-item  col"><a href="#" class="nav-link">ক্যারিয়ার</a></li>
                 </ul>
             </div>
         </div>
@@ -310,7 +295,7 @@ export default {
     },
     watch: {
         '$route': async function (to, from) {
-              this.submenu1 = false
+
               this.submenu2 = false
               this.submenu3 = false
               this.isFixed = false;
@@ -318,11 +303,13 @@ export default {
 
 
 
-      if(this.$router.history.current.path=='/'){
+    if(this.$router.history.current.path=='/'){
         this.homePage = true;
+        this.submenu1 = false;
 
       }else{
         this.homePage = false
+        this.submenu1 = true
       }
 
 
@@ -413,9 +400,11 @@ export default {
 
       if(this.$router.history.current.path=='/'){
         this.homePage = true;
+        this.submenu1 = false;
 
       }else{
         this.homePage = false
+        this.submenu1 = true
       }
 
 
@@ -439,16 +428,24 @@ export default {
 li.submenu1 {
     width: 20%;
 }
+
+ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
+    font-size: 15px !important;
+}
+
 .submenu1.submenuhave{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.submenu1.submenuhave a{
+.submenu1 a {
+    padding: 10px 16px;
+}
+.submenu1.submenuhave a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
+    padding: 10px 16px;
     width: 100%;
 }
 
@@ -475,14 +472,14 @@ header.fixed-header {
 
 ul.DownItems {
     position: absolute;
-    top: 63px;
+    top: var(--headerHight);
     left: 0;
     background: wheat;
-    width: 111px;
+    width: 140px;
     display: none;
     z-index: 999;
 }
-li.DropItem:hover .DownItems {
+.DropItem:hover .DownItems {
     display: block;
 }
 

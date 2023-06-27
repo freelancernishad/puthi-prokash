@@ -23,6 +23,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/bangladesh-govt.png') }}" />
 
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.2') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
@@ -42,7 +47,7 @@
 
 
 <meta name="csrf-token"             ="{{ csrf_token() }}" />
-	<link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+	{{-- <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet"> --}}
 
 <style>
 *{
@@ -62,7 +67,7 @@ ol#carousel-1___BV_indicators_ li {
 
 </head>
 
-<body style="font-family: 'Kalpurush', sans-serif;">
+<body style="font-family: 'Tiro Bangla', serif !important;">
 
 
     <div id="app">
@@ -219,7 +224,24 @@ if ("{{ Auth::user() }}") {
 
 
 
+ <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1345041842759891',
+        xfbml      : true,
+        version    : 'v17.0'
+      });
+      FB.AppEvents.logPageView();
+    };
 
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 </body>
 </html>

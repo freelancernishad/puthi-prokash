@@ -2,9 +2,9 @@
     <div>
 
         <div class="mainHeadSlider">
-<!--
 
-            <b-carousel
+
+            <b-carousel v-if="homePage"
       id="carousel-1"
       fade
       :interval="4000"
@@ -15,28 +15,20 @@
       img-height="480"
     >
 
-      <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
 
 
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
 
+      <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
 
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
-
-
+<!--
       <b-carousel-slide>
         <template #img>
           <img
             class="d-block img-fluid w-100"
             width="1024"
             height="480"
-            src="https://picsum.photos/1024/480/?image=55"
+            :src="$asseturl+'assets/image/Banner_Comp.gif'"
             alt="image slot"
           >
         </template>
@@ -47,12 +39,14 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
           a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
         </p>
-      </b-carousel-slide>
-    </b-carousel> -->
+      </b-carousel-slide> -->
+
+
+    </b-carousel>
 
 
 
-        <img  v-if="homePage" width="100%" :src="$asseturl+'assets/image/Banner_Comp.gif'" alt="">
+        <!-- <img  v-if="homePage" width="100%" :src="$asseturl+'assets/image/Banner_Comp.gif'" alt=""> -->
 
 
 
@@ -65,7 +59,9 @@
 
 
       <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: var(--headerHight);" v-if="homePage">
-        <div class="container-fluid" style="padding-right:0px !important;">
+
+        <div class="container">
+        <!-- <div class="container-fluid" style="padding-right:0px !important;"> -->
           <router-link class="navbar-brand" to="/">
             <img
               :src="$asseturl+'assets/image//logo.png'"
@@ -88,7 +84,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul
-              class="navbar-nav ms-auto justify-content-end align-items-center"
+              class="navbar-nav ms-auto justify-content-end align-items-center" style="margin-right: -44px;"
             >
               <li class="nav-item">
                 <a class="fs-5 nav-link text-dark" aria-current="page" href="#">
@@ -146,6 +142,7 @@
             </ul>
           </div>
         </div>
+        <!-- </div> -->
       </nav>
 
 
@@ -527,7 +524,7 @@ i.fa-regular.fa-magnifying-glass {
     top: 3px;
     right: -7px;
     font-size: 45px;
-    color: #c4614f;
+    color: var(--red);
 }
 
 

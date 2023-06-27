@@ -44,7 +44,7 @@
               <div class="align-items-center d-flex"> <i class="fa-solid fa-quote-left fs-1 text-secondary"></i>
                 <span class="fs-5 ms-2 mt-2">আমাদের কথাঃ</span>
               </div>
-              <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error exercitationem eum necessitatibus </p>
+              <p class="mb-0 text-justify" style="text-align: justify;">Lorem ipsum dolor sit ament, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
               <div class="text-end text-secondary">
                 <i class="fa-solid fa-quote-right fs-1"></i>
               </div>
@@ -88,13 +88,16 @@
                   <h5>৬১, দক্ষিন মালিবাগ,</h5>
                   <h5>ঢাকা- ১২১৭</h5>
                   <h5>Phone: +8800000000000</h5>
-                  <div class="shareIcon">
+
+                  <!-- <div class="shareIcon">
                     <a href="#"><i class="fa-brands fa-facebook text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-brands fa-whatsapp text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-sharp fa-regular fa-envelope text-secondary linkHover"></i></a>
                     <a href="#"><i class="fa-brands fa-square-instagram text-secondary linkHover"></i></a>
-                  </div>
+                  </div> -->
+
+
                   <!-- <img width="100%" style="margin:0 auto" :src="$asseturl+'assets/image/payment_baner.jpg'" alt=""/> -->
                 </div>
               </div>
@@ -139,10 +142,6 @@ export default {
   watch: {
         '$route': async function (to, from) {
             this.scrollToTop();
-
-
-
-
         }
     },
   mounted() {
@@ -207,5 +206,9 @@ export default {
     align-items: center;
 }
 
+.ftext{
+    margin: 0 32px 0 7px;
+    font-size: 16px !important;
+}
 /* Add any additional styles as needed */
 </style>

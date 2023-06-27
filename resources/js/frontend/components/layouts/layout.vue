@@ -5,8 +5,8 @@
         <Footercomponent/>
     </div>
 </template>
-<script>
 
+<script>
 import Headercomponent from './header.vue'
 import Footercomponent from './footer.vue'
 

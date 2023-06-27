@@ -3493,8 +3493,11 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("span", {
     staticClass: "fs-5 ms-2 mt-2"
   }, [_vm._v("আমাদের কথাঃ")])]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Error exercitationem eum necessitatibus ")]), _vm._v(" "), _c("div", {
+    staticClass: "mb-0 text-justify",
+    staticStyle: {
+      "text-align": "justify"
+    }
+  }, [_vm._v("Lorem ipsum dolor sit ament, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet ")]), _vm._v(" "), _c("div", {
     staticClass: "text-end text-secondary"
   }, [_c("i", {
     staticClass: "fa-solid fa-quote-right fs-1"
@@ -3544,39 +3547,7 @@ var staticRenderFns = [function () {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-lg-12"
-  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")]), _vm._v(" "), _c("div", {
-    staticClass: "shareIcon"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "fa-brands fa-facebook text-secondary linkHover"
-  })]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "fa-brands fa-youtube text-secondary linkHover"
-  })]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "fa-brands fa-whatsapp text-secondary linkHover"
-  })]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "fa-sharp fa-regular fa-envelope text-secondary linkHover"
-  })]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "fa-brands fa-square-instagram text-secondary linkHover"
-  })])])])])])]);
+  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")])])])])]);
 }];
 render._withStripped = true;
 
@@ -3600,13 +3571,26 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("div", {
     staticClass: "mainHeadSlider"
-  }, [_vm.homePage ? _c("img", {
+  }, [_vm.homePage ? _c("b-carousel", {
     attrs: {
-      width: "100%",
-      src: _vm.$asseturl + "assets/image/Banner_Comp.gif",
-      alt: ""
+      id: "carousel-1",
+      fade: "",
+      interval: 4000,
+      controls: "",
+      indicators: "",
+      background: "#ababab",
+      "img-width": "1024",
+      "img-height": "480"
     }
-  }) : _vm._e()]), _vm._v(" "), _c("header", {
+  }, [_c("b-carousel-slide", {
+    attrs: {
+      "img-src": _vm.$asseturl + "assets/image/Banner_Comp.gif"
+    }
+  }), _vm._v(" "), _c("b-carousel-slide", {
+    attrs: {
+      "img-src": _vm.$asseturl + "assets/image/Banner_Comp.gif"
+    }
+  })], 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
     staticClass: "header",
     "class": {
       "fixed-header": _vm.isFixed
@@ -3620,10 +3604,7 @@ var render = function render() {
       height: "var(--headerHight)"
     }
   }, [_c("div", {
-    staticClass: "container-fluid",
-    staticStyle: {
-      "padding-right": "0px !important"
-    }
+    staticClass: "container"
   }, [_c("router-link", {
     staticClass: "navbar-brand",
     attrs: {
@@ -3643,7 +3624,10 @@ var render = function render() {
       id: "navbarNavDropdown"
     }
   }, [_c("ul", {
-    staticClass: "navbar-nav ms-auto justify-content-end align-items-center"
+    staticClass: "navbar-nav ms-auto justify-content-end align-items-center",
+    staticStyle: {
+      "margin-right": "-44px"
+    }
   }, [_c("li", {
     staticClass: "nav-item"
   }, [_c("a", {
@@ -27190,7 +27174,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.3s, visibility 0.3s;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n\n/* Add any additional styles as needed */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.3s, visibility 0.3s;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n/* Add any additional styles as needed */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27214,7 +27198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a[data-v-8a05baa6] {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1 a[data-v-8a05baa6] {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a[data-v-8a05baa6] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px 16px;\n    width: 100%;\n}\nheader.fixed-header[data-v-8a05baa6] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus[data-v-8a05baa6] {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single[data-v-8a05baa6]{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems[data-v-8a05baa6] {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems[data-v-8a05baa6] {\n    display: block;\n}\nul.DownItems li[data-v-8a05baa6] {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li[data-v-8a05baa6]:hover {\n    background: #f5c263;\n}\n.mainSearchBox[data-v-8a05baa6]{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input[data-v-8a05baa6] {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button[data-v-8a05baa6] {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\ni.fa-regular.fa-magnifying-glass[data-v-8a05baa6] {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: #c4614f;\n}\n\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav[data-v-8a05baa6] {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nli.submenu1[data-v-8a05baa6] {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a[data-v-8a05baa6] {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave[data-v-8a05baa6]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1 a[data-v-8a05baa6] {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a[data-v-8a05baa6] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px 16px;\n    width: 100%;\n}\nheader.fixed-header[data-v-8a05baa6] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus[data-v-8a05baa6] {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single[data-v-8a05baa6]{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems[data-v-8a05baa6] {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems[data-v-8a05baa6] {\n    display: block;\n}\nul.DownItems li[data-v-8a05baa6] {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li[data-v-8a05baa6]:hover {\n    background: #f5c263;\n}\n.mainSearchBox[data-v-8a05baa6]{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input[data-v-8a05baa6] {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button[data-v-8a05baa6] {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\ni.fa-regular.fa-magnifying-glass[data-v-8a05baa6] {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

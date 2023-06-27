@@ -90,12 +90,12 @@ li.submenu1 a {
 }
 
 .fborder h2 {
-  border-bottom: 2px solid #ffa29f;
+  border-bottom: 1px solid var(--red);
 
 }
 
 .fborder2 {
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #000000b0;
 }
 .fborder.fright {
   margin-top: 21px;
@@ -107,7 +107,7 @@ div#footer {
   padding-bottom: 45px;
 }
 .copyright {
-  background: #f25c43;
+  background: #F45A42;
   /* text-align: center; */
 }
 .shareIcon a {

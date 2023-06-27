@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.2') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.3') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
 
@@ -95,7 +95,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.20') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.21') }}" async ></script>
 
 <script>
 

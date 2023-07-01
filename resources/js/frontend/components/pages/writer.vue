@@ -73,119 +73,30 @@
 
 
 
-<section class="row w-100 mx-auto gap-3 my-4">
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <!--  -->
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <!--  -->
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+<section class="row w-100 mx-auto my-4">
+
+
+    <div class="col-md-2 text-center"  v-for="writer in writers">
+
+
+
+        <div v-if="writer=='<'" class="writerArrow" >
+            <i class="fa-thin fa-angles-left"></i>
+        </div>
+
+        <div v-else-if="writer=='>'" class="writerArrow" >
+            <i class="fa-thin fa-angles-right"></i>
+        </div>
+        <div v-else-if="writer" style="background-color: #d1d2d4;padding: 9px;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
+            <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+        </div>
     </div>
 
-    <!--  -->
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
 
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
-    <div class="col-md-2 mx-auto text-center" style="background-color: #d1d2d4; width: 180px;">
-        <img width="100%" :src="$asseturl+'assets/image/woman.png'" alt="" srcset="" class="img-fluid mt-1" />
-        <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
-    </div>
 </section>
 
-<nav aria-label="...">
+<!-- <nav aria-label="...">
   <ul class="pagination  justify-content-center">
     <li class="page-item disabled">
       <span class="page-link">Previous</span>
@@ -202,8 +113,65 @@
       <a class="page-link" href="#">Next</a>
     </li>
   </ul>
-</nav>
+</nav> -->
 
     </main>
 
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            writers:{}
+        }
+    },
+    methods: {
+
+        processItem() {
+            const data = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26];
+            const result = [];
+            result.push('');
+            data.forEach((item, index) => {
+            result.push(item);
+
+
+            // if ((index + 1) % 2 === 0 && index < data.length - 1) {
+            //     result.push('');
+            // }
+
+
+                if (index==15) {
+                    result.push('');
+                }
+                if (index==21) {
+                    result.push('<');
+                }
+
+
+
+            });
+            result.push('>');
+            this.writers = result;
+            }
+
+},
+mounted() {
+    this.processItem();
+
+},
+
+}
+</script>
+<style scoped>
+.writerArrow{
+    padding: 9px;
+    margin: 11px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    font-size: 3em;
+    color: var(--red);
+}
+</style>

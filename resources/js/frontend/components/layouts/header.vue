@@ -62,7 +62,7 @@
 
         <div class="container">
         <!-- <div class="container-fluid" style="padding-right:0px !important;"> -->
-          <router-link class="navbar-brand" to="/">
+          <router-link  to="/">
             <img
               :src="$asseturl+'assets/image//logo.png'"
               alt=""
@@ -80,7 +80,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+          <i class="fa-solid fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul
@@ -128,11 +128,11 @@
                 </span>
 
                 <ul class="DownItems list-unstyled">
-                    <li><router-link to="/product/cat1" class="text-dark">আমাদের কথা</router-link></li>
-                    <li><router-link to="/writer" class="text-dark">লেখক পরিচিতি</router-link></li>
-                    <li><router-link to="/product/cat1" class="text-dark">একাডেমিক বই</router-link></li>
-                    <li><router-link to="/product/cat1" class="text-dark">সৃজনশীল বই</router-link></li>
-                    <li><router-link to="/product/cat1" class="text-dark">মাল্টিমিডিয়া</router-link></li>
+                    <li><router-link :to="{name:'home'}" class="text-dark">আমাদের কথা</router-link></li>
+                    <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">একাডেমিক বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">সৃজনশীল বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
 
                 </ul>
 
@@ -158,24 +158,94 @@
 
 
 
+
+
+
+
       <section style="background-color: #CED9DF;height: var(--headerHight);" v-if="submenu1">
+
+
         <div class="container">
-            <ul class="nav row row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">
-                    <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link border-3 border-start border-white text-dark">আমাদের কথা</router-link></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link border-3 border-start border-white text-dark">লেখক পরিচিতি</a></li>
-                    <li class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level3Submenu">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a></li>
-                    <li class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</a></li>
-            </ul>
-    </div>
+
+            <div class="d-flex" style="justify-content: space-between;" v-if="mobileMenu">
+
+
+
+
+            <router-link class="navbar-brand" to="/" >
+                <img
+                :src="$asseturl+'assets/image//logo.png'"
+                alt=""
+                class="puthi-logo"
+                srcset=""
+                width="180px"
+                />
+            </router-link>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown1"
+                aria-controls="navbarNavDropdown1"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+            <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+
+
+
+
+            <div class="navbar-collapse collapse" id="navbarNavDropdown1">
+
+
+                <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+                    <li class="nav-item  col"><router-link :to="{name:'home'}" class="nav-link border-3 border-start border-white text-dark">আমাদের কথা</router-link></li>
+                    <li class="nav-item  col"><router-link :to="{name:'writer'}" class="nav-link border-3 border-start border-white text-dark">লেখক পরিচিতি</router-link></li>
+
+
+                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="nav-link border-3 border-start border-white text-dark">একাডেমিক বই </router-link></li>
+
+                    <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level3Submenu">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+
+
+                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="nav-link border-3 border-start border-white text-dark">সৃজনশীল বই </router-link></li>
+
+                    <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+
+
+                    <li class="nav-item  col"><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</router-link></li>
+                </ul>
+
+
+
+            </div>
+
+
+
+        </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <div aria-labelledby="menuthree" class="dropdown-menus" v-if="submenu1 && submenu2">
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-                <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">
+                <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
                     <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
                     <li class="nav-item  col"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
                     <li class="nav-item  col"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
@@ -282,6 +352,7 @@ export default {
     data() {
         return {
             homePage:true,
+            mobileMenu:false,
             submenu1:false,
             submenu2:false,
             submenu3:false,
@@ -292,12 +363,14 @@ export default {
     },
     watch: {
         '$route': async function (to, from) {
-
+            this.submenu1 = false
               this.submenu2 = false
               this.submenu3 = false
               this.isFixed = false;
 
-
+              this.$nextTick(() => {
+                this.resizeWindow();
+            });
 
 
     if(this.$router.history.current.path=='/'){
@@ -389,10 +462,48 @@ export default {
 
 
 
-        }
+        },
+
+
+        resizeWindow() {
+    //   const windowWidth = window.screen.width;
+      const windowWidth = window.innerWidth;
+    //   console.log(windowWidth)
+
+      const navbarNavDropdown1 = document.getElementById('navbarNavDropdown1');
+
+
+      if (navbarNavDropdown1) {
+      if (windowWidth < 768) {
+        this.submenu2 = false
+        this.submenu3 = false
+        this.mobileMenu = true;
+        navbarNavDropdown1.classList.remove('show');
+      } else {
+        this.mobileMenu = false;
+        navbarNavDropdown1.classList.add('show');
+      }
+    }
+
+    }
+
 
     },
     mounted() {
+
+
+        window.addEventListener("resize", () => {
+            this.resizeWindow()
+        });
+
+        this.$nextTick(() => {
+            this.resizeWindow();
+        });
+
+
+
+
+
     window.addEventListener('scroll', this.handleScroll);
 
       if(this.$router.history.current.path=='/'){
@@ -421,6 +532,16 @@ export default {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+}
+
+button.navbar-toggler {
+    border: 1px solid #a9a6a6 !important;
+    box-shadow: 0 0 0 0 !important;
+    padding: 5px 14px;
+}
+button.navbar-toggler:focus {
+    border: 1px solid #a9a6a6 !important;
+    box-shadow: 0 0 0 0 !important;
 }
 li.submenu1 {
     width: 20%;
@@ -526,8 +647,36 @@ i.fa-regular.fa-magnifying-glass {
     font-size: 45px;
     color: var(--red);
 }
+.desktopDisplayNone{
+    display: none;
+}
+@media (max-width: 992px){
+        li.nav-item a {
+            font-size: 13px !important;
+        }
+        li.nav-item.col .nav-link {
+            font-size: 13px !important;
+        }
+    }
+@media (max-width: 767px){
+    .desktopDisplayNone{
+        display: block;
+    }
+    div#navbarNavDropdown1 {
+    background: #CED9DF;
+    z-index: 999999;
 
-
+}
+div#navbarNavDropdown1 ul {
+    padding: 0 !important;
+}
+div#navbarNavDropdown1 ul li {
+    border-bottom: 2px solid white;
+}
+li.submenu1 {
+    width: 100%;
+}
+}
 
 
 </style>

@@ -1,7 +1,7 @@
 <template>
     <main>
-        <section class="container d-md-flex my-5" style="padding-top: 50px;">
-            <div class="col-md-3 col-sm-5 col-sm-12">
+        <section class="container d-md-flex my-5" style="padding-top: 50px;grid-gap: 25px;">
+            <div class="col-md-3 col-sm-5 col-sm-12 singleProductImage">
                 <img src="https://kathaprokash.com/market-admin/images/product/1673087508.png" alt="" srcset="">
             </div>
             <div class="col-md-9 col-sm-7">
@@ -78,6 +78,22 @@
 
 
     <style scoped>
+
+
+    .singleProductImage img{
+        width: 100%;
+    }
+
+    @media (max-width: 767px){
+        .singleProductImage{
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .singleProductImage img{
+            width: 60%;
+        }
+    }
+
         .book-meta {
             font-size: 1rem;
         }

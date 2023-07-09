@@ -3,8 +3,7 @@
 
         <div class="mainHeadSlider">
 
-
-            <b-carousel v-if="homePage"
+    <b-carousel v-if="homePage"
       id="carousel-1"
       fade
       :interval="4000"
@@ -14,34 +13,8 @@
       img-width="1024"
       img-height="480"
     >
-
-
-
-
       <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
       <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
-
-<!--
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            :src="$asseturl+'assets/image/Banner_Comp.gif'"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide> -->
-
-
     </b-carousel>
 
 

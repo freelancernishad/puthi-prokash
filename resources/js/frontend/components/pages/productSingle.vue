@@ -4,7 +4,10 @@
             <div class="col-md-3 col-sm-5 col-sm-12 singleProductImage">
                 <img src="https://kathaprokash.com/market-admin/images/product/1673087508.png" alt="" srcset="">
             </div>
-            <div class="col-md-9 col-sm-7">
+            <div class="col-md-9 col-sm-7 position-relative">
+
+                <button class="singleProductCollectedButton">সংগ্রহ করুন</button>
+
                 <div class="">
                     <div>
                         <h2 class="book-title">মহাভারতের দেশ</h2>
@@ -48,36 +51,100 @@
                             <strike class="item-price">Tk. 400.00 </strike>
                         </div>
                     </div>
-                    <div class="my-3">
-                        <a href="javascript:;" class="btn btn-success btn-sm mr-1">
-                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i> একটু পড়ে দেখুন
-                        </a>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
-                        </button>
-                        <button class="btn btn-info btn-sm ml-1">
-                            <i class="fa fa-heart" aria-hidden="true"></i> Add to Wishlist
-                        </button>
-                        <div class="btn-group">
-                            <button type="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" class="btn btn-secondary btn-sm ml-1 dropdown-toggle share-btn">
-                                <i class="fa fa-share" aria-hidden="true"></i> Share This Book
-                            </button>
+                    <div class="my-3 d-flex align-items-center" >
+
+
+
+                        <div class="d-flex">
+
+                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+
+                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
                         </div>
+
+
+                            <!-- <a href="javascript:;" class="btn btn-success btn-sm mr-1">
+                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> একটু পড়ে দেখুন
+                            </a>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-info btn-sm ml-1">
+                                <i class="fa fa-heart" aria-hidden="true"></i> Add to Wishlist
+                            </button> -->
+
+
+
+                            <div class="btn-group">
+                                <button type="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" class="btn btn-secondary btn-sm ml-1 dropdown-toggle share-btn">
+                                    <i class="fa fa-share" aria-hidden="true"></i> Share This Book
+                                </button>
+                            </div>
                         <div class="share-network-list">
+
                         </div>
                     </div>
+<!--
+
                     <p class="mb-0">মহাভারতের দেশ অন্বেষণসূত্রে এই গ্রহে এমন সব ধ্রুব-বিষয় উঠে এসেছে, তাকে দৃষ্টান্ত করেই আমরা আজকের সমস্ত অব্যবস্থাপনার প্রতি আপত্তি জানাতে পারি আর দার্ঢ্যসহকারে বলতে পারি, আদিতে এই দেশ এমন বিস্তৃত জিনিস ছিল না সেদিন এই দেশের সমস্ত ব্যবস্থার ভিত্তি ছিল পারস্পরিক সম্পর্ক, আর অবাধ ও স্বতঃস্ফূর্তসন্নতির মাধ্যমে প্রাণনা পেয়ে সমাজ হয়ে উঠেছিল এক ও সহযোগিতার ধারণা ছিল সেই প্রতিষ্ঠানের চালিকাশক্তি। এই দেশে আবারও সেই ব্যবস্থা প্রনয়ণ করতে হলে, আমাদের আলোর মশাল জোগাড় করতে হবে মহাভারতের কাছে থেকে। সেই প্রয়াস আন্তরিক হলে, মহাভারতের দেশ তার অ শরীরসহ নয়, আলোকদর্শনরূপে দাড়াবে ভবিষ্যযাত্রীদের সামনে।
-                        আবুল ফজল মহাভারতের আখ্যান থেকে তুলে এনেছেন সেসব ঋষিবাক্য। সংস্কৃত শ্লোকের সহজ বোধগম্য বর্ণনায় গ্রহটি হয়ে উঠেছে সুখপাঠ্য। ফলে এটি কেবল পুরাণনির্ভর কাহিনিই থাকেনি, সম রাষ্ট্র ও রাজনৈতিক জটিল পরিস্থিতি থেকে উদ্ধারের নিশাও হয়তো মিলবে।</p>
+                        আবুল ফজল মহাভারতের আখ্যান থেকে তুলে এনেছেন সেসব ঋষিবাক্য। সংস্কৃত শ্লোকের সহজ বোধগম্য বর্ণনায় গ্রহটি হয়ে উঠেছে সুখপাঠ্য। ফলে এটি কেবল পুরাণনির্ভর কাহিনিই থাকেনি, সম রাষ্ট্র ও রাজনৈতিক জটিল পরিস্থিতি থেকে উদ্ধারের নিশাও হয়তো মিলবে।</p> -->
+
+
+
                 </div>
 
 
             </div>
     </section>
+
+
+
     </main>
 </template>
 
+<script>
+export default {
+
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  }
+};
+</script>
+
+
+
 
     <style scoped>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     .singleProductImage img{

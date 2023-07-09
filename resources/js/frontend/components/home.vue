@@ -208,7 +208,7 @@ export default {
             Carouselsettings:{
   "dots": true,
   "infinite": true,
-  "arrows":true,
+  "arrows":false,
   "autoplay":true,
   "speed": 500,
   "slidesToShow": 5,

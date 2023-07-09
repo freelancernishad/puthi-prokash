@@ -41,32 +41,32 @@
 
     <section>
             <div class="d-flex flex-wrap me-2 text-capitalize justify-content-end gap-2">
-                <span style="background-color:#D1D2D4 ;" class="p-2">a</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">b</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">c</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">d</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">e</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">f</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">g</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">h</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">i</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">j</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">k</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">l</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">m</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">n</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">o</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">p</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">q</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">r</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">s</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">t</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">u</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">v</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">w</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">x</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">y</span>
-                <span style="background-color:#D1D2D4 ;" class="p-2">z</span>
+                <span class="writerFilter">a</span>
+                <span class="writerFilter">b</span>
+                <span class="writerFilter">c</span>
+                <span class="writerFilter">d</span>
+                <span class="writerFilter">e</span>
+                <span class="writerFilter">f</span>
+                <span class="writerFilter">g</span>
+                <span class="writerFilter">h</span>
+                <span class="writerFilter">i</span>
+                <span class="writerFilter">j</span>
+                <span class="writerFilter">k</span>
+                <span class="writerFilter">l</span>
+                <span class="writerFilter">m</span>
+                <span class="writerFilter">n</span>
+                <span class="writerFilter">o</span>
+                <span class="writerFilter">p</span>
+                <span class="writerFilter">q</span>
+                <span class="writerFilter">r</span>
+                <span class="writerFilter">s</span>
+                <span class="writerFilter">t</span>
+                <span class="writerFilter">u</span>
+                <span class="writerFilter">v</span>
+                <span class="writerFilter">w</span>
+                <span class="writerFilter">x</span>
+                <span class="writerFilter">y</span>
+                <span class="writerFilter">z</span>
             </div>
         </section>
 
@@ -87,9 +87,9 @@
         <div v-else-if="writer=='>'" class="writerArrow" >
             <i class="fa-thin fa-angles-right"></i>
         </div>
-        <div v-else-if="writer" style="background-color: #d1d2d4;padding: 9px;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid mt-1" />
-            <h5 class="fs-6 mt-2 text-end w-100">লেখকের নাম</h5>
+        <div v-else-if="writer" style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid" />
+            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">লেখকের নাম</h5>
         </div>
     </div>
 
@@ -173,5 +173,15 @@ mounted() {
     height: 100%;
     font-size: 3em;
     color: var(--red);
+}
+.writerFilter{
+    background-color: rgb(209, 210, 212);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 !important;
+    cursor: pointer;
 }
 </style>

@@ -21,11 +21,19 @@ export default {
               Routename:'',
               Routeparams:{},
               errors:{},
+              imageUrl:'',
+              modalOpen: false
         }
     },
 
     methods: {
-
+        openModal(img) {
+            this.imageUrl = img
+          this.modalOpen = true;
+        },
+        closeModal() {
+          this.modalOpen = false;
+        },
         errorHandleing(col){
             if(col in this.errors){
                 return 1;

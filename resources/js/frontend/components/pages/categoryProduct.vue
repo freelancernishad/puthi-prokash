@@ -42,8 +42,8 @@
         <div class="row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2">
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -54,8 +54,8 @@
 
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -66,8 +66,8 @@
 
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -78,8 +78,8 @@
 
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -90,8 +90,8 @@
 
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -102,8 +102,8 @@
 
 
             <div class="col cursor-pointer" @click="showDetialsFun(1)">
-                <div class="text-decoration-none">
-                    <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                <div class="text-decoration-none productimage">
+                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                     <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -114,42 +114,36 @@
 
 
 
-        <div class="align-items-center border d-flex flex-wrap  mb-5 py-4 w-100" style="grid-gap:15px" v-if="showDetials==1">
-
+        <div class="align-items-center border d-flex flex-wrap  mb-5 py-4 w-100 position-relative" style="grid-gap:15px" v-if="showDetials==1">
+            <button class="singleProductCollectedButton">সংগ্রহ করুন</button>
 
                     <div>
-                        <img :src="$asseturl+'assets/image/sample_book.png'"
-                            alt="" style="width: 195px;  height: 210px">
+                        <img :src="$asseturl+' productimageassets/image/sample_book_Re.png'"
+                            alt="" style="width: 195px;  height: 255px">
                     </div>
                     <div>
-                        <p class="mb-0">Product Code : </p>
-                        <p class="mb-0">বাছাই গল্প</p>
-                        <p class="d-inline mb-0 me-2"> ১৫০ টাকা <span class="text-decoration-line-through">৩০০
-                                টাকা</span></p>
-                        <span class="text-success">৫০% ছাড়</span>
-                        <p class="mb-0 text-secondary">Regular Shipping</p>
+
+                        <router-link :to="{name:'productSingle',params:{id:1}}" class="mb-0" >এসো বাংলা শিখি</router-link>
+                        <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
+                        <p class="mb-0  fs-8 product-lebel-text orgPrice">Regular Price : 200</p>
+
+
+
+                        <p class="mb-0  fs-8 mt-3">উল্লেখযোগ্য অংশবিশেষ</p>
+
+
+
+
                         <div>
-                            <router-link to="/product/single/1" class="border-0 btn-details my-1  text-white">Details</router-link>
-                            <button class="bg-secondary border-0 btn-wishlist my-1 text-nowrap text-white ms-3">Add to
-                                wishlist</button>
+                            <div class="d-flex">
 
-                            <div class="btn-share d-inline dropdown ms-3 py-2 rounded">
-                                <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-share"></i> Share this book
-                                </button>
+                                <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
 
-                                <!-- Dropdown menu -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-                                    <a class="dropdown-item" href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                                    <a class="dropdown-item" href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                                    <!-- Add more social media icons and links as needed -->
-                                </div>
+                                <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+                                <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+                                <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
                             </div>
-                            </br>
-                            <button class=" border-0 my-1 text-nowrap text-white btn-cart">Add to
-                                cart</button>
+
                         </div>
                     </div>
 
@@ -170,8 +164,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -183,8 +177,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -196,8 +190,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -209,8 +203,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -222,8 +216,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -235,8 +229,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -259,8 +253,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -272,8 +266,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -285,8 +279,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -298,8 +292,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -311,8 +305,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -324,8 +318,8 @@
 
 
         <div class="col cursor-pointer">
-            <div class="text-decoration-none">
-                <img :src="$asseturl+'assets/image/sample_book.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+            <div class="text-decoration-none productimage">
+                <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
                 <div class="category-book-details text-center w-100">
                 <p class="mb-0 fs-7 text-dark">এসো বাংলা শিখি</p>
                 <p class="mb-0 fs-9 product-lebel-text">Price : 150</p>
@@ -393,5 +387,8 @@ export default {
         }
         .product-lebel-text.orgPrice{
             font-size: 9pt;
+        }
+        .productimage{
+            padding: 5px 7px;
         }
 </style>

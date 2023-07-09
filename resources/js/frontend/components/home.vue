@@ -19,58 +19,11 @@
 
 
 
+        <VueSlickCarousel v-bind="Carouselsettings">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="d-flex justify-content-center flex-wrap gap-2">
+            <div>
           <div class="position-relative homeBooks">
-            <div style="background-color: #ebeff2">
+            <div class="slideProductHome">
               <p class="booktitle">পাঠ্যবই</p>
               <img
                 :src="$asseturl+'assets/image/book-img-work.png'"
@@ -80,8 +33,10 @@
               />
             </div>
           </div>
+          </div>
+          <div>
           <div class="position-relative homeBooks">
-            <div style="background-color: #ebeff2">
+            <div class="slideProductHome">
               <p class="booktitle">পাঠ্যবই</p>
               <img
                 :src="$asseturl+'assets/image/book-img-work.png'"
@@ -91,8 +46,10 @@
               />
             </div>
           </div>
+          </div>
+          <div>
           <div class="position-relative homeBooks">
-            <div style="background-color: #ebeff2">
+            <div class="slideProductHome">
               <p class="booktitle">পাঠ্যবই</p>
               <img
                 :src="$asseturl+'assets/image/book-img-work.png'"
@@ -102,8 +59,10 @@
               />
             </div>
           </div>
+          </div>
+          <div>
           <div class="position-relative homeBooks">
-            <div style="background-color: #ebeff2">
+            <div class="slideProductHome">
               <p class="booktitle">পাঠ্যবই</p>
               <img
                 :src="$asseturl+'assets/image/book-img-work.png'"
@@ -113,8 +72,11 @@
               />
             </div>
           </div>
+          </div>
+
+          <div>
           <div class="position-relative homeBooks">
-            <div style="background-color: #ebeff2">
+            <div class="slideProductHome">
               <p class="booktitle">পাঠ্যবই</p>
               <img
                 :src="$asseturl+'assets/image/book-img-work.png'"
@@ -125,6 +87,55 @@
             </div>
           </div>
         </div>
+
+          <div>
+          <div class="position-relative homeBooks">
+            <div class="slideProductHome">
+              <p class="booktitle">পাঠ্যবই</p>
+              <img
+                :src="$asseturl+'assets/image/book-img-work.png'"
+                alt=""
+                srcset=""
+                class="img-fluid px-4 py-5"
+              />
+            </div>
+          </div>
+        </div>
+
+
+
+        </VueSlickCarousel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </section>
 
 
@@ -178,9 +189,15 @@
 </template>
 <script>
 
+import VueSlickCarousel from 'vue-slick-carousel'
+  // optional style for arrows & dots
+
+  import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+  import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
 
 export default {
-
+    components: { VueSlickCarousel },
 
     created() {
 
@@ -188,7 +205,42 @@ export default {
 
     data() {
         return {
-
+            Carouselsettings:{
+  "dots": true,
+  "infinite": true,
+  "arrows":true,
+  "autoplay":true,
+  "speed": 500,
+  "slidesToShow": 5,
+  "slidesToScroll": 5,
+  "initialSlide": 5,
+  "responsive": [
+    {
+      "breakpoint": 1024,
+      "settings": {
+        "slidesToShow": 3,
+        "slidesToScroll": 3,
+        "infinite": true,
+        "dots": true
+      }
+    },
+    {
+      "breakpoint": 600,
+      "settings": {
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "initialSlide": 2
+      }
+    },
+    {
+      "breakpoint": 480,
+      "settings": {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
+    }
+  ]
+},
 
 
             swiperOption: {
@@ -229,7 +281,20 @@ export default {
 <style>
 
 .position-relative.homeBooks {
-    width: 240px;
+    /* width: 240px; */
+}
+.slideProductHome {
+    background-color: rgb(235, 239, 242);
+    margin: 6px 5px;
+}
+.slideProductHome:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff000000;
 }
 </style>
 

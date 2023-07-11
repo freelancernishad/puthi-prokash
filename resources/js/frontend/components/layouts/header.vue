@@ -60,9 +60,9 @@
               class="navbar-nav ms-auto justify-content-end align-items-center" style="margin-right: -44px;"
             >
               <li class="nav-item">
-                <a class="fs-5 nav-link text-dark" aria-current="page" href="#">
+                <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
                   <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
-                </a>
+                </router-link>
               </li>
               <!-- <li class="border-3 border-start border-white nav-item nav-item-menu">
                 <a style="    padding: 4px 13px !important;"

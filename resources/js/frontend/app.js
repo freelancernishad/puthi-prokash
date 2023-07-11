@@ -25,11 +25,14 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import {routes} from './routes';
 import User from '../helpers/User';
+
 window.User = User
 Vue.prototype.$appUrl = window.location.origin
 import Notification from '../helpers/Notification';
 window.Notification = Notification
 
+import breadcrumb from './components/global/breadcrumb.vue';
+Vue.component('Breadcrumb', breadcrumb)
 
 
 import store from '../store'

@@ -18,6 +18,7 @@ class Product extends Model
         'description',
         'price',
 
+        'discount_status',
         'discount_type',
         'discount',
         'prossod',

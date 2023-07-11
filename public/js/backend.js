@@ -7671,9 +7671,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       Totalpage: [],
       Routename: '',
       Routeparams: {},
-      errors: {},
-      imageUrl: '',
-      modalOpen: false
+      errors: {}
     };
   },
   methods: {

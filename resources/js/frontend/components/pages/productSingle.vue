@@ -101,6 +101,14 @@
 
 
 
+    <div v-if="modalOpen" @click="closeModal" class="modal-overlay">
+      <div class="modal-container">
+        <img :src="imageUrl" alt="Modal Image" />
+      </div>
+    </div>
+
+
+
     </main>
 </template>
 
@@ -109,7 +117,8 @@ export default {
 
   data() {
     return {
-
+        modalOpen: false,
+        imageUrl:'',
     };
   },
   methods: {

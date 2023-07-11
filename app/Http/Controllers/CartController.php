@@ -14,7 +14,7 @@ class CartController extends Controller
         $userid = $request->userid;
         // Retrieve the user's cart items
          $user = User::find($userid);
-       return   $cartItems = $user->carts()->with('user', 'product')->get();
+          $cartItems = $user->carts()->with('user', 'product','product.author')->get();
 
         return response()->json($cartItems);
     }
@@ -71,12 +71,38 @@ class CartController extends Controller
     return response()->json($cartItem, 201);
     }
 
+
+
+    public function update(Request $request, Cart $cart)
+    {
+        $user_id = $request->user_id;
+
+         $cart->update(['quantity'=>$request->quantity]);
+
+
+         $user = User::find($user_id);
+         $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+
+       return response()->json($cartItems);
+
+    }
+
+
     public function destroy(Cart $cart)
     {
+
+        $user_id = $cart->user_id;
         // Delete a cart item
         $cart->delete();
 
-        return response()->json(['message' => 'Cart item deleted successfully']);
+
+
+        $user = User::find($user_id);
+        $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+
+      return response()->json($cartItems);
+
+        // return response()->json(['message' => 'Cart item deleted successfully']);
     }
 
 

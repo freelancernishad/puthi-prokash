@@ -5,11 +5,7 @@
         <Footercomponent/>
 
 
-        <div v-if="modalOpen" @click="closeModal" class="modal-overlay">
-      <div class="modal-container">
-        <img :src="imageUrl" alt="Modal Image" />
-      </div>
-    </div>
+
 
     </div>
 </template>

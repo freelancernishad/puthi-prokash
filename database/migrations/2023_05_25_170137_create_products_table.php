@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->boolean('discount_status')->default(false);
             $table->string('discount_type')->nullable();
             $table->integer('discount')->nullable();
             $table->string('prossod')->nullable();

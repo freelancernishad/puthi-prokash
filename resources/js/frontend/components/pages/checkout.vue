@@ -15,7 +15,7 @@
 
               <div class="mb-3">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="" value="" required="" wfd-id="id1">
+                <input type="text" class="form-control" v-model="form.name" id="name" placeholder="" value="" required="" wfd-id="id1">
                 <div class="invalid-feedback">
                   Valid name is required.
                 </div>
@@ -29,7 +29,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div>
-                <input type="email" class="form-control" id="email" placeholder="Email" required="" wfd-id="id3">
+                <input type="email" class="form-control" v-model="form.email" id="email" placeholder="Email" required="" wfd-id="id3">
                 <div class="invalid-feedback" style="width: 100%;">
                   Your email is required.
                 </div>
@@ -38,7 +38,7 @@
 
             <div class="mb-3">
               <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="" wfd-id="id5">
+              <input type="text" class="form-control" v-model="form.address" id="address" placeholder="1234 Main St" required="" wfd-id="id5">
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -46,13 +46,13 @@
 
             <div class="mb-3">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" wfd-id="id6">
+              <input type="text" class="form-control" v-model="form.address2" id="address2" placeholder="Apartment or suite" wfd-id="id6">
             </div>
 
             <div class="row">
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
-                <select class="form-control d-block w-100" id="country" required="">
+                <select class="form-control d-block w-100" v-model="form.country" id="country" required="">
                   <option value="">Choose...</option>
                   <option>United States</option>
                 </select>
@@ -62,7 +62,7 @@
               </div>
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
-                <select class="form-control d-block w-100" id="state" required="">
+                <select class="form-control d-block w-100" v-model="form.state" id="state" required="">
                   <option value="">Choose...</option>
                   <option>California</option>
                 </select>
@@ -72,7 +72,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required="" wfd-id="id7">
+                <input type="text" class="form-control" v-model="form.zip" id="zip" placeholder="" required="" wfd-id="id7">
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -85,11 +85,11 @@
 
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="" wfd-id="id10">
+                <input id="credit" v-model="form.paymentMethod" value="Cash on Delivery" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="" wfd-id="id10">
                 <label class="custom-control-label" for="credit">Cash on Delivery</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="" wfd-id="id11">
+                <input id="debit" v-model="form.paymentMethod" value="Ekpay" name="paymentMethod" type="radio" class="custom-control-input" required="" wfd-id="id11">
                 <label class="custom-control-label" for="debit">Ekpay</label>
               </div>
 
@@ -164,6 +164,16 @@ export default {
         return {
 
             cartUpdate:0,
+            form:{
+                'name':'',
+                'email':'',
+                'address':'',
+                'address2':'',
+                'country':'',
+                'state':'',
+                'zip':'',
+                'paymentMethod':'Cash on Delivery',
+            },
             carts:{},
             cartUpdateForm:{
 

@@ -18,6 +18,14 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->decimal('total_amount', 8, 2);
             $table->integer('total_quantity');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('address2')->nullable();
+            $table->string('country')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('paymentMethod')->nullable();
             $table->enum('status', ['pending', 'processing', 'completed', 'canceled'])->default('pending');
             $table->timestamps();
 

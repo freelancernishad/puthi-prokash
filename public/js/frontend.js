@@ -2933,6 +2933,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       cartUpdate: 0,
+      form: {
+        'name': '',
+        'email': '',
+        'address': '',
+        'address2': '',
+        'country': '',
+        'state': '',
+        'zip': '',
+        'paymentMethod': 'Cash on Delivery'
+      },
       carts: {},
       cartUpdateForm: {
         quantity: '',
@@ -7040,30 +7050,7 @@ var render = function render() {
     staticClass: "container-fluid"
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4 order-md-2 mb-4"
-  }, [_vm._m(1), _vm._v(" "), _c("ul", {
-    staticClass: "list-group mb-3"
-  }, [_c("li", {
-    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
-  }, [_vm._m(2), _vm._v(" "), _c("span", {
-    staticClass: "text-muted"
-  }, [_vm._v(_vm._s(_vm.subquantity))])]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
-  }, [_vm._m(3), _vm._v(" "), _c("span", {
-    staticClass: "text-muted"
-  }, [_vm._v(_vm._s(_vm.subtotal))])]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
-  }, [_vm._m(4), _vm._v(" "), _c("span", {
-    staticClass: "text-muted"
-  }, [_vm._v("-" + _vm._s(_vm.subtotalDiscount))])]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item d-flex justify-content-between"
-  }, [_c("span", [_vm._v("Total (USD)")]), _vm._v(" "), _c("strong", [_vm._v(_vm._s(_vm.finalSubtotal))])])])])])])])], 1);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
+  }, [_c("div", {
     staticClass: "col-md-8 order-md-1"
   }, [_c("h4", {
     staticClass: "mb-3"
@@ -7079,6 +7066,12 @@ var staticRenderFns = [function () {
       "for": "firstName"
     }
   }, [_vm._v("Name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.name,
+      expression: "form.name"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
@@ -7087,6 +7080,15 @@ var staticRenderFns = [function () {
       value: "",
       required: "",
       "wfd-id": "id1"
+    },
+    domProps: {
+      value: _vm.form.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "name", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "invalid-feedback"
@@ -7098,11 +7100,13 @@ var staticRenderFns = [function () {
     }
   }, [_vm._v("Eamil")]), _vm._v(" "), _c("div", {
     staticClass: "input-group"
-  }, [_c("div", {
-    staticClass: "input-group-prepend"
-  }, [_c("span", {
-    staticClass: "input-group-text"
-  }, [_vm._v("@")])]), _vm._v(" "), _c("input", {
+  }, [_vm._m(0), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.email,
+      expression: "form.email"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "email",
@@ -7110,6 +7114,15 @@ var staticRenderFns = [function () {
       placeholder: "Email",
       required: "",
       "wfd-id": "id3"
+    },
+    domProps: {
+      value: _vm.form.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "email", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "invalid-feedback",
@@ -7123,6 +7136,12 @@ var staticRenderFns = [function () {
       "for": "address"
     }
   }, [_vm._v("Address")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.address,
+      expression: "form.address"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
@@ -7130,24 +7149,42 @@ var staticRenderFns = [function () {
       placeholder: "1234 Main St",
       required: "",
       "wfd-id": "id5"
+    },
+    domProps: {
+      value: _vm.form.address
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "address", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "invalid-feedback"
   }, [_vm._v("\n            Please enter your shipping address.\n          ")])]), _vm._v(" "), _c("div", {
     staticClass: "mb-3"
-  }, [_c("label", {
-    attrs: {
-      "for": "address2"
-    }
-  }, [_vm._v("Address 2 "), _c("span", {
-    staticClass: "text-muted"
-  }, [_vm._v("(Optional)")])]), _vm._v(" "), _c("input", {
+  }, [_vm._m(1), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.address2,
+      expression: "form.address2"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
       id: "address2",
       placeholder: "Apartment or suite",
       "wfd-id": "id6"
+    },
+    domProps: {
+      value: _vm.form.address2
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "address2", $event.target.value);
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "row"
@@ -7158,10 +7195,27 @@ var staticRenderFns = [function () {
       "for": "country"
     }
   }, [_vm._v("Country")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.country,
+      expression: "form.country"
+    }],
     staticClass: "form-control d-block w-100",
     attrs: {
       id: "country",
       required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "country", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
@@ -7176,10 +7230,27 @@ var staticRenderFns = [function () {
       "for": "state"
     }
   }, [_vm._v("State")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.state,
+      expression: "form.state"
+    }],
     staticClass: "form-control d-block w-100",
     attrs: {
       id: "state",
       required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "state", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
@@ -7194,6 +7265,12 @@ var staticRenderFns = [function () {
       "for": "zip"
     }
   }, [_vm._v("Zip")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.zip,
+      expression: "form.zip"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
@@ -7201,6 +7278,15 @@ var staticRenderFns = [function () {
       placeholder: "",
       required: "",
       "wfd-id": "id7"
+    },
+    domProps: {
+      value: _vm.form.zip
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "zip", $event.target.value);
+      }
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "invalid-feedback"
@@ -7213,14 +7299,29 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "custom-control custom-radio"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.paymentMethod,
+      expression: "form.paymentMethod"
+    }],
     staticClass: "custom-control-input",
     attrs: {
       id: "credit",
+      value: "Cash on Delivery",
       name: "paymentMethod",
       type: "radio",
       checked: "",
       required: "",
       "wfd-id": "id10"
+    },
+    domProps: {
+      checked: _vm._q(_vm.form.paymentMethod, "Cash on Delivery")
+    },
+    on: {
+      change: function change($event) {
+        return _vm.$set(_vm.form, "paymentMethod", "Cash on Delivery");
+      }
     }
   }), _vm._v(" "), _c("label", {
     staticClass: "custom-control-label",
@@ -7230,13 +7331,28 @@ var staticRenderFns = [function () {
   }, [_vm._v("Cash on Delivery")])]), _vm._v(" "), _c("div", {
     staticClass: "custom-control custom-radio"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.paymentMethod,
+      expression: "form.paymentMethod"
+    }],
     staticClass: "custom-control-input",
     attrs: {
       id: "debit",
+      value: "Ekpay",
       name: "paymentMethod",
       type: "radio",
       required: "",
       "wfd-id": "id11"
+    },
+    domProps: {
+      checked: _vm._q(_vm.form.paymentMethod, "Ekpay")
+    },
+    on: {
+      change: function change($event) {
+        return _vm.$set(_vm.form, "paymentMethod", "Ekpay");
+      }
     }
   }), _vm._v(" "), _c("label", {
     staticClass: "custom-control-label",
@@ -7250,7 +7366,44 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Continue to checkout")])])]);
+  }, [_vm._v("Continue to checkout")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 order-md-2 mb-4"
+  }, [_vm._m(2), _vm._v(" "), _c("ul", {
+    staticClass: "list-group mb-3"
+  }, [_c("li", {
+    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
+  }, [_vm._m(3), _vm._v(" "), _c("span", {
+    staticClass: "text-muted"
+  }, [_vm._v(_vm._s(_vm.subquantity))])]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
+  }, [_vm._m(4), _vm._v(" "), _c("span", {
+    staticClass: "text-muted"
+  }, [_vm._v(_vm._s(_vm.subtotal))])]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item d-flex justify-content-between lh-condensed"
+  }, [_vm._m(5), _vm._v(" "), _c("span", {
+    staticClass: "text-muted"
+  }, [_vm._v("-" + _vm._s(_vm.subtotalDiscount))])]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item d-flex justify-content-between"
+  }, [_c("span", [_vm._v("Total (USD)")]), _vm._v(" "), _c("strong", [_vm._v(_vm._s(_vm.finalSubtotal))])])])])])])])], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "input-group-prepend"
+  }, [_c("span", {
+    staticClass: "input-group-text"
+  }, [_vm._v("@")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "address2"
+    }
+  }, [_vm._v("Address 2 "), _c("span", {
+    staticClass: "text-muted"
+  }, [_vm._v("(Optional)")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

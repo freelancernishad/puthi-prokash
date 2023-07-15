@@ -51,6 +51,16 @@ class OrderController extends Controller
             'user_id' => $userId,
             'total_amount' => $totalAmount,
             'total_quantity' => $totalQuantity,
+
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'address'=> $request->address,
+            'address2'=> $request->address2,
+            'country'=> $request->country,
+            'state'=> $request->state,
+            'zip'=> $request->zip,
+            'paymentMethod'=> $request->paymentMethod,
+
         ];
 
         $order = Order::create($orderData);
@@ -71,7 +81,9 @@ class OrderController extends Controller
         $order->load(['orderProducts.product']);
 
 
-        return response()->json($order, 201);
+        return response()->json([
+            'message'=>'Order Complete'
+        ], 201);
     }
 
     public function update(Request $request, $id)

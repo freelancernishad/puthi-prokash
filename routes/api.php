@@ -59,6 +59,7 @@ Route::get('visitorcount',[VisitorController::class, 'visitorCount']);
 
 Route::get('/all/categories', [CategoryController::class,'indexAll']);
 Route::get('/categories', [CategoryController::class,'index']);
+Route::get('categories/search/{slug}', [CategoryController::class, 'searchBySlug']);
 Route::get('categories/{category}/images', [CategoryController::class,'getImages']);
 Route::post('categories/{category}/images', [CategoryController::class,'uploadImages']);
 Route::put('categories/{category}/images', [CategoryController::class,'uploadImages']);

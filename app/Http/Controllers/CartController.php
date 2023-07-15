@@ -14,9 +14,14 @@ class CartController extends Controller
         $userid = $request->userid;
         // Retrieve the user's cart items
          $user = User::find($userid);
-          $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+         $cartItems = $user->carts()->with('user', 'product','product.author')->get();
 
-        return response()->json($cartItems);
+         if(count($cartItems) > 0){
+             return response()->json($cartItems);
+        }else{
+               $cartItems = count($cartItems);
+         }
+
     }
 
     public function store(Request $request)
@@ -83,7 +88,11 @@ class CartController extends Controller
          $user = User::find($user_id);
          $cartItems = $user->carts()->with('user', 'product','product.author')->get();
 
-       return response()->json($cartItems);
+         if(count($cartItems) > 0){
+            return response()->json($cartItems);
+       }else{
+              $cartItems = count($cartItems);
+        }
 
     }
 
@@ -100,7 +109,11 @@ class CartController extends Controller
         $user = User::find($user_id);
         $cartItems = $user->carts()->with('user', 'product','product.author')->get();
 
-      return response()->json($cartItems);
+        if(count($cartItems) > 0){
+            return response()->json($cartItems);
+       }else{
+              $cartItems = count($cartItems);
+        }
 
         // return response()->json(['message' => 'Cart item deleted successfully']);
     }

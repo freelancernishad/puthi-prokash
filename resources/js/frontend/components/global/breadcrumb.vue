@@ -3,7 +3,7 @@
         <ol class="breadcrumb ms-5 mt-3">
           <li class="breadcrumb-item active" v-for="(page,index) in pages"  :key="'breadcrumb'+index" :class="{ 'text-dark': (pages.length-1)==index }" aria-current="page">
 
-            <router-link :to="{name:page.route}" v-if="page.route">{{ page.text }}</router-link>
+            <router-link :to="{name:page.route,params:page.params}" v-if="page.route">{{ page.text }}</router-link>
             <span v-else>{{ page.text }}</span>
 
         </li>

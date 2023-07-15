@@ -30,12 +30,14 @@
                                         <figure class="itemside align-items-center">
                                             <div class="aside"><img :src="$asseturl+cart.product.image" class="img-sm"></div>
                                             <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart.product.name }}</a>
-                                                <p class="text-muted small">
+
+                                                <p class="text-muted small" v-if="cart.product.author">
                                                     লেখক: {{ cart.product.author.name }}
                                                     <!-- SIZE: L  -->
                                                     <!-- <br>  -->
                                                     <!-- Brand: MAXTRA -->
                                                 </p>
+
                                             </figcaption>
                                         </figure>
                                     </td>
@@ -119,7 +121,10 @@
                             <dd class="text-right text-dark b ml-3"><strong> {{ finalSubtotal }}</strong></dd>
                         </dl>
                         <hr>
-                        <router-link :to="{name:'checkout'}" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </router-link>
+
+                        <router-link :to="{name:'checkout'}" v-if="carts" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </router-link>
+
+
                         <router-link :to="{name:'home'}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</router-link>
                     </div>
                 </div>
@@ -151,18 +156,30 @@ export default {
     computed:{
 
         subtotal() {
+            if (!Array.isArray(this.carts)) {
+                return 0;
+            }
             return this.carts.reduce((total, cart) => total + (cart.product.price*cart.quantity), 0);
         },
 
         finalSubtotal() {
+            if (!Array.isArray(this.carts)) {
+                return 0;
+            }
             return this.carts.reduce((total, cart) => total + (this.getDiscountedPrice(cart)*cart.quantity), 0);
         },
 
         subtotalDiscount() {
+            if (!Array.isArray(this.carts)) {
+                return 0;
+            }
             return this.carts.reduce((total, cart) => total + (this.getProductDiscount(cart)*cart.quantity), 0);
         },
 
         hasDiscount() {
+            if (!Array.isArray(this.carts)) {
+                return false;
+            }
         return function (cart) {
             return cart.product.discount_status==1;
         };

@@ -29,8 +29,16 @@ export default {
     methods: {
 
 
-        openModal(img) {
+        async addToCart(form){
 
+
+            var res = await this.callApi('post',`/api/cart`,form);
+            console.log(res)
+        },
+
+
+
+        openModal(img) {
             this.imageUrl = img
             this.modalOpen = true;
             },

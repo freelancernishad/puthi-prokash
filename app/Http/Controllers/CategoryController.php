@@ -48,6 +48,46 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
+    public function searchBySlug($slug)
+    {
+        $category = Category::where('slug', $slug)->with('parent', 'children.products')->first();
+
+
+        if (!$category) {
+            return response()->json(['message' => 'Category not found'], 404);
+        }
+
+
+
+
+
+        if ($category->children->count() > 0) {
+
+            $category->load(['products', 'children', 'children.products','children.products.flippingBooks' => function ($query) {
+                $query->take(4);
+            }]);
+
+            return response()->json($category, 200);
+
+        } else {
+
+            $products = $category->products;
+
+            return response()->json($category, 200);
+        }
+    }
+    private function getParentCategoryList($category)
+    {
+        $parentCategoryList = [];
+
+        while ($category->parent) {
+            $parentCategoryList[] = $category->parent;
+            $category = $category->parent;
+        }
+
+        return $parentCategoryList;
+    }
+
     public function show(Category $category)
     {
         $category->load('products','parent','categoryImages');
@@ -134,7 +174,7 @@ class CategoryController extends Controller
 
     public function getImages(Request $request, Category $category)
     {
-      
+
         $imagescount = count($category->load('categoryImages')->categoryImages);
 
 
@@ -143,8 +183,8 @@ class CategoryController extends Controller
         $images =  $category->load('categoryImages')->categoryImages;
         foreach ($images as $image) {
             array_push($img,base64($image->image_path));
-       } 
-       
+       }
+
        }else{
         array_push($img,'');
        }

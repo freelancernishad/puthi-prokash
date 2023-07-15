@@ -103,9 +103,9 @@
                 <ul class="DownItems list-unstyled">
                     <li><router-link :to="{name:'home'}" class="text-dark">আমাদের কথা</router-link></li>
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">একাডেমিক বই</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">সৃজনশীল বই</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'academic-books'}}" class="text-dark">একাডেমিক বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'creative-book'}}" class="text-dark">সৃজনশীল বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
 
                 </ul>
 
@@ -189,7 +189,7 @@
                     <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
 
 
-                    <li class="nav-item  col"><router-link :to="{name:'categoryProduct',params:{category:'cat1'}}" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</router-link></li>
+                    <li class="nav-item  col"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</router-link></li>
                 </ul>
 
 

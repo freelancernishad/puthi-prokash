@@ -34,6 +34,15 @@ window.Notification = Notification
 import breadcrumb from './components/global/breadcrumb.vue';
 Vue.component('Breadcrumb', breadcrumb)
 
+import Productslist from './components/pages/components/Productslist.vue';
+Vue.component('Productslist', Productslist)
+
+import Product from './components/pages/components/Product.vue';
+Vue.component('Product', Product)
+
+import Productdetails from './components/pages/components/Productdetails.vue';
+Vue.component('Productdetails', Productdetails)
+
 
 import store from '../store'
 window.Reload = new Vue();

@@ -43,7 +43,9 @@ export const routes = [
 
 
     { path:  `${prefix}categories`, component: categories, name:'categories',meta: { layout: layout } },
-    { path:  `${prefix}product/:category`, component: categoryProduct, name:'categoryProduct',meta: { layout: layout } },
+    { path:  `${prefix}product/category/:category`, component: categoryProduct, name:'categoryProduct',meta: { layout: layout } },
+    { path:  `${prefix}products/:category`, component: categoryProduct, name:'Products',meta: { layout: layout } },
+    
     { path:  `${prefix}product/single/:id`, component: productSingle, name:'productSingle',meta: { layout: layout } },
     { path:  `${prefix}cart`, component: cart, name:'cart',meta: { layout: layout } },
     { path:  `${prefix}checkout`, component: checkout, name:'checkout',meta: { layout: layout } },

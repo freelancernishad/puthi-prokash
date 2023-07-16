@@ -2,7 +2,7 @@
 
             <div class="col cursor-pointer"  @click="$emit('show_details')">
                 <div class="text-decoration-none productimage">
-                    <img :src="$asseturl+'assets/image/sample_book_Re.png'" alt="" width="100%"  srcset="" class="my-3 shadow">
+                    <img :src="$asseturl+product.image" alt="" width="100%"  srcset="" class="my-3 shadow">
                     <div class="category-book-details text-center w-100">
                     <p class="mb-0 fs-7 text-dark">{{ product.name }}</p>
 

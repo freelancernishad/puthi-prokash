@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\CategoryImage;
+use App\Models\Product;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -48,45 +49,36 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
-    public function searchBySlug($slug)
+
+
+    public function searchBySlug(Request $request,$slug)
     {
-        $category = Category::where('slug', $slug)->with('parent', 'children.products')->first();
-
-
+        $category = Category::where('slug', $slug)->first();
         if (!$category) {
             return response()->json(['message' => 'Category not found'], 404);
         }
-
-
-
-
-
         if ($category->children->count() > 0) {
-
-            $category->load(['products', 'children', 'children.products','children.products.flippingBooks' => function ($query) {
-                $query->take(4);
-            }]);
-
+            $category->load([
+                'parent',
+                'children.products' => function ($query2) {
+                    $query2->take(6);
+                },
+                'children.products.flippingBooks' => function ($query2) {
+                    $query2->take(4);
+                },
+                'products' => function ($query2) {
+                    $query2->take(6);
+                }
+        ]);
             return response()->json($category, 200);
-
         } else {
-
-            $products = $category->products;
-
+            $products = $category->products()->latest()->take(6)->get();
+            $category->products = $products;
             return response()->json($category, 200);
+
         }
     }
-    private function getParentCategoryList($category)
-    {
-        $parentCategoryList = [];
 
-        while ($category->parent) {
-            $parentCategoryList[] = $category->parent;
-            $category = $category->parent;
-        }
-
-        return $parentCategoryList;
-    }
 
     public function show(Category $category)
     {

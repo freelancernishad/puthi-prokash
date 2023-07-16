@@ -5,26 +5,20 @@
             <i class="ms-4 fa-solid fa-bars fs-3"></i> <p class="mb-0">{{ category_name }}</p>
         </div>
 
-        <div class="row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2">
-
-
-            <Product v-for="(product,index) in products" :key="'product'+index" :product="product" @show_details="showDetialsFun(1,product.id,product)"/>
-
-            <Productdetails v-if="showDetials==1" :product="showDetialsProduct" />
 
 
 
+        <div class="row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2" v-for="(productRow,index) in products" :key="'productRow'+index">
+
+            <Product v-for="(product,indexs) in productRow" :key="'product'+indexs"  :product="product" @show_details="showDetialsFun(index,product.id,product)"/>
+
+            <Productdetails v-if="showDetials==index" :product="showDetialsProduct" />
+
+
+        </div>
 
 
 
-    <router-link class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',params:{category:category_id}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link>
-<!--
-    <router-link v-if="children.length === 0" class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',params:{category:category_slug}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link> -->
-
-    <!-- <router-link v-else class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'categoryProduct',params:{category:category_slug}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link> -->
-
-
-    </div>
     </section>
 
 
@@ -71,7 +65,7 @@ export default {
     },
     data() {
         return {
-            showDetials:0,
+            showDetials:-1,
             productId:0,
             showDetialsProduct:{},
             modalOpen: false,
@@ -82,8 +76,8 @@ export default {
 
         showDetialsFun(id,productid,showDetialsProduct){
             if(this.showDetials==id && this.productId==productid){
-                this.showDetials = 0;
-                this.productId = 0;
+                this.showDetials = -1;
+                this.productId = -1;
             }else{
                 this.showDetials = id;
                 this.productId = productid;

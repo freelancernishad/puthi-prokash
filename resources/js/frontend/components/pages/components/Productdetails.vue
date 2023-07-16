@@ -5,7 +5,7 @@
             <button class="singleProductCollectedButton" @click="addToCart({'user_id':1,'product_id':product.id})">সংগ্রহ করুন</button>
 
                     <div>
-                        <img :src="$asseturl+' productimageassets/image/sample_book_Re.png'"
+                        <img :src="$asseturl+product.image"
                             alt="" style="width: 195px;  height: 255px">
                     </div>
                     <div>
@@ -35,6 +35,8 @@
                             <img :src="imageUrl" alt="Modal Image" />
                         </div>
                     </div>
+
+
                 </div>
 
 

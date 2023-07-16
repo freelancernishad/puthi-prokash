@@ -11,16 +11,20 @@
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">{{ items.name }}</p>
-    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">৬০</p>
+    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
     </div>
 
     <div class="col-md-6 d-flex gap-5 py-2">
-        <select class="form-select" aria-label="Default select example">
-        <option selected>বাছাইয়ের ধরণ</option>
-        <option value="1">  One</option>
-
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <select class="form-select" aria-label="Default select example" v-model="sort" @change="filterBooks">
+        <option selected value="">বাছাইয়ের ধরণ</option>
+        <option value="latest">নতুন বই</option>
+        <option value="oldest">পুরাতন বই</option>
+        <option value="bangla_asc">শিরনাম অ-ক্ষ</option>
+        <option value="bangla_desc">শিরনাম ক্ষ-অ</option>
+        <!-- <option value="az">শিরনাম a-z</option>
+        <option value="za">শিরনাম z-a</option> -->
+        <option value="price_low_high">মূল্য নিম্ন-উচ্চ</option>
+        <option value="price_high_low">মূল্য উচ্চ-নিম্ন</option>
       </select>
     <select class="form-select" aria-label="Default select example">
         <option selected>ফিল্টার </option>
@@ -38,13 +42,21 @@
 
 
 
-<div  v-if="items.children.length === 0">
-    <Productslist  :key="'children'+index" :category_name="items.name" :category_slug="items.slug" :category_id="items.id" :products="items.products" :children="items.children"/>
-</div>
 
-<div  v-else>
-    <Productslist v-for="(item,index) in items.children" :key="'children'+index" :category_id="item.id" :category_name="item.name" :category_slug="item.slug" :products="item.products" :children="item.children"/>
-</div>
+    <Productslistpaginate  :key="'childrenProduct'" :category_name="categoris.name" :category_slug="categoris.slug" :products="items" :children="categoris.children"/>
+
+
+    <div class="container">
+
+        <Paginaion
+        :per_page="per_page"
+        :totalitems="totalitems"
+        :Totalpageprops="Totalpageprops"
+        :Routenameprops="Routenameprops"
+        :Routeparamsprops="Routeparamsprops"
+        />
+
+    </div>
 
 
 
@@ -74,41 +86,87 @@
 export default {
     data() {
         return {
-            showDetials:0,
+            sort:'',
             modalOpen: false,
             imageUrl:'',
-            items:{children:[]},
+            categoris:{children:[]},
+            items:[],
             parentCategory:{},
             allParents:[],
             Breadcrumb:[],
+            totalItems: 0,
+
+
+
+           per_page: 0,
+           totalitems:0,
+           Totalpageprops:[],
+           Routenameprops:'',
+           Routeparamsprops:{},
+
+
+
         }
     },
     watch: {
         '$route': async function (to, from) {
-
             this.getCategoryProduct();
-
         }
     },
     methods: {
-        showDetialsFun(id){
-            console.log(id)
-            if(this.showDetials==id){
-                this.showDetials = 0;
-            }else{
-                this.showDetials = id;
 
+        Products(data) {
+            const result = [];
+            for (let i = 0; i < data.length; i += 4) {
+                result.push(data.slice(i, i + 6));
             }
-        },
+            this.items = result;
+            },
 
-        async getCategoryProduct(){
-            var res = await this.callApi('get',`/api/categories/search/${this.$route.params.category}`,[]);
-            this.items = res.data
+
+            filterBooks(){
+                this.getCategoryProduct()
+            },
+
+
+
+        async getCategoryProduct(page=1){
+
+            if(this.$route.query.page) page = this.$route.query.page;
+
+
+
+            var sortQuery = '';
+            if(this.sort){
+                sortQuery = `&sort=${this.sort}`
+            }
+
+            this.$router.push({name:'Products',query:{page:page,sort:this.sort}});
+
+            var res = await this.callApi('get',`/api/filter/products?page=${page}&category=${this.$route.params.category}${sortQuery}`,[]);
+
+
+            this.Products(res.data.products.data);
+            this.totalItems = res.data.products.total
+
+
+            this.per_page = res.data.products.per_page
+            this.totalitems = res.data.products.total
+            this.Totalpageprops = res.data.products.links
+            this.Routenameprops = 'Products'
+            this.Routeparamsprops = {category:this.$route.params.category}
+
+
+            // this.items = res.data.products.data
+
+
+            this.categoris = res.data.category
+
 
             this.allParents = [];
             this.Breadcrumb = [{'route':'home','params':{},'text':'হোম'}];
 
-            var parantCategory = this.getAllParents(res.data.parent);
+            var parantCategory = this.getAllParents(this.categoris.parent);
             parantCategory.sort((a, b) => b.serialId - a.serialId)
             parantCategory.forEach(parent => {
                 this.Breadcrumb.push(
@@ -116,7 +174,7 @@ export default {
                 )
             });
             this.Breadcrumb.push(
-                {'route':'','params':{},'text':res.data.name}
+                {'route':'','params':{},'text':this.categoris.name}
             );
 
 
@@ -145,6 +203,7 @@ export default {
 
     },
     mounted() {
+        if(this.$route.query.sort) this.sort = this.$route.query.sort;
         this.getCategoryProduct();
     },
 }

@@ -37,6 +37,12 @@ Vue.component('Breadcrumb', breadcrumb)
 import Productslist from './components/pages/components/Productslist.vue';
 Vue.component('Productslist', Productslist)
 
+import Productslistpaginate from './components/pages/components/Productslistpaginate.vue';
+Vue.component('Productslistpaginate', Productslistpaginate)
+
+import Paginaion from './components/pages/components/paginate.vue';
+Vue.component('Paginaion', Paginaion)
+
 import Product from './components/pages/components/Product.vue';
 Vue.component('Product', Product)
 

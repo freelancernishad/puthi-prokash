@@ -132,25 +132,20 @@ export default {
             const data = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26];
             const result = [];
             result.push('');
+
+
             data.forEach((item, index) => {
             result.push(item);
-
-
-            // if ((index + 1) % 2 === 0 && index < data.length - 1) {
-            //     result.push('');
-            // }
-
-
                 if (index==15) {
                     result.push('');
                 }
                 if (index==21) {
                     result.push('<');
                 }
-
-
-
             });
+
+
+
             result.push('>');
             this.writers = result;
             }

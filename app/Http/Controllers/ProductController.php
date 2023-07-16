@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\FlippingBook;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\CategoryProduct;
-use Illuminate\Validation\Rule;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -29,12 +30,18 @@ class ProductController extends Controller
 
         $query = Product::query();
 
+
         // Filter by category
         if ($request->has('category')) {
             $categoryId = $request->input('category');
+            $category = Category::where('id', $categoryId)->first();
+            $category->load(['parent','children']);
+
+
             $query->whereHas('categories', function ($q) use ($categoryId) {
                 $q->where('id', $categoryId);
             });
+
         }
 
         // Filter by author
@@ -75,6 +82,12 @@ class ProductController extends Controller
                 case 'price_high_low':
                     $query->orderBy('price', 'desc');
                     break;
+                case 'bangla_asc':
+                    $query->orderByRaw('CAST(name AS CHAR) COLLATE utf8mb4_bin');
+                    break;
+                case 'bangla_desc':
+                    $query->orderByRaw('CAST(name AS CHAR) COLLATE utf8mb4_bin DESC');
+                    break;
                 default:
                     // Handle invalid sort value, if needed
                     break;
@@ -82,10 +95,10 @@ class ProductController extends Controller
         }
 
         // Retrieve the filtered and sorted products
-        $products = $query->get();
+        $products = $query->paginate(3);
 
         // Return the filtered products as a response
-        return response()->json($products);
+        return response()->json(['products'=>$products,'category'=>$category]);
     }
 
 

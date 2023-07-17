@@ -10,7 +10,7 @@
                     </div>
                     <div>
 
-                        <router-link :to="{name:'productSingle',params:{id:1}}" class="mb-0" >{{ product.name }}</router-link>
+                        <router-link :to="{name:'productSingle',params:{id:product.id}}" class="mb-0" >{{ product.name }}</router-link>
                         <p class="mb-0 fs-9 product-lebel-text">Price : {{ product.price-product.discount }}</p>
                         <p class="mb-0  fs-8 product-lebel-text orgPrice">Regular Price : {{ product.price }}</p>
                         <p class="mb-0  fs-8 mt-3">উল্লেখযোগ্য অংশবিশেষ</p>

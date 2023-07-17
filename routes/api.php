@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleController;
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
@@ -45,6 +46,21 @@ Route::group([
     Route::post('register', [authController::class,'register']);
 
 });
+
+
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::post('/users', [UserController::class, 'store']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
+Route::get('/users/position/{position}', [UserController::class, 'getUsersByPosition']);
+Route::post('/users/register-writer', [UserController::class, 'registerWriter']);
+
+
+
+
+
+
 
 
 Route::get('get/roles',[authController::class,'getRoles']);

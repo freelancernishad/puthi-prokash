@@ -17,7 +17,7 @@
 
 
 
-    <router-link class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',params:{category:category_id}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link>
+    <router-link class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',query:{category:category_id}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link>
 <!--
     <router-link v-if="children.length === 0" class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',params:{category:category_slug}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link> -->
 

@@ -12,7 +12,11 @@
           <i class="fa-brands fa-square-facebook linkHover"></i>
           <i class="fa-brands fa-twitter linkHover"></i>
           <i class="fa-brands fa-instagram linkHover"></i>
-          <i class="fa-brands fa-youtube linkHover"></i>
+
+          <img :src="$asseturl+'assets/image/youtube-icon.png'" class="linkHover" style="    width: 48px;" alt="">
+          <!-- <i class="fa-brands fa-youtube linkHover"></i> -->
+
+
           <i class="fa-brands fa-pinterest linkHover"></i>
         </div>
       </div>
@@ -141,7 +145,7 @@ export default {
 
   watch: {
         '$route': async function (to, from) {
-            this.scrollToTop();
+            // this.scrollToTop();
         }
     },
   mounted() {

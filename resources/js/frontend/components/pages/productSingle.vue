@@ -2,53 +2,55 @@
     <main>
         <section class="container d-md-flex my-5" style="padding-top: 50px;grid-gap: 25px;">
             <div class="col-md-3 col-sm-5 col-sm-12 singleProductImage">
-                <img src="https://kathaprokash.com/market-admin/images/product/1673087508.png" alt="" srcset="">
+                <img :src="$asseturl+item.image" alt="" srcset="">
             </div>
             <div class="col-md-9 col-sm-7 position-relative">
 
-                <button class="singleProductCollectedButton">সংগ্রহ করুন</button>
+                <button class="singleProductCollectedButton" @click="addToCart({'user_id':1,'product_id':item.id})">সংগ্রহ করুন</button>
 
                 <div class="">
                     <div>
-                        <h2 class="book-title">মহাভারতের দেশ</h2>
+                        <h2 class="book-title">{{ item.name }}</h2>
                     </div>
-                    <p>
+
+                    <p v-if="item.author">
                         <b>
                             <span>
-                                <a class="text-decoration-none text-danger" href="#">আবুল ফজল (Abul Fojol)</a>
+                                <router-link :to="{name:'Products',query:{author:item.author.id}}" class="text-decoration-none text-danger" >{{ item.author.name }}</router-link>
                             </span>
                         </b>
                     </p>
+
                     <h5 class="book-meta">
                         বিষয় :
-                        <a class="text-decoration-none text-danger" href="#">ইতিহাস</a>
+                        <router-link class="text-decoration-none text-danger" :to="{name:'Products',query:{category:item.category.id}}">{{ item.category.name }}</router-link>
                     </h5>
                     <h5 class="book-meta">
-                        প্রচ্ছদ : সব্যসাচী হাজরা
+                        প্রচ্ছদ : {{ item.prossod }}
                     </h5>
                     <h5 class="book-meta">
                         মোট পৃষ্ঠা :
-                        <span class="eng-text">200</span>
+                        <span class="eng-text">{{ item.total_page }}</span>
                     </h5>
                     <h5 class="book-meta">
                         <span class="tangon">প্রকাশের তারিখ :</span>
-                        <span class="eng-text">01 Feb, 2023</span>
+                        <span class="eng-text">{{ item.release_date }}</span>
                     </h5>
                     <h5 class="book-meta">
                         <span class="tangon">কভার টাইপ :</span>
-                        <span class="eng-text">Hardcover</span>
+                        <span class="eng-text">{{ item.cover_type }}</span>
                     </h5>
                     <h5 class="book-meta eng-text">
-                        ISBN : 9789849691099
+                        ISBN : {{ item.ISBN }}
                     </h5>
                     <div class="mt-2 font-18">
                         <div class="font-weight-bold">
-                            Price: Tk. 300.00
+                            Price: Tk. {{ item.price }}
                             <span class="ml-2 text-danger"> (<span>25</span><span>%</span><span class="ml-1">OFF</span>) </span>
                         </div>
                         <div class="font-weight-bold">
                             Regular Price:
-                            <strike class="item-price">Tk. 400.00 </strike>
+                            <strike class="item-price">Tk. {{ item.price }} </strike>
                         </div>
                     </div>
                     <div class="my-3 d-flex align-items-center" >
@@ -57,11 +59,14 @@
 
                         <div class="d-flex">
 
-                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+
+                            <img :src="$asseturl+flipping_book.image" v-for="(flipping_book,index) in item.flipping_books" :key="'flipping_books'+index" @click="openModal($asseturl+flipping_book.image)"  class="img-thumbnail sampleBooks" role="button">
+
+                            <!-- <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
 
                             <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
                             <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
-                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks">
+                            <img :src="$asseturl+'assets/image/sample_book_Re.png'" @click="openModal($asseturl+'assets/image/sample_book_Re.png')"  class="img-thumbnail sampleBooks"> -->
                         </div>
 
 
@@ -119,11 +124,19 @@ export default {
     return {
         modalOpen: false,
         imageUrl:'',
+        item:{}
     };
   },
   methods: {
 
-  }
+    async getItem(){
+        var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[]);
+        this.item = res.data;
+    },
+  },
+  mounted() {
+    this.getItem();
+  },
 };
 </script>
 

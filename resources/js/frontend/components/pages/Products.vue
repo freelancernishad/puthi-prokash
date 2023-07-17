@@ -10,7 +10,7 @@
     <div class=" my-4 row w-100">
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
-    <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">{{ items.name }}</p>
+    <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">{{ categoris.name }}</p>
     <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
     </div>
 
@@ -87,6 +87,8 @@ export default {
     data() {
         return {
             sort:'',
+            category:'',
+            author:'',
             modalOpen: false,
             imageUrl:'',
             categoris:{children:[]},
@@ -137,13 +139,50 @@ export default {
 
 
             var sortQuery = '';
+            var categoryQuery = '';
+            var authorQuery = '';
+
+            if(this.author){
+                authorQuery = `&author=${this.author}`
+            }
+            if(this.category){
+                categoryQuery = `&category=${this.category}`
+            }
             if(this.sort){
                 sortQuery = `&sort=${this.sort}`
             }
 
-            this.$router.push({name:'Products',query:{page:page,sort:this.sort}});
 
-            var res = await this.callApi('get',`/api/filter/products?page=${page}&category=${this.$route.params.category}${sortQuery}`,[]);
+
+            const query = { page: page };
+
+            if (this.sort) {
+            query.sort = this.sort;
+            }
+
+            if (this.category) {
+            query.category = this.category;
+            }
+
+            if (this.author) {
+            query.author = this.author;
+            }
+
+            this.$router.push({ name: 'Products', query: query });
+
+
+
+
+
+
+
+
+
+
+
+            var res = await this.callApi('get',`/api/filter/products?page=${page}${categoryQuery}${sortQuery}${authorQuery}`,[]);
+
+
 
 
             this.Products(res.data.products.data);
@@ -154,7 +193,7 @@ export default {
             this.totalitems = res.data.products.total
             this.Totalpageprops = res.data.products.links
             this.Routenameprops = 'Products'
-            this.Routeparamsprops = {category:this.$route.params.category}
+            this.Routeparamsprops = {category:this.$route.query.category}
 
 
             // this.items = res.data.products.data
@@ -204,6 +243,8 @@ export default {
     },
     mounted() {
         if(this.$route.query.sort) this.sort = this.$route.query.sort;
+        if(this.$route.query.category) this.category = this.$route.query.category;
+        if(this.$route.query.author) this.author = this.$route.query.author;
         this.getCategoryProduct();
     },
 }

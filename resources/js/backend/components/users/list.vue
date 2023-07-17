@@ -104,30 +104,18 @@ export default {
             TotalRows:'1',
             Type:'',
             items: [],
-            fields: [
-                { key: 'names', label: 'নাম', sortable: true },
-                { key: 'unioun', label: 'ইউনিয়ন', sortable: true },
-                { key: 'thana', label: 'উপজেলা', sortable: true },
-                { key: 'district', label: 'জেলা', sortable: true },
-                { key: 'position', label: 'পদবি', sortable: true },
 
-                { key: 'actions', label: 'Actions' }
-            ],
 
 
         }
     },
-    // updated(){
 
-    //  this.sonodList();
-
-    // },
 
   watch: {
         '$route':  {
             handler(newValue, oldValue) {
 
-        // hello
+
 
 
       },
@@ -144,10 +132,9 @@ export default {
         sonodname(){
             var position = this.Users.position
             var thana = this.Users.thana
-              axios.get(`/api/get/users/list?position=${position}&thana=${thana}`)
+              axios.get(`/api/users/position/writer`)
                 .then(({ data }) => {
-                    // console.log(data)
-                  this.items = data
+                  this.items = data.data
                   this.TotalRows = `${this.items.length}`;
                   this.preLooding = false
                 })

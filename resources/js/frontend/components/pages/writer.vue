@@ -76,20 +76,59 @@
 <section class="row w-100 mx-auto my-4">
 
 
-    <div class="col-md-2 text-center"  v-for="writer in writers">
+    <div class="col-2 text-center" ></div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/P.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/t.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/pr.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/k.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/s.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+
+
+    </section>
+
+<section class="row w-100 mx-auto my-4">
 
 
 
-        <div v-if="writer=='<'" class="writerArrow" >
-            <i class="fa-thin fa-angles-left"></i>
+
+    <div class="col-md-2 text-center"  v-for="(writer,indexN) in writers" :key="'writer'+indexN">
+
+        <div v-if="writer=='<'"  class="writerArrow" >
+
+            <i @click="prePage" v-if="page>1"  role="button" class="fa-thin fa-angles-left"></i>
+
         </div>
 
-        <div v-else-if="writer=='>'" class="writerArrow" >
-            <i class="fa-thin fa-angles-right"></i>
+        <div v-else-if="writer=='>'"  class="writerArrow" >
+
+            <i @click="nextPage" v-if="last_page>page" role="button" class="fa-thin fa-angles-right"></i>
+
         </div>
         <div v-else-if="writer" style="background-color: #d1d2d4;margin: 11px 0px;">
+            <router-link class="text-dark" :to="{name:'Products',query:{author:writer.id}}">
             <img width="100%" :src="$asseturl+'assets/image/man.png'" alt="" srcset="" class="img-fluid" />
-            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">লেখকের নাম</h5>
+            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">  {{ writer.name }}</h5>
+        </router-link>
         </div>
     </div>
 
@@ -123,30 +162,104 @@
 export default {
     data() {
         return {
-            writers:{}
+            writers:{},
+            page:1,
+            last_page:1,
         }
     },
     methods: {
 
-        processItem() {
-            const data = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26];
-            const result = [];
-            result.push('');
+        nextPage(){
+            this.page = Number(this.page)+Number(1);
+            this.$router.push({name:'writer',query:{page:this.page}})
+            this.processItem();
 
+        },
+
+        prePage(){
+            this.page =Number(this.page)-Number(1);
+            this.$router.push({name:'writer',query:{page:this.page}})
+            this.processItem();
+        },
+
+
+
+       async processItem() {
+            if(this.$route.query.page) this.page = this.$route.query.page
+
+
+            var res = await this.callApi('get',`/api/users/position/writer?page=${this.page}`,[]);
+            const data = res.data.data;
+
+
+
+            const totalItem = res.data.total;
+
+
+            const per_page = res.data.per_page;
+            const current_page = res.data.current_page-1;
+
+
+
+
+            const CurrentPageItem = totalItem-(per_page*current_page);
+
+
+
+            this.last_page = res.data.last_page;
+
+
+
+
+
+            const result = [];
+            // result.push('');
+            if(CurrentPageItem<21){
+                result.push('<');
+                    }
 
             data.forEach((item, index) => {
-            result.push(item);
-                if (index==15) {
+                result.push(item);
+
+
+
+                if (index==10) {
                     result.push('');
                 }
-                if (index==21) {
-                    result.push('<');
+
+
+                if(totalItem>21){
+
+
+
+                    if (index==16) {
+                        if(CurrentPageItem<21){
+
+                            }else{
+
+                                result.push('<');
+                            }
+                    }
+
+
+
                 }
+
+
+
+
+
+
             });
 
 
 
-            result.push('>');
+            if(totalItem>21){
+
+                result.push('>');
+
+            }
+
             this.writers = result;
             }
 

@@ -4358,45 +4358,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       PerPageData: '10',
       TotalRows: '1',
       Type: '',
-      items: [],
-      fields: [{
-        key: 'names',
-        label: 'নাম',
-        sortable: true
-      }, {
-        key: 'unioun',
-        label: 'ইউনিয়ন',
-        sortable: true
-      }, {
-        key: 'thana',
-        label: 'উপজেলা',
-        sortable: true
-      }, {
-        key: 'district',
-        label: 'জেলা',
-        sortable: true
-      }, {
-        key: 'position',
-        label: 'পদবি',
-        sortable: true
-      }, {
-        key: 'actions',
-        label: 'Actions'
-      }]
+      items: []
     };
   },
-  // updated(){
-
-  //  this.sonodList();
-
-  // },
-
   watch: {
     '$route': {
-      handler: function handler(newValue, oldValue) {
-
-        // hello
-      },
+      handler: function handler(newValue, oldValue) {},
       deep: true
     }
   },
@@ -4405,10 +4372,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
       var position = this.Users.position;
       var thana = this.Users.thana;
-      axios.get("/api/get/users/list?position=".concat(position, "&thana=").concat(thana)).then(function (_ref) {
+      axios.get("/api/users/position/writer").then(function (_ref) {
         var data = _ref.data;
-        // console.log(data)
-        _this.items = data;
+        _this.items = data.data;
         _this.TotalRows = "".concat(_this.items.length);
         _this.preLooding = false;
       })["catch"]();

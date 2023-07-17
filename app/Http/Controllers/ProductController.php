@@ -8,7 +8,7 @@ use App\Models\FlippingBook;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\CategoryProduct;
-
+use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -30,6 +30,7 @@ class ProductController extends Controller
 
         $query = Product::query();
 
+        $category = [];
 
         // Filter by category
         if ($request->has('category')) {
@@ -48,6 +49,7 @@ class ProductController extends Controller
         if ($request->has('author')) {
             $authorId = $request->input('author');
             $query->where('author_id', $authorId);
+            $category = User::where('id', $authorId)->first();
         }
 
         // Filter by price range
@@ -95,7 +97,7 @@ class ProductController extends Controller
         }
 
         // Retrieve the filtered and sorted products
-        $products = $query->paginate(3);
+        $products = $query->paginate(18);
 
         // Return the filtered products as a response
         return response()->json(['products'=>$products,'category'=>$category]);
@@ -106,7 +108,15 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $product->load('categories', 'images');
+        $product->load([
+            'categories',
+            'category',
+            'images',
+            'author',
+            'flippingBooks' => function ($query) {
+            $query->take(4);
+            }
+        ]);
         return response()->json($product);
     }
 

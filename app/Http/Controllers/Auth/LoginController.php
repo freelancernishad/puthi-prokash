@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
@@ -38,42 +39,36 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function userLogin(Request $request)
+    {
+        $userFilter = [
+            'email' => $request->email,
+            'position' => 'user',
+        ];
+
+         $singleUser = User::where($userFilter)->count();
+
+
+         if($singleUser>0){
+
+             $credentials = $request->only('email', 'password');
+             if (Auth::attempt($credentials)) {
+             $user = Auth::user();
+            $user['access_token'] = $user->createToken('accessToken')->accessToken;
+            //  updateCartUser($user->id);
+            return $this->respondWithToken($user['access_token']);
+
+        } else {
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+
+
+    }
     public function login(Request $request)
     {
-        // $input = $request->all();
-
-        // $this->validate($request, [
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-
-        // if(auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        // {
-        //     // return auth::user();
-
-        //     if (auth()->user()) {
-        //         return redirect('dashboard');
-        //     }
-
-
-
-
-        // }else{
-        //     return redirect()->route('login')
-        //         ->with('error','Email-Address And Password Are Wrong.');
-        // }
-
-
-
-
-        // $validator = Validator::make($request->all(), [
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-        // if ($validator->fails()) {
-        //     return sent_error('validation error', $validator->errors(), 422);
-        // }
-
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
              $user = Auth::user();
@@ -89,10 +84,6 @@ class LoginController extends Controller
         } else {
             return 0;
         }
-
-
-
-
     }
 
 

@@ -8,6 +8,7 @@ const store = new Vuex.Store({
     state:{
         // bookList:['Book 1','Book 2','Book 3','Book 4']
         Users:{},
+        LatestProductsCat:{},
 
         userPermission:{},
         userRoles:{},
@@ -20,6 +21,12 @@ const store = new Vuex.Store({
        async setUpdateUser(state,data){
 
             state.Users = data
+
+        },
+
+       async setUpdateLatestProducts(state,data){
+
+            state.LatestProductsCat = data
 
         },
 
@@ -42,6 +49,12 @@ const store = new Vuex.Store({
         getUpdateUser(state){
 
             return state.Users
+        },
+
+
+        getUpdateLatestProducts(state){
+
+            return state.LatestProductsCat
         },
 
         getUserPermission(state){

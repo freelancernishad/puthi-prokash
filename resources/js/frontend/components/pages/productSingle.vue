@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-9 col-sm-7 position-relative">
 
-                <button class="singleProductCollectedButton" @click="addToCart({'user_id':1,'product_id':item.id})">সংগ্রহ করুন</button>
+                <button class="singleProductCollectedButton" @click="addToCart({'product_id':item.id})">সংগ্রহ করুন</button>
 
                 <div class="">
                     <div>

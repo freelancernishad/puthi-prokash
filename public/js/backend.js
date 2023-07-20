@@ -6553,7 +6553,13 @@ var render = function render() {
       return _c("span", {
         key: categorie.id
       }, [_vm._v(_vm._s(categorie.name)), indexSL != Object.keys(list.categories).length - 1 ? _c("span", [_vm._v(", ")]) : _vm._e()]);
-    }), 0), _vm._v(" "), _c("td", [_c("router-link", {
+    }), 0), _vm._v(" "), _c("td", [_c("a", {
+      staticClass: "btn btn-info",
+      attrs: {
+        target: "_blank",
+        href: "/books/".concat(list.slug, "/").concat(list.id)
+      }
+    }, [_vm._v("Fliping Books Preview")]), _vm._v(" "), _c("router-link", {
       staticClass: "btn btn-info",
       attrs: {
         to: {
@@ -6564,16 +6570,6 @@ var render = function render() {
         }
       }
     }, [_vm._v("Fliping Books")]), _vm._v(" "), _c("router-link", {
-      staticClass: "btn btn-info",
-      attrs: {
-        to: {
-          name: "productsimages",
-          params: {
-            id: list.id
-          }
-        }
-      }
-    }, [_vm._v("Image Upload")]), _vm._v(" "), _c("router-link", {
       staticClass: "btn btn-info",
       attrs: {
         to: {
@@ -7649,12 +7645,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                form['user_id'] = _this.$localStorage.getItem('userid');
+                _context.next = 3;
                 return _this.callApi('post', "/api/cart", form);
-              case 2:
+              case 3:
                 res = _context.sent;
-                console.log(res);
-              case 4:
+                Notification.customSuccess("Added to cart");
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -7870,7 +7867,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    'Users': 'getUpdateUser'
+    'Users': 'getUpdateUser',
+    'LatestProductsCat': 'getUpdateLatestProducts'
   }))
 });
 
@@ -8368,6 +8366,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     // bookList:['Book 1','Book 2','Book 3','Book 4']
     Users: {},
+    LatestProductsCat: {},
     userPermission: {},
     userRoles: {}
   },
@@ -8388,6 +8387,21 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
         }, _callee);
       }))();
     },
+    setUpdateLatestProducts: function setUpdateLatestProducts(state, data) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                state.LatestProductsCat = data;
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
     setUserPermission: function setUserPermission(state, data) {
       state.userPermission = data;
     },
@@ -8398,6 +8412,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   getters: {
     getUpdateUser: function getUpdateUser(state) {
       return state.Users;
+    },
+    getUpdateLatestProducts: function getUpdateLatestProducts(state) {
+      return state.LatestProductsCat;
     },
     getUserPermission: function getUserPermission(state) {
       return state.userPermission;

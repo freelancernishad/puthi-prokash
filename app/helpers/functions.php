@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Cart;
 use App\Models\Sonod;
 use App\Models\Visitor;
+use App\Models\Category;
 use App\Models\Uniouninfo;
 use App\Models\Sonodnamelist;
 use Illuminate\Support\Facades\DB;
@@ -84,11 +86,6 @@ curl_close($curl);
 
     // }
 
-    function sonodEnName($sonodBnName){
-        $sonodList = Sonodnamelist::where(['bnname'=>$sonodBnName])->first();
-        return  str_replace(" ", "_", $sonodList->enname);
-    }
-
     function ekpayToken($trnx_id=123456789,$trnx_amt=0,$cust_info=[],$path='payment'){
 
 
@@ -166,183 +163,8 @@ curl_close($curl);
     }
 
 
-    function sonodView($id){
-        $row = Sonod::find($id);
-        $sonod = Sonodnamelist::where('bnname',$row->sonod_name)->first();
-        $uniouninfo = Uniouninfo::where('short_name_e',$row->unioun_name)->first();
-$blade = 'other';
-$slug =  str_replace(' ', '_', $sonod->enname);
-
-        if($slug=='Trade_license'){
-        $blade = $slug;
-        }
-        return view('sonod.'.$blade,compact('row','sonod','uniouninfo'));
-
-    };
-
-    function invoiceView($id){
-        $row = Sonod::find($id);
-        $sonod = Sonodnamelist::where('bnname',$row->sonod_name)->first();
-        $uniouninfo = Uniouninfo::where('short_name_e',$row->unioun_name)->first();
-$blade = 'other';
-$slug =  str_replace(' ', '_', $sonod->enname);
-
-        if($slug=='Trade_license'){
-        $blade = $slug;
-        }
-        return view('invoice.'.$blade,compact('row','sonod','uniouninfo'));
-
-    };
-
-function sitedetails()
-{
 
 
-
-
-// live server
-// $fullURL = 'https://'.$_SERVER['HTTP_HOST'];
-
-
-// $arrUrl = explode('.',$fullURL);
-
-// // print_r($arrUrl);
-// $count = count($arrUrl);
-// if($count==2){
-//    $fullURL = 'https://'.$_SERVER['HTTP_HOST'];
-// }else{
-//    $fullURL ='https://'.$arrUrl[1].'.'.$arrUrl[2];
-// }
-
-
-
-
-
-    // local server
-
-    $fullURL = 'http://' . $_SERVER['HTTP_HOST'];
-        if($fullURL=='http://localhost:8000'){
-            $fullURL = 'http://' . $_SERVER['HTTP_HOST'];
-        }else{
-            $fullURL = 'https://' . $_SERVER['HTTP_HOST'];
-
-        }
-
-    $arrUrl = explode('.', $fullURL);
-
-    // print_r($arrUrl);
-    $count = count($arrUrl);
-
-$sslUrl = explode('//', $arrUrl[0]);
-
-   if ($count == 1) {
-
-       if($arrUrl[0]=='http://localhost:8000'){
-           $fullURL = 'http://' . $_SERVER['HTTP_HOST'];
-       }else{
-           $fullURL = $sslUrl[0].'//' . $_SERVER['HTTP_HOST'];
-       }
-
-
-   }elseif ($count == 2) {
-
-       if($arrUrl[1]=='localhost:8000'){
-           $fullURL = 'http://' . $arrUrl[1];
-       }else{
-           $fullURL = $arrUrl[0].'.' .  $arrUrl[1];
-       }
-
-
-   }elseif ($count == 3) {
-
-       if($arrUrl[2]=='localhost:8000'){
-           $fullURL = 'http://' . $arrUrl[1]. '.'.$arrUrl[2];
-       }else{
-           $fullURL = $sslUrl[0] .'//'. $arrUrl[1]. '.'.$arrUrl[2];
-       }
-
-
-   }elseif ($count == 4) {
-
-       if($arrUrl[2]=='localhost:8000'){
-           $fullURL = 'http://' . $arrUrl[1]. '.'.$arrUrl[2];
-       }else{
-
-
-           $fullURL = $sslUrl[0].'//' . $arrUrl[1]. '.'.$arrUrl[2]. '.'.$arrUrl[3];
-       }
-
-
-   } else {
-       $fullURL = 'http://' . $arrUrl[1];
-   }
-
-// echo $fullURL;
-
-    $count = DB::table('school_details')->where('school_domain', $fullURL)->count();
-
-    if ($count > 0) {
-
-
-        return  $data = DB::table('school_details')->where('school_domain', $fullURL)->first();
-
-
-        // if($name=='school_id'){
-        //     return $data[0]->school_id;
-        // }else if($name=='school_domain'){
-        //     return $data[0]->school_domain;
-        // }else if($name=='SMS_TOKEN'){
-        //     return $data[0]->SMS_TOKEN;
-        // }else if($name=='SCHOLL_NAME'){
-        //     return $data[0]->SCHOLL_NAME;
-        // }else if($name=='SCHOLL_ADDRESS'){
-        //     return $data[0]->SCHOLL_ADDRESS;
-        // }else if($name=='SCHOLL_BUILD'){
-        //     return $data[0]->SCHOLL_BUILD;
-        // }else if($name=='SCHOLL_CODE'){
-        //     return $data[0]->SCHOLL_CODE;
-        // }else if($name=='HISTORY_OF_THE_ORGANIZATION'){
-        //     return $data[0]->HISTORY_OF_THE_ORGANIZATION;
-        // }else if($name=='PRINCIPALS_WORDS'){
-        //     return $data[0]->PRINCIPALS_WORDS;
-        // }else if($name=='VICE_PRINCIPALS_STATEMENT'){
-        //     return $data[0]->VICE_PRINCIPALS_STATEMENT;
-        // }else if($name=='facebook_page'){
-        //     return $data[0]->facebook_page;
-        // }else if($name=='meta_keywords'){
-        //     return $data[0]->meta_keywords;
-        // }else if($name=='meta_description'){
-        //     return $data[0]->meta_description;
-        // }else if($name=='meta_author'){
-        //     return $data[0]->meta_author;
-        // }else if($name=='contact_email'){
-        //     return $data[0]->contact_email;
-        // }else if($name=='theme'){
-        //     return $data[0]->theme;
-        // }
-
-    } else {
-        echo "
-        <script>
-            window.location.href = '/restricted'
-        </script>
-
-        ";
-    }
-}
-
-function subjectCol($subject)
-    {
-        if($subject=='ইংলিশ'){
-            return 'English_1st';
-        }else if($subject=='বাংলা'){
-            return 'Bangla_1st';
-        }else{
-            $orginal = array("বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","বিজ্ঞান","পদার্থ","রসায়ন","জীব-বিজ্ঞান","ভূগোল","অর্থনীতি","ইতিহাস","বাংলাদেশ ও বিশ্ব পরিচয়","ধর্ম","ইসলাম-ধর্ম","হিন্দু-ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি");
-            $colname = array("Bangla_1st","Bangla_2nd","English_1st","English_2nd","Math","Science","physics","Chemistry","Biology","vugol","orthoniti","itihas","B_and_B","Religion","ReligionIslam","ReligionHindu","Agriculture","ICT");
-            return str_replace($orginal, $colname, $subject);
-        }
-    }
 
 
 function int_en_to_bn($number)
@@ -362,14 +184,6 @@ function int_bn_to_en($number)
     return str_replace($bn_digits, $en_digits, $number);
 }
 
-function class_en_to_bn($class)
-{
-
-    $bn = array('শিশু শ্রেণি', 'নার্সারি', 'প্রথম শ্রেণি', 'দ্বিতীয় শ্রেণি', 'তৃতীয় শ্রেণী', 'চতুর্থ শ্রেণী', 'পঞ্চম শ্রেণী', 'ষষ্ঠ শ্রেণী', 'সপ্তম শ্রেণী', 'অষ্টম শ্রেণী', 'নবম শ্রেণী', 'দশম শ্রেণী');
-    $en = array('Play', 'Nursery', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten');
-
-    return str_replace($en, $bn, $class);
-}
 
 function month_en_to_bn($month)
 {
@@ -396,260 +210,6 @@ function day_en_to_bn($day)
 
 
     return str_replace($en_month, $bn_month, $day);
-}
-
-
-
-
-
-
-
-function numberTowords($num)
-{
-    $ones = array(
-        0 => "ZERO",
-        1 => "ONE",
-        2 => "TWO",
-        3 => "THREE",
-        4 => "FOUR",
-        5 => "FIVE",
-        6 => "SIX",
-        7 => "SEVEN",
-        8 => "EIGHT",
-        9 => "NINE",
-        10 => "TEN",
-        11 => "ELEVEN",
-        12 => "TWELVE",
-        13 => "THIRTEEN",
-        14 => "FOURTEEN",
-        15 => "FIFTEEN",
-        16 => "SIXTEEN",
-        17 => "SEVENTEEN",
-        18 => "EIGHTEEN",
-        19 => "NINETEEN",
-        "014" => "FOURTEEN"
-    );
-    $tens = array(
-        0 => "ZERO",
-        1 => "TEN",
-        2 => "TWENTY",
-        3 => "THIRTY",
-        4 => "FORTY",
-        5 => "FIFTY",
-        6 => "SIXTY",
-        7 => "SEVENTY",
-        8 => "EIGHTY",
-        9 => "NINETY"
-    );
-    $hundreds = array(
-        "HUNDRED",
-        "THOUSAND",
-        "MILLION",
-        "BILLION",
-        "TRILLION",
-        "QUARDRILLION"
-    ); /*limit t quadrillion */
-    $num = number_format($num, 2, ".", ",");
-    $num_arr = explode(".", $num);
-    $wholenum = $num_arr[0];
-    $decnum = $num_arr[1];
-    $whole_arr = array_reverse(explode(",", $wholenum));
-    krsort($whole_arr, 1);
-    $rettxt = "";
-    foreach ($whole_arr as $key => $i) {
-
-        while (substr($i, 0, 1) == "0")
-            $i = substr($i, 1, 5);
-        if ($i < 20) {
-            /* echo "getting:".$i; */
-            $rettxt .= $ones[$i];
-        } elseif ($i < 100) {
-            if (substr($i, 0, 1) != "0")  $rettxt .= $tens[substr($i, 0, 1)];
-            if (substr($i, 1, 1) != "0") $rettxt .= " " . $ones[substr($i, 1, 1)];
-        } else {
-            if (substr($i, 0, 1) != "0") $rettxt .= $ones[substr($i, 0, 1)] . " " . $hundreds[0];
-            if (substr($i, 1, 1) != "0") $rettxt .= " " . $tens[substr($i, 1, 1)];
-            if (substr($i, 2, 1) != "0") $rettxt .= " " . $ones[substr($i, 2, 1)];
-        }
-        if ($key > 0) {
-            $rettxt .= " " . $hundreds[$key] . " ";
-        }
-    }
-    if ($decnum > 0) {
-        $rettxt .= " and ";
-        if ($decnum < 20) {
-            $rettxt .= $ones[$decnum];
-        } elseif ($decnum < 100) {
-            $rettxt .= $tens[substr($decnum, 0, 1)];
-            $rettxt .= " " . $ones[substr($decnum, 1, 1)];
-        }
-    }
-    return $rettxt;
-}
-
-
-//translate
-
-
-// function sessionFlush()
-// {
-//     Session::forget('source');
-//     Session::forget('target');
-// }
-
-// function setTarget($target)
-// {
-//     Session::put('target', $target);
-// }
-
-// function setSource($source)
-// {
-//     Session::put('source', $source);
-// }
-
-// function translateText($text)
-// {
-//     $src = Session::get('source');
-//     $target = Session::get('target');
-//     if ($target == '' || $target == null) return $text;
-//     if ($src == '' || $src == null) {
-//         $src = env('BaseLanguage');
-//         Session::put('source', env('BaseLanguage'));
-//     }
-//     if ($src == $target) return $text;
-//     else {
-//         $translation = TranslateText::translate($src, $target, $text);
-//         return $translation;
-//     }
-// }
-
-
-
-
-function filterarray($arryvalue){
-    return ($arryvalue->stu_id==2206033);
-}
-function attendancemonthCheck($cutentdate, $class, $StudentID)
-{
-
-
-
-    $months = date("F", strtotime($cutentdate));
-
-
-    $wh = [
-        'month' => $months,
-        'student_class' => $class,
-        'date' => $cutentdate,
-    ];
-
-    $attendancescount = DB::table('attendances')->where($wh)->count();
-    if ($attendancescount > 0) {
-        $attendances = DB::table('attendances')->where($wh)->get();
-        $attendance = json_decode($attendances[0]->attendance);
-        $attendance = array_filter($attendance,function($attendances) use($StudentID){
-            return ($attendances->stu_id==$StudentID);
-        });
-
-
-        foreach ($attendance as $rr) {
-
-            if ($rr->stu_id == $StudentID) {
-                if ($rr->attendence == 'Present') {
-
-                    return  $td =  '<td><i class="fas fa-check text-success"></i>  </td>';
-                } else if ($rr->attendence == 'Absent') {
-                    $attendace = 'fas fa-times text-danger';
-                   // return '<td>'.$rr->stu_id.'-'.$StudentID.'</td>';
-                   return  $td =  '<td><i class="fas fa-times text-danger"></i></td>';
-                }else{
-                    return  $td = '<td>-</td>';
-                }
-
-            }else{
-                return  $td = '<td>-</td>';
-            }
-           // return  $td;
-
-          // return filterarray($$rr->stu_id,$StudentID);
-            //  if ($rr->stu_id == $StudentID) {
-            //     return $StudentID.'true';
-            // }else{
-            //     return $StudentID.'false';
-            // }
-
-        //return $type;
-
-
-        }
-
-
-    } else {
-       // return 'dont have';
-    }
-}
-
-
-function attendancemonth($cutentdate, $class, $StudentID,$tt,$school_id)
-{
-
-    // $school_id = sitedetails()->school_id;
-
-    $months = date("F", strtotime($cutentdate));
-
-
-    $wh = [
-        'month' => $months,
-        'student_class' => $class,
-        'date' => $cutentdate,
-        'school_id'=> $school_id
-    ];
-
-
-     $attendancescount = DB::table('attendances')->where($wh)->count();
-    if ($attendancescount > 0) {
-          $attendances = DB::table('attendances')->where($wh)->get();
-             $attendance = json_decode($attendances[0]->attendance);
-
-        foreach ($attendance as $rr) {
-
-            if ($rr->stu_id == $StudentID) {
-                if ($rr->attendence == 'Present') {
-                    if($tt=='pdf'){
-                        $td =  '<td><img width="20px" src="https://static.vecteezy.com/system/resources/previews/001/200/261/large_2x/check-png.png" /> </td>';
-
-                    }else{
-
-                        $td =  '<td><i class="fas fa-check text-success"></i> </td>';
-                    }
-
-                } else if ($rr->attendence == 'Absent') {
-                    // $attendace = 'fas fa-times text-danger';
-                   // return '<td>'.$rr->stu_id.'-'.$StudentID.'</td>';
-
-                   if($tt=='pdf'){
-                    $td =  '<td><img width="20px" src="https://www.mycryptons.com/img/delete-icon.png" /> </td>';
-                }else{
-
-                    $td =  '<td><i class="fas fa-times text-danger"></i></td>';
-                }
-
-
-                }else{
-                    $td = '<td>-</td>';
-                }
-                return  $td;
-            }
-
-
-        }
-
-
-
-    } else {
-        return '<td>-</td>';
-    }
-
 }
 
 
@@ -705,105 +265,6 @@ function sent_error($message ,$messages=[],$code=404){
 
 }
 
-function feesconvert($text){
-
-
-if($text=='Monthly_fee'){
-    $result = 'মাসিক বেতন';
-}elseif($text=='মাসিক বেতন'){
-    $result = 'Monthly_fee';
-}else
-if($text=='Session_fee'){
-    $result = 'সেশন ফি';
-}elseif($text=='সেশন ফি'){
-    $result = 'Session_fee';
-}else
-if($text=='Exam_fee'){
-    $result = 'পরিক্ষার ফি';
-}elseif($text=='পরিক্ষার ফি'){
-    $result = 'Exam_fee';
-}else
-if($text=='Other'){
-    $result = 'অন্যান্য';
-}elseif($text=='অন্যান্য'){
-    $result = 'Other';
-}
-return $result;
-
-
-}
-
-
-
-function allList($type='',$class='',$group='')
-{
-    $data = [];
-    if($type=='year'){
-
-
-        //year list
-      $data = [];
-         $cerrentYear = date('Y');
-       $first = $cerrentYear+1-1;
-         array_push($data,$first);
-      for ($i=0; $i < 25; $i++) {
-          $cerrentYear = $cerrentYear-1;
-           array_push($data,$cerrentYear);
-         //  echo $cerrentYear;
-         //  echo "<br>";
-      }
-
-     }else if($type=='month'){
-         $data = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-     }else if($type=='days'){
-         $data = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"];
-
-     }else if($type=='subjects'){
-
-
- if($class=='Nursery'){
-     $data = ["বাংলা","ইংলিশ","গনিত"];
- }elseif($class=='Play' || $class=='One' || $class=='Two'){
-     $data = ["বাংলা","ইংলিশ","গনিত"];
- }elseif($class=='Three' || $class=='Four' || $class=='Five'){
-     $data = ["বাংলা","ইংলিশ","গনিত","বাংলাদেশ ও বিশ্ব পরিচয়","বিজ্ঞান","ধর্ম"];
- }elseif($class=='Six' || $class=='Seven' || $class=='Eight'){
-     $data = ["বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","বিজ্ঞান","বাংলাদেশ ও বিশ্ব পরিচয়","ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি"];
- }elseif($class=='Nine' || $class=='Ten'){
-
-
-     if($group=='Science'){
-
-         $data = ["বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","পদার্থ","রসায়ন","জীব-বিজ্ঞান","বাংলাদেশ ও বিশ্ব পরিচয়","ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি"];
-     }elseif($group=='Humanities'){
-
-         $data = ["বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","বিজ্ঞান","ভূগোল","অর্থনীতি","ইতিহাস","ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি"];
-     }elseif($group=='Commerce'){
-
-         $data = ["বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","বিজ্ঞান","পদার্থ","রসায়ন","জীব-বিজ্ঞান","ভূগোল","অর্থনীতি","ইতিহাস","বাংলাদেশ ও বিশ্ব পরিচয়","ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি"];
-     }else{
-
-         $data = ["বাংলা ১ম","বাংলা ২য়","ইংলিশ ১ম","ইংলিশ ২য়","গনিত","বিজ্ঞান","পদার্থ","রসায়ন","জীব-বিজ্ঞান","ভূগোল","অর্থনীতি","ইতিহাস","বাংলাদেশ ও বিশ্ব পরিচয়","ধর্ম","কৃষি","তথ্য ও যোগাযোগ প্রযোক্তি"];
-     }
-
-
-
- }
-
-     }else if($type=='groups'){
-     $data = ["Science","Humanities","Commerce"];
-     }
- else if($type=='exams'){
-     $data = ["Weakly Examination","ADMITION TEST RESULT","First Terminals Examination","Second Terminals Examination","Annual Examination","Test Examination"];
-     }else if($type=='religions'){
-     $data = ["Islam","Hindu","Other"];
-     }
-
-     return $data;
-
-
-}
 
 
 
@@ -944,12 +405,6 @@ if($width=='' && $height==''){
 
 }
 
-
-function class_list()
-{
-    $result = ['Play','Nursery','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'];
-    return $result;
-}
 
 
 
@@ -1545,3 +1000,43 @@ function characterCount($string){
 // EOF;
 // var_dump(extractCommonWords($string), $string);
 
+
+
+
+    function latestProductByCat(){
+        $categories = Category::with(['products' => function ($query) {
+            $query->latest();
+        }])->get();
+
+        $products = collect();
+
+        foreach ($categories as $category) {
+            if ($category->products->isNotEmpty()) {
+                $product = $category->products->first();
+                $product->load(['categories' => function ($query) {
+                    $query->latest();
+                }]);
+                $products->push($product);
+            }
+        }
+        return $products;
+    }
+
+     function updateCartUser($user_id)
+{
+
+
+    $cartItems = Cart::where('user_id', $user_id)->get();
+
+    if ($cartItems->isEmpty()) {
+        return response()->json(['message' => 'No cart items found for the user'], 404);
+    }
+
+    foreach ($cartItems as $cartItem) {
+
+        $cartItem->user_id = $user_id;
+        $cartItem->save();
+    }
+
+    return response()->json(['message' => 'Cart items updated successfully'], 200);
+}

@@ -2,7 +2,7 @@
 
 
 <div class="align-items-center border d-flex flex-wrap  mb-5 py-4 w-100 position-relative" style="grid-gap:15px" >
-            <button class="singleProductCollectedButton" @click="addToCart({'user_id':1,'product_id':product.id})">সংগ্রহ করুন</button>
+            <button class="singleProductCollectedButton" @click="addToCart({'product_id':product.id})">সংগ্রহ করুন</button>
 
                     <div>
                         <img :src="$asseturl+product.image"

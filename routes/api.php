@@ -81,7 +81,9 @@ Route::get('categories/{category}/images', [CategoryController::class,'getImages
 Route::post('categories/{category}/images', [CategoryController::class,'uploadImages']);
 Route::put('categories/{category}/images', [CategoryController::class,'uploadImages']);
 Route::get('serach/categories', [CategoryController::class,'SearchItem']);
+Route::get('/category/list/{slug}', [CategoryController::class,'showCategoryChild']);
 Route::get('/categories/{category}', [CategoryController::class,'show']);
+Route::get('/category/latest-product', [CategoryController::class,'getAllCategoriesWithLatestProduct']);
 Route::post('/categories', [CategoryController::class,'store']);
 Route::put('/categories/{category}', [CategoryController::class,'update']);
 Route::delete('/categories/{category}', [CategoryController::class,'destroy']);

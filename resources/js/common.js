@@ -30,10 +30,12 @@ export default {
 
 
         async addToCart(form){
+            form['user_id'] = this.$localStorage.getItem('userid');
+
 
 
             var res = await this.callApi('post',`/api/cart`,form);
-            console.log(res)
+            Notification.customSuccess("Added to cart");
         },
 
 
@@ -211,6 +213,7 @@ export default {
 
         ...mapGetters({
             'Users' : 'getUpdateUser',
+            'LatestProductsCat' : 'getUpdateLatestProducts',
         }),
 
         // getUsers(){

@@ -2179,12 +2179,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                form['user_id'] = _this.$localStorage.getItem('userid');
+                _context.next = 3;
                 return _this.callApi('post', "/api/cart", form);
-              case 2:
+              case 3:
                 res = _context.sent;
-                console.log(res);
-              case 4:
+                Notification.customSuccess("Added to cart");
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2400,7 +2401,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    'Users': 'getUpdateUser'
+    'Users': 'getUpdateUser',
+    'LatestProductsCat': 'getUpdateLatestProducts'
   }))
 });
 

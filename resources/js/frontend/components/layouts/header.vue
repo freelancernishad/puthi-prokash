@@ -80,15 +80,30 @@
                 </ul>
               </li>
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu">
+
+              <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="loginStatus">
+                <a class="fs-5 nav-link text-dark" href="#">অ্যাকাউন্ট</a>
+              </li>
+
+              <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="loginStatus">
+                <router-link class="fs-5 nav-link text-dark" :to="{name:'logout'}"
+                  >লগ আউট
+                  <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
+                ></router-link>
+              </li>
+
+
+              <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="!loginStatus">
                 <a class="fs-5 nav-link text-dark" href="#">রেজিস্টার</a>
               </li>
-              <li class="border-3 border-start border-white nav-item nav-item-menu">
-                <a class="fs-5 nav-link text-dark" href="#"
+              <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="!loginStatus">
+                <router-link class="fs-5 nav-link text-dark" :to="{name:'login'}"
                   >সাইন ইন
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
-                ></a>
+                ></router-link>
               </li>
+
+
               <li class="border-3 border-start border-white nav-item nav-item-menu" @click="MainSearchFun">
                 <a class="fs-5 nav-link text-dark" href="javascript:void(0)"
                   >অনুসন্ধান <i class="fa-solid fa-magnifying-glass"></i
@@ -120,10 +135,10 @@
 
 
       <section class="container" v-if="MainSearch">
-        <div class="mainSearchBox d-flex">
-          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" class="book-search-input">
-          <button type="button" class="book-search-button"><i class="fa-regular fa-magnifying-glass"></i></button>
-        </div>
+        <form class="mainSearchBox d-flex" @submit.stop.prevent="searchItem">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="book-search-input">
+          <button type="submit" class="book-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
+        </form>
 
       </section>
 
@@ -322,8 +337,18 @@
 
 <script>
 export default {
+
+
+
+    created() {
+        this.checkLogin();
+        this.StoreUID();
+    },
+
     data() {
         return {
+            storageKey: 'userid',
+            uniqueId: null,
             homePage:true,
             mobileMenu:false,
             submenu1:false,
@@ -331,16 +356,23 @@ export default {
             submenu3:false,
             isFixed: false,
             MainSearch: false,
-            lastScrollPosition: 0
+            lastScrollPosition: 0,
+            form:{
+
+                search:''
+            },
+            loginStatus:false,
+
         }
     },
     watch: {
         '$route': async function (to, from) {
+            this.StoreUID();
+            this.checkLogin();
             this.submenu1 = false
               this.submenu2 = false
               this.submenu3 = false
               this.isFixed = false;
-
               this.$nextTick(() => {
                 this.resizeWindow();
             });
@@ -358,9 +390,51 @@ export default {
 
 
 
+
         }
     },
     methods: {
+
+
+        generateUUID() {
+      let timestamp = new Date().getTime().toString(16);
+      let randomPart = ((Math.random() * 1000000000) | 0).toString(16);
+      return timestamp + randomPart;
+    },
+
+
+        StoreUID() {
+            this.uniqueId = localStorage.getItem(this.storageKey);
+            if (!this.uniqueId) {
+            this.uniqueId = this.generateUUID();
+            localStorage.setItem(this.storageKey, this.uniqueId);
+            }
+        },
+
+
+
+
+
+
+
+        checkLogin(){
+            if(User.loggedIn()){
+                this.loginStatus = true
+            }else{
+                this.loginStatus = false
+            }
+        },
+
+        searchItem(){
+            console.log(this.$route.query.search)
+            console.log(this.form.search)
+
+            this.$router.push({name:'Products',query:{search:this.form.search}});
+        },
+
+
+
+
         level1Submenu(){
             if(this.submenu1==false){
                 this.submenu1 = true

@@ -87,6 +87,22 @@ class CategoryController extends Controller
 
     }
 
+
+    public function showCategoryChild($slug)
+    {
+        $category = Category::where('slug',$slug)->first();
+        $category->load('children');
+        return response()->json($category);
+
+    }
+
+    public function getAllCategoriesWithLatestProduct()
+    {
+        $products = latestProductByCat();
+        return response()->json($products, 200);
+    }
+
+
     public function store(Request $request)
     {
       // Validate the request data

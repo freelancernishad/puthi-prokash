@@ -28,8 +28,11 @@
                                     <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
                                 </td>
                                 <td>
+                                    <a class="btn btn-info" target="_blank" :href="`/books/${list.slug}/${list.id}`">Fliping Books Preview</a>
+
                                     <router-link class="btn btn-info" :to="{name:'flipingbooks',params:{id:list.id}}">Fliping Books</router-link>
-                                    <router-link class="btn btn-info" :to="{name:'productsimages',params:{id:list.id}}">Image Upload</router-link>
+
+                                    <!-- <router-link class="btn btn-info" :to="{name:'productsimages',params:{id:list.id}}">Image Upload</router-link> -->
 
                                     <router-link class="btn btn-info" :to="{name:'productsEdit',params:{id:list.id}}">Edit</router-link>
                                     <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this products',`/api/products/${list.id}`,'Product Deleted',getLists)">Delete</button>

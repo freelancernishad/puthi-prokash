@@ -26,6 +26,7 @@ use App\Models\Product;
 
 
 
+Route::post('auth/login',[LoginController::class,'userLogin']);
 Route::post('login',[LoginController::class,'login']);
 Route::post('logout',[LoginController::class,'logout']);
 
@@ -58,7 +59,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
 });
 Route::get('/{vue_capture?}', function () {
 
-
-     return view('frontlayout');
+    $products = latestProductByCat();
+     return view('frontlayout',compact('products'));
 
 })->where('vue_capture', '[\/\w\.-]*')->name('frontend');

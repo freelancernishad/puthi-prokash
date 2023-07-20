@@ -83,7 +83,7 @@ ol#carousel-1___BV_indicators_ li {
        @endphp
 
 
-        <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  >
+        <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  :products="{{$products}}"  >
             <router-view />
           </component>
 

@@ -21,51 +21,13 @@
 
         <VueSlickCarousel v-bind="Carouselsettings">
 
-            <div>
+
+           <div v-for="(latestProduct,sl) in LatestProductsCat" :key="'latestProduct'+sl">
           <div class="position-relative homeBooks">
             <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
+              <p class="booktitle">{{ latestProduct.categories[0].name }}</p>
               <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
-                alt=""
-                srcset=""
-                class="img-fluid px-4 py-5"
-              />
-            </div>
-          </div>
-          </div>
-          <div>
-          <div class="position-relative homeBooks">
-            <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
-              <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
-                alt=""
-                srcset=""
-                class="img-fluid px-4 py-5"
-              />
-            </div>
-          </div>
-          </div>
-          <div>
-          <div class="position-relative homeBooks">
-            <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
-              <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
-                alt=""
-                srcset=""
-                class="img-fluid px-4 py-5"
-              />
-            </div>
-          </div>
-          </div>
-          <div>
-          <div class="position-relative homeBooks">
-            <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
-              <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
+                :src="$asseturl+latestProduct.image"
                 alt=""
                 srcset=""
                 class="img-fluid px-4 py-5"
@@ -74,33 +36,6 @@
           </div>
           </div>
 
-          <div>
-          <div class="position-relative homeBooks">
-            <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
-              <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
-                alt=""
-                srcset=""
-                class="img-fluid px-4 py-5"
-              />
-            </div>
-          </div>
-        </div>
-
-          <div>
-          <div class="position-relative homeBooks">
-            <div class="slideProductHome">
-              <p class="booktitle">পাঠ্যবই</p>
-              <img
-                :src="$asseturl+'assets/image/book-img-work.png'"
-                alt=""
-                srcset=""
-                class="img-fluid px-4 py-5"
-              />
-            </div>
-          </div>
-        </div>
 
 
 
@@ -158,21 +93,11 @@
           </div>
 
           <div class="d-flex gap-3 justify-content-center flex-wrap mt-4 text-center">
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
-            <button class="border border-dark btn fs-5 px-4 rounded-0 text-white">শিশুতোষ</button>
+
+            <router-link v-for="(academicbooksChild,slNo) in academicbooksChilds" :key="'academicbooksChild'+slNo" :to="{name:'Products',query:{category:academicbooksChild.id}}" class="border border-dark btn fs-5 px-4 rounded-0 text-white">{{ academicbooksChild.name }}</router-link>
+
+
+
           </div>
 
         </div>
@@ -206,41 +131,41 @@ export default {
     data() {
         return {
             Carouselsettings:{
-  "dots": true,
-  "infinite": true,
-  "arrows":false,
-  "autoplay":true,
-  "speed": 500,
-  "slidesToShow": 5,
-  "slidesToScroll": 5,
-  "initialSlide": 5,
-  "responsive": [
-    {
-      "breakpoint": 1024,
-      "settings": {
-        "slidesToShow": 3,
-        "slidesToScroll": 3,
-        "infinite": true,
-        "dots": true
-      }
-    },
-    {
-      "breakpoint": 600,
-      "settings": {
-        "slidesToShow": 2,
-        "slidesToScroll": 2,
-        "initialSlide": 2
-      }
-    },
-    {
-      "breakpoint": 480,
-      "settings": {
-        "slidesToShow": 1,
-        "slidesToScroll": 1
-      }
-    }
-  ]
-},
+                "dots": true,
+                "infinite": true,
+                "arrows":false,
+                "autoplay":true,
+                "speed": 500,
+                "slidesToShow": 5,
+                "slidesToScroll": 5,
+                "initialSlide": 5,
+                "responsive": [
+                    {
+                    "breakpoint": 1024,
+                    "settings": {
+                        "slidesToShow": 3,
+                        "slidesToScroll": 3,
+                        "infinite": true,
+                        "dots": true
+                    }
+                    },
+                    {
+                    "breakpoint": 600,
+                    "settings": {
+                        "slidesToShow": 2,
+                        "slidesToScroll": 2,
+                        "initialSlide": 2
+                    }
+                    },
+                    {
+                    "breakpoint": 480,
+                    "settings": {
+                        "slidesToShow": 1,
+                        "slidesToScroll": 1
+                    }
+                    }
+                ]
+                },
 
 
             swiperOption: {
@@ -254,8 +179,10 @@ export default {
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev'
             }
-          }
+          },
 
+
+          academicbooksChilds:{}
 
 
         }
@@ -265,11 +192,16 @@ export default {
     },
     methods: {
 
+        async childCategoryAcademicbooks(){
+            var res = await this.callApi('get',`/api/category/list/academic-books`,[]);
+            this.academicbooksChilds = res.data.children
+
+        }
+
 
     },
     mounted() {
-
-
+        this.childCategoryAcademicbooks();
 
 
     }

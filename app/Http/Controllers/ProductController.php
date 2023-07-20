@@ -96,6 +96,16 @@ class ProductController extends Controller
             }
         }
 
+        // Search by name or slug
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('slug', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+
         // Retrieve the filtered and sorted products
         $products = $query->paginate(18);
 

@@ -12,9 +12,19 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $userid = $request->userid;
-        // Retrieve the user's cart items
          $user = User::find($userid);
-         $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+
+
+
+        //  $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+    if ($user) {
+        // If user exists, load the 'user', 'product', and 'product.author' relationships
+        $cartItems = $user->carts()->with('user', 'product', 'product.author')->get();
+    } else {
+        // If user does not exist, load only the 'product' and 'product.author' relationships
+        $cartItems = Cart::with('product', 'product.author')->get();
+    }
+
 
          if(count($cartItems) > 0){
              return response()->json($cartItems);
@@ -28,7 +38,9 @@ class CartController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'user_id' => 'required|exists:users,id',
+
+            // 'user_id' => 'required|exists:users,id',
+
             'product_id' => 'required|exists:products,id',
             // 'quantity' => 'required|integer|min:1',
         ]);

@@ -10,7 +10,10 @@
     <div class=" my-4 row w-100">
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
-    <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">{{ categoris.name }}</p>
+
+    <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4" v-if="searchItem">{{ searchItem }}</p>
+    <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4" v-else>{{ categoris.name }}</p>
+
     <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
     </div>
 
@@ -86,6 +89,7 @@
 export default {
     data() {
         return {
+            searchItem:'',
             sort:'',
             category:'',
             author:'',
@@ -112,7 +116,15 @@ export default {
     },
     watch: {
         '$route': async function (to, from) {
-            this.getCategoryProduct();
+            if(this.searchItem){
+                if(this.$route.query.search) this.searchItem = this.$route.query.search;
+              this.getCategoryProduct();
+            }else{
+
+
+            }
+
+
         }
     },
     methods: {
@@ -128,6 +140,7 @@ export default {
 
             filterBooks(){
                 this.getCategoryProduct()
+
             },
 
 
@@ -138,6 +151,7 @@ export default {
 
 
 
+            var searchQuery = '';
             var sortQuery = '';
             var categoryQuery = '';
             var authorQuery = '';
@@ -151,6 +165,9 @@ export default {
             if(this.sort){
                 sortQuery = `&sort=${this.sort}`
             }
+            if(this.searchItem){
+                searchQuery = `&search=${this.searchItem}`
+            }
 
 
 
@@ -158,6 +175,10 @@ export default {
 
             if (this.sort) {
             query.sort = this.sort;
+            }
+
+            if (this.searchItem) {
+                query.search = this.searchItem;
             }
 
             if (this.category) {
@@ -168,7 +189,10 @@ export default {
             query.author = this.author;
             }
 
-            this.$router.push({ name: 'Products', query: query });
+
+
+                this.$router.push({ name: 'Products', query: query });
+      
 
 
 
@@ -180,7 +204,7 @@ export default {
 
 
 
-            var res = await this.callApi('get',`/api/filter/products?page=${page}${categoryQuery}${sortQuery}${authorQuery}`,[]);
+            var res = await this.callApi('get',`/api/filter/products?page=${page}${categoryQuery}${sortQuery}${authorQuery}${searchQuery}`,[]);
 
 
 
@@ -212,9 +236,16 @@ export default {
                     {'route':'categoryProduct','params':{'category':parent.item.slug},'text':parent.item.name}
                 )
             });
-            this.Breadcrumb.push(
-                {'route':'','params':{},'text':this.categoris.name}
-            );
+            if(this.searchItem){
+                this.Breadcrumb.push(
+                    {'route':'','params':{},'text':this.searchItem}
+                    );
+            }else{
+
+                this.Breadcrumb.push(
+                    {'route':'','params':{},'text':this.categoris.name}
+                    );
+            }
 
 
         },
@@ -245,6 +276,7 @@ export default {
         if(this.$route.query.sort) this.sort = this.$route.query.sort;
         if(this.$route.query.category) this.category = this.$route.query.category;
         if(this.$route.query.author) this.author = this.$route.query.author;
+        if(this.$route.query.search) this.searchItem = this.$route.query.search;
         this.getCategoryProduct();
     },
 }

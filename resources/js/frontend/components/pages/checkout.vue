@@ -237,7 +237,7 @@ export default {
         },
 
         async getCartFromDb(){
-            var res = await this.callApi('get',`/api/cart?userid=1`,[]);
+            var res = await this.callApi('get',`/api/cart?userid=${this.$localStorage.getItem('userid')}`,[]);
             this.carts = res.data
         },
         async DeleteCartFromDb(id){

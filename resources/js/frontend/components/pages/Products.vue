@@ -131,7 +131,7 @@ export default {
 
         Products(data) {
             const result = [];
-            for (let i = 0; i < data.length; i += 4) {
+            for (let i = 0; i < data.length; i += 6) {
                 result.push(data.slice(i, i + 6));
             }
             this.items = result;
@@ -192,7 +192,7 @@ export default {
 
 
                 this.$router.push({ name: 'Products', query: query });
-      
+
 
 
 

@@ -82,7 +82,7 @@
 
 
               <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="loginStatus">
-                <a class="fs-5 nav-link text-dark" href="#">অ্যাকাউন্ট</a>
+                <router-link class="fs-5 nav-link text-dark" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
               </li>
 
               <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="loginStatus">
@@ -94,7 +94,7 @@
 
 
               <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="!loginStatus">
-                <a class="fs-5 nav-link text-dark" href="#">রেজিস্টার</a>
+                <router-link class="fs-5 nav-link text-dark" :to="{name:'register'}">রেজিস্টার</router-link>
               </li>
               <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="!loginStatus">
                 <router-link class="fs-5 nav-link text-dark" :to="{name:'login'}"

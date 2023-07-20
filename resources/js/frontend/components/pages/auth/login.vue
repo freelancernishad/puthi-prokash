@@ -4,63 +4,70 @@
     <Breadcrumb :pages="Breadcrumb"/>
 
 
-    <div id="main-wrapper" class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-10">
-            <div class="card border-0">
-                <div class="card-body p-0">
-                    <div class="row no-gutters">
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="mb-5">
-                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
-                                </div>
 
-                                <h6 class="h5 mb-0">Welcome back!</h6>
-                                <p class="text-muted mt-2 mb-5">Enter your email address and password to access admin panel.</p>
-
-                                <form @submit.prevent="login">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" v-model="form.email" id="exampleInputEmail1">
-                                    </div>
-                                    <div class="form-group mb-5">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" v-model="form.password" id="exampleInputPassword1">
-                                    </div>
-                                    <button type="button" disabled class="btn btn-theme" v-if="loadLogin">Loading....</button>
-                                    <button type="submit" class="btn btn-theme" v-else>Login</button>
-                                    <a href="#l" class="forgot-link float-right text-primary">Forgot password?</a>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 d-none d-lg-inline-block">
-                            <div class="account-block rounded-right">
-                                <div class="overlay rounded-right"></div>
-                                <div class="account-testimonial">
-                                    <h4 class="text-white mb-4">This  beautiful theme yours!</h4>
-                                    <p class="lead text-white">"Best investment i made for a long time. Can only recommend it for other users."</p>
-                                    <p>- Admin User</p>
-                                </div>
-                            </div>
-                        </div>
+    <div class="login-page bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <h3 class="mb-3">Login Now</h3>
+          <div class="bg-white shadow rounded">
+            <div class="row">
+              <div class="col-md-7 pe-0">
+                <div class="form-left h-100 py-5 px-5">
+                  <form @submit.prevent="login" class="row g-4">
+                    <div class="col-12">
+                      <label>Email<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                        <input type="email" class="form-control" v-model="form.email" placeholder="Enter Email">
+                      </div>
                     </div>
 
+                    <div class="col-12">
+                      <label>Password<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                        <input type="password" class="form-control" v-model="form.password" placeholder="Enter Password">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                        <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <a href="#" class="float-end text-primary">Forgot Password?</a>
+                    </div>
+
+                    <div class="col-12">
+
+                    <button type="button" disabled class="btn btn-primary px-4 float-end mt-4" v-if="loadLogin">Loading....</button>
+                    <button type="submit" class="btn btn-primary px-4 float-end mt-4" v-else>Login</button>
+
+
+                    </div>
+                  </form>
                 </div>
-                <!-- end card-body -->
+              </div>
+              <div class="col-md-5 d-md-block d-none my-auto ps-0">
+                <img
+                  src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?size=626&ext=jpg&ga=GA1.2.2128774218.1683829046&semt=sph"
+                  alt="" class="w-100">
+              </div>
             </div>
-            <!-- end card -->
-
-            <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a href="register.html" class="text-primary ml-1">register</a></p>
-
-            <!-- end row -->
-
+          </div>
         </div>
-        <!-- end col -->
+      </div>
     </div>
-    <!-- Row -->
-</div>
+  </div>
+
+
+
+
+
 
 </div>
 </template>

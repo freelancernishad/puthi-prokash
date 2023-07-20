@@ -6,10 +6,11 @@ let adminLogin = require('./components/auth/login.vue').default;
 
 
 let login = require('./components/pages/auth/login.vue').default;
+let register = require('./components/pages/auth/register.vue').default;
 
 
-let register = require('./components/auth/register.vue').default;
-let forget = require('./components/auth/forget.vue').default;
+// let register = require('./components/auth/register.vue').default;
+// let forget = require('./components/auth/forget.vue').default;
 
 
 
@@ -23,6 +24,14 @@ let checkout = require('./components/pages/checkout.vue').default;
 
 let writer = require('./components/pages/writer.vue').default;
 let contact = require('./components/pages/contact.vue').default;
+
+
+
+let account = require('./components/pages/account/index.vue').default;
+let orders = require('./components/pages/account/orders.vue').default;
+let accountsettings = require('./components/pages/account/account-settings.vue').default;
+let accountaddress = require('./components/pages/account/account-address.vue').default;
+let accountnotification = require('./components/pages/account/account-notification.vue').default;
 
 
 
@@ -48,7 +57,7 @@ export const routes = [
     { path: `${prefix}login`, component: login, name:'login',meta: { layout: layout } },
 
     { path:  `${prefix}register`, component: register, name:'register',meta: { layout: layout } },
-    { path:  `${prefix}forget`, component: forget, name:'forget',meta: { layout: layout } },
+    // { path:  `${prefix}forget`, component: forget, name:'forget',meta: { layout: layout } },
 
 
     { path:  `${prefix}categories`, component: categories, name:'categories',meta: { layout: layout } },
@@ -61,6 +70,16 @@ export const routes = [
 
     { path:  `${prefix}writer`, component: writer, name:'writer',meta: { layout: layout } },
     { path:  `${prefix}contact-us`, component: contact, name:'contact',meta: { layout: layout } },
+
+
+
+
+
+    { path:  `${prefix}my-account`, component: account, name:'account',meta: { layout: layout } },
+    { path:  `${prefix}orders`, component: orders, name:'orders',meta: { layout: layout } },
+    { path:  `${prefix}account-settings`, component: accountsettings, name:'accountsettings',meta: { layout: layout } },
+    { path:  `${prefix}account-address`, component: accountaddress, name:'accountaddress',meta: { layout: layout } },
+    { path:  `${prefix}account-notification`, component: accountnotification, name:'accountnotification',meta: { layout: layout } },
 
 
   { path: "*", component: PageNotFound }

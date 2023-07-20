@@ -152,7 +152,6 @@ export default {
 
             cartUpdate:0,
             form:{
-              'user_id':1,
                 'name':'',
                 'email':'',
                 'address':'',
@@ -163,6 +162,7 @@ export default {
                 'paymentMethod':'Cash on Delivery',
             },
             carts:{},
+
             cartUpdateForm:{
 
                 quantity:'',
@@ -237,8 +237,24 @@ export default {
         },
 
         async getCartFromDb(){
+
+
+            var userRes = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}`,[]);
             var res = await this.callApi('get',`/api/cart?userid=${this.$localStorage.getItem('userid')}`,[]);
             this.carts = res.data
+            var user = userRes.data
+
+
+            this.form.user_id = user.id
+            this.form.name = user.name
+            this.form.email = user.email
+
+
+
+
+
+
+
         },
         async DeleteCartFromDb(id){
 
@@ -290,8 +306,16 @@ export default {
         },
 
         async onSubmit(){
-          var res = this.callApi('post',`/api/orders`,this.form);
-          console.log(res.data)
+          var res = await this.callApi('post',`/api/orders`,this.form);
+
+        //   console.log(res)
+          if(res.status==201){
+            Notification.customSuccess(`${res.data.message}`);
+            this.$router.push({ name: "home" });
+          }else{
+            Notification.customError(`${res.data.message}`);
+            this.$router.push({ name: "home" });
+          }
         }
 
 

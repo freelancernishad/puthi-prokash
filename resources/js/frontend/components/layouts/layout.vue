@@ -107,4 +107,45 @@ input:focus{
 }
 
 
+
+
+
+
+
+
+
+.pe-lg-10 {
+    padding-right: 3rem!important;
+}
+.pt-10 {
+    padding-top: 3rem!important;
+}
+.p-lg-10 {
+    padding: 3rem!important;
+}
+
+.p-md-6 {
+    padding: 1.5rem!important;
+}
+.py-6 {
+    padding-bottom: 1.5rem!important;
+    padding-top: 1.5rem!important;
+}
+.text-inherit {
+    color: #21313c;
+}
+.nav-pills-dark .nav-item .nav-link {
+    background-color: transparent;
+    border-radius: .5rem;
+    color: #21313c;
+    font-weight: 500;
+    margin-bottom: .25rem;
+    padding: .5rem .75rem;
+}
+
+.bg-light {
+    --fc-bg-opacity: 1;
+    background-color: #f0f3f2!important;
+}
+
 </style>

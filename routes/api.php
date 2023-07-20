@@ -117,6 +117,7 @@ Route::delete('/empty/cart', [CartController::class,'emptyCart'])->name('cart.em
 
 
 Route::get('/orders', [OrderController::class,'index'])->name('orders.index');
+Route::get('/users/{user_id}/orders', [OrderController::class,'getOrdersByUserId']);
 Route::get('/orders/{id}', [OrderController::class,'show'])->name('orders.show');
 Route::post('/orders', [OrderController::class,'store'])->name('orders.store');
 Route::put('/orders/{id}', [OrderController::class,'update'])->name('orders.update');

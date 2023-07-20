@@ -57,12 +57,14 @@ export default {
             default: ''
         },
         category_id: {
-            type: String,
-            default: ''
+            type: Number,
+            default: 0
         },
         products: {
             type: Array,
-            default: []
+            default: function() {
+                    return [];
+                }
         },
         children: {
             type: Array,

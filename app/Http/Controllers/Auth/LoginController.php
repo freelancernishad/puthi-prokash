@@ -108,7 +108,6 @@ return response()->json($users);
             'email' => auth()->user()->email,
             'role' => auth()->user()->role,
             'class' => auth()->user()->class,
-            'teacherOrstudent' => auth()->user()->teacherOrstudent,
             'users' => auth()->user(),
         ]);
     }

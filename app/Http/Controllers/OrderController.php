@@ -16,6 +16,24 @@ class OrderController extends Controller
 
         return response()->json($orders);
     }
+
+
+
+    public function getOrdersByUserId($user_id)
+    {
+        $orders = Order::where('user_id', $user_id)
+            ->with('orderProducts.product')
+            ->with('user')
+            ->get();
+
+        if ($orders->isEmpty()) {
+            return response()->json(['message' => 'No orders found for the user'], 404);
+        }
+
+        return response()->json($orders, 200);
+    }
+
+
     public function show($id)
     {
         $order = Order::with(['orderProducts.product'])->findOrFail($id);

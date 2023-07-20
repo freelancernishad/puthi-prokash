@@ -57,7 +57,6 @@ class authController extends Controller
             'email' => auth()->user()->email,
             'position' => auth()->user()->position,
             'class' => auth()->user()->class,
-            'teacherOrstudent' => auth()->user()->teacherOrstudent,
             'users' => auth()->user(),
         ]);
     }
@@ -65,16 +64,14 @@ class authController extends Controller
 
     public function register(Request $r)
     {
-        $data = [];
-        $inputData = $r->all();
-        foreach ($inputData as $key => $value) {
-            if ($key == '_token' || $key == 'submit') {
-            } else if ($key == 'password') {
-                $data[$key] = hash::make($value);
-            } else {
-                $data[$key] = $value;
-            }
-        }
+        $data = [
+            'name'=>$r->name,
+            'email'=>$r->email,
+            'password'=>hash::make($r->password),
+            'position'=>'user',
+        ];
+
+
         $validator = Validator::make($r->all(), [
             'name' => 'required|min:4',
             'email' => 'required|email|unique:users',
@@ -84,21 +81,15 @@ class authController extends Controller
             return sent_error('validation error', $validator->errors(), 422);
         }
         try {
-            $user =   User::create($data);
-            $output = [];
-            $inputData = $r->all();
-            foreach ($inputData as $key => $value) {
-                if ($key == 'id') {
-                } else if ($key == 'password') {
-                    $output[$key] = hash::make($value);
-                } else {
-                    $output[$key] = $value;
-                }
-            }
-            $output = [
-                'user' => $output,
-            ];
-            return sent_response('User Registration Success', $output);
+         return     $user =   User::create($data);
+            //  $accessToken = $user->createToken('accessToken')->accessToken;
+            // $user['access_token'] = $accessToken;
+
+            // return $this->respondWithToken($accessToken);
+
+
+
+
         } catch (Exception $e) {
             return sent_error($e->getMessage(), $e->getCode());
         }

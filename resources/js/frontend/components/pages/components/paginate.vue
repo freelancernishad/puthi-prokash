@@ -5,9 +5,12 @@
                 <li class="page-item" v-for="(pag,index) in Totalpageprops" :key="'p'+index" v-if="index==0 && pag.url">
                     <router-link class="page-link" :to="{name:Routenameprops,params:Routeparamsprops,query:{page:pag.url.split('?')[1].split('=')[1]}}" v-html="pag.label"></router-link>
                 </li>
+
+
                 <li class="page-item" v-for="(pag,index) in Totalpageprops" :key="'i'+index" :class="{active:pag.active,'disabled':pag.label=='...'}"  v-if="index!=0 && pag.label!='Next &raquo;'">
                     <router-link class="page-link" :to="{name:Routenameprops,params:Routeparamsprops,query:{page:pag.label}}" v-html="pag.label"></router-link>
                 </li>
+
                 <li class="page-item" v-for="(pag,index) in Totalpageprops" :key="'l'+index" v-if="pag.label=='Next &raquo;'  && pag.url">
                     <router-link class="page-link" :to="{name:Routenameprops,params:Routeparamsprops,query:{page:pag.url.split('?')[1].split('=')[1]}}" v-html="pag.label"></router-link>
                 </li>
@@ -42,3 +45,13 @@ export default {
     },
 }
 </script>
+
+
+
+
+
+
+
+
+
+

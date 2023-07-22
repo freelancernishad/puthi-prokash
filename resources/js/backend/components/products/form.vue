@@ -229,7 +229,7 @@ export default {
   importcss_append: true,
   file_picker_callback: (callback, value, meta) => {
     /* Provide file and text for the link dialog */
-   
+
     if (meta.filetype === 'file') {
       callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
     }
@@ -332,7 +332,7 @@ export default {
             }else if(res.status==201){
                 Notification.customSuccess(`Products Created Successfull`);
 
-                this.$router.push({name:'productsimages',params:{id:res.data.id}});
+                this.$router.push({name:'flipingbooks',params:{id:res.data.id}});
 
 
             }else{

@@ -189,6 +189,16 @@
 
 
                         <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                <router-link :to="{ name: 'ordersIndex' }" class="nav-link"><i
+                                    class="flaticon-dashboard"></i><span>Orders</span></router-link>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
                                 <router-link :to="{ name: 'userlist' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>ইউজার</span></router-link>
                         </li>

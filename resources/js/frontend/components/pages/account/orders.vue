@@ -37,6 +37,7 @@
                     <th>Items</th>
                     <th>Status</th>
                     <th>Amount</th>
+                    <th></th>
 
                     <th></th>
                   </tr>
@@ -60,31 +61,18 @@
                   <tr v-for="(order,index) in orders" :key="'order'+index">
 
 
+                    <td class="align-middle border-top-0">#{{ order.orderId }}</td>
+                    <td class="align-middle border-top-0">{{ dateformatGlobal(order.created_at)[6] }}</td>
+                    <td class="align-middle border-top-0">{{ order.total_quantity }}</td>
                     <td class="align-middle border-top-0">
-                      <a href="#" class="text-inherit">#14899</a>
-
-                    </td>
-                    <td class="align-middle border-top-0">
-                  {{ order.created_at }}
-
-                    </td>
-                    <td class="align-middle border-top-0">
-                      {{ order.total_quantity }}
-
-                    </td>
-                    <td class="align-middle border-top-0">
-
                       <span class="badge bg-warning" v-if="order.status=='pending'">{{ order.status }}</span>
                       <span class="badge bg-warning" v-else-if="order.status=='processing'">{{ order.status }}</span>
                       <span class="badge bg-success" v-else-if="order.status=='completed'">{{ order.status }}</span>
                       <span class="badge bg-danger" v-else-if="order.status=='canceled'">{{ order.status }}</span>
-
                     </td>
-                    <td class="align-middle border-top-0">
-                      {{ order.total_amount }}
-                    </td>
+                    <td class="align-middle border-top-0">{{ order.total_amount }}</td>
                     <td class="text-muted align-middle border-top-0">
-                      <a href="#" class="text-inherit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View"><i class="feather-icon icon-eye"></i></a>
+                        <button @click="showPopup(order)" class="btn btn-info">Show Order Products</button>
                     </td>
                   </tr>
 
@@ -101,23 +89,42 @@
       </div>
     </div>
   </section>
+
+    <!-- Popup component -->
+    <popup-order-products
+      v-if="isPopupVisible"
+      :orderProducts="order"
+      @close="closePopup"
+    ></popup-order-products>
     </div>
 </template>
 
 <script>
 import Accountsidebar from './sidebar.vue'
+import PopupOrderProducts from "./PopupOrderProducts.vue";
 export default {
-    components:{Accountsidebar},
+    components:{Accountsidebar, PopupOrderProducts},
     data() {
         return {
-            orders:{}
+            orders:{},
+            order: {},
+            isPopupVisible: false,
         }
     },
     methods: {
         async getOrders(){
             var res = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}/orders`);
             this.orders = res.data
-        }
+        },
+        showPopup(order) {
+
+
+            this.order = order
+        this.isPopupVisible = true;
+        },
+        closePopup() {
+        this.isPopupVisible = false;
+        },
     },
     mounted() {
         this.getOrders();

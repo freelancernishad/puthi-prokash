@@ -183,7 +183,7 @@ public function addUserAddress(Request $request, $user_id)
 
 
        // Create a new user address
-       $userAddress = new UserAddress();
+       $userAddress = new UserAddress($datas);
 
     // Save the user address to the user's addresses
     $user->userAddresses()->save($userAddress);

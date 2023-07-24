@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
+        'orderId',
         'user_id',
         'total_amount',
         'total_quantity',
@@ -38,4 +39,35 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public static function generateSerial()
+    {
+        $lastOrder = Order::orderByDesc('id')->first();
+
+        if ($lastOrder) {
+            $lastSerial = $lastOrder->orderId;
+            $lastNumber = (int) substr($lastSerial, -6); // Extract the last 6 digits as a number
+            $newNumber = $lastNumber + 1;
+
+            // Pad the number with leading zeros to make it 6 digits
+            $newSerial = str_pad($newNumber, 6, '0', STR_PAD_LEFT);
+        } else {
+            // If no previous order exists, start with 000001
+            $newSerial = '000001';
+        }
+
+        return $newSerial;
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Generate a 6-character serial ID for the orderId before creating a new order
+        static::creating(function ($order) {
+            $order->orderId = self::generateSerial();
+        });
+    }
+
 }

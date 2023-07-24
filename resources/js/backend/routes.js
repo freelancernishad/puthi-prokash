@@ -24,6 +24,12 @@ let galleryForm = require('./components/gallery/form.vue').default;
 let galleryimages = require('./components/gallery/images.vue').default;
 
 
+
+let ordersIndex = require('./components/orders/index.vue').default;
+let ordersForm = require('./components/orders/form.vue').default;
+
+
+
 let profile = require('./components/profile.vue').default;
 
 
@@ -85,6 +91,11 @@ export const routes = [
   { path:  `${prefix}/gallery/images/:id`, component: galleryimages, name:'galleryimages',meta: { layout: adminlayout } },
 
 
+
+
+  { path:  `${prefix}/orders/list`, component: ordersIndex, name:'ordersIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/orders/add`, component: ordersForm, name:'ordersAdd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/orders/edit/:id`, component: ordersForm, name:'ordersEdit',meta: { layout: adminlayout } },
 
 
 

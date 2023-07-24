@@ -12,9 +12,10 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with(['user', 'orderProducts.product'])->get();
 
+        $orders = Order::with(['user', 'orderProducts.product'])->orderBy('id','desc')->paginate(20);
         return response()->json($orders);
+
     }
 
 
@@ -24,6 +25,7 @@ class OrderController extends Controller
         $orders = Order::where('user_id', $user_id)
             ->with('orderProducts.product')
             ->with('user')
+            ->orderBy('id','desc')
             ->get();
 
         if ($orders->isEmpty()) {
@@ -65,7 +67,9 @@ class OrderController extends Controller
 
             $totalQuantity = $cartItems->sum('quantity');
 
+             $orderId =   Order::generateSerial();
         $orderData = [
+            'orderId' => $orderId,
             'user_id' => $userId,
             'total_amount' => $totalAmount,
             'total_quantity' => $totalQuantity,

@@ -183,14 +183,38 @@
 
 
 
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 104 }" v-if="this.$localStorage.getItem('position') == 'admin'">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(104)"><i
+                                    class="flaticon-technological"></i><span>Orders</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 104"
+                                    style="display:block">
+                                    <li class="nav-item" >
+                                        <router-link :to="{ name: 'ordersIndex',params:{status:'pending'} }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Pending </router-link>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'ordersIndex',params:{status:'processing'} }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Processing </router-link>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'ordersIndex',params:{status:'completed'} }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Completed </router-link>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'ordersIndex',params:{status:'canceled'} }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Canceled </router-link>
+                                    </li>
 
 
 
-
-
-                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
-                                <router-link :to="{ name: 'ordersIndex' }" class="nav-link"><i
-                                    class="flaticon-dashboard"></i><span>Orders</span></router-link>
+                                </ul>
+                            </transition>
                         </li>
 
 
@@ -198,9 +222,21 @@
 
 
 
+
+
+
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                <router-link :to="{ name: 'Customerlist' }" class="nav-link"><i
+                                    class="flaticon-dashboard"></i><span>Customers</span></router-link>
+                        </li>
+
+
+
+
+
                         <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
                                 <router-link :to="{ name: 'userlist' }" class="nav-link"><i
-                                    class="flaticon-dashboard"></i><span>ইউজার</span></router-link>
+                                    class="flaticon-dashboard"></i><span>Writer</span></router-link>
                         </li>
 
 

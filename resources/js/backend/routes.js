@@ -36,9 +36,11 @@ let profile = require('./components/profile.vue').default;
 
 
 let userlist = require('./components/users/list.vue').default;
+
 let userlistedit = require('./components/users/form.vue').default;
 
 
+let Customerlist = require('./components/customers/list.vue').default;
 
 
 
@@ -59,6 +61,10 @@ export const routes = [
 
   { path:  `${prefix}`, component: home, name:'Dashboard',meta: { layout: adminlayout } },
   { path:  `${prefix}/profile`, component: profile, name:'profile',meta: { layout: adminlayout } },
+
+
+
+  { path:  `${prefix}/customers/list`, component: Customerlist, name:'Customerlist',meta: { layout: adminlayout } },
 
 
 
@@ -93,7 +99,8 @@ export const routes = [
 
 
 
-  { path:  `${prefix}/orders/list`, component: ordersIndex, name:'ordersIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/orders/list/:status`, component: ordersIndex, name:'ordersIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/orders/list/by/:customer`, component: ordersIndex, name:'ordersCustomer',meta: { layout: adminlayout } },
   { path:  `${prefix}/orders/add`, component: ordersForm, name:'ordersAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/orders/edit/:id`, component: ordersForm, name:'ordersEdit',meta: { layout: adminlayout } },
 

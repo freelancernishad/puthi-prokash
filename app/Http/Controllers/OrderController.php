@@ -10,10 +10,25 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
-        $orders = Order::with(['user', 'orderProducts.product'])->orderBy('id','desc')->paginate(20);
+
+        $status = $request->status;
+        $customer = $request->customer;
+
+        if($status){
+            $orders = Order::with(['user.userAddresses', 'orderProducts.product'])->where('status',$status)->orderBy('id','desc')->paginate(20);
+            return response()->json($orders);
+        }
+
+        if($customer){
+            $orders = Order::with(['user.userAddresses', 'orderProducts.product'])->where('user_id',$customer)->orderBy('id','desc')->paginate(20);
+            return response()->json($orders);
+        }
+
+
+        $orders = Order::with(['user.userAddresses', 'orderProducts.product'])->orderBy('id','desc')->paginate(20);
         return response()->json($orders);
 
     }
@@ -123,6 +138,10 @@ class OrderController extends Controller
 
         return response()->json($order);
     }
+
+
+
+
     public function updateStatus(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -136,8 +155,12 @@ class OrderController extends Controller
         $order->status = $request->input('status');
         $order->save();
 
-        return response()->json($order);
+        return response()->json(['message' => 'Order status updated successfully', 'order' => $order], 200);
     }
+
+
+
+
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
@@ -150,4 +173,13 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'Order deleted successfully']);
     }
+
+
+
+
+
+
+
+
+
 }

@@ -31,7 +31,7 @@
                 <!-- Table Head -->
                 <thead class="bg-light">
                   <tr>
-               
+
                     <th>Order</th>
                     <th>Date</th>
                     <th>Items</th>
@@ -41,10 +41,20 @@
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- Table body -->
 
 
+                <tbody v-if="orders.message=='No orders found for the user'">
+
+
+                  <tr>
+                    <td class="align-middle border-top-0" colspan="5">{{ orders.message }}</td>
+                  </tr>
+
+
+
+                </tbody>
+
+                <tbody v-else>
 
 
                   <tr v-for="(order,index) in orders" :key="'order'+index">
@@ -80,9 +90,10 @@
 
 
 
-
-
                 </tbody>
+
+
+
               </table>
             </div>
           </div>

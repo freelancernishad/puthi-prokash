@@ -27,7 +27,7 @@
               <div class="row">
                 <div class="col-lg-5">
                   <!-- form -->
-                  <form>
+                  <form @submit.stop.prevent="updateProfile">
                     <!-- input -->
                     <div class="mb-3">
                       <label class="form-label">Name</label>
@@ -53,23 +53,28 @@
             </div>
             <hr class="my-10">
             <div class="pe-lg-14">
-              <!-- heading -->
+
               <h5 class="mb-4">Password</h5>
-              <form class=" row row-cols-1 row-cols-lg-2">
-                <!-- input -->
-                <div class="mb-3 col">
-                  <label class="form-label">New Password</label>
-                  <input type="password" class="form-control" placeholder="**********">
-                </div>
-                <!-- input -->
+              <form class=" row row-cols-1 row-cols-lg-2" @submit.stop.prevent="updatePassword">
+
                 <div class="mb-3 col">
                   <label class="form-label">Current Password</label>
-                  <input type="password" class="form-control" placeholder="**********">
+                  <input type="password" class="form-control" v-model="PassForm.old_password" placeholder="**********">
                 </div>
-                <!-- input -->
+
+                <div class="mb-3 col">
+                  <label class="form-label">New Password</label>
+                  <input type="password" class="form-control" v-model="PassForm.new_password" placeholder="**********">
+                </div>
+
+
+                <div class="mb-3 col">
+                  <label class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" v-model="PassForm.new_password_confirmation" placeholder="**********">
+                </div>
+
                 <div class="col-12">
-                  <p class="mb-4">Can’t remember your current password?<a href="#"> Reset your password.</a></p>
-                  <a href="#" class="btn btn-primary">Save Password</a>
+                  <button type="submit" class="btn btn-primary">Save Password</button>
                 </div>
               </form>
             </div>
@@ -104,6 +109,11 @@ export default {
                 name:'',
                 email:'',
                 phone:''
+            },
+            PassForm:{
+                old_password:'',
+                new_password:'',
+                new_password_confirmation:'',
             }
         }
     },
@@ -117,6 +127,31 @@ export default {
             this.form.email = user.email
             this.form.phone = user.phone
         },
+
+        async updateProfile(){
+                var res = await this.callApi(`put`,`/api/users/${this.form.user_id}`,this.form);
+                if(res.status==200){
+                    Notification.customSuccess(`User Updated Successfull`);
+                    this.getCartFromDb()
+                }else{
+                    Notification.customError(res.message);
+                    this.errors = res.data.errors
+                }
+            },
+
+        async updatePassword(){
+                var res = await this.callApi(`post`,`/api/users/password/change/${this.form.user_id}`,this.PassForm);
+                if(res.status==200){
+                    Notification.customSuccess(`Password Updated Successfull`);
+                    this.getCartFromDb()
+                }else{
+                    Notification.customError(res.data.message);
+                    this.errors = res.data.errors
+                }
+            }
+
+
+
     },
     mounted() {
         this.getCartFromDb();

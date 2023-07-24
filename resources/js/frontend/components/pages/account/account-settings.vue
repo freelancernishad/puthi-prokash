@@ -134,7 +134,7 @@ export default {
                     Notification.customSuccess(`User Updated Successfull`);
                     this.getCartFromDb()
                 }else{
-                    Notification.customError(res.message);
+                    Notification.customError(res.data.message);
                     this.errors = res.data.errors
                 }
             },

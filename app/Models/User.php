@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Product::class, 'author_id');
     }
 
+    public function userAddresses()
+    {
+        return $this->hasOne(UserAddress::class);
+        // return $this->hasMany(UserAddress::class);
+    }
 
 }
 

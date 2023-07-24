@@ -249,6 +249,16 @@ export default {
             this.form.name = user.name
             this.form.email = user.email
 
+     
+
+
+
+            if(user.user_addresses.address) this.form.address = user.user_addresses.address
+            if(user.user_addresses.city) this.form.city = user.user_addresses.city
+            if(user.user_addresses.state) this.form.state = user.user_addresses.state
+            if(user.user_addresses.country) this.form.country = user.user_addresses.country
+            if(user.user_addresses.zip) this.form.zip = user.user_addresses.zip
+
 
 
 

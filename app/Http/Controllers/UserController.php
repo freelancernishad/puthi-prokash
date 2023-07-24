@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\Models\UserAddress;
 
 class UserController extends Controller
 {
@@ -16,7 +18,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::with('userAddresses')->find($id);
 
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
@@ -137,4 +139,58 @@ class UserController extends Controller
 
         return response()->json($user, 201);
     }
+
+
+
+
+public function addUserAddress(Request $request, $user_id)
+{
+    // Validate the request data
+    $validator = Validator::make($request->all(), [
+        'address' => 'required',
+        'city' => 'required',
+        'state' => 'required',
+        'country' => 'required',
+        'zip' => 'required',
+        // Add any other address-related validations you need
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json(['message' => 'Validation failed', 'errors' => $validator->errors()], 400);
+    }
+
+    // Find the user by user_id
+    $user = User::find($user_id);
+
+    if (!$user) {
+        return response()->json(['message' => 'User not found'], 404);
+    }
+
+    $datas = [
+        'address' => $request->input('address'),
+        'city' => $request->input('city'),
+        'state' => $request->input('state'),
+        'country' => $request->input('country'),
+        'zip' => $request->input('zip'),
+        // Add any other address-related fields here
+    ];
+
+    if ($user->userAddresses()->exists()) {
+
+        $user->userAddresses()->update($datas);
+        return response()->json(['message' => 'User address updated successfully'], 200);
+    }
+
+
+       // Create a new user address
+       $userAddress = new UserAddress();
+
+    // Save the user address to the user's addresses
+    $user->userAddresses()->save($userAddress);
+
+    return response()->json(['message' => 'User address added successfully', 'address' => $userAddress], 201);
+}
+
+
+
 }

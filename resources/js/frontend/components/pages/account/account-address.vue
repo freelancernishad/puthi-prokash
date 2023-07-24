@@ -19,69 +19,63 @@
             <div class="d-flex justify-content-between mb-6">
               <!-- heading -->
               <h2 class="mb-0">Address</h2>
-              <!-- button -->
-              <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">Add a
-                new address </a>
+
             </div>
             <div class="row">
+
+
+
               <!-- col -->
-              <div class="col-lg-5 col-xxl-4 col-12 mb-4">
+              <div class="col-lg-12 col-xxl-12 col-12 mb-4">
                 <!-- form -->
                 <div class="card">
                   <div class="card-body p-6">
-                  <div class="form-check mb-4">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="homeRadio" checked>
-                    <label class="form-check-label text-dark fw-semi-bold" for="homeRadio">
-                      Home
-                    </label>
-                  </div>
-                  <!-- address -->
-                  <p class="mb-6">Jitu Chauhan<br>
 
-                    4450 North Avenue Oakland, <br>
+                    <form  @submit.stop.prevent="updateProfile">
 
-                    Nebraska, United States,<br>
 
-                    402-776-1106</p>
-                    <!-- btn -->
-                  <a href="#" class="btn btn-info btn-sm">Default address</a>
-                  <div class="mt-4">
-                    <a href="#" class="text-inherit">Edit </a>
-                    <a href="#" class="text-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete
-                    </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-5 col-xxl-4 col-12 mb-4">
-                <!-- input -->
-                <div class="card">
-                  <div class="card-body p-6">
-                  <div class="form-check mb-4">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="officeRadio">
-                    <label class="form-check-label text-dark fw-semi-bold" for="officeRadio">
-                      Office
-                    </label>
-                  </div>
-                  <!-- nav item -->
-                  <p class="mb-6">Nitu Chauhan<br>
+                        <div class="form-group">
+                            <label for="">Address</label>
+                            <input type="text" v-model="form.address" class="form-control">
+                        </div>
 
-                    3853 Coal Road <br>
+                        <div class="form-group">
+                            <label for="">City</label>
+                            <input type="text" v-model="form.city" class="form-control">
+                        </div>
 
-                    Tannersville, Pennsylvania, 18372, United States <br>
+                        <div class="form-group">
+                            <label for="">State</label>
+                            <input type="text" v-model="form.state" class="form-control">
+                        </div>
 
-                    402-776-1106</p>
-                    <!-- link -->
-                  <a href="#" class="link-primary">Set as Default</a>
-                  <div class="mt-4">
-                    <a href="#" class="text-inherit">Edit </a>
-                    <!-- btn -->
-                    <a href="#" class="text-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete
-                    </a>
-                  </div>
+                        <div class="form-group">
+                            <label for="">Country</label>
+                            <input type="text" v-model="form.country" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Zip</label>
+                            <input type="text" v-model="form.zip" class="form-control">
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-info">Save </button>
+
+                        </div>
+                    </form>
+
+
+
+
+
                   </div>
                 </div>
               </div>
+
+
+
+
             </div>
           </div>
         </div>
@@ -98,7 +92,47 @@
 <script>
 import Accountsidebar from './sidebar.vue'
 export default {
-    components:{Accountsidebar}
+    components:{Accountsidebar},
+    data() {
+        return {
+            form:{
+                address:'',
+                city:'',
+                state:'',
+                country:'',
+                zip:'',
+            }
+        }
+    },
+    methods: {
+        async getFromDb(){
+            var userRes = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}`,[]);
+            var user = userRes.data
+            if(user.user_addresses.address) this.form.address = user.user_addresses.address
+            if(user.user_addresses.city) this.form.city = user.user_addresses.city
+            if(user.user_addresses.state) this.form.state = user.user_addresses.state
+            if(user.user_addresses.country) this.form.country = user.user_addresses.country
+            if(user.user_addresses.zip) this.form.zip = user.user_addresses.zip
+
+
+        },
+        async updateProfile(){
+                var res = await this.callApi(`post`,`/api/users/${this.$localStorage.getItem('userid')}/addresses`,this.form);
+                if(res.status==200){
+                    Notification.customSuccess(`Address Updated Successfull`);
+                    this.getFromDb()
+                }else if(res.status==201){
+                    Notification.customSuccess(`Address added Successfull`);
+                    this.getFromDb()
+                }else{
+                    Notification.customError(res.data.message);
+                    this.errors = res.data.errors
+                }
+            },
+    },
+    mounted() {
+        this.getFromDb();
+    },
 
 }
 </script>

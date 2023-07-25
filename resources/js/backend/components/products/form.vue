@@ -81,12 +81,12 @@
                                 <div class="col-md-12">
                                     <label for="">ডিসকাউন্ট কি আছে?</label> <br/>
                                     <label class="switch">
-                                        <input type="checkbox" v-model="form.status" >
+                                        <input type="checkbox" v-model="form.discount_status" >
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12" v-if="form.discount_status">
                                     <div class="form-group">
                                         <label for="">ডিসকাউন্ট ধরণ</label>
                                         <select class="form-control" v-model="form.discount_type">
@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12" v-if="form.discount_status && form.discount_type">
                                     <div class="form-group">
                                         <label for="" >ডিসকাউন্ট
                                             <span v-if="form.discount_type=='Fixed'">(ডিসকাউন্ট এর টাকার পরিমাণ)</span>

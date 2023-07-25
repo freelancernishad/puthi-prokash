@@ -160,6 +160,7 @@ class ProductController extends Controller
         'category_id' => $category_id,
         'name' => $request->name,
         'slug' => $request->slug,
+        'discount_status' => $request->discount_status,
         'discount_type' => $request->discount_type,
         'discount' => $request->discount,
         'prossod' => $request->prossod,

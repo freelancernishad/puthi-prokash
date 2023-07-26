@@ -1004,9 +1004,18 @@ function characterCount($string){
 
 
     function latestProductByCat(){
-        $categories = Category::with(['products' => function ($query) {
-            $query->latest();
-        }])->get();
+        $categories = Category::all();
+
+        foreach ($categories as $child) {
+            $child->load([
+                'products' => function ($query) {
+                    $query->latest()->take(1);
+                },
+            ]);
+        }
+
+
+
 
         $products = collect();
 

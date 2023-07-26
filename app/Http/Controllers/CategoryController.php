@@ -60,16 +60,46 @@ class CategoryController extends Controller
         if ($category->children->count() > 0) {
             $category->load([
                 'parent',
-                'children.products' => function ($query2) {
-                    $query2->take(6);
+                'children' => function ($query1) {
+                    $query1->with([
+                        // 'products' => function ($query2) {
+                        //     $query2->take(6);
+                        // },
+                        'products.flippingBooks' => function ($query2) {
+                            $query2->take(4);
+                        }
+                    ])->get();
                 },
-                'children.products.flippingBooks' => function ($query2) {
-                    $query2->take(4);
-                },
+
+
+                // 'children.products' => function ($query2) {
+                //     $query2->latest()->limit(6);
+                // },
+                // 'children.products.flippingBooks' => function ($query2) {
+                //     $query2->take(4);
+                // },
+
+
+
                 'products' => function ($query2) {
                     $query2->take(6);
                 }
         ]);
+
+
+        foreach ($category->children as $child) {
+            $child->load([
+                'products' => function ($query) {
+                    $query->latest()->take(6);
+                },
+            ]);
+        }
+
+
+
+
+
+
             return response()->json($category, 200);
         } else {
             $products = $category->products()->latest()->take(6)->get();

@@ -4043,7 +4043,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         name: '',
         slug: '',
-        image: '',
+        image: "".concat(this.$asseturl, "assets/image/image.png"),
         parent_id: '',
         categories: []
       },
@@ -4060,6 +4060,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           this.form = {
             name: '',
             slug: '',
+            image: "".concat(this.$asseturl, "assets/image/image.png"),
             parent_id: ''
           };
         }

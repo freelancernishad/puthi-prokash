@@ -155,6 +155,15 @@ class ProductController extends Controller
 
     $category_id = $request->categories[0];
     // Create the product
+
+    $image = $request->image;
+    $featured = '';
+    $imageCount =  count(explode(';', $image));
+    if ($imageCount > 1) {
+        $featured =   fileupload($image, "uploaded/products/featured/");
+    }
+
+
      $product = Product::create([
         'product_id' => '123',
         'category_id' => $category_id,
@@ -174,7 +183,7 @@ class ProductController extends Controller
         'visit' => 0,
         'share' => 0,
         'buy' => 0,
-        'image' => 'image',
+        'image' => $featured,
     ]);
 
 
@@ -184,20 +193,9 @@ class ProductController extends Controller
 
 
 
-        // Upload and associate images with the product
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
 
-            foreach ($images as $image) {
-                $imagePath = $image->store('product_images', 'public');
 
-                // Create a new product image and associate it with the product
-                $productImage = new ProductImage();
-                $productImage->product_id = $product->id;
-                $productImage->image_path = $imagePath;
-                $productImage->save();
-            }
-        }
+
 
 
 

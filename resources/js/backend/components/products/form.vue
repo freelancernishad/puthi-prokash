@@ -286,7 +286,7 @@ export default {
             form:{
                 name:'',
                 slug:'',
-                image:'',
+                image:`${this.$asseturl}assets/image/image.png`,
                 parent_id:'',
                 categories:[],
             },
@@ -303,6 +303,7 @@ export default {
                 this.form= {
                     name:'',
                     slug:'',
+                    image:`${this.$asseturl}assets/image/image.png`,
                     parent_id:'',
                 }
             }

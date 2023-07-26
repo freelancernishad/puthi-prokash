@@ -167,6 +167,26 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">featured image</label>
+
+                                        <div class="upload-container" onclick="triggerFileInput()">
+    <!-- Image preview container -->
+    <label for="fileInput">
+      <img id="imagePreview" :src="form.image" alt="Image Preview">
+    </label>
+    <!-- Input for file upload (hidden) -->
+    <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'image')">
+  </div>
+
+
+
+                                        <input type="text" class="form-control" v-model="form.ISBN">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('ISBN')" v-for="name in errors.ISBN" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
 
                                 </div>
                                 </div>
@@ -266,6 +286,7 @@ export default {
             form:{
                 name:'',
                 slug:'',
+                image:'',
                 parent_id:'',
                 categories:[],
             },
@@ -298,6 +319,22 @@ export default {
     }
     },
     methods: {
+
+
+
+    FileSelected($event, parent_index) {
+            let file = $event.target.files[0];
+                let reader = new FileReader;
+                reader.onload = event => {
+                    console.log(event.target.result)
+                    this.form[parent_index] = event.target.result
+                };
+                reader.readAsDataURL(file)
+
+        },
+
+
+
         async getList(){
             var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])
 
@@ -365,6 +402,25 @@ export default {
 .tox.tox-tinymce {
     min-height: 500px;
 }
+
+
+
+   /* Style for the image preview */
+   .upload-container {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .upload-container img {
+      max-width: 100%;
+      max-height: 200px;
+      margin-top: 10px;
+    }
+
+    /* Hide the file input */
+    #fileInput {
+      display: none;
+    }
 </style>
 
 

@@ -4043,6 +4043,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         name: '',
         slug: '',
+        image: '',
         parent_id: '',
         categories: []
       },
@@ -4078,8 +4079,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    getList: function getList() {
+    FileSelected: function FileSelected($event, parent_index) {
       var _this = this;
+      var file = $event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        console.log(event.target.result);
+        _this.form[parent_index] = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    getList: function getList() {
+      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -4087,11 +4098,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/all/categories?type=withoutpaginate", []);
+                return _this2.callApi('get', "/api/all/categories?type=withoutpaginate", []);
               case 2:
                 res = _context.sent;
                 res.data.forEach(function (list) {
-                  _this.lists.push({
+                  _this2.lists.push({
                     id: list.id,
                     name: list.name
                   });
@@ -4105,7 +4116,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getItems: function getItems() {
-      var _this2 = this;
+      var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -4113,11 +4124,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.callApi('get', "/api/products/".concat(_this2.$route.params.id), []);
+                return _this3.callApi('get', "/api/products/".concat(_this3.$route.params.id), []);
               case 2:
                 res = _context2.sent;
-                _this2.form = res.data;
-                _this2.categories = res.data.categories;
+                _this3.form = res.data;
+                _this3.categories = res.data.categories;
               case 5:
               case "end":
                 return _context2.stop();
@@ -4127,27 +4138,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     onSubmit: function onSubmit() {
-      var _this3 = this;
+      var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var res;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _this3.form.categories = _this3.selectedOptionIds;
-                _this3.form.slug = _this3.makeSug(_this3.form.name);
+                _this4.form.categories = _this4.selectedOptionIds;
+                _this4.form.slug = _this4.makeSug(_this4.form.name);
                 _context3.next = 4;
-                return _this3.callApi("".concat(_this3.Method), "".concat(_this3.updateInsertApi), _this3.form);
+                return _this4.callApi("".concat(_this4.Method), "".concat(_this4.updateInsertApi), _this4.form);
               case 4:
                 res = _context3.sent;
                 if (res.status == 200) {
                   Notification.customSuccess("Products Updated Successfull");
-                  _this3.$router.push({
+                  _this4.$router.push({
                     name: 'productsIndex'
                   });
                 } else if (res.status == 201) {
                   Notification.customSuccess("Products Created Successfull");
-                  _this3.$router.push({
+                  _this4.$router.push({
                     name: 'flipingbooks',
                     params: {
                       id: res.data.id
@@ -4155,7 +4166,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   });
                 } else {
                   Notification.customError("Something want wrong!");
-                  _this3.errors = res.data.errors;
+                  _this4.errors = res.data.errors;
                 }
               case 6:
               case "end":
@@ -6898,7 +6909,7 @@ var render = function render() {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("ডিসকাউন্ট\n                                        "), _vm.form.discount_type == "Fixed" ? _c("span", [_vm._v("(ডিসকাউন্ট এর টাকার পরিমাণ)")]) : _c("span", [_vm._v("(ডিসকাউন্ট এর শতকরা পরিমাণ)")])]), _vm._v(" "), _c("input", {
+  }, [_vm._v("ডিসকাউন্ট\n                                          "), _vm.form.discount_type == "Fixed" ? _c("span", [_vm._v("(ডিসকাউন্ট এর টাকার পরিমাণ)")]) : _c("span", [_vm._v("(ডিসকাউন্ট এর শতকরা পরিমাণ)")])]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -7095,6 +7106,65 @@ var render = function render() {
       "for": ""
     }
   }, [_vm._v("ISBN")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.ISBN,
+      expression: "form.ISBN"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.ISBN
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "ISBN", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.ISBN, function (name) {
+    return _vm.errorHandleing("ISBN") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("featured image")]), _vm._v(" "), _c("div", {
+    staticClass: "upload-container",
+    attrs: {
+      onclick: "triggerFileInput()"
+    }
+  }, [_c("label", {
+    attrs: {
+      "for": "fileInput"
+    }
+  }, [_c("img", {
+    attrs: {
+      id: "imagePreview",
+      src: _vm.form.image,
+      alt: "Image Preview"
+    }
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "file",
+      id: "fileInput",
+      accept: "image/*"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.FileSelected($event, "image");
+      }
+    }
+  })]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -26097,7 +26167,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\n    min-height: 500px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\n    min-height: 500px;\n}\n\n\n\n   /* Style for the image preview */\n.upload-container {\n      text-align: center;\n      cursor: pointer;\n}\n.upload-container img {\n      max-width: 100%;\n      max-height: 200px;\n      margin-top: 10px;\n}\n\n    /* Hide the file input */\n#fileInput {\n      display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

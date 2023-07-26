@@ -182,8 +182,8 @@
 
 
 
-                                        <input type="text" class="form-control" v-model="form.ISBN">
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('ISBN')" v-for="name in errors.ISBN" :key="name">{{ name }}</span>
+                                        <!-- <input type="text" class="form-control" v-model="form.ISBN">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('ISBN')" v-for="name in errors.ISBN" :key="name">{{ name }}</span> -->
                                     </div>
                                 </div>
 

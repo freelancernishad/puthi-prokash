@@ -7165,32 +7165,7 @@ var render = function render() {
         return _vm.FileSelected($event, "image");
       }
     }
-  })]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.ISBN,
-      expression: "form.ISBN"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      type: "text"
-    },
-    domProps: {
-      value: _vm.form.ISBN
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.form, "ISBN", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _vm._l(_vm.errors.ISBN, function (name) {
-    return _vm.errorHandleing("ISBN") ? _c("span", {
-      key: name,
-      staticClass: "text-danger font-weight-bold"
-    }, [_vm._v(_vm._s(name))]) : _vm._e();
-  })], 2)])])])])])])])], 1);
+  })])])])])])])])])])], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,

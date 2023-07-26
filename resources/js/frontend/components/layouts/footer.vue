@@ -13,7 +13,9 @@
           <i class="fa-brands fa-twitter linkHover"></i>
           <i class="fa-brands fa-instagram linkHover"></i>
 
-          <img :src="$asseturl+'assets/image/youtube-icon.png'" class="linkHover" style="    width: 48px;" alt="">
+          <img :src="imageUrl"
+      @mouseover="handleMouseOver"
+      @mouseout="handleMouseOut" class="linkHover" style="    width: 48px;" alt="">
           <!-- <i class="fa-brands fa-youtube linkHover"></i> -->
 
 
@@ -118,7 +120,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0" style="font-size: 14px;">copyright@2023 puthiprokash. All Right Reserved</h5> <img width="200px" :src="$asseturl+'assets/image/payment_banner.png'" alt="">
+        <h5 class="mb-0" style="font-size: 14px;"><b>copyright@2023 puthiprokash. All Right Reserved </b></h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt="">
       </div>
     </div>
   </div>
@@ -139,7 +141,10 @@
 export default {
   data() {
     return {
-      isScrolled: false
+      isScrolled: false,
+
+      imageUrl: this.$asseturl+'assets/image/youtube-icon.png',
+      hoverImageUrl: this.$asseturl+'assets/image/16.svg',
     };
   },
 
@@ -170,7 +175,20 @@ export default {
           clearInterval(scrollInterval);
         }
       }, 15);
-    }
+    },
+
+
+
+    handleMouseOver() {
+      // Change the image source on hover
+      this.imageUrl = this.hoverImageUrl;
+    },
+    handleMouseOut() {
+      // Change back to the original image source when the mouse leaves
+      this.imageUrl = this.$asseturl+'assets/image/youtube-icon.png';
+    },
+
+
   }
 };
 </script>

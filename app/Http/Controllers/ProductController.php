@@ -251,6 +251,16 @@ class ProductController extends Controller
             $product->short_description = $request->short_description;
             $product->description = $request->description;
             $product->price = $request->price;
+
+
+            $image = $request->image;
+            $featured = '';
+            $imageCount =  count(explode(';', $image));
+            if ($imageCount > 1) {
+                $featured =   fileupload($image, "uploaded/products/featured/");
+                $product->image = $featured;
+            }
+
             $product->save();
 
             // Update product categories

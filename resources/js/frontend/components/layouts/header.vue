@@ -4,17 +4,21 @@
         <div class="mainHeadSlider">
 
     <b-carousel v-if="homePage"
-      id="carousel-1"
-      fade
-      :interval="4000"
-      controls
-      indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
+        id="carousel-1"
+        fade
+        :interval="4000"
+        controls
+        indicators
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        :prev-icon="prevIcon"
+      :next-icon="nextIcon"
     >
-      <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
-      <b-carousel-slide :img-src="$asseturl+'assets/image/Banner_Comp.gif'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/3.jpg'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/4.jpg'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/5.jpg'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/6.jpg'"></b-carousel-slide>
     </b-carousel>
 
 
@@ -25,11 +29,7 @@
 
         </div>
 
-
-
-
-        <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
-
+    <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
 
       <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: var(--headerHight);" v-if="homePage">
 
@@ -41,7 +41,7 @@
               alt=""
               class="puthi-logo"
               srcset=""
-              width="180px"
+              width="145px"
             />
           </router-link>
           <button
@@ -74,7 +74,7 @@
 
               <li class="border-3 border-start border-white nav-item nav-item-menu position-relative DropItem">
                 <a class="fs-5 nav-link text-dark" href="javascript:void(0)">ভাষা</a>
-                <ul class="DownItems list-unstyled">
+                <ul class="DownItems list-unstyled"  style="list-style: inside;">
                     <li>বাংলা</li>
                     <li>English</li>
                 </ul>
@@ -115,7 +115,7 @@
                   <i class="fa-solid fa-bars fs-3"></i>
                 </span>
 
-                <ul class="DownItems list-unstyled">
+                <ul class="DownItems list-unstyled" style="list-style: inside;">
                     <li><router-link :to="{name:'home'}" class="text-dark">আমাদের কথা</router-link></li>
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'academic-books'}}" class="text-dark">একাডেমিক বই</router-link></li>
@@ -133,7 +133,6 @@
         <!-- </div> -->
       </nav>
 
-
       <section class="container" v-if="MainSearch">
         <form class="mainSearchBox d-flex" @submit.stop.prevent="searchItem">
           <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="book-search-input">
@@ -142,15 +141,7 @@
 
       </section>
 
-
-
-
-
-
-
-
-
-      <section style="background-color: #CED9DF;height: var(--headerHight);" v-if="submenu1">
+    <section style="background-color: #CED9DF;height: var(--headerHight);" v-if="submenu1">
 
 
         <div class="container">
@@ -215,19 +206,6 @@
 
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div aria-labelledby="menuthree" class="dropdown-menus" v-if="submenu1 && submenu2">
     <div class="container">
@@ -299,8 +277,6 @@
     </div>
   </div>
 
-
-
   <div aria-labelledby="menuthree" class="dropdown-menus" v-if="submenu1 && submenu3">
     <div class="container">
         <div class="row">
@@ -324,11 +300,6 @@
 
 
     </header>
-
-
-
-
-
 
 
     </div>
@@ -393,6 +364,15 @@ export default {
 
         }
     },
+
+    computed: {
+    prevIcon() {
+      return 'fas fa-chevron-left'; // Replace with the Font Awesome class name for the previous icon
+    },
+    nextIcon() {
+      return 'fas fa-chevron-right'; // Replace with the Font Awesome class name for the next icon
+    },
+  },
     methods: {
 
 
@@ -570,7 +550,38 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+a.carousel-control-prev {
+    width: 3% !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url(/assets/image/preIcon.svg);
+    padding: 45px 18px;
+    background-size: cover;
+}
+
+a.carousel-control-next {
+    width: 3% !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url(/assets/image/preIcon.svg);
+    padding: 45px 18px;
+    background-size: cover;
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
 .nav {
     display: -ms-flexbox;
     display: flex;

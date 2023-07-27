@@ -312,6 +312,52 @@ export default {
 
 
     created() {
+
+
+        // 1. Create a new CSS class dynamically
+const css = `a.carousel-control-prev {
+    width: 3% !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url(${this.$asseturl}assets/image/preIcon.svg);
+    padding: 45px 18px;
+    background-size: cover;
+}
+
+a.carousel-control-next {
+    width: 3% !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url(${this.$asseturl}assets/image/preIcon.svg);
+    padding: 45px 18px;
+    background-size: cover;
+    transform: rotate(180deg);
+}`;
+
+// 2. Append the newly created CSS class to the <head> element
+const style = document.createElement('style');
+style.type = 'text/css';
+style.appendChild(document.createTextNode(css));
+
+// Append the <style> element to the <head> element
+document.head.appendChild(style);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         this.checkLogin();
         this.StoreUID();
     },
@@ -550,27 +596,10 @@ export default {
 }
 </script>
 
+style
+
 <style >
-a.carousel-control-prev {
-    width: 3% !important;
-}
 
-.carousel-control-prev-icon {
-    background-image: url(/assets/image/preIcon.svg);
-    padding: 45px 18px;
-    background-size: cover;
-}
-
-a.carousel-control-next {
-    width: 3% !important;
-}
-
-.carousel-control-next-icon {
-    background-image: url(/assets/image/preIcon.svg);
-    padding: 45px 18px;
-    background-size: cover;
-    transform: rotate(180deg);
-}
 
 
 

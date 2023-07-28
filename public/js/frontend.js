@@ -2437,13 +2437,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var scrollDuration = 500; // Adjust this value for the desired scroll duration
       var scrollStep = -window.scrollY / (scrollDuration / 15);
       console.log(scrollStep);
-      //   const scrollInterval = setInterval(() => {
-      if (window.scrollY !== 0) {
-        window.scrollBy(0, scrollStep);
-      } else {
-        //   clearInterval(scrollInterval);
-      }
-      //   }, 15);
+      var scrollInterval = setInterval(function () {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 15);
     },
     handleMouseOver: function handleMouseOver() {
       // Change the image source on hover

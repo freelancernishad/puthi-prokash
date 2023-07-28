@@ -51,6 +51,13 @@ export default {
 </script>
 <style>
 
+button.writer-search-button {
+    border: 0px;
+    background: var(--red);
+    color: white;
+    padding: 4px 9px;
+    font-size: 18px;
+}
 .linkHover{
     cursor: pointer;
     transition: all 0.5s;

@@ -3,22 +3,20 @@
 
 <section class="mx-2 px-2" style="padding-top: 50px;">
 
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-        <ol class="breadcrumb ms-5 mt-3">
+    <Breadcrumb :pages="[{'route':'home','params':{},'text':'হোম'},{'route':'','params':{},'text':'লেখক'}]"/>
 
-          <li class="breadcrumb-item active" aria-current="page">হোম</li>
-          <li class="breadcrumb-item active text-dark" aria-current="page">লেখক</li>
-        </ol>
-      </nav>
-    <div class=" my-4 row w-100">
+
+
+
+    <div class=" my-4 row w-100 m-0" >
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">লেখক</p>
-    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">৬০</p>
+    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
     </div>
 
-    <div class="col-md-6 d-flex gap-5 py-2">
-        <select class="form-select" aria-label="Default select example">
+    <div class="col-md-6 d-flex gap-5 py-2 p-0">
+        <select class="form-select" style="width: 45%;" aria-label="Default select example">
         <option selected>বাছাইয়ের ধরণ</option>
 
         <option value="1">  কবি</option>
@@ -28,19 +26,35 @@
         <option value="3">জীবন-আদশ</option>
         <option value="3">ধম</option>
       </select>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>ফিল্টার </option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select></div>
+
+
+
+
+        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="form-control writer-search-input">
+          <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
+        </form>
+
+
+
+        <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+                </router-link>
+
+
+    </div>
     </div>
     </section>
 
 
 
-    <section>
-            <div class="d-flex flex-wrap me-2 text-capitalize justify-content-end gap-2">
+
+    <section class="row w-100 mx-auto my-4">
+
+
+<div class="col-2 text-center"></div>
+<div class="col-10 text-center" >
+            <div class="d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2">
                 <span class="writerFilter">a</span>
                 <span class="writerFilter">b</span>
                 <span class="writerFilter">c</span>
@@ -67,6 +81,7 @@
                 <span class="writerFilter">x</span>
                 <span class="writerFilter">y</span>
                 <span class="writerFilter">z</span>
+            </div>
             </div>
         </section>
 
@@ -165,9 +180,22 @@ export default {
             writers:{},
             page:1,
             last_page:1,
+            totalItems:0,
+            form:{
+                search:''
+            }
         }
     },
     methods: {
+
+        searchItem(){
+
+            console.log(this.$route.query.search)
+            console.log(this.form.search)
+
+            this.$router.push({name:'writer',query:{search:this.form.search}});
+        },
+
 
         nextPage(){
             this.page = Number(this.page)+Number(1);
@@ -191,6 +219,7 @@ export default {
             var res = await this.callApi('get',`/api/users/position/writer?page=${this.page}`,[]);
             const data = res.data.data;
 
+            this.totalItems =   res.data.total
 
 
             const totalItem = res.data.total;
@@ -265,6 +294,9 @@ export default {
 
 },
 mounted() {
+    if(this.$route.query.search){
+        this.form.search = this.$route.query.search;
+    }
     this.processItem();
 
 },
@@ -292,4 +324,6 @@ mounted() {
     padding: 0 !important;
     cursor: pointer;
 }
+
+
 </style>

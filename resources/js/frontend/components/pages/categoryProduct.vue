@@ -7,27 +7,41 @@
 
     <Breadcrumb :pages="Breadcrumb"/>
 
-    <div class=" my-4 row w-100">
+    <div class=" my-4 row w-100 m-0">
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">{{ items.name }}</p>
     <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">৬০</p>
     </div>
 
-    <div class="col-md-6 d-flex gap-5 py-2">
-        <select class="form-select" aria-label="Default select example">
+    <div class="col-md-6 d-flex gap-5 py-2 p-0">
+        <select class="form-select" style="width: 45%;" aria-label="Default select example">
         <option selected>বাছাইয়ের ধরণ</option>
-        <option value="1">  One</option>
 
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="1">  কবি</option>
+        <option value="2">সাহিত্যিক</option>
+        <option value="3">গল্পকার</option>
+        <option value="3">প্রাবন্ধিক</option>
+        <option value="3">জীবন-আদশ</option>
+        <option value="3">ধম</option>
       </select>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>ফিল্টার </option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select></div>
+
+
+
+
+        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন"  class="form-control writer-search-input">
+          <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
+        </form>
+
+
+
+        <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+                </router-link>
+
+
+    </div>
     </div>
     </section>
 

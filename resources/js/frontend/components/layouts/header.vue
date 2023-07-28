@@ -72,8 +72,8 @@
                 >
               </li> -->
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu position-relative DropItem">
-                <a class="fs-5 nav-link text-dark" href="javascript:void(0)">ভাষা</a>
+              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center">
+                <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
                 <ul class="DownItems list-unstyled"  style="list-style: inside;">
                     <li>বাংলা</li>
                     <li>English</li>
@@ -81,31 +81,31 @@
               </li>
 
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="loginStatus">
-                <router-link class="fs-5 nav-link text-dark" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center"  v-if="loginStatus">
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
               </li>
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="loginStatus">
-                <router-link class="fs-5 nav-link text-dark" :to="{name:'logout'}"
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" v-if="loginStatus">
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'logout'}"
                   >লগ আউট
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
                 ></router-link>
               </li>
 
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu"  v-if="!loginStatus">
-                <router-link class="fs-5 nav-link text-dark" :to="{name:'register'}">রেজিস্টার</router-link>
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center"  v-if="!loginStatus">
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'register'}">রেজিস্টার</router-link>
               </li>
-              <li class="border-3 border-start border-white nav-item nav-item-menu" v-if="!loginStatus">
-                <router-link class="fs-5 nav-link text-dark" :to="{name:'login'}"
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" v-if="!loginStatus">
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'login'}"
                   >সাইন ইন
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
                 ></router-link>
               </li>
 
 
-              <li class="border-3 border-start border-white nav-item nav-item-menu" @click="MainSearchFun">
-                <a class="fs-5 nav-link text-dark" href="javascript:void(0)"
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" @click="MainSearchFun">
+                <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)"
                   >অনুসন্ধান <i class="fa-solid fa-magnifying-glass"></i
                 ></a>
               </li>
@@ -731,7 +731,7 @@ button.book-search-button {
     position:  relative;
 }
 
-i.fa-regular.fa-magnifying-glass {
+.book-search-button .fa-regular.fa-magnifying-glass {
     position: absolute;
     top: 3px;
     right: -7px;

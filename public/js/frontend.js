@@ -4351,10 +4351,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       writers: {},
       page: 1,
-      last_page: 1
+      last_page: 1,
+      totalItems: 0,
+      form: {
+        search: ''
+      }
     };
   },
   methods: {
+    searchItem: function searchItem() {
+      console.log(this.$route.query.search);
+      console.log(this.form.search);
+      this.$router.push({
+        name: 'writer',
+        query: {
+          search: this.form.search
+        }
+      });
+    },
     nextPage: function nextPage() {
       this.page = Number(this.page) + Number(1);
       this.$router.push({
@@ -4389,6 +4403,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 res = _context.sent;
                 data = res.data.data;
+                _this.totalItems = res.data.total;
                 totalItem = res.data.total;
                 per_page = res.data.per_page;
                 current_page = res.data.current_page - 1;
@@ -4415,7 +4430,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   result.push('>');
                 }
                 _this.writers = result;
-              case 15:
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -4425,6 +4440,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
+    if (this.$route.query.search) {
+      this.form.search = this.$route.query.search;
+    }
     this.processItem();
   }
 });
@@ -5239,18 +5257,18 @@ var render = function render() {
       src: _vm.$asseturl + "assets/image/cart-icon.png"
     }
   })])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm.loginStatus ? _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center"
   }, [_c("router-link", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       to: {
         name: "orders"
       }
     }
   }, [_vm._v("অ্যাকাউন্ট")])], 1) : _vm._e(), _vm._v(" "), _vm.loginStatus ? _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center"
   }, [_c("router-link", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       to: {
         name: "logout"
@@ -5259,18 +5277,18 @@ var render = function render() {
   }, [_vm._v("লগ আউট\n                "), _c("i", {
     staticClass: "fa-sharp fa-regular fa-arrow-right-to-arc"
   })])], 1) : _vm._e(), _vm._v(" "), !_vm.loginStatus ? _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center"
   }, [_c("router-link", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       to: {
         name: "register"
       }
     }
   }, [_vm._v("রেজিস্টার")])], 1) : _vm._e(), _vm._v(" "), !_vm.loginStatus ? _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu"
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center"
   }, [_c("router-link", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       to: {
         name: "login"
@@ -5279,7 +5297,7 @@ var render = function render() {
   }, [_vm._v("সাইন ইন\n                "), _c("i", {
     staticClass: "fa-sharp fa-regular fa-arrow-right-to-arc"
   })])], 1) : _vm._e(), _vm._v(" "), _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu",
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center",
     on: {
       click: _vm.MainSearchFun
     }
@@ -5534,9 +5552,9 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("li", {
-    staticClass: "border-3 border-start border-white nav-item nav-item-menu position-relative DropItem"
+    staticClass: "border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center"
   }, [_c("a", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       href: "javascript:void(0)"
     }
@@ -5550,7 +5568,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("a", {
-    staticClass: "fs-5 nav-link text-dark",
+    staticClass: "fs-5 text-dark border-start border-white px-2",
     attrs: {
       href: "javascript:void(0)"
     }
@@ -9164,7 +9182,7 @@ var render = function render() {
       pages: _vm.Breadcrumb
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "my-4 row w-100"
+    staticClass: "my-4 row w-100 m-0"
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
   }, [_c("img", {
@@ -9178,7 +9196,40 @@ var render = function render() {
     staticClass: "d-inline fs-2 fw-normal mb-0 me-auto ps-4"
   }, [_vm._v(_vm._s(_vm.items.name))]), _vm._v(" "), _c("p", {
     staticClass: "border-3 border-bottom border-top d-inline fs-4 mb-0 px-4"
-  }, [_vm._v("৬০")])]), _vm._v(" "), _vm._m(0)])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_c("Productslist", {
+  }, [_vm._v("৬০")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 d-flex gap-5 py-2 p-0"
+  }, [_vm._m(0), _vm._v(" "), _c("form", {
+    staticClass: "d-flex",
+    staticStyle: {
+      width: "45%"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        return _vm.searchItem.apply(null, arguments);
+      }
+    }
+  }, [_c("input", {
+    staticClass: "form-control writer-search-input",
+    attrs: {
+      type: "text",
+      placeholder: "আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন"
+    }
+  }), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("router-link", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "cart"
+      }
+    }
+  }, [_c("img", {
+    attrs: {
+      width: "35px",
+      src: _vm.$asseturl + "assets/image/cart-icon.png"
+    }
+  })])], 1)])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_c("Productslist", {
     key: "children",
     attrs: {
       category_name: _vm.items.name,
@@ -9215,10 +9266,11 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-md-6 d-flex gap-5 py-2"
-  }, [_c("select", {
+  return _c("select", {
     staticClass: "form-select",
+    staticStyle: {
+      width: "45%"
+    },
     attrs: {
       "aria-label": "Default select example"
     }
@@ -9230,36 +9282,38 @@ var staticRenderFns = [function () {
     attrs: {
       value: "1"
     }
-  }, [_vm._v("  One")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("  কবি")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "2"
     }
-  }, [_vm._v("Two")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("সাহিত্যিক")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "3"
     }
-  }, [_vm._v("Three")])]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
-    attrs: {
-      "aria-label": "Default select example"
-    }
-  }, [_c("option", {
-    attrs: {
-      selected: ""
-    }
-  }, [_vm._v("ফিল্টার ")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "1"
-    }
-  }, [_vm._v("One")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "2"
-    }
-  }, [_vm._v("Two")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "3"
     }
-  }, [_vm._v("Three")])])]);
+  }, [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("জীবন-আদশ")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("ধম")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "writer-search-button",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  })]);
 }];
 render._withStripped = true;
 
@@ -10381,8 +10435,20 @@ var render = function render() {
     staticStyle: {
       "padding-top": "50px"
     }
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "my-4 row w-100"
+  }, [_c("Breadcrumb", {
+    attrs: {
+      pages: [{
+        route: "home",
+        params: {},
+        text: "হোম"
+      }, {
+        route: "",
+        params: {},
+        text: "লেখক"
+      }]
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "my-4 row w-100 m-0"
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
   }, [_c("img", {
@@ -10396,7 +10462,55 @@ var render = function render() {
     staticClass: "d-inline fs-2 fw-normal mb-0 me-auto ps-4"
   }, [_vm._v("লেখক")]), _vm._v(" "), _c("p", {
     staticClass: "border-3 border-bottom border-top d-inline fs-4 mb-0 px-4"
-  }, [_vm._v("৬০")])]), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("section", {
+  }, [_vm._v(_vm._s(_vm.totalItems))])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 d-flex gap-5 py-2 p-0"
+  }, [_vm._m(0), _vm._v(" "), _c("form", {
+    staticClass: "d-flex",
+    staticStyle: {
+      width: "45%"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        return _vm.searchItem.apply(null, arguments);
+      }
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
+    staticClass: "form-control writer-search-input",
+    attrs: {
+      type: "text",
+      placeholder: "আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("router-link", {
+    staticClass: "fs-5 nav-link text-dark",
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "cart"
+      }
+    }
+  }, [_c("img", {
+    attrs: {
+      width: "35px",
+      src: _vm.$asseturl + "assets/image/cart-icon.png"
+    }
+  })])], 1)])], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("section", {
     staticClass: "row w-100 mx-auto my-4"
   }, [_c("div", {
     staticClass: "col-2 text-center"
@@ -10535,33 +10649,11 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("nav", {
-    staticStyle: {
-      "--bs-breadcrumb-divider": "url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;)"
-    },
-    attrs: {
-      "aria-label": "breadcrumb"
-    }
-  }, [_c("ol", {
-    staticClass: "breadcrumb ms-5 mt-3"
-  }, [_c("li", {
-    staticClass: "breadcrumb-item active",
-    attrs: {
-      "aria-current": "page"
-    }
-  }, [_vm._v("হোম")]), _vm._v(" "), _c("li", {
-    staticClass: "breadcrumb-item active text-dark",
-    attrs: {
-      "aria-current": "page"
-    }
-  }, [_vm._v("লেখক")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-md-6 d-flex gap-5 py-2"
-  }, [_c("select", {
+  return _c("select", {
     staticClass: "form-select",
+    staticStyle: {
+      width: "45%"
+    },
     attrs: {
       "aria-label": "Default select example"
     }
@@ -10593,33 +10685,29 @@ var staticRenderFns = [function () {
     attrs: {
       value: "3"
     }
-  }, [_vm._v("ধম")])]), _vm._v(" "), _c("select", {
-    staticClass: "form-select",
-    attrs: {
-      "aria-label": "Default select example"
-    }
-  }, [_c("option", {
-    attrs: {
-      selected: ""
-    }
-  }, [_vm._v("ফিল্টার ")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "1"
-    }
-  }, [_vm._v("One")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "2"
-    }
-  }, [_vm._v("Two")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("Three")])])]);
+  }, [_vm._v("ধম")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_c("div", {
-    staticClass: "d-flex flex-wrap me-2 text-capitalize justify-content-end gap-2"
+  return _c("button", {
+    staticClass: "writer-search-button",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("section", {
+    staticClass: "row w-100 mx-auto my-4"
+  }, [_c("div", {
+    staticClass: "col-2 text-center"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-10 text-center"
+  }, [_c("div", {
+    staticClass: "d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2"
   }, [_c("span", {
     staticClass: "writerFilter"
   }, [_vm._v("a")]), _vm._v(" "), _c("span", {
@@ -10672,7 +10760,7 @@ var staticRenderFns = [function () {
     staticClass: "writerFilter"
   }, [_vm._v("y")]), _vm._v(" "), _c("span", {
     staticClass: "writerFilter"
-  }, [_vm._v("z")])])]);
+  }, [_vm._v("z")])])])]);
 }];
 render._withStripped = true;
 
@@ -31630,7 +31718,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nbutton.navbar-toggler {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1 a {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px 16px;\n    width: 100%;\n}\nheader.fixed-header {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\n    display: block;\n}\nul.DownItems li {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li:hover {\n    background: #f5c263;\n}\n.mainSearchBox{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\ni.fa-regular.fa-magnifying-glass {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n.desktopDisplayNone{\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\n        display: block;\n}\ndiv#navbarNavDropdown1 {\n    background: #CED9DF;\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\n    width: 100%;\n}\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nbutton.navbar-toggler {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.submenu1 a {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10px 16px;\n    width: 100%;\n}\nheader.fixed-header {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\n    display: block;\n}\nul.DownItems li {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li:hover {\n    background: #f5c263;\n}\n.mainSearchBox{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n.desktopDisplayNone{\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\n        display: block;\n}\ndiv#navbarNavDropdown1 {\n    background: #CED9DF;\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\n    width: 100%;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31654,7 +31742,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    border: 0;\n    background: #E0E65E;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.sampleBooks{\n    width: 125px;\n    height: 160px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    border: 0;\n    background: #E0E65E;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.sampleBooks{\n    width: 125px;\n    height: 160px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31894,7 +31982,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.writerArrow[data-v-2ef441f8]{\n    padding: 9px;\n    margin: 11px 0px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    height: 100%;\n    font-size: 3em;\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\n    background-color: rgb(209, 210, 212);\n    width: 30px;\n    height: 30px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    padding: 0 !important;\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.writerArrow[data-v-2ef441f8]{\n    padding: 9px;\n    margin: 11px 0px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    height: 100%;\n    font-size: 3em;\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\n    background-color: rgb(209, 210, 212);\n    width: 30px;\n    height: 30px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    padding: 0 !important;\n    cursor: pointer;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

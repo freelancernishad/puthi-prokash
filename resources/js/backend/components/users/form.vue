@@ -19,7 +19,7 @@
           <input type="text" v-model="form.name" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
-
+<!--
         <div class="form-group col-md-6">
           <label for="">পদবি</label>
 
@@ -27,10 +27,10 @@
             <option value="">নির্বাচন করুন</option>
             <option value="admin">এডমিন</option>
             <option value="sub_admin">সাব-এডমিন</option>
-    
+
           </select>
 
-        </div>
+        </div> -->
 
 
 
@@ -58,8 +58,8 @@
         <div class="form-group col-md-6">
 
             <div class="form-group">
-                <label for="">সাক্ষর</label>
-                 <input type="file" id="hand_map" class="form-control" @change="FileSelected($event, 'signature')">
+                <label for="">Image</label>
+                 <input type="file" id="hand_map" class="form-control" @change="FileSelected($event, 'image')">
                 </div>
         </div>
 
@@ -99,15 +99,15 @@ export default {
             },
             form:{
                 id:null,
-            
-         
+
+
                 name:'Admin',
                 email:null,
                 phone:'01909756552',
                 password:'123456',
                 position:'admin',
-                signature:'',
-      
+                image:'',
+
             },
             unions:{},
         }
@@ -115,7 +115,7 @@ export default {
     methods:{
 
 
-        
+
     FileSelected($event, parent_index) {
             let file = $event.target.files[0];
             if (file.size > 5048576) {
@@ -135,14 +135,14 @@ export default {
 
         async getsonodById(){
            var id =  this.$route.params.id;
-            var res = await this.callApi('get', `/api/update/users/${id}`, []);
+            var res = await this.callApi('get', `/api/users/${id}`, []);
             this.form = res.data;
         },
 
 
         async onSubmit() {
 
-            var res = await this.callApi('post', '/api/update/users', this.form);
+            var res = await this.callApi('post', '/api/users/register-writer', this.form);
              this.$router.push({ name: 'userlist'})
             Notification.customSuccess('User Update Success');
 

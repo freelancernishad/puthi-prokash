@@ -168,13 +168,14 @@ export default {
       const scrollDuration = 500; // Adjust this value for the desired scroll duration
       const scrollStep = -window.scrollY / (scrollDuration / 15);
 
-      const scrollInterval = setInterval(() => {
+      console.log(scrollStep)
+    //   const scrollInterval = setInterval(() => {
         if (window.scrollY !== 0) {
           window.scrollBy(0, scrollStep);
         } else {
-          clearInterval(scrollInterval);
+        //   clearInterval(scrollInterval);
         }
-      }, 15);
+    //   }, 15);
     },
 
 
@@ -210,6 +211,7 @@ export default {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
 }
 
 .scroll-top-btn.show {

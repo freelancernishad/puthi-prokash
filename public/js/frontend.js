@@ -2436,13 +2436,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     scrollToTop: function scrollToTop() {
       var scrollDuration = 500; // Adjust this value for the desired scroll duration
       var scrollStep = -window.scrollY / (scrollDuration / 15);
-      var scrollInterval = setInterval(function () {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-        }
-      }, 15);
+      console.log(scrollStep);
+      //   const scrollInterval = setInterval(() => {
+      if (window.scrollY !== 0) {
+        window.scrollBy(0, scrollStep);
+      } else {
+        //   clearInterval(scrollInterval);
+      }
+      //   }, 15);
     },
     handleMouseOver: function handleMouseOver() {
       // Change the image source on hover
@@ -5509,7 +5510,9 @@ var render = function render() {
     attrs: {
       to: "/product/cat1"
     }
-  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(64), _vm._v(" "), _vm._m(65), _vm._v(" "), _vm._m(66), _vm._v(" "), _vm._m(67), _vm._v(" "), _vm._m(68), _vm._v(" "), _vm._m(69), _vm._v(" "), _vm._m(70), _vm._v(" "), _vm._m(71)])])])])]) : _vm._e()])]);
+  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(64), _vm._v(" "), _vm._m(65), _vm._v(" "), _vm._m(66), _vm._v(" "), _vm._m(67), _vm._v(" "), _vm._m(68), _vm._v(" "), _vm._m(69), _vm._v(" "), _vm._m(70), _vm._v(" "), _vm._m(71)])])])])]) : _vm._e()]), _vm._v(" "), _c("a", {
+    staticClass: "btn border-0 text-base text-white font-bold bg-[#F85559]"
+  }, [_vm._v("Shop Now")])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -10517,7 +10520,7 @@ var render = function render() {
       staticClass: "img-fluid",
       attrs: {
         width: "100%",
-        src: _vm.$asseturl + "assets/image/man.png",
+        src: _vm.$asseturl + writer.image,
         alt: "",
         srcset: ""
       }
@@ -31603,7 +31606,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n    position: fixed;\n    bottom: 100px;\n    right: 36px;\n    width: 40px;\n    height: 40px;\n    background-color: #333;\n    color: #fff;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.3s, visibility 0.3s;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n/* Add any additional styles as needed */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n    position: fixed;\n    bottom: 100px;\n    right: 36px;\n    width: 40px;\n    height: 40px;\n    background-color: #333;\n    color: #fff;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.3s, visibility 0.3s;\n    z-index: 999;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n/* Add any additional styles as needed */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

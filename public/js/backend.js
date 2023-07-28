@@ -4543,7 +4543,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         phone: '01909756552',
         password: '123456',
         position: 'admin',
-        signature: ''
+        image: ''
       },
       unions: {}
     };
@@ -4575,7 +4575,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 id = _this2.$route.params.id;
                 _context.next = 3;
-                return _this2.callApi('get', "/api/update/users/".concat(id), []);
+                return _this2.callApi('get', "/api/users/".concat(id), []);
               case 3:
                 res = _context.sent;
                 _this2.form = res.data;
@@ -4596,7 +4596,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this3.callApi('post', '/api/update/users', _this3.form);
+                return _this3.callApi('post', '/api/users/register-writer', _this3.form);
               case 2:
                 res = _context2.sent;
                 _this3.$router.push({
@@ -7749,43 +7749,6 @@ var render = function render() {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("পদবি")]), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.position,
-      expression: "form.position"
-    }],
-    staticClass: "form-control",
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.$set(_vm.form, "position", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      value: ""
-    }
-  }, [_vm._v("নির্বাচন করুন")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "admin"
-    }
-  }, [_vm._v("এডমিন")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "sub_admin"
-    }
-  }, [_vm._v("সাব-এডমিন")])])]), _vm._v(" "), _c("div", {
-    staticClass: "form-group col-md-6"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
   }, [_vm._v("ইমেইল")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -7872,7 +7835,7 @@ var render = function render() {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("সাক্ষর")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Image")]), _vm._v(" "), _c("input", {
     staticClass: "form-control",
     attrs: {
       type: "file",
@@ -7880,7 +7843,7 @@ var render = function render() {
     },
     on: {
       change: function change($event) {
-        return _vm.FileSelected($event, "signature");
+        return _vm.FileSelected($event, "image");
       }
     }
   })])]), _vm._v(" "), _vm._m(0)])]);

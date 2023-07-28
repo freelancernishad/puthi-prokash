@@ -135,6 +135,18 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->position = 'writer';
+
+        $image = $request->image;
+        $featured = '';
+        $imageCount =  count(explode(';', $image));
+        if ($imageCount > 1) {
+            $featured =   fileupload($image, "uploaded/user/writer/");
+            $user->image = $featured;
+        }
+
+
+
+
         $user->save();
 
         return response()->json($user, 201);

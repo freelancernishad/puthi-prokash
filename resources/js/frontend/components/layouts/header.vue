@@ -302,6 +302,10 @@
     </header>
 
 
+
+
+    <a class="btn border-0 text-base text-white font-bold bg-[#F85559]">Shop Now</a>
+
     </div>
 </template>
 

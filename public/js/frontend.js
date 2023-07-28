@@ -5172,19 +5172,19 @@ var render = function render() {
     }
   }, [_c("b-carousel-slide", {
     attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/3.jpg"
+      "img-src": _vm.$asseturl + "assets/image/banner/3.jpg?v=1"
     }
   }), _vm._v(" "), _c("b-carousel-slide", {
     attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/4.jpg"
+      "img-src": _vm.$asseturl + "assets/image/banner/4.jpg?v=1"
     }
   }), _vm._v(" "), _c("b-carousel-slide", {
     attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/5.jpg"
+      "img-src": _vm.$asseturl + "assets/image/banner/5.jpg?v=1"
     }
   }), _vm._v(" "), _c("b-carousel-slide", {
     attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/6.jpg"
+      "img-src": _vm.$asseturl + "assets/image/banner/6.jpg?v=1"
     }
   })], 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
     staticClass: "header",

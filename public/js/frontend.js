@@ -10710,7 +10710,7 @@ var render = function render() {
       staticClass: "img-fluid",
       attrs: {
         width: "100%",
-        src: _vm.$asseturl + writer.image,
+        src: _vm.$asseturl + writer.image + "?v=1.0",
         alt: "",
         srcset: ""
       }

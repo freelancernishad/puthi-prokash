@@ -26,6 +26,7 @@
             <thead>
 
                 <tr>
+                    <th>ছবি</th>
                     <th>নাম</th>
 
                     <th>ইমেইল</th>
@@ -38,6 +39,7 @@
 
             <tbody>
                 <tr v-for="(item,index) in items" :key="''+item.id">
+                    <td><img :src="$asseturl+item.image" width="50px" alt=""></td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.phone }}</td>

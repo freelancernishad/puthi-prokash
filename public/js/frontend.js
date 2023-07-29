@@ -2335,7 +2335,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/category/list/academic-books", []);
+                return _this.callApi('get', "/api/category/list/academic-books?limit=13", []);
               case 2:
                 res = _context.sent;
                 _this.academicbooksChilds = res.data.children;
@@ -4849,10 +4849,10 @@ var render = function render() {
       staticClass: "slideProductHome"
     }, [_c("p", {
       staticClass: "booktitle"
-    }, [_vm._v(_vm._s(latestProduct.categories[0].name))]), _vm._v(" "), _c("img", {
+    }, [_vm._v(_vm._s(latestProduct.name))]), _vm._v(" "), _c("img", {
       staticClass: "img-fluid px-4 py-5",
       attrs: {
-        src: _vm.$asseturl + latestProduct.image,
+        src: _vm.$asseturl + latestProduct.icon,
         alt: "",
         srcset: ""
       }
@@ -5020,7 +5020,10 @@ var render = function render() {
   })]), _vm._v(" "), _vm._m(2)], 1), _vm._v(" "), _c("div", {
     staticClass: "col-lg-6"
   }, [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
-    staticClass: "fborder2"
+    staticClass: "fborder2",
+    staticStyle: {
+      margin: "0px 60px 0 0"
+    }
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
@@ -5040,7 +5043,13 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "title_footer pb-2"
-  }, [_vm._m(7), _vm._v(" "), _c("img", {
+  }, [_c("h5", {
+    staticClass: "mb-0",
+    staticStyle: {
+      "font-size": "14px",
+      color: "white"
+    }
+  }, [_vm._v("copyright@2023 puthiprokash. All Right Reserved ")]), _vm._v(" "), _c("img", {
     attrs: {
       width: "200px",
       src: _vm.$asseturl + "assets/image/paymentFooter.jpg",
@@ -5101,17 +5110,19 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-12"
-  }, [_c("div", {
-    staticClass: "fborder"
-  }, [_c("h2", [_vm._v("গুরুত্বপূর্ণ লিঙ্ক")])])])]);
+    staticClass: "fborder",
+    staticStyle: {
+      margin: "0px 60px 0 0"
+    }
+  }, [_c("h2", [_vm._v("গুরুত্বপূর্ণ লিঙ্ক")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "fborder2"
+    staticClass: "fborder2",
+    staticStyle: {
+      margin: "0px 60px 0 0"
+    }
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
@@ -5143,15 +5154,6 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "col-lg-12"
   }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")])])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("h5", {
-    staticClass: "mb-0",
-    staticStyle: {
-      "font-size": "14px"
-    }
-  }, [_c("b", [_vm._v("copyright@2023 puthiprokash. All Right Reserved ")])]);
 }];
 render._withStripped = true;
 

@@ -21,7 +21,7 @@
                         <tbody>
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
-                                <td><img :src="$asseturl+index.image" alt=""></td>
+                                <td><img :src="$asseturl+list.image" width="50px" alt=""></td>
                                 <td>{{ list.name }}</td>
                                 <td>{{ list.price }}</td>
                                 <td>

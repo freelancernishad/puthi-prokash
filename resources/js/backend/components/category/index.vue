@@ -22,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
+                                <th>image</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Parent</th>
@@ -32,6 +33,7 @@
                         <tbody>
                             <tr v-for="(list,index) in lists" :key="index">
                                 <td>{{ index+pageNO }}</td>
+                                <td> <img :src="$asseturl+list.icon" width="50px" alt=""></td>
                                 <td>{{ list.name }}</td>
                                 <td><span v-if="list.parent">Child category</span><span v-else>Parent category</span></td>
                                 <td><span v-if="list.parent">{{ list.parent.name }}</span></td>

@@ -48,6 +48,32 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Image</label>
+
+                                        <div class="upload-container">
+
+    <label for="fileInput">
+      <img id="imagePreview" :src="form.icon" alt="Image Preview">
+    </label>
+    <!-- Input for file upload (hidden) -->
+    <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'icon')">
+  </div>
+
+
+
+                                        <!-- <input type="text" class="form-control" v-model="form.ISBN">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('ISBN')" v-for="name in errors.ISBN" :key="name">{{ name }}</span> -->
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
                             </div>
 
                             <button class="btn btn-info">Submit</button>
@@ -72,6 +98,7 @@ export default {
                 name:'',
                 slug:'',
                 parent_id:'',
+                icon:`${this.$asseturl}assets/image/image.png`,
             },
             updateInsertApi:'/api/categories',
             Method:'post',
@@ -85,6 +112,7 @@ export default {
                     name:'',
                     slug:'',
                     parent_id:'',
+                    icon:`${this.$asseturl}assets/image/image.png`,
                 }
             }
             },
@@ -92,6 +120,25 @@ export default {
         }
     },
     methods: {
+
+
+
+    FileSelected($event, parent_index) {
+            let file = $event.target.files[0];
+                let reader = new FileReader;
+                reader.onload = event => {
+                    // console.log(event.target.result)
+                    this.form[parent_index] = event.target.result
+                };
+                reader.readAsDataURL(file)
+
+        },
+
+
+
+
+
+
         async getList(){
             var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])
 

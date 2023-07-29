@@ -58,14 +58,14 @@
 
           </div>
           <div class="col-lg-6 ">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="fborder">
+
+
+
+                <div class="fborder" style="margin: 0px 60px 0 0;">
                   <h2>গুরুত্বপূর্ণ লিঙ্ক</h2>
                 </div>
-              </div>
-            </div>
-            <div class="fborder2">
+
+            <div class="fborder2" style="margin: 0px 60px 0 0;">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                   <h2 class="linkHover">আমাদের সম্পর্কে</h2>
@@ -75,7 +75,7 @@
                 </div>
               </div>
             </div>
-            <div class="fborder2">
+            <div class="fborder2"  style="margin: 0px 60px 0 0;">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                   <router-link :to="{name:'contact'}" class="linkHover">যোগাযোগ</router-link>
@@ -85,6 +85,8 @@
                 </div>
               </div>
             </div>
+
+
           </div>
           <div class="col-lg-3">
             <div class="fborder ">
@@ -120,7 +122,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0" style="font-size: 14px;"><b>copyright@2023 puthiprokash. All Right Reserved </b></h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt="">
+        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Right Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt="">
       </div>
     </div>
   </div>

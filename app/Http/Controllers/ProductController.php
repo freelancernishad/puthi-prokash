@@ -127,6 +127,8 @@ class ProductController extends Controller
             $query->take(4);
             }
         ]);
+
+        $product->image = asset($product->image);
         return response()->json($product);
     }
 

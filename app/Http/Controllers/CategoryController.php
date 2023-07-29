@@ -65,9 +65,9 @@ class CategoryController extends Controller
                         // 'products' => function ($query2) {
                         //     $query2->take(6);
                         // },
-                        'products.flippingBooks' => function ($query2) {
-                            $query2->take(4);
-                        }
+                        // 'products.flippingBooks' => function ($query2) {
+                        //     $query2->take(4);
+                        // }
                     ])->get();
                 },
 
@@ -92,6 +92,9 @@ class CategoryController extends Controller
                 'products' => function ($query) {
                     $query->latest()->take(6);
                 },
+                'products.flippingBooks' => function ($query2) {
+                    $query2->take(4);
+                }
             ]);
         }
 
@@ -113,15 +116,31 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $category->load('products','parent','categoryImages');
+
+        $category->icon = asset($category->icon);
+
+
         return response()->json($category);
 
     }
 
 
-    public function showCategoryChild($slug)
+    public function showCategoryChild(Request $request,$slug)
     {
+        $limit = $request->limit;
         $category = Category::where('slug',$slug)->first();
-        $category->load('children');
+        if($limit){
+
+            $category->load([
+                'children' => function ($query) use ($limit) {
+                    $query->take($limit);
+                },
+            ]);
+        }else{
+
+
+            $category->load('children');
+        }
         return response()->json($category);
 
     }
@@ -143,12 +162,25 @@ class CategoryController extends Controller
     if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors()], 422);
     }
+
+
+    $image = $request->icon;
+    $featured = '';
+    $imageCount =  count(explode(';', $image));
+    if ($imageCount > 1) {
+        $featured =   fileupload($image, "uploaded/products/featured/");
+    }
+
+
+
+
     // Create the category
     $category = Category::create([
         'cat_id' => '1234',
         'name' => $request->input('name'),
         'slug' => $request->input('slug'),
         'parent_id' => $request->input('parent_id'),
+        'icon' => $featured,
         'index_number' => 1,
 
     ]);
@@ -178,6 +210,13 @@ class CategoryController extends Controller
     $category->slug =  $request->input('slug');
     $category->parent_id =  $request->input('parent_id');
 
+    $image = $request->icon;
+    $featured = '';
+    $imageCount =  count(explode(';', $image));
+    if ($imageCount > 1) {
+        $featured =   fileupload($image, "uploaded/products/featured/");
+        $category->icon = $featured;
+    }
     // Save the changes
     $category->save();
 

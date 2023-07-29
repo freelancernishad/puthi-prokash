@@ -171,8 +171,8 @@
                                     <div class="form-group">
                                         <label for="">featured image</label>
 
-                                        <div class="upload-container" onclick="triggerFileInput()">
-    <!-- Image preview container -->
+                                        <div class="upload-container" >
+
     <label for="fileInput">
       <img id="imagePreview" :src="form.image" alt="Image Preview">
     </label>
@@ -327,7 +327,7 @@ export default {
             let file = $event.target.files[0];
                 let reader = new FileReader;
                 reader.onload = event => {
-                    console.log(event.target.result)
+                    // console.log(event.target.result)
                     this.form[parent_index] = event.target.result
                 };
                 reader.readAsDataURL(file)

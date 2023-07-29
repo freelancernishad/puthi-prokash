@@ -2676,7 +2676,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         name: '',
         slug: '',
-        parent_id: ''
+        parent_id: '',
+        icon: "".concat(this.$asseturl, "assets/image/image.png")
       },
       updateInsertApi: '/api/categories',
       Method: 'post'
@@ -2689,7 +2690,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           this.form = {
             name: '',
             slug: '',
-            parent_id: ''
+            parent_id: '',
+            icon: "".concat(this.$asseturl, "assets/image/image.png")
           };
         }
       },
@@ -2697,8 +2699,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    getList: function getList() {
+    FileSelected: function FileSelected($event, parent_index) {
       var _this = this;
+      var file = $event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        // console.log(event.target.result)
+        _this.form[parent_index] = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    getList: function getList() {
+      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res, listsArray;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -2706,13 +2718,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/all/categories?type=withoutpaginate", []);
+                return _this2.callApi('get', "/api/all/categories?type=withoutpaginate", []);
               case 2:
                 res = _context.sent;
                 listsArray = res.data.filter(function (item) {
-                  return item.id != _this.$route.params.id;
+                  return item.id != _this2.$route.params.id;
                 });
-                _this.lists = listsArray;
+                _this2.lists = listsArray;
               case 5:
               case "end":
                 return _context.stop();
@@ -2722,7 +2734,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getItems: function getItems() {
-      var _this2 = this;
+      var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -2730,10 +2742,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.callApi('get', "/api/categories/".concat(_this2.$route.params.id), []);
+                return _this3.callApi('get', "/api/categories/".concat(_this3.$route.params.id), []);
               case 2:
                 res = _context2.sent;
-                _this2.form = res.data;
+                _this3.form = res.data;
               case 4:
               case "end":
                 return _context2.stop();
@@ -2743,7 +2755,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     onSubmit: function onSubmit() {
-      var _this3 = this;
+      var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var res;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
@@ -2751,17 +2763,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return _this3.callApi("".concat(_this3.Method), "".concat(_this3.updateInsertApi), _this3.form);
+                return _this4.callApi("".concat(_this4.Method), "".concat(_this4.updateInsertApi), _this4.form);
               case 2:
                 res = _context3.sent;
                 if (res.status == 200) {
                   Notification.customSuccess("Category Updated Successfull");
-                  _this3.$router.push({
+                  _this4.$router.push({
                     name: 'categoryIndex'
                   });
                 } else if (res.status == 201) {
                   Notification.customSuccess("Category Created Successfull");
-                  _this3.$router.push({
+                  _this4.$router.push({
                     name: 'categoryimages',
                     params: {
                       id: res.data.id
@@ -2769,7 +2781,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   });
                 } else {
                   Notification.customError("Something want wrong!");
-                  _this3.errors = res.data.errors;
+                  _this4.errors = res.data.errors;
                 }
               case 4:
               case "end":
@@ -4085,7 +4097,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var file = $event.target.files[0];
       var reader = new FileReader();
       reader.onload = function (event) {
-        console.log(event.target.result);
+        // console.log(event.target.result)
         _this.form[parent_index] = event.target.result;
       };
       reader.readAsDataURL(file);
@@ -5135,7 +5147,38 @@ var render = function render() {
         value: list.id
       }
     }, [_vm._v(_vm._s(list.name))]);
-  })], 2)])])]), _vm._v(" "), _c("button", {
+  })], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Image")]), _vm._v(" "), _c("div", {
+    staticClass: "upload-container"
+  }, [_c("label", {
+    attrs: {
+      "for": "fileInput"
+    }
+  }, [_c("img", {
+    attrs: {
+      id: "imagePreview",
+      src: _vm.form.icon,
+      alt: "Image Preview"
+    }
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "file",
+      id: "fileInput",
+      accept: "image/*"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.FileSelected($event, "icon");
+      }
+    }
+  })])])])]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-info"
   }, [_vm._v("Submit")])])])])])])], 1);
 };
@@ -5254,7 +5297,13 @@ var render = function render() {
   }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.lists, function (list, index) {
     return _c("tr", {
       key: index
-    }, [_c("td", [_vm._v(_vm._s(index + _vm.pageNO))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(list.name))]), _vm._v(" "), _c("td", [list.parent ? _c("span", [_vm._v("Child category")]) : _c("span", [_vm._v("Parent category")])]), _vm._v(" "), _c("td", [list.parent ? _c("span", [_vm._v(_vm._s(list.parent.name))]) : _vm._e()]), _vm._v(" "), _c("td", [_c("router-link", {
+    }, [_c("td", [_vm._v(_vm._s(index + _vm.pageNO))]), _vm._v(" "), _c("td", [_c("img", {
+      attrs: {
+        src: _vm.$asseturl + list.icon,
+        width: "50px",
+        alt: ""
+      }
+    })]), _vm._v(" "), _c("td", [_vm._v(_vm._s(list.name))]), _vm._v(" "), _c("td", [list.parent ? _c("span", [_vm._v("Child category")]) : _c("span", [_vm._v("Parent category")])]), _vm._v(" "), _c("td", [list.parent ? _c("span", [_vm._v(_vm._s(list.parent.name))]) : _vm._e()]), _vm._v(" "), _c("td", [_c("router-link", {
       staticClass: "btn btn-info",
       attrs: {
         to: {
@@ -5297,7 +5346,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("SL")]), _vm._v(" "), _c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Type")]), _vm._v(" "), _c("th", [_vm._v("Parent")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("SL")]), _vm._v(" "), _c("th", [_vm._v("image")]), _vm._v(" "), _c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Type")]), _vm._v(" "), _c("th", [_vm._v("Parent")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
 }];
 render._withStripped = true;
 
@@ -7140,10 +7189,7 @@ var render = function render() {
       "for": ""
     }
   }, [_vm._v("featured image")]), _vm._v(" "), _c("div", {
-    staticClass: "upload-container",
-    attrs: {
-      onclick: "triggerFileInput()"
-    }
+    staticClass: "upload-container"
   }, [_c("label", {
     attrs: {
       "for": "fileInput"
@@ -7251,7 +7297,8 @@ var render = function render() {
       key: index
     }, [_c("td", [_vm._v(_vm._s(index + _vm.pageNO))]), _vm._v(" "), _c("td", [_c("img", {
       attrs: {
-        src: _vm.$asseturl + index.image,
+        src: _vm.$asseturl + list.image,
+        width: "50px",
         alt: ""
       }
     })]), _vm._v(" "), _c("td", [_vm._v(_vm._s(list.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(list.price))]), _vm._v(" "), _c("td", _vm._l(list.categories, function (categorie, indexSL) {
@@ -7918,7 +7965,13 @@ var render = function render() {
   }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.items, function (item, index) {
     return _c("tr", {
       key: "" + item.id
-    }, [_c("td", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.phone))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm.changeName(item.position)))]), _vm._v(" "), _c("td", [_c("span", {
+    }, [_c("td", [_c("img", {
+      attrs: {
+        src: _vm.$asseturl + item.image,
+        width: "50px",
+        alt: ""
+      }
+    })]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.phone))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm.changeName(item.position)))]), _vm._v(" "), _c("td", [_c("span", {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
@@ -7942,7 +7995,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("নাম")]), _vm._v(" "), _c("th", [_vm._v("ইমেইল")]), _vm._v(" "), _c("th", [_vm._v("মোবাইল")]), _vm._v(" "), _c("th", [_vm._v("পদবি")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("ছবি")]), _vm._v(" "), _c("th", [_vm._v("নাম")]), _vm._v(" "), _c("th", [_vm._v("ইমেইল")]), _vm._v(" "), _c("th", [_vm._v("মোবাইল")]), _vm._v(" "), _c("th", [_vm._v("পদবি")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
 }];
 render._withStripped = true;
 

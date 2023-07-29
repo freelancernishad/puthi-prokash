@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Category;
 use App\Models\Product;
 
 /*
@@ -59,7 +60,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
 });
 Route::get('/{vue_capture?}', function () {
 
-    $products = latestProductByCat();
+     $products = Category::orderBy('id','desc')->get();
      return view('frontlayout',compact('products'));
 
 })->where('vue_capture', '[\/\w\.-]*')->name('frontend');

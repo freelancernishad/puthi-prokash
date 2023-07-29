@@ -25,9 +25,9 @@
            <div v-for="(latestProduct,sl) in LatestProductsCat" :key="'latestProduct'+sl">
           <div class="position-relative homeBooks">
             <div class="slideProductHome">
-              <p class="booktitle">{{ latestProduct.categories[0].name }}</p>
+              <p class="booktitle">{{ latestProduct.name }}</p>
               <img
-                :src="$asseturl+latestProduct.image"
+                :src="$asseturl+latestProduct.icon"
                 alt=""
                 srcset=""
                 class="img-fluid px-4 py-5"
@@ -193,7 +193,7 @@ export default {
     methods: {
 
         async childCategoryAcademicbooks(){
-            var res = await this.callApi('get',`/api/category/list/academic-books`,[]);
+            var res = await this.callApi('get',`/api/category/list/academic-books?limit=13`,[]);
             this.academicbooksChilds = res.data.children
 
         }

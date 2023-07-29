@@ -181,21 +181,43 @@
 
 
                 <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-                    <li class="nav-item  col"><router-link :to="{name:'home'}" class="nav-link border-3 border-start border-white text-dark">আমাদের কথা</router-link></li>
-                    <li class="nav-item  col"><router-link :to="{name:'writer'}" class="nav-link border-3 border-start border-white text-dark">লেখক পরিচিতি</router-link></li>
+                    <li class="nav-item  col d-flex align-items-center"><router-link :to="{name:'home'}" class="border-3 border-start border-white text-dark d-flex align-item" style="padding-left: 16px;">আমাদের কথা</router-link></li>
+                    <li class="nav-item  col d-flex align-items-center"><router-link :to="{name:'writer'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;">লেখক পরিচিতি</router-link></li>
 
 
-                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="nav-link border-3 border-start border-white text-dark">একাডেমিক বই </router-link></li>
+                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="border-3 border-start border-white text-dark">একাডেমিক বই </router-link></li>
 
-                    <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level3Submenu">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+                    <li v-else class="nav-item  col submenu1 submenuhave position-relative DropItem">
+
+                        <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a>
+
+                        <ul class="DownItems"  style="width: 183px;">
+                            <li><router-link :to="{name:'categoryProduct',params:{category:'childish'}}" class="text-dark">শিশুতোষ</router-link></li>
+                            <li><router-link :to="{name:'categoryProduct',params:{category:'books-for-adults'}}" class="text-dark">বড়দের বই</router-link></li>
+                        </ul>
+                    </li>
 
 
-                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="nav-link border-3 border-start border-white text-dark">সৃজনশীল বই </router-link></li>
+<!--
 
-                    <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="nav-link border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+                    <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center">
+                <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
+                <ul class="DownItems list-unstyled"  style="list-style: inside;">
+                    <li>বাংলা</li>
+                    <li>English</li>
+                </ul>
+              </li> -->
 
 
-                    <li class="nav-item  col"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="nav-link border-3 border-start border-white text-dark">মাল্টিমিডিয়া</router-link></li>
+
+
+
+                    <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="border-3 border-start border-white text-dark">সৃজনশীল বই </router-link></li>
+
+                    <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
+
+
+                    <li class="nav-item  col  d-flex align-items-center"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;">মাল্টিমিডিয়া</router-link></li>
                 </ul>
 
 
@@ -654,7 +676,7 @@ ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 16px;
+    padding: 0 16px;
     width: 100%;
 }
 

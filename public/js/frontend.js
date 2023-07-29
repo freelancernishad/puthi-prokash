@@ -5196,15 +5196,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("b-carousel-slide", {
     attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/4.jpg?v=1"
-    }
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/5.jpg?v=1"
-    }
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/6.jpg?v=1"
+      "img-src": _vm.$asseturl + "assets/image/banner/puthi-cover-banner.jpg"
     }
   })], 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
     staticClass: "header",

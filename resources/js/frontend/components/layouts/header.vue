@@ -16,9 +16,8 @@
       :next-icon="nextIcon"
     >
       <b-carousel-slide :img-src="$asseturl+'assets/image/banner/3.jpg?v=1'"></b-carousel-slide>
-      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/4.jpg?v=1'"></b-carousel-slide>
-      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/5.jpg?v=1'"></b-carousel-slide>
-      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/6.jpg?v=1'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/puthi-cover-banner.jpg'"></b-carousel-slide>
+
     </b-carousel>
 
 

@@ -25,7 +25,7 @@
 
       <div class="align-items-center d-flex flex-wrap fs-5 gap-2">
         <span>যোগাযোগঃ</span>
-        <div class="d-flex fs-5 gap-3 text-secondary linkHover">
+        <div class="d-flex fs-5 gap-3 text-secondary">
           <i class="fa-sharp fa-solid fa-envelope linkHover"></i>
           <i class="fa-brands fa-square-whatsapp linkHover"></i>
         </div>

@@ -5073,7 +5073,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
   }, [_c("span", [_vm._v("যোগাযোগঃ")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex fs-5 gap-3 text-secondary linkHover"
+    staticClass: "d-flex fs-5 gap-3 text-secondary"
   }, [_c("i", {
     staticClass: "fa-sharp fa-solid fa-envelope linkHover"
   }), _vm._v(" "), _c("i", {

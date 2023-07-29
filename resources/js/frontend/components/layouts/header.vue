@@ -181,8 +181,8 @@
 
 
                 <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-                    <li class="nav-item  col d-flex align-items-center"><router-link :to="{name:'home'}" class="border-3 border-start border-white text-dark d-flex align-item" style="padding-left: 16px;">আমাদের কথা</router-link></li>
-                    <li class="nav-item  col d-flex align-items-center"><router-link :to="{name:'writer'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;">লেখক পরিচিতি</router-link></li>
+                    <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'home'}" class="border-3 border-start border-white text-dark d-flex align-item" style="padding-left: 16px;    padding-top: 9px;">আমাদের কথা</router-link></li>
+                    <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'writer'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">লেখক পরিচিতি</router-link></li>
 
 
                     <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="border-3 border-start border-white text-dark">একাডেমিক বই </router-link></li>
@@ -217,7 +217,7 @@
                     <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
 
 
-                    <li class="nav-item  col  d-flex align-items-center"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;">মাল্টিমিডিয়া</router-link></li>
+                    <li class="nav-item  col  d-flex align-items-baseline"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">মাল্টিমিডিয়া</router-link></li>
                 </ul>
 
 
@@ -667,7 +667,7 @@ ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
 .submenu1.submenuhave{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 }
 .submenu1 a {
     padding: 10px 16px;
@@ -677,6 +677,7 @@ ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+    padding-top: 9px;
     width: 100%;
 }
 

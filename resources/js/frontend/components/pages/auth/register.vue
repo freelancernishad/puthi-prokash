@@ -63,7 +63,7 @@
               </div>
               <div class="col-md-5 d-md-block d-none my-auto ps-0">
                 <img
-                  src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?size=626&ext=jpg&ga=GA1.2.2128774218.1683829046&semt=sph"
+                :src="$asseturl+'assets/image/demoLogo.jpg'"
                   alt="" class="w-100">
               </div>
             </div>

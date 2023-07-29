@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-md-6 d-flex gap-5 py-2">
-        <select class="form-select" aria-label="Default select example" v-model="sort" @change="filterBooks">
+        <select class="form-select"  style="width: 45%;" aria-label="Default select example" v-model="sort" @change="filterBooks">
         <option selected value="">বাছাইয়ের ধরণ</option>
         <option value="latest">নতুন বই</option>
         <option value="oldest">পুরাতন বই</option>
@@ -29,12 +29,21 @@
         <option value="price_low_high">মূল্য নিম্ন-উচ্চ</option>
         <option value="price_high_low">মূল্য উচ্চ-নিম্ন</option>
       </select>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>ফিল্টার </option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select></div>
+
+
+      <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন"  class="form-control writer-search-input">
+          <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
+        </form>
+
+
+
+        <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+                </router-link>
+
+
+    </div>
     </div>
     </section>
 

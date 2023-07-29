@@ -29,7 +29,7 @@
 
         </div>
 
-    <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
+    <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed, 'othersMenu container': homePage==false }">
 
       <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: var(--headerHight);" v-if="homePage">
 
@@ -207,11 +207,11 @@
         </div>
     </section>
 
-  <div aria-labelledby="menuthree" class="dropdown-menus" v-if="submenu1 && submenu2">
+  <div aria-labelledby="menuthree" class="dropdown-menus" style="left: 0;" v-if="submenu1 && submenu2">
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-                <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+                <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 row-cols-xl-5" style="margin-left: -7px;">
                     <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
                     <li class="nav-item  col"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
                     <li class="nav-item  col"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
@@ -770,4 +770,8 @@ li.submenu1 {
 }
 
 
+header.header.fixed-header.othersMenu.container {
+    left: 41px;
+    box-shadow: 0px 2px 2px 0px #4e4e4e85;
+}
 </style>

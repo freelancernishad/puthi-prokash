@@ -8,14 +8,14 @@
 
 
 
-    <div class=" my-4 row w-100 m-0" >
+    <div class=" my-4 row w-100" >
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">লেখক</p>
     <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
     </div>
 
-    <div class="col-md-6 d-flex gap-5 py-2 p-0">
+    <div class="col-md-6 d-flex gap-5 py-2">
         <select class="form-select" style="width: 45%;" aria-label="Default select example">
         <option selected>বাছাইয়ের ধরণ</option>
 

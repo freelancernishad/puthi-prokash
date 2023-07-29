@@ -5422,7 +5422,7 @@ var render = function render() {
   }, [_c("li", {
     staticClass: "nav-item col d-flex align-items-baseline"
   }, [_c("router-link", {
-    staticClass: "border-3 border-start border-white text-dark d-flex align-item",
+    staticClass: "border-3 text-dark d-flex align-item",
     staticStyle: {
       "padding-left": "16px",
       "padding-top": "9px"

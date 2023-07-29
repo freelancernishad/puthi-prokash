@@ -4,14 +4,14 @@
 
 
     <div style="border-bottom: 3px solid var(--red)">
-        <div class="align-items-center d-flex fs-3 gap-2 text-white py-1" style="    width: 300px;
+        <div class="d-flex fs-3 gap-2 text-white py-1" style="    width: 300px;
     background-color: rgb(243, 91, 67);
     clip-path: polygon(0% 0%, 81% 0%, 100% 100%, 0% 100%);
     text-align: center;
     justify-content: space-evenly;
-    padding: 0px 48px 0 0px;">
+    padding: 0px 48px 0 0px;height: 35px;">
             <!-- <i class="ms-4 fa-solid fa-bars fs-3"></i> -->
-            <p class="mb-0">{{ category_name }}</p>
+            <p class="mb-0" style="font-size: 22px;">{{ category_name }}</p>
         </div>
     </div>
 

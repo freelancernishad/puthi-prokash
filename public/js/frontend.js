@@ -9877,17 +9877,21 @@ var render = function render() {
       "border-bottom": "3px solid var(--red)"
     }
   }, [_c("div", {
-    staticClass: "align-items-center d-flex fs-3 gap-2 text-white py-1",
+    staticClass: "d-flex fs-3 gap-2 text-white py-1",
     staticStyle: {
       width: "300px",
       "background-color": "rgb(243, 91, 67)",
       "clip-path": "polygon(0% 0%, 81% 0%, 100% 100%, 0% 100%)",
       "text-align": "center",
       "justify-content": "space-evenly",
-      padding: "0px 48px 0 0px"
+      padding: "0px 48px 0 0px",
+      height: "35px"
     }
   }, [_c("p", {
-    staticClass: "mb-0"
+    staticClass: "mb-0",
+    staticStyle: {
+      "font-size": "22px"
+    }
   }, [_vm._v(_vm._s(_vm.category_name))])])]), _vm._v(" "), _c("div", {
     staticClass: "row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2"
   }, [_vm._l(_vm.products, function (product, index) {
@@ -9960,17 +9964,21 @@ var render = function render() {
       "border-bottom": "3px solid var(--red)"
     }
   }, [_c("div", {
-    staticClass: "align-items-center d-flex fs-3 gap-2 text-white py-1",
+    staticClass: "d-flex fs-3 gap-2 text-white py-1",
     staticStyle: {
       width: "300px",
       "background-color": "rgb(243, 91, 67)",
       "clip-path": "polygon(0% 0%, 81% 0%, 100% 100%, 0% 100%)",
       "text-align": "center",
       "justify-content": "space-evenly",
-      padding: "0px 48px 0 0px"
+      padding: "0px 48px 0 0px",
+      height: "35px"
     }
   }, [_c("p", {
-    staticClass: "mb-0"
+    staticClass: "mb-0",
+    staticStyle: {
+      "font-size": "22px"
+    }
   }, [_vm._v(_vm._s(_vm.category_name))])])]), _vm._v(" "), _vm._l(_vm.products, function (productRow, index) {
     return _c("div", {
       key: "productRow" + index,

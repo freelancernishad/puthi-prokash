@@ -795,5 +795,6 @@ li.submenu1 {
 header.header.fixed-header.othersMenu.container {
     left: 41px;
     box-shadow: 0px 2px 2px 0px #4e4e4e85;
+    min-width: 95%;
 }
 </style>

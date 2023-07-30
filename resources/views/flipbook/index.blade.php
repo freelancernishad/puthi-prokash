@@ -641,7 +641,7 @@ var swiper = new Swiper(".mySwiper", {
     var way = 1;
 
   // Start the interval
-  const intervalId = setInterval(autoPaly, 1000); // Execute myFunction every 1000 milliseconds (1 second)
+  const intervalId = setInterval(autoPaly, 4000); // Execute myFunction every 1000 milliseconds (1 second)
 
 
       function autoPaly() {
@@ -832,6 +832,7 @@ var zoomValue = 1;
         height:520,
         pages:totalPages,
         autoCenter: true,
+        duration:1000,
       });
 
 

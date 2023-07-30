@@ -18,6 +18,7 @@ let productsIndex = require('./components/products/index.vue').default;
 let productsForm = require('./components/products/form.vue').default;
 let productsimages = require('./components/products/images.vue').default;
 let flipingbooks = require('./components/products/flipingbooks.vue').default;
+let flipingbooksqr = require('./components/products/qrcode.vue').default;
 
 let galleryIndex = require('./components/gallery/index.vue').default;
 let galleryForm = require('./components/gallery/form.vue').default;
@@ -87,6 +88,7 @@ export const routes = [
   { path:  `${prefix}/products/edit/:id`, component: productsForm, name:'productsEdit',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/images/:id`, component: productsimages, name:'productsimages',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/fliping/books/:id`, component: flipingbooks, name:'flipingbooks',meta: { layout: adminlayout } },
+  { path:  `${prefix}/products/fliping/books/qr/:id`, component: flipingbooksqr, name:'flipingbooksqr',meta: { layout: adminlayout } },
 
 
 

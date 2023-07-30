@@ -28,7 +28,9 @@
                                     <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" target="_blank" :href="`/books/${list.slug}/${list.id}`">Fliping Books Preview</a>
+
+
+                                    <router-link class="btn btn-info" :to="{name:'flipingbooksqr',params:{id:list.id}}">Fliping Books Download</router-link>
 
                                     <router-link class="btn btn-info" :to="{name:'flipingbooks',params:{id:list.id}}">Fliping Books</router-link>
 

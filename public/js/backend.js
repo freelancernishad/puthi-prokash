@@ -7404,7 +7404,7 @@ var render = function render() {
           }
         }
       }
-    }, [_vm._v("Fliping Books Download")]), _vm._v(" "), _c("router-link", {
+    }, [_vm._v("Flipping Book and QR Code")]), _vm._v(" "), _c("router-link", {
       staticClass: "btn btn-info",
       attrs: {
         to: {

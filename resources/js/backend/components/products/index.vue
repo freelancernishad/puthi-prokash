@@ -30,7 +30,7 @@
                                 <td>
 
 
-                                    <router-link class="btn btn-info" :to="{name:'flipingbooksqr',params:{id:list.id}}">Fliping Books Download</router-link>
+                                    <router-link class="btn btn-info" :to="{name:'flipingbooksqr',params:{id:list.id}}">Flipping Book and QR Code</router-link>
 
                                     <router-link class="btn btn-info" :to="{name:'flipingbooks',params:{id:list.id}}">Fliping Books</router-link>
 

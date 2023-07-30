@@ -1,6 +1,6 @@
 <template>
     <div>
-<section class="container mb-3">
+<section class="container mb-3" style="width: 88%;">
 
 
     <div style="border-bottom: 3px solid var(--red)">

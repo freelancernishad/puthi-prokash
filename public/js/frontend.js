@@ -6422,7 +6422,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("main", [_c("section", {
-    staticClass: "mx-2 px-2",
+    staticClass: "container px-2",
     staticStyle: {
       "padding-top": "50px"
     }
@@ -6431,7 +6431,10 @@ var render = function render() {
       pages: _vm.Breadcrumb
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "my-4 row w-100"
+    staticClass: "my-4 row w-100",
+    staticStyle: {
+      width: "102.5% !important"
+    }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
   }, [_c("img", {
@@ -9235,7 +9238,10 @@ var render = function render() {
       pages: _vm.Breadcrumb
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "my-4 row w-100"
+    staticClass: "my-4 row w-100",
+    staticStyle: {
+      width: "102.5% !important"
+    }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
   }, [_c("img", {
@@ -9920,7 +9926,10 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("section", {
-    staticClass: "container mb-3"
+    staticClass: "container mb-3",
+    staticStyle: {
+      width: "88%"
+    }
   }, [_c("div", {
     staticStyle: {
       "border-bottom": "3px solid var(--red)"
@@ -10007,7 +10016,10 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("section", {
-    staticClass: "container mb-3"
+    staticClass: "container mb-3",
+    staticStyle: {
+      width: "88%"
+    }
   }, [_c("div", {
     staticStyle: {
       "border-bottom": "3px solid var(--red)"
@@ -10519,7 +10531,10 @@ var render = function render() {
       }]
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "my-4 row w-100"
+    staticClass: "my-4 row w-100",
+    staticStyle: {
+      width: "102.5% !important"
+    }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
   }, [_c("img", {

@@ -1,13 +1,18 @@
 <template>
     <main>
 
-<section class="mx-2 px-2" style="padding-top: 50px;">
+
+
+
+
+
+<section class="container px-2" style="padding-top: 50px;">
 
 
 
     <Breadcrumb :pages="Breadcrumb"/>
 
-    <div class=" my-4 row w-100">
+    <div class="my-4 row w-100" style="width: 102.5% !important;">
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
 

@@ -25,14 +25,14 @@
 
             <Product v-for="(product,index) in products" :key="'product'+index" :product="product" @show_details="showDetialsFun(1,product.id,product)"/>
 
-            <Productdetails v-if="showDetials==1" :product="showDetialsProduct" />
+            <Productdetails v-if="showDetials==1" @close_detials="closeDetialsFun" :product="showDetialsProduct" />
 
 
 
 
 
 
-    <router-link class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',query:{category:category_id}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link>
+    <router-link class="fs-5 mb-5 text-center text-decoration-none text-dark w-100 mt-5" :to="{name:'Products',query:{category:category_id}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link>
 <!--
     <router-link v-if="children.length === 0" class="fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100" :to="{name:'Products',params:{category:category_slug}}">পরবর্তী <i class="fa-regular fa-chevron-right ms-2 text-danger"></i></router-link> -->
 
@@ -109,6 +109,10 @@ export default {
             }
         },
 
+        closeDetialsFun(){
+            this.showDetials = 0;
+                this.productId = 0;
+        }
 
 
 

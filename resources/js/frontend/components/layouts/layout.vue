@@ -74,12 +74,22 @@ input:focus{
 .singleProductCollectedButton {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 30px;
     border: 0;
     background: #E0E65E;
     padding: 5px 17px;
     border-radius: 21px;
     font-size: 21px;
+}
+
+.singleProductcloseButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border: 0;
+    padding: 0px 9px;
+    font-size: 20px;
 }
 .sampleBooks{
     width: 125px;

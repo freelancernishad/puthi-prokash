@@ -2322,7 +2322,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           prevEl: '.swiper-button-prev'
         }
       },
-      academicbooksChilds: {}
+      academicbooksChilds: {},
+      firstLineItems: {},
+      secondLineItems: {}
     };
   },
   methods: {
@@ -2339,7 +2341,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 res = _context.sent;
                 _this.academicbooksChilds = res.data.children;
-              case 4:
+                _this.firstLineItems = _this.academicbooksChilds.slice(0, 7);
+                _this.secondLineItems = _this.academicbooksChilds.slice(7);
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -4175,6 +4179,10 @@ __webpack_require__.r(__webpack_exports__);
         this.productId = productid;
         this.showDetialsProduct = showDetialsProduct;
       }
+    },
+    closeDetialsFun: function closeDetialsFun() {
+      this.showDetials = 0;
+      this.productId = 0;
     }
   },
   mounted: function mounted() {}
@@ -4874,9 +4882,24 @@ var render = function render() {
     }
   }, [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, dolorem!\n          Rem unde\n          saepe eos et quas\n          obcaecati. Mollitia placeat velit alias ratione porro tempora sequi iusto recusandae ducimus delectus ullam\n          dolorem nihil soluta voluptates assumenda, provident asperiores illo sit sed ex cum quaerat! Hic")]), _vm._v(" "), _c("div", [_vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "d-flex gap-3 justify-content-center flex-wrap mt-4 text-center"
-  }, _vm._l(_vm.academicbooksChilds, function (academicbooksChild, slNo) {
+  }, _vm._l(_vm.firstLineItems, function (academicbooksChild, slNo) {
     return _c("router-link", {
-      key: "academicbooksChild" + slNo,
+      key: "academicbooksChild1" + slNo,
+      staticClass: "border border-dark btn fs-5 px-4 rounded-0 text-white",
+      attrs: {
+        to: {
+          name: "Products",
+          query: {
+            category: academicbooksChild.id
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(academicbooksChild.name))]);
+  }), 1), _vm._v(" "), _c("div", {
+    staticClass: "d-flex gap-3 justify-content-center flex-wrap mt-4 text-center"
+  }, _vm._l(_vm.secondLineItems, function (academicbooksChild, slNo) {
+    return _c("router-link", {
+      key: "academicbooksChild2" + slNo,
       staticClass: "border border-dark btn fs-5 px-4 rounded-0 text-white",
       attrs: {
         to: {
@@ -9836,11 +9859,20 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "align-items-center border d-flex flex-wrap mb-5 py-4 w-100 position-relative",
+    staticClass: "align-items-center border d-flex flex-wrap mb-5 py-4 w-100 position-relative mt-5",
     staticStyle: {
       "grid-gap": "15px"
     }
   }, [_c("button", {
+    staticClass: "singleProductcloseButton",
+    on: {
+      click: function click($event) {
+        return _vm.$emit("close_detials");
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-xmark"
+  })]), _vm._v(" "), _c("button", {
     staticClass: "singleProductCollectedButton",
     on: {
       click: function click($event) {
@@ -9860,6 +9892,10 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", [_c("router-link", {
     staticClass: "mb-0",
+    staticStyle: {
+      color: "#037adb",
+      "font-weight": "bold"
+    },
     attrs: {
       to: {
         name: "productSingle",
@@ -9869,11 +9905,20 @@ var render = function render() {
       }
     }
   }, [_vm._v(_vm._s(_vm.product.name))]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0 fs-9 product-lebel-text"
+    staticClass: "mb-0 fs-9 product-lebel-text",
+    staticStyle: {
+      color: "#0000008f"
+    }
   }, [_vm._v("Price : " + _vm._s(_vm.product.price - _vm.product.discount))]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0 fs-8 product-lebel-text orgPrice"
+    staticClass: "mb-0 fs-8 product-lebel-text orgPrice",
+    staticStyle: {
+      color: "#0000008f"
+    }
   }, [_vm._v("Regular Price : " + _vm._s(_vm.product.price))]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0 fs-8 mt-3"
+    staticClass: "mb-0 fs-8 mt-3 mb-2",
+    staticStyle: {
+      "font-weight": "bold"
+    }
   }, [_vm._v("উল্লেখযোগ্য অংশবিশেষ")]), _vm._v(" "), _c("div", [_c("div", {
     staticClass: "d-flex"
   }, _vm._l(_vm.product.flipping_books, function (flipping_book, index) {
@@ -9967,9 +10012,12 @@ var render = function render() {
   }), _vm._v(" "), _vm.showDetials == 1 ? _c("Productdetails", {
     attrs: {
       product: _vm.showDetialsProduct
+    },
+    on: {
+      close_detials: _vm.closeDetialsFun
     }
   }) : _vm._e(), _vm._v(" "), _c("router-link", {
-    staticClass: "fs-5 mb-0 mb-2 my-2 text-center text-decoration-none text-dark w-100",
+    staticClass: "fs-5 mb-5 text-center text-decoration-none text-dark w-100 mt-5",
     attrs: {
       to: {
         name: "Products",
@@ -31828,7 +31876,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    border: 0;\n    background: #E0E65E;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.sampleBooks{\n    width: 125px;\n    height: 160px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 30px;\n    border: 0;\n    background: #E0E65E;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 125px;\n    height: 160px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

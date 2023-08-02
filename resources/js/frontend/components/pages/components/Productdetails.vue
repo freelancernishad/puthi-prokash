@@ -1,7 +1,8 @@
 <template>
 
 
-<div class="align-items-center border d-flex flex-wrap  mb-5 py-4 w-100 position-relative" style="grid-gap:15px" >
+<div class="align-items-center border d-flex flex-wrap  mb-5 py-4 w-100 position-relative mt-5" style="grid-gap:15px" >
+            <button class="singleProductcloseButton" @click="$emit('close_detials')"><i class="fa-regular fa-xmark"></i></button>
             <button class="singleProductCollectedButton" @click="addToCart({'product_id':product.id})">সংগ্রহ করুন</button>
 
                     <div>
@@ -10,10 +11,10 @@
                     </div>
                     <div>
 
-                        <router-link :to="{name:'productSingle',params:{id:product.id}}" class="mb-0" >{{ product.name }}</router-link>
-                        <p class="mb-0 fs-9 product-lebel-text">Price : {{ product.price-product.discount }}</p>
-                        <p class="mb-0  fs-8 product-lebel-text orgPrice">Regular Price : {{ product.price }}</p>
-                        <p class="mb-0  fs-8 mt-3">উল্লেখযোগ্য অংশবিশেষ</p>
+                        <router-link :to="{name:'productSingle',params:{id:product.id}}" class="mb-0" style="    color: #037adb;font-weight: bold;" >{{ product.name }}</router-link>
+                        <p class="mb-0 fs-9 product-lebel-text" style="color: #0000008f;">Price : {{ product.price-product.discount }}</p>
+                        <p class="mb-0  fs-8 product-lebel-text orgPrice" style="color: #0000008f;">Regular Price : {{ product.price }}</p>
+                        <p class="mb-0  fs-8 mt-3 mb-2" style="font-weight: bold;">উল্লেখযোগ্য অংশবিশেষ</p>
                         <div>
                             <div class="d-flex">
 

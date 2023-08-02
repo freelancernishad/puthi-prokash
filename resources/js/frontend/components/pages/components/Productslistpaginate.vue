@@ -20,7 +20,7 @@
 
             <Product v-for="(product,indexs) in productRow" :key="'product'+indexs"  :product="product" @show_details="showDetialsFun(index,product.id,product)"/>
 
-            <Productdetails v-if="showDetials==index" :product="showDetialsProduct" />
+            <Productdetails v-if="showDetials==index" @close_detials="closeDetialsFun" :product="showDetialsProduct" />
 
 
         </div>
@@ -93,7 +93,10 @@ export default {
 
             }
         },
-
+        closeDetialsFun(){
+            this.showDetials = -1;
+            this.productId = -1;
+        }
 
 
 

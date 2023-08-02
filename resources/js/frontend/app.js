@@ -50,6 +50,10 @@ import Productdetails from './components/pages/components/Productdetails.vue';
 Vue.component('Productdetails', Productdetails)
 
 
+import VueScrollTo from 'vue-scrollto';
+Vue.use(VueScrollTo);
+
+
 import store from '../store'
 window.Reload = new Vue();
 import Swal from 'sweetalert2'

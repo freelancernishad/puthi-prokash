@@ -140,6 +140,7 @@
 
 
 <script>
+import VueScrollTo from 'vue-scrollto';
 export default {
   data() {
     return {
@@ -152,7 +153,7 @@ export default {
 
   watch: {
         '$route': async function (to, from) {
-            // this.scrollToTop();
+            this.scrollToTop();
         }
     },
   mounted() {
@@ -167,17 +168,29 @@ export default {
       this.isScrolled = scrollPosition > 0;
     },
     scrollToTop() {
-      const scrollDuration = 500; // Adjust this value for the desired scroll duration
-      const scrollStep = -window.scrollY / (scrollDuration / 15);
 
-      console.log(scrollStep)
-      const scrollInterval = setInterval(() => {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-        }
-      }, 15);
+        const options = {
+            duration: 500,
+            easing: 'easeInOutCubic',
+        };
+        VueScrollTo.scrollTo('#app', options);
+
+
+    //   const scrollDuration = 500; // Adjust this value for the desired scroll duration
+    //   const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+    //   console.log(scrollStep)
+    //   const scrollInterval = setInterval(() => {
+    //     if (window.scrollY !== 0) {
+    //       window.scrollBy(0, scrollStep);
+    //     } else {
+    //       clearInterval(scrollInterval);
+    //     }
+    //   }, 15);
+
+
+
+
     },
 
 

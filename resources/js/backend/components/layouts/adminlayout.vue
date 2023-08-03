@@ -161,6 +161,28 @@
 
 
 
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 1030 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(1030)"><i
+                                    class="flaticon-technological"></i><span>Slider</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 1030"
+                                    style="display:block">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                        <router-link :to="{ name: 'sliderAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Slider </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'sliderIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Slider List </router-link>
+                                    </li>
+                                </ul>
+                            </transition>
+                        </li>
+
+
+
+
                         <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(103)"><i
                                     class="flaticon-technological"></i><span>Gallery</span>

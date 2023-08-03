@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Slider;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
 });
 Route::get('/{vue_capture?}', function () {
 
-     $products = Category::orderBy('id','desc')->get();
-     return view('frontlayout',compact('products'));
+     $categories = Category::orderBy('id','desc')->get();
+     $sliders = Slider::orderBy('order','asc')->get();
+     return view('frontlayout',compact('categories','sliders'));
 
 })->where('vue_capture', '[\/\w\.-]*')->name('frontend');

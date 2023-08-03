@@ -12,6 +12,7 @@ const store = new Vuex.Store({
 
         userPermission:{},
         userRoles:{},
+        preloadData:{},
 
 
     },// as like data(){return:{}}
@@ -24,9 +25,9 @@ const store = new Vuex.Store({
 
         },
 
-       async setUpdateLatestProducts(state,data){
-
-            state.LatestProductsCat = data
+       async set_pre_load_data(state,data){
+  
+            state.preloadData = data
 
         },
 
@@ -52,9 +53,10 @@ const store = new Vuex.Store({
         },
 
 
-        getUpdateLatestProducts(state){
+        get_pre_load_data(state){
+           
 
-            return state.LatestProductsCat
+            return state.preloadData
         },
 
         getUserPermission(state){

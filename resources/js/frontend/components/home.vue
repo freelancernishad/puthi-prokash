@@ -22,7 +22,7 @@
         <VueSlickCarousel v-bind="Carouselsettings">
 
 
-           <div v-for="(latestProduct,sl) in LatestProductsCat" :key="'latestProduct'+sl">
+           <div v-for="(latestProduct,sl) in preload_data.categories" :key="'latestProduct'+sl">
           <div class="position-relative homeBooks">
             <div class="slideProductHome">
               <p class="booktitle">{{ latestProduct.name }}</p>

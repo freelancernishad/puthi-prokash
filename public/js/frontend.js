@@ -2717,18 +2717,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Headercomponent: _header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Footercomponent: _footer_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['user', 'products'],
+  props: ['user', 'categories', 'sliders'],
   created: function created() {
     var _this = this;
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var pre_load_data;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               localStorage.setItem('position', _this.user.position);
               _this.$store.commit('setUpdateUser', _this.user);
-              _this.$store.commit('setUpdateLatestProducts', _this.products);
-            case 3:
+              pre_load_data = {
+                categories: _this.categories,
+                sliders: _this.sliders
+              };
+              _this.$store.commit('set_pre_load_data', pre_load_data);
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -4866,7 +4871,7 @@ var render = function render() {
     staticClass: "text-center"
   }, [_vm._v("পুথি প্রকাশের বই")]), _vm._v(" "), _c("hr", {
     staticClass: "mx-auto hr-1"
-  }), _vm._v(" "), _c("VueSlickCarousel", _vm._b({}, "VueSlickCarousel", _vm.Carouselsettings, false), _vm._l(_vm.LatestProductsCat, function (latestProduct, sl) {
+  }), _vm._v(" "), _c("VueSlickCarousel", _vm._b({}, "VueSlickCarousel", _vm.Carouselsettings, false), _vm._l(_vm.preload_data.categories, function (latestProduct, sl) {
     return _c("div", {
       key: "latestProduct" + sl
     }, [_c("div", {
@@ -5231,15 +5236,14 @@ var render = function render() {
       "prev-icon": _vm.prevIcon,
       "next-icon": _vm.nextIcon
     }
-  }, [_c("b-carousel-slide", {
-    attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/3.jpg?v=1"
-    }
-  }), _vm._v(" "), _c("b-carousel-slide", {
-    attrs: {
-      "img-src": _vm.$asseturl + "assets/image/banner/puthi-cover-banner.jpg"
-    }
-  })], 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
+  }, _vm._l(_vm.preload_data.sliders, function (slider, index) {
+    return _c("b-carousel-slide", {
+      key: "slider" + index,
+      attrs: {
+        "img-src": _vm.$asseturl + slider.image
+      }
+    });
+  }), 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
     staticClass: "header",
     "class": {
       "fixed-header": _vm.isFixed,
@@ -11258,7 +11262,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     'Users': 'getUpdateUser',
-    'LatestProductsCat': 'getUpdateLatestProducts'
+    'preload_data': 'get_pre_load_data'
   }))
 });
 
@@ -11934,7 +11938,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     Users: {},
     LatestProductsCat: {},
     userPermission: {},
-    userRoles: {}
+    userRoles: {},
+    preloadData: {}
   },
   // as like data(){return:{}}
   mutations: {
@@ -11953,13 +11958,13 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
         }, _callee);
       }))();
     },
-    setUpdateLatestProducts: function setUpdateLatestProducts(state, data) {
+    set_pre_load_data: function set_pre_load_data(state, data) {
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                state.LatestProductsCat = data;
+                state.preloadData = data;
               case 1:
               case "end":
                 return _context2.stop();
@@ -11979,8 +11984,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     getUpdateUser: function getUpdateUser(state) {
       return state.Users;
     },
-    getUpdateLatestProducts: function getUpdateLatestProducts(state) {
-      return state.LatestProductsCat;
+    get_pre_load_data: function get_pre_load_data(state) {
+      return state.preloadData;
     },
     getUserPermission: function getUserPermission(state) {
       return state.userPermission;

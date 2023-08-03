@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -75,6 +76,17 @@ Route::get('visitorcount',[VisitorController::class, 'visitorCount']);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Route::get('/sliders', [SliderController::class, 'index']);
+Route::get('/sliders/{id}', [SliderController::class, 'show']);
+Route::post('/sliders', [SliderController::class, 'store']);
+Route::put('/sliders/{id}', [SliderController::class, 'update']);
+Route::delete('/sliders/{id}', [SliderController::class, 'destroy']);
+
+
+
+
 
 Route::get('/all/categories', [CategoryController::class,'indexAll']);
 Route::get('/categories', [CategoryController::class,'index']);

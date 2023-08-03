@@ -20,6 +20,10 @@ let productsimages = require('./components/products/images.vue').default;
 let flipingbooks = require('./components/products/flipingbooks.vue').default;
 let flipingbooksqr = require('./components/products/qrcode.vue').default;
 
+let sliderIndex = require('./components/slider/index.vue').default;
+let sliderForm = require('./components/slider/form.vue').default;
+
+
 let galleryIndex = require('./components/gallery/index.vue').default;
 let galleryForm = require('./components/gallery/form.vue').default;
 let galleryimages = require('./components/gallery/images.vue').default;
@@ -90,6 +94,12 @@ export const routes = [
   { path:  `${prefix}/products/fliping/books/:id`, component: flipingbooks, name:'flipingbooks',meta: { layout: adminlayout } },
   { path:  `${prefix}/products/fliping/books/qr/:id`, component: flipingbooksqr, name:'flipingbooksqr',meta: { layout: adminlayout } },
 
+
+
+
+  { path:  `${prefix}/slider/list`, component: sliderIndex, name:'sliderIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/slider/add`, component: sliderForm, name:'sliderAdd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/slider/edit/:id`, component: sliderForm, name:'sliderEdit',meta: { layout: adminlayout } },
 
 
 

@@ -15,8 +15,10 @@
         :prev-icon="prevIcon"
       :next-icon="nextIcon"
     >
-      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/3.jpg?v=1'"></b-carousel-slide>
-      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/puthi-cover-banner.jpg'"></b-carousel-slide>
+     <b-carousel-slide v-for="(slider,index) in preload_data.sliders" :key="'slider'+index" :img-src="$asseturl+slider.image"></b-carousel-slide>
+
+      <!-- <b-carousel-slide :img-src="$asseturl+'assets/image/banner/3.jpg?v=1'"></b-carousel-slide>
+      <b-carousel-slide :img-src="$asseturl+'assets/image/banner/puthi-cover-banner.jpg'"></b-carousel-slide> -->
 
     </b-carousel>
 

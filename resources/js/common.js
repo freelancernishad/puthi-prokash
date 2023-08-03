@@ -213,7 +213,7 @@ export default {
 
         ...mapGetters({
             'Users' : 'getUpdateUser',
-            'LatestProductsCat' : 'getUpdateLatestProducts',
+            'preload_data' : 'get_pre_load_data',
         }),
 
         // getUsers(){

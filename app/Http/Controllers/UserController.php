@@ -113,10 +113,17 @@ class UserController extends Controller
         return response()->json(['message' => 'User deleted successfully'], 200);
     }
 
-    public function getUsersByPosition($position)
+    public function getUsersByPosition(Request $request, $position)
     {
+
+        $type = $request->type;
+
         if($position=='admin'){
             return 'not accessable position';
+        }
+        if($type=='all'){
+            $users = User::where('position', $position)->get();
+            return response()->json($users, 200);
         }
         $users = User::where('position', $position)->paginate(21);
         return response()->json($users, 200);

@@ -112,11 +112,32 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">বিষয়</label>
                                         <multiselect v-model="categories" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="lists" :multiple="true"  label="name" track-by="id"></multiselect>
                                     </div>
+                                </div>
+
+
+                                <div class="col-md-12">
+
+                                    <div class="d-flex justify-content-between align-items-baseline">
+
+
+                                        <div class="form-group" style="width:90%">
+                                            <label for="">লেখক</label>
+                                            <select class="form-control" v-model="form.author_id">
+                                                <option value="">লেখক নির্বাচন করুন</option>
+                                                <option v-for="(writer,index) in writers" :key="'writer'+index" :value="writer.id">{{ writer.name }}</option>
+                                            </select>
+                                            <span class="text-danger font-weight-bold" v-if="errorHandleing('author_id')" v-for="name in errors.author_id" :key="name">{{ name }}</span>
+                                        </div>
+                                        <button type="button"  @click="addWriter" class="btn btn-info" style="width:10%;font-size: 16px;">+</button>
+                                    </div>
+
                                 </div>
 
                                 <div class="col-md-12">
@@ -173,12 +194,12 @@
 
                                         <div class="upload-container" >
 
-    <label for="fileInput">
-      <img id="imagePreview" :src="form.image" alt="Image Preview">
-    </label>
-    <!-- Input for file upload (hidden) -->
-    <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'image')">
-  </div>
+                                            <label for="fileInput">
+                                            <img id="imagePreview" :src="form.image" alt="Image Preview">
+                                            </label>
+                                            <!-- Input for file upload (hidden) -->
+                                            <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'image')">
+                                        </div>
 
 
 
@@ -199,6 +220,8 @@
     </form>
 
 
+        <WriterForm v-if="isPopupOpen" @close_popup="closePopup" @call_writer="getWriters" />
+
 
 
 
@@ -208,77 +231,75 @@
 
 <script>
 
-
+import WriterForm from "./WriterForm.vue";
 
 export default {
-
-
-
-
-
+    components: {
+        WriterForm,
+    },
     data() {
         return {
 
 
             tinyInt:{
-  selector: 'textarea#open-source-plugins',
-  plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-  editimage_cors_hosts: ['picsum.photos'],
-  menubar: 'file edit view insert format tools table help',
-  toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-  toolbar_sticky: true,
-  autosave_ask_before_unload: true,
-  autosave_interval: '30s',
-  autosave_prefix: '{path}{query}-{id}-',
-  autosave_restore_when_empty: false,
-  autosave_retention: '2m',
-  image_advtab: true,
-  link_list: [
-    { title: 'My page 1', value: 'https://www.tiny.cloud' },
-    { title: 'My page 2', value: 'http://www.moxiecode.com' }
-  ],
-  image_list: [
-    { title: 'My page 1', value: 'https://www.tiny.cloud' },
-    { title: 'google image', value: 'https://www.google.com/logos/google.jpg' },
-    { title: 'My page 2', value: 'http://www.moxiecode.com' }
-  ],
-  image_class_list: [
-    { title: 'None', value: '' },
-    { title: 'Some class', value: 'class-name' }
-  ],
-  importcss_append: true,
-  file_picker_callback: (callback, value, meta) => {
-    /* Provide file and text for the link dialog */
+                selector: 'textarea#open-source-plugins',
+                plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+                editimage_cors_hosts: ['picsum.photos'],
+                menubar: 'file edit view insert format tools table help',
+                toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+                toolbar_sticky: true,
+                autosave_ask_before_unload: true,
+                autosave_interval: '30s',
+                autosave_prefix: '{path}{query}-{id}-',
+                autosave_restore_when_empty: false,
+                autosave_retention: '2m',
+                image_advtab: true,
+                link_list: [
+                    { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                    { title: 'My page 2', value: 'http://www.moxiecode.com' }
+                ],
+                image_list: [
+                    { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                    { title: 'google image', value: 'https://www.google.com/logos/google.jpg' },
+                    { title: 'My page 2', value: 'http://www.moxiecode.com' }
+                ],
+                image_class_list: [
+                    { title: 'None', value: '' },
+                    { title: 'Some class', value: 'class-name' }
+                ],
+                importcss_append: true,
+                file_picker_callback: (callback, value, meta) => {
+                    /* Provide file and text for the link dialog */
 
-    if (meta.filetype === 'file') {
-      callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
-    }
+                    if (meta.filetype === 'file') {
+                    callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                    }
 
-    /* Provide image and alt text for the image dialog */
-    if (meta.filetype === 'image') {
-      callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-    }
+                    /* Provide image and alt text for the image dialog */
+                    if (meta.filetype === 'image') {
+                    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+                    }
 
-    /* Provide alternative source and posted for the media dialog */
-    if (meta.filetype === 'media') {
-      callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-    }
-  },
-  templates: [
-    { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
-    { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-    { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
-  ],
-  template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-  template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-  height: 600,
-  image_caption: true,
-  quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-  noneditable_class: 'mceNonEditable',
-  toolbar_mode: 'sliding',
-  contextmenu: 'link image table',
-  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-},
+                    /* Provide alternative source and posted for the media dialog */
+                    if (meta.filetype === 'media') {
+                    callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+                    }
+                },
+                templates: [
+                    { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                    { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                    { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+                ],
+                template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+                template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+                height: 600,
+                image_caption: true,
+                quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+                noneditable_class: 'mceNonEditable',
+                toolbar_mode: 'sliding',
+                contextmenu: 'link image table',
+                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+                },
 
 
 
@@ -293,7 +314,10 @@ export default {
             categories:[],
             updateInsertApi:'/api/products',
             Method:'post',
-            triggerRerender: false
+            triggerRerender: false,
+            writers:{},
+            isPopupOpen: false,
+
         }
     },
     watch: {
@@ -320,6 +344,20 @@ export default {
     }
     },
     methods: {
+        async getWriters(){
+            var res = await this.callApi('get',`/api/users/position/writer?type=all`,[]);
+            this.writers = res.data
+        },
+
+
+        addWriter(){
+            this.isPopupOpen = true;
+        },
+
+        closePopup(){
+            this.isPopupOpen = false;
+        },
+
 
 
 
@@ -380,10 +418,8 @@ export default {
         }
     },
     mounted(){
-
-
-
         this.getList();
+        this.getWriters();
         if(this.$route.params.id){
             this.getItems();
             this.updateInsertApi = `/api/products/${this.$route.params.id}`;

@@ -16,7 +16,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard_asset/css/bootstrap.min.css') }}">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="{{ asset('dashboard_asset/css/all.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('dashboard_asset/css/all.min.css') }}"> --}}
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
     <!-- Flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard_asset/fonts/flaticon.css') }}">
 

@@ -2,12 +2,12 @@
     <div>
 
 <div class="breadcrumbs-area">
-    <h3>Sonod List</h3>
+    <h3>Writers List</h3>
     <ul>
         <li>
             <router-link :to="{name:'Dashboard'}">Home</router-link>
         </li>
-        <li>Sonod List</li>
+        <li>Writers List</li>
     </ul>
 </div>
 
@@ -19,18 +19,6 @@
           <input type="text" v-model="form.name" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
-<!--
-        <div class="form-group col-md-6">
-          <label for="">পদবি</label>
-
-          <select v-model="form.position" class="form-control">
-            <option value="">নির্বাচন করুন</option>
-            <option value="admin">এডমিন</option>
-            <option value="sub_admin">সাব-এডমিন</option>
-
-          </select>
-
-        </div> -->
 
 
 
@@ -86,21 +74,8 @@ export default {
     data(){
         return {
             selectedOptions: [],
-            options: {
-                1:{word:'1',name:'১নং ওয়ার্ড'},
-                2:{word:'2',name:'২নং ওয়ার্ড'},
-                3:{word:'3',name:'৩নং ওয়ার্ড'},
-                4:{word:'4',name:'৪নং ওয়ার্ড'},
-                5:{word:'5',name:'৫নং ওয়ার্ড'},
-                6:{word:'6',name:'৬নং ওয়ার্ড'},
-                7:{word:'7',name:'৭নং ওয়ার্ড'},
-                8:{word:'8',name:'৮নং ওয়ার্ড'},
-                9:{word:'9',name:'৯নং ওয়ার্ড'},
-            },
             form:{
                 id:null,
-
-
                 name:'Admin',
                 email:null,
                 phone:'01909756552',

@@ -12,6 +12,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
 use App\Http\Controllers\ProductImageController;
@@ -156,3 +157,6 @@ Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);
 Route::get('galleries/{gallery}/images', [GalleryController::class,'getImages']);
 Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImages']);
 
+
+
+Route::apiResource('settings', SettingController::class);

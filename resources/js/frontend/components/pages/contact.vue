@@ -50,9 +50,9 @@
                     <div>
                         <h1 class="fs-4">হেড অফিসের ঠিকানাঃ
                         </h1>
-                        <h5>৬১, দক্ষিন মালিবাগ,</h5>
-                        <h5>ঢাকা- ১২১৭</h5>
-                        <h5>Phone: +8800000000000</h5>
+                        <h5>{{ preload_data.settings.address }}</h5>
+                  <h5>{{ preload_data.settings.address2 }}</h5>
+                  <h5>Phone: {{ preload_data.settings.phone1 }}</h5>
                     </div>
                     <div>
                         <img src="https://cdn3.iconfinder.com/data/icons/customer-and-technical-support-set-1/64/_call_contact_us_customer_service_customer_support_helpline-11-512.png"
@@ -61,10 +61,8 @@
 
                 </div>
 
-                <div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.18784395416!2d90.41078231456152!3d23.740679984594184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b86023ce06ed%3A0x996ffa6238a6a471!2sPanjeree+Publications+Limited!5e0!3m2!1sbn!2sbd!4v1527654083278"
-                        frameborder="0" style="width: 100%;border:0;height: 191px;margin-top: 13px;" allowfullscreen=""></iframe>
+                <div v-html="preload_data.settings.google_map">
+
 
                 </div>
             </div>

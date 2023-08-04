@@ -57,7 +57,7 @@
               <div class="align-items-center d-flex"> <i class="fa-solid fa-quote-left fs-1 text-secondary"></i>
                 <span class="fs-5 ms-2 mt-2">আমাদের কথাঃ</span>
               </div>
-              <p class="mb-0 text-justify" style="text-align: justify;">Lorem ipsum dolor sit ament, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+              <p class="mb-0 text-justify" style="text-align: justify;">{{ preload_data.settings.short_about }}</p>
               <div class="text-end text-secondary">
                 <i class="fa-solid fa-quote-right fs-1"></i>
               </div>
@@ -100,9 +100,9 @@
               <div class="row">
                 <div class="col-lg-12">
                   <h2>যোগাযোগ</h2>
-                  <h5>৬১, দক্ষিন মালিবাগ,</h5>
-                  <h5>ঢাকা- ১২১৭</h5>
-                  <h5>Phone: +8800000000000</h5>
+                  <h5>{{ preload_data.settings.address }}</h5>
+                  <h5>{{ preload_data.settings.address2 }}</h5>
+                  <h5>Phone: {{ preload_data.settings.phone1 }}</h5>
 
                   <!-- <div class="shareIcon">
                     <a href="#"><i class="fa-brands fa-facebook text-secondary linkHover"></i></a>

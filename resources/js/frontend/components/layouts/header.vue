@@ -30,7 +30,7 @@
 
         </div>
 
-    <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed, 'othersMenu container': homePage==false }">
+    <header class="header" style="background-color: #ced9df" :class="{ 'fixed-header': isFixed }">
 
       <nav class="navbar navbar-expand-lg p-0 mt-0" style="    height: var(--headerHight);" v-if="homePage">
 

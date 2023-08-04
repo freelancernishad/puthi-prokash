@@ -5121,9 +5121,16 @@ var render = function render() {
       alt: "",
       width: "200px"
     }
-  })]), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "ftext pt-3"
+  }, [_vm._m(1), _vm._v(" "), _c("p", {
+    staticClass: "mb-0 text-justify",
+    staticStyle: {
+      "text-align": "justify"
+    }
+  }, [_vm._v(_vm._s(_vm.preload_data.settings.short_about))]), _vm._v(" "), _vm._m(2)])], 1), _vm._v(" "), _c("div", {
     staticClass: "col-lg-6"
-  }, [_vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+  }, [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "fborder2",
     staticStyle: {
       margin: "0px 60px 0 0"
@@ -5139,7 +5146,15 @@ var render = function render() {
         name: "contact"
       }
     }
-  }, [_vm._v("যোগাযোগ")])], 1), _vm._v(" "), _vm._m(4)])])]), _vm._v(" "), _vm._m(5)])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("যোগাযোগ")])], 1), _vm._v(" "), _vm._m(5)])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3"
+  }, [_c("div", {
+    staticClass: "fborder"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-12"
+  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.preload_data.settings.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.preload_data.settings.address2))]), _vm._v(" "), _c("h5", [_vm._v("Phone: " + _vm._s(_vm.preload_data.settings.phone1))])])])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "copyright"
   }, [_c("div", {
     staticClass: "container"
@@ -5181,23 +5196,20 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "ftext pt-3"
-  }, [_c("div", {
     staticClass: "align-items-center d-flex"
   }, [_c("i", {
     staticClass: "fa-solid fa-quote-left fs-1 text-secondary"
   }), _vm._v(" "), _c("span", {
     staticClass: "fs-5 ms-2 mt-2"
-  }, [_vm._v("আমাদের কথাঃ")])]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0 text-justify",
-    staticStyle: {
-      "text-align": "justify"
-    }
-  }, [_vm._v("Lorem ipsum dolor sit ament, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("আমাদের কথাঃ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "text-end text-secondary"
   }, [_c("i", {
     staticClass: "fa-solid fa-quote-right fs-1"
-  })])]);
+  })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -5234,18 +5246,6 @@ var staticRenderFns = [function () {
   }, [_c("h2", {
     staticClass: "linkHover"
   }, [_vm._v("ডাউনলোড")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-lg-3"
-  }, [_c("div", {
-    staticClass: "fborder"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-lg-12"
-  }, [_c("h2", [_vm._v("যোগাযোগ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")])])])])]);
 }];
 render._withStripped = true;
 
@@ -5292,8 +5292,7 @@ var render = function render() {
   }), 1) : _vm._e()], 1), _vm._v(" "), _c("header", {
     staticClass: "header",
     "class": {
-      "fixed-header": _vm.isFixed,
-      "othersMenu container": _vm.homePage == false
+      "fixed-header": _vm.isFixed
     },
     staticStyle: {
       "background-color": "#ced9df"
@@ -10315,7 +10314,19 @@ var render = function render() {
       srcset: "",
       width: "50px"
     }
-  }), _vm._v("    যোগাযোগ করুন")]), _vm._v(" "), _c("p", [_vm._v("আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।")]), _vm._v(" "), _vm._m(1)])]);
+  }), _vm._v("    যোগাযোগ করুন")]), _vm._v(" "), _c("p", [_vm._v("আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "align-items-center d-flex justify-content-between"
+  }, [_c("div", [_c("h1", {
+    staticClass: "fs-4"
+  }, [_vm._v("হেড অফিসের ঠিকানাঃ\n                        ")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.preload_data.settings.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.preload_data.settings.address2))]), _vm._v(" "), _c("h5", [_vm._v("Phone: " + _vm._s(_vm.preload_data.settings.phone1))])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+    domProps: {
+      innerHTML: _vm._s(_vm.preload_data.settings.google_map)
+    }
+  })])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -10344,8 +10355,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
     staticClass: "col-md-6"
   }, [_c("form", [_c("div", {
     staticClass: "form-group"
@@ -10422,13 +10431,11 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("পাঠান")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6"
-  }, [_c("div", {
-    staticClass: "align-items-center d-flex justify-content-between"
-  }, [_c("div", [_c("h1", {
-    staticClass: "fs-4"
-  }, [_vm._v("হেড অফিসের ঠিকানাঃ\n                        ")]), _vm._v(" "), _c("h5", [_vm._v("৬১, দক্ষিন মালিবাগ,")]), _vm._v(" "), _c("h5", [_vm._v("ঢাকা- ১২১৭")]), _vm._v(" "), _c("h5", [_vm._v("Phone: +8800000000000")])]), _vm._v(" "), _c("div", [_c("img", {
+  }, [_vm._v("পাঠান")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
     staticClass: "img-fluid",
     attrs: {
       src: "https://cdn3.iconfinder.com/data/icons/customer-and-technical-support-set-1/64/_call_contact_us_customer_service_customer_support_helpline-11-512.png",
@@ -10436,19 +10443,7 @@ var staticRenderFns = [function () {
       alt: "",
       srcset: ""
     }
-  })])]), _vm._v(" "), _c("div", [_c("iframe", {
-    staticStyle: {
-      width: "100%",
-      border: "0",
-      height: "191px",
-      "margin-top": "13px"
-    },
-    attrs: {
-      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.18784395416!2d90.41078231456152!3d23.740679984594184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b86023ce06ed%3A0x996ffa6238a6a471!2sPanjeree+Publications+Limited!5e0!3m2!1sbn!2sbd!4v1527654083278",
-      frameborder: "0",
-      allowfullscreen: ""
-    }
-  })])])]);
+  })]);
 }];
 render._withStripped = true;
 

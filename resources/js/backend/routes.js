@@ -48,6 +48,8 @@ let userlistedit = require('./components/users/form.vue').default;
 let Customerlist = require('./components/customers/list.vue').default;
 
 
+let feature_categories = require('./components/feature_categories.vue').default;
+
 let settings = require('./components/settings.vue').default;
 
 
@@ -119,6 +121,8 @@ export const routes = [
   { path:  `${prefix}/orders/add`, component: ordersForm, name:'ordersAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/orders/edit/:id`, component: ordersForm, name:'ordersEdit',meta: { layout: adminlayout } },
 
+
+  { path:  `${prefix}/feature_categories`, component: feature_categories, name:'feature_categories',meta: { layout: adminlayout } },
 
   { path:  `${prefix}/settings`, component: settings, name:'settings',meta: { layout: adminlayout } },
 

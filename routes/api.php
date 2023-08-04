@@ -16,6 +16,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\FeatureCategoryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -160,3 +161,4 @@ Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImage
 
 
 Route::apiResource('settings', SettingController::class);
+Route::apiResource('feature-categories', FeatureCategoryController::class);

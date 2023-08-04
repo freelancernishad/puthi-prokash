@@ -2337,10 +2337,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/category/list/academic-books?limit=13", []);
+                return _this.callApi('get', "/api/feature-categories", []);
               case 2:
                 res = _context.sent;
-                _this.academicbooksChilds = res.data.children;
+                _this.academicbooksChilds = res.data;
                 _this.firstLineItems = _this.academicbooksChilds.slice(0, 7);
                 _this.secondLineItems = _this.academicbooksChilds.slice(7);
               case 6:
@@ -4915,7 +4915,7 @@ var render = function render() {
           }
         }
       }
-    }, [_vm._v(_vm._s(academicbooksChild.name))]);
+    }, [_vm._v(_vm._s(academicbooksChild.category.name))]);
   }), 1), _vm._v(" "), _c("div", {
     staticClass: "d-flex gap-3 justify-content-center flex-wrap mt-4 text-center"
   }, _vm._l(_vm.secondLineItems, function (academicbooksChild, slNo) {
@@ -4930,7 +4930,7 @@ var render = function render() {
           }
         }
       }
-    }, [_vm._v(_vm._s(academicbooksChild.name))]);
+    }, [_vm._v(_vm._s(academicbooksChild.category.name))]);
   }), 1)])])])]);
 };
 var staticRenderFns = [function () {

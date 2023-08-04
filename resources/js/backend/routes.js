@@ -29,6 +29,9 @@ let galleryForm = require('./components/gallery/form.vue').default;
 let galleryimages = require('./components/gallery/images.vue').default;
 
 
+let pagesIndex = require('./components/pages/index.vue').default;
+let pagesForm = require('./components/pages/form.vue').default;
+
 
 let ordersIndex = require('./components/orders/index.vue').default;
 let ordersForm = require('./components/orders/form.vue').default;
@@ -113,6 +116,11 @@ export const routes = [
   { path:  `${prefix}/gallery/edit/:id`, component: galleryForm, name:'galleryEdit',meta: { layout: adminlayout } },
   { path:  `${prefix}/gallery/images/:id`, component: galleryimages, name:'galleryimages',meta: { layout: adminlayout } },
 
+
+
+  { path:  `${prefix}/pages/list`, component: pagesIndex, name:'pagesIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/pages/add`, component: pagesForm, name:'pagesAdd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/pages/edit/:id`, component: pagesForm, name:'pagesEdit',meta: { layout: adminlayout } },
 
 
 

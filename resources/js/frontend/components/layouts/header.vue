@@ -117,7 +117,7 @@
                 </span>
 
                 <ul class="DownItems list-unstyled" style="list-style: inside;">
-                    <li><router-link :to="{name:'home'}" class="text-dark">আমাদের কথা</router-link></li>
+                    <li><router-link :to="{name:'pages',params:{slug:'amader-kotah'}}" class="text-dark">আমাদের কথা</router-link></li>
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'academic-books'}}" class="text-dark">একাডেমিক বই</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'creative-book'}}" class="text-dark">সৃজনশীল বই</router-link></li>
@@ -182,7 +182,7 @@
 
 
                 <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
-                    <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'home'}" class="border-3  text-dark d-flex align-item" style="padding-left: 16px;    padding-top: 9px;">আমাদের কথা</router-link></li>
+                    <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'pages',params:{slug:'amader-kotah'}}" class="border-3  text-dark d-flex align-item" style="padding-left: 16px;    padding-top: 9px;">আমাদের কথা</router-link></li>
                     <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'writer'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">লেখক পরিচিতি</router-link></li>
 
 

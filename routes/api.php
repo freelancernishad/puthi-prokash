@@ -4,8 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PageController;
 
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SliderController;
@@ -162,3 +163,6 @@ Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImage
 
 Route::apiResource('settings', SettingController::class);
 Route::apiResource('feature-categories', FeatureCategoryController::class);
+Route::apiResource('pages', PageController::class);
+Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
+

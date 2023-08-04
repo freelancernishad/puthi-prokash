@@ -15,6 +15,9 @@ let register = require('./components/pages/auth/register.vue').default;
 
 
 let home = require('./components/home.vue').default;
+
+let pages = require('./components/pages/dynamicPage.vue').default;
+
 let categories = require('./components/pages/categories.vue').default;
 let categoryProduct = require('./components/pages/categoryProduct.vue').default;
 let Products = require('./components/pages/Products.vue').default;
@@ -61,6 +64,11 @@ export const routes = [
 
 
     { path:  `${prefix}categories`, component: categories, name:'categories',meta: { layout: layout } },
+
+    { path:  `${prefix}pages/:slug`, component: pages, name:'pages',meta: { layout: layout } },
+
+
+
     { path:  `${prefix}product/category/:category`, component: categoryProduct, name:'categoryProduct',meta: { layout: layout } },
     { path:  `${prefix}products`, component: Products, name:'Products',meta: { layout: layout } },
 

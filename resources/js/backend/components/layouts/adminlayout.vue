@@ -140,6 +140,26 @@
                         </li>
 
 
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 1020 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(1020)"><i
+                                    class="flaticon-technological"></i><span>Pages</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 1020"
+                                    style="display:block">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                        <router-link :to="{ name: 'pagesAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Pages </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'pagesIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Pages List </router-link>
+                                    </li>
+                                </ul>
+                            </transition>
+                        </li>
+
+
                         <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(102)"><i
                                     class="flaticon-technological"></i><span>Products</span>

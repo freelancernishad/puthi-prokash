@@ -3564,7 +3564,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_props$created$watch$ = {
-  props: ['user'],
+  props: ['user', 'settinyint'],
   created: function created() {
     var _this = this;
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -3573,6 +3573,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           switch (_context.prev = _context.next) {
             case 0:
               localStorage.setItem('position', _this.user.position);
+              _this.$store.commit('settinyint', _this.settinyint);
               if (!User.loggedIn()) {
                 window.location.href = '/login';
               } else {
@@ -3586,7 +3587,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               }
               window.addEventListener("resize", _this.myEventHandler);
               window.addEventListener("scroll", _this.myscroll);
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -3867,92 +3868,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         content: ''
       },
       updateInsertApi: '/api/pages',
-      Method: 'post',
-      tinyInt: {
-        selector: 'textarea#open-source-plugins',
-        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-        editimage_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        toolbar_sticky: true,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        link_list: [{
-          title: 'My page 1',
-          value: 'https://www.tiny.cloud'
-        }, {
-          title: 'My page 2',
-          value: 'http://www.moxiecode.com'
-        }],
-        image_list: [{
-          title: 'My page 1',
-          value: 'https://www.tiny.cloud'
-        }, {
-          title: 'google image',
-          value: 'https://www.google.com/logos/google.jpg'
-        }, {
-          title: 'My page 2',
-          value: 'http://www.moxiecode.com'
-        }],
-        image_class_list: [{
-          title: 'None',
-          value: ''
-        }, {
-          title: 'Some class',
-          value: 'class-name'
-        }],
-        importcss_append: true,
-        file_picker_callback: function file_picker_callback(callback, value, meta) {
-          /* Provide file and text for the link dialog */
-
-          if (meta.filetype === 'file') {
-            callback('https://www.google.com/logos/google.jpg', {
-              text: 'My text'
-            });
-          }
-
-          /* Provide image and alt text for the image dialog */
-          if (meta.filetype === 'image') {
-            callback('https://www.google.com/logos/google.jpg', {
-              alt: 'My alt text'
-            });
-          }
-
-          /* Provide alternative source and posted for the media dialog */
-          if (meta.filetype === 'media') {
-            callback('movie.mp4', {
-              source2: 'alt.ogg',
-              poster: 'https://www.google.com/logos/google.jpg'
-            });
-          }
-        },
-        templates: [{
-          title: 'New Table',
-          description: 'creates a new table',
-          content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
-        }, {
-          title: 'Starting my story',
-          description: 'A cure for writers block',
-          content: 'Once upon a time...'
-        }, {
-          title: 'New list with dates',
-          description: 'New List with dates',
-          content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
-        }],
-        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-        height: 600,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image table',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-      }
+      Method: 'post'
     };
   },
   watch: {
@@ -11198,7 +11114,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    addToCart: function addToCart(form) {
+    getGalleryImages: function getGalleryImages() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res;
@@ -11206,18 +11122,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                form['user_id'] = _this.$localStorage.getItem('userid');
-                _context.next = 3;
-                return _this.callApi('post', "/api/cart", form);
-              case 3:
+                _context.next = 2;
+                return _this.callApi('get', "/api/get/gallery/for/editor", []);
+              case 2:
                 res = _context.sent;
-                Notification.customSuccess("Added to cart");
+                console.log(res);
+                _this.tinyInt.image_list = res.data;
               case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
+      }))();
+    },
+    addToCart: function addToCart(form) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                form['user_id'] = _this2.$localStorage.getItem('userid');
+                _context2.next = 3;
+                return _this2.callApi('post', "/api/cart", form);
+              case 3:
+                res = _context2.sent;
+                Notification.customSuccess("Added to cart");
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     },
     openModal: function openModal(img) {
@@ -11234,30 +11172,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return 0;
     },
     callApi: function callApi(method, url, dataObj) {
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
+                _context3.prev = 0;
+                _context3.next = 3;
                 return axios({
                   method: method,
                   url: url,
                   data: dataObj
                 });
               case 3:
-                return _context2.abrupt("return", _context2.sent);
+                return _context3.abrupt("return", _context3.sent);
               case 6:
-                _context2.prev = 6;
-                _context2.t0 = _context2["catch"](0);
-                return _context2.abrupt("return", _context2.t0.response);
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](0);
+                return _context3.abrupt("return", _context3.t0.response);
               case 9:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, null, [[0, 6]]);
+        }, _callee3, null, [[0, 6]]);
       }))();
     },
     makeSug: function makeSug() {
@@ -11265,43 +11203,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return str.replace(" ", "-");
     },
     callApiPaginate: function callApiPaginate(url, page) {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var res;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.next = 2;
-                return _this2.callApi('get', "".concat(url), []);
+                _context4.next = 2;
+                return _this3.callApi('get', "".concat(url), []);
               case 2:
-                res = _context3.sent;
-                _this2.PaginateRows = res.data.per_page;
-                _this2.Totalrows = res.data.total;
-                _this2.Totalpage = res.data.links;
-                _this2.PerPageData = res.data.per_page;
-                _this2.Routename = 'categoryIndex';
-                _this2.Routeparams = {};
+                res = _context4.sent;
+                _this3.PaginateRows = res.data.per_page;
+                _this3.Totalrows = res.data.total;
+                _this3.Totalpage = res.data.links;
+                _this3.PerPageData = res.data.per_page;
+                _this3.Routename = 'categoryIndex';
+                _this3.Routeparams = {};
                 if (page == 1) {
-                  _this2.pageNO = 1;
+                  _this3.pageNO = 1;
                 } else {
-                  _this2.pageNO = (page - 1) * _this2.PerPageData + 1;
+                  _this3.pageNO = (page - 1) * _this3.PerPageData + 1;
                 }
                 if (res.data.last_page < page) {
-                  _this2.$router.push({
-                    name: _this2.Routename,
+                  _this3.$router.push({
+                    name: _this3.Routename,
                     query: {
                       page: res.data.last_page
                     }
                   });
                 }
-                return _context3.abrupt("return", res.data.data);
+                return _context4.abrupt("return", res.data.data);
               case 12:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3);
+        }, _callee4);
       }))();
     },
     dateformatGlobal: function dateformatGlobal() {
@@ -11316,7 +11254,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     DeleteAction: function DeleteAction() {
-      var _this3 = this;
+      var _this4 = this;
       var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
       var route = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
@@ -11332,28 +11270,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         confirmButtonText: "Yes",
         cancelButtonText: "No"
       }).then( /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(result) {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(result) {
           var res;
-          return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          return _regeneratorRuntime().wrap(function _callee5$(_context5) {
             while (1) {
-              switch (_context4.prev = _context4.next) {
+              switch (_context5.prev = _context5.next) {
                 case 0:
                   if (!result.isConfirmed) {
-                    _context4.next = 6;
+                    _context5.next = 6;
                     break;
                   }
-                  _context4.next = 3;
-                  return _this3.callApi('delete', "".concat(route), []);
+                  _context5.next = 3;
+                  return _this4.callApi('delete', "".concat(route), []);
                 case 3:
-                  res = _context4.sent;
+                  res = _context5.sent;
                   Notification.customSuccess(notification);
                   callback();
                 case 6:
                 case "end":
-                  return _context4.stop();
+                  return _context5.stop();
               }
             }
-          }, _callee4);
+          }, _callee5);
         }));
         return function (_x) {
           return _ref.apply(this, arguments);
@@ -11429,7 +11367,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     'Users': 'getUpdateUser',
-    'preload_data': 'get_pre_load_data'
+    'preload_data': 'get_pre_load_data',
+    'tinyInt': 'gettinyint'
   }))
 });
 
@@ -11930,7 +11869,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     LatestProductsCat: {},
     userPermission: {},
     userRoles: {},
-    preloadData: {}
+    preloadData: {},
+    tiny: {}
   },
   // as like data(){return:{}}
   mutations: {
@@ -11949,19 +11889,34 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
         }, _callee);
       }))();
     },
-    set_pre_load_data: function set_pre_load_data(state, data) {
+    settinyint: function settinyint(state, data) {
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                state.preloadData = data;
+                state.tiny = data;
               case 1:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    set_pre_load_data: function set_pre_load_data(state, data) {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                state.preloadData = data;
+              case 1:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     },
     setUserPermission: function setUserPermission(state, data) {
@@ -11974,6 +11929,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   getters: {
     getUpdateUser: function getUpdateUser(state) {
       return state.Users;
+    },
+    gettinyint: function gettinyint(state) {
+      return state.tiny;
     },
     get_pre_load_data: function get_pre_load_data(state) {
       return state.preloadData;

@@ -13,6 +13,7 @@ const store = new Vuex.Store({
         userPermission:{},
         userRoles:{},
         preloadData:{},
+        tiny:{},
 
 
     },// as like data(){return:{}}
@@ -25,8 +26,15 @@ const store = new Vuex.Store({
 
         },
 
+
+       async settinyint(state,data){
+
+            state.tiny = data
+
+        },
+
        async set_pre_load_data(state,data){
-  
+
             state.preloadData = data
 
         },
@@ -52,9 +60,14 @@ const store = new Vuex.Store({
             return state.Users
         },
 
+        gettinyint(state){
+
+            return state.tiny
+        },
+
 
         get_pre_load_data(state){
-           
+
 
             return state.preloadData
         },

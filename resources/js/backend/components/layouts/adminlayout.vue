@@ -316,12 +316,12 @@
 </template>
 <script>
 export default {
-    props: ['user'],
+    props: ['user','settinyint'],
     async created() {
 
 
         localStorage.setItem('position',this.user.position)
-
+        this.$store.commit('settinyint', this.settinyint)
 
         if (!User.loggedIn()) {
             window.location.href = '/login'

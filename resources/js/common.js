@@ -23,10 +23,19 @@ export default {
               errors:{},
 
 
+
         }
     },
 
     methods: {
+
+
+        async getGalleryImages(){
+            var res = await this.callApi('get',`/api/get/gallery/for/editor`,[]);
+            console.log(res)
+            this.tinyInt.image_list = res.data;
+        },
+
 
 
         async addToCart(form){
@@ -214,6 +223,7 @@ export default {
         ...mapGetters({
             'Users' : 'getUpdateUser',
             'preload_data' : 'get_pre_load_data',
+            'tinyInt' : 'gettinyint',
         }),
 
         // getUsers(){

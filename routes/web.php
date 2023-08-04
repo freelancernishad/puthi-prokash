@@ -57,7 +57,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
     Route::get('/{vue_capture?}', function () {
         // return   Auth::user()->roles->permission;
 
-        return view('layout');
+         $settinyint =  json_encode(tinyInt());
+        return view('layout',compact('settinyint'));
     })->where('vue_capture', '[\/\w\.-]*')->name('dashboard');
 });
 Route::get('/{vue_capture?}', function () {

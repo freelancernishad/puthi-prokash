@@ -159,10 +159,13 @@ Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);
 Route::get('galleries/{gallery}/images', [GalleryController::class,'getImages']);
 Route::post('galleries/{gallery}/images', [GalleryController::class,'uploadImages']);
 
+Route::get('get/gallery/for/editor', [GalleryController::class,'forEditorImage']);
+
 
 
 Route::apiResource('settings', SettingController::class);
 Route::apiResource('feature-categories', FeatureCategoryController::class);
 Route::apiResource('pages', PageController::class);
 Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
+
 

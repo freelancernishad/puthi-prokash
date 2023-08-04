@@ -148,4 +148,15 @@ class GalleryController extends Controller
 
    return response()->json(null, 204);
     }
+
+
+    function forEditorImage() {
+
+
+        return EditorImages();
+
+    }
+
+
+
 }

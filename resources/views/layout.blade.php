@@ -70,7 +70,7 @@ li.page-item.active button {
 
 
     <div id="app">
-        <component :is="$route.meta.layout || 'div'"   :user="{{$users}}" >
+        <component :is="$route.meta.layout || 'div'"   :user="{{$users}}" :settinyint="{{$settinyint}}" >
             <router-view />
           </component>
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Setting;
 use App\Models\Slider;
 
 /*
@@ -63,6 +64,7 @@ Route::get('/{vue_capture?}', function () {
 
      $categories = Category::orderBy('id','desc')->get();
      $sliders = Slider::orderBy('order','asc')->get();
-     return view('frontlayout',compact('categories','sliders'));
+     $settings = Setting::firstOrFail();
+     return view('frontlayout',compact('categories','sliders','settings'));
 
 })->where('vue_capture', '[\/\w\.-]*')->name('frontend');

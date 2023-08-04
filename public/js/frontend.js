@@ -2717,7 +2717,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     Headercomponent: _header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Footercomponent: _footer_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['user', 'categories', 'sliders'],
+  props: ['user', 'categories', 'sliders', 'settings'],
   created: function created() {
     var _this = this;
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -2730,7 +2730,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.$store.commit('setUpdateUser', _this.user);
               pre_load_data = {
                 categories: _this.categories,
-                sliders: _this.sliders
+                sliders: _this.sliders,
+                settings: _this.settings
               };
               _this.$store.commit('set_pre_load_data', pre_load_data);
             case 4:
@@ -5012,13 +5013,41 @@ var render = function render() {
     staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
   }, [_c("span", [_vm._v("অনুসরন করুনঃ ")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex fs-5 gap-3 text-secondary"
+  }, [_c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.facebook
+    }
   }, [_c("i", {
     staticClass: "fa-brands fa-square-facebook linkHover"
-  }), _vm._v(" "), _c("i", {
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.twitter
+    }
+  }, [_c("i", {
     staticClass: "fa-brands fa-twitter linkHover"
-  }), _vm._v(" "), _c("i", {
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.instagram
+    }
+  }, [_c("i", {
     staticClass: "fa-brands fa-instagram linkHover"
-  }), _vm._v(" "), _c("img", {
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.youtube
+    }
+  }, [_c("img", {
     staticClass: "linkHover",
     staticStyle: {
       width: "48px"
@@ -5031,9 +5060,38 @@ var render = function render() {
       mouseover: _vm.handleMouseOver,
       mouseout: _vm.handleMouseOut
     }
-  }), _vm._v(" "), _c("i", {
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.pinterest
+    }
+  }, [_c("i", {
     staticClass: "fa-brands fa-pinterest linkHover"
-  })])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c("div", {
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
+  }, [_c("span", [_vm._v("যোগাযোগঃ")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex fs-5 gap-3 text-secondary"
+  }, [_c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: "mailto:" + _vm.preload_data.settings.mail
+    }
+  }, [_c("i", {
+    staticClass: "fa-sharp fa-solid fa-envelope linkHover"
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      color: "#6C757D"
+    },
+    attrs: {
+      href: _vm.preload_data.settings.whatsapp
+    }
+  }, [_c("i", {
+    staticClass: "fa-brands fa-square-whatsapp linkHover"
+  })])])]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("div", {
     staticStyle: {
       "background-repeat": "no-repeat",
       "background-position": "top",
@@ -5063,9 +5121,9 @@ var render = function render() {
       alt: "",
       width: "200px"
     }
-  })]), _vm._v(" "), _vm._m(2)], 1), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c("div", {
     staticClass: "col-lg-6"
-  }, [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
+  }, [_vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
     staticClass: "fborder2",
     staticStyle: {
       margin: "0px 60px 0 0"
@@ -5081,7 +5139,7 @@ var render = function render() {
         name: "contact"
       }
     }
-  }, [_vm._v("যোগাযোগ")])], 1), _vm._v(" "), _vm._m(5)])])]), _vm._v(" "), _vm._m(6)])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("যোগাযোগ")])], 1), _vm._v(" "), _vm._m(4)])])]), _vm._v(" "), _vm._m(5)])])])])]), _vm._v(" "), _c("div", {
     staticClass: "copyright"
   }, [_c("div", {
     staticClass: "container"
@@ -5114,18 +5172,6 @@ var render = function render() {
   })])]);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
-  }, [_c("span", [_vm._v("যোগাযোগঃ")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex fs-5 gap-3 text-secondary"
-  }, [_c("i", {
-    staticClass: "fa-sharp fa-solid fa-envelope linkHover"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-brands fa-square-whatsapp linkHover"
-  })])]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("span", {

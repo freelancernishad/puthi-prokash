@@ -9,25 +9,32 @@
       <div class="align-items-center  d-flex flex-wrap fs-5 gap-2 ">
         <span>অনুসরন করুনঃ </span>
         <div class="d-flex fs-5 gap-3 text-secondary">
-          <i class="fa-brands fa-square-facebook linkHover"></i>
-          <i class="fa-brands fa-twitter linkHover"></i>
-          <i class="fa-brands fa-instagram linkHover"></i>
 
-          <img :src="imageUrl"
+            <a :href="preload_data.settings.facebook" style="color:#6C757D;"><i class="fa-brands fa-square-facebook linkHover"></i></a>
+            <a :href="preload_data.settings.twitter" style="color:#6C757D;"><i class="fa-brands fa-twitter linkHover"></i></a>
+            <a :href="preload_data.settings.instagram" style="color:#6C757D;"><i class="fa-brands fa-instagram linkHover"></i></a>
+            <a :href="preload_data.settings.youtube" style="color:#6C757D;"><img :src="imageUrl"
       @mouseover="handleMouseOver"
       @mouseout="handleMouseOut" class="linkHover" style="    width: 48px;" alt="">
-          <!-- <i class="fa-brands fa-youtube linkHover"></i> -->
+          <!-- <i class="fa-brands fa-youtube linkHover"></i> --></a>
+          <a :href="preload_data.settings.pinterest" style="color:#6C757D;"><i class="fa-brands fa-pinterest linkHover"></i></a>
 
 
-          <i class="fa-brands fa-pinterest linkHover"></i>
+
+
+
+
+
+
+
         </div>
       </div>
 
       <div class="align-items-center d-flex flex-wrap fs-5 gap-2">
         <span>যোগাযোগঃ</span>
         <div class="d-flex fs-5 gap-3 text-secondary">
-          <i class="fa-sharp fa-solid fa-envelope linkHover"></i>
-          <i class="fa-brands fa-square-whatsapp linkHover"></i>
+            <a :href="'mailto:'+preload_data.settings.mail" style="color:#6C757D;"><i class="fa-sharp fa-solid fa-envelope linkHover"></i></a>
+            <a :href="preload_data.settings.whatsapp" style="color:#6C757D;"><i class="fa-brands fa-square-whatsapp linkHover"></i></a>
         </div>
       </div>
       <div>

@@ -17,7 +17,7 @@ import Footercomponent from './footer.vue'
 
 export default {
     components:{Headercomponent,Footercomponent},
-    props: ['user','categories','sliders'],
+    props: ['user','categories','sliders','settings'],
     async created() {
         localStorage.setItem('position',this.user.position)
 
@@ -26,6 +26,7 @@ export default {
         var pre_load_data = {
             categories:this.categories,
             sliders:this.sliders,
+            settings:this.settings,
         };
 
         this.$store.commit('set_pre_load_data', pre_load_data)

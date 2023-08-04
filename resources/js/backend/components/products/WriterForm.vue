@@ -4,6 +4,9 @@
             <div class="text-right">
                 <i class="fa-regular fa-xmark" @click="close" style="color: red;padding: 8px 10px;font-size: 20px;cursor: pointer;"></i>
             </div>
+            <h2 class="text-center">
+                Writer form
+            </h2>
 
             <form class="row" @submit.stop.prevent="onSubmit">
 

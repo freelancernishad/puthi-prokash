@@ -115,9 +115,15 @@
 
 
                                 <div class="col-md-12">
+
+                                    <div class="d-flex justify-content-between align-items-baseline">
+
+
                                     <div class="form-group">
                                         <label for="">বিষয়</label>
                                         <multiselect v-model="categories" tag-placeholder="Add this as new tag" placeholder="Search or add a tag"  :options="lists" :multiple="true"  label="name" track-by="id"></multiselect>
+                                    </div>
+                                    <button type="button"  @click="addCat" class="btn btn-info" style="width:10%;font-size: 16px;">+</button>
                                     </div>
                                 </div>
 
@@ -222,6 +228,8 @@
 
         <WriterForm v-if="isPopupOpen" @close_popup="closePopup" @call_writer="getWriters" />
 
+        <CategoryForm v-if="isCPopupOpen" @close_popup="closeCPopup" @call_data="getList" />
+
 
 
 
@@ -232,10 +240,12 @@
 <script>
 
 import WriterForm from "./WriterForm.vue";
+import CategoryForm from "./CategoryForm.vue";
 
 export default {
     components: {
         WriterForm,
+        CategoryForm,
     },
     data() {
         return {
@@ -317,6 +327,7 @@ export default {
             triggerRerender: false,
             writers:{},
             isPopupOpen: false,
+            isCPopupOpen: false,
 
         }
     },
@@ -356,6 +367,16 @@ export default {
 
         closePopup(){
             this.isPopupOpen = false;
+        },
+
+
+
+        addCat(){
+            this.isCPopupOpen = true;
+        },
+
+        closeCPopup(){
+            this.isCPopupOpen = false;
         },
 
 

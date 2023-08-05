@@ -2241,30 +2241,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return 0;
     },
     callApi: function callApi(method, url, dataObj) {
+      var _arguments = arguments;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var headers;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.prev = 0;
-                _context3.next = 3;
+                headers = _arguments.length > 3 && _arguments[3] !== undefined ? _arguments[3] : {};
+                _context3.prev = 1;
+                _context3.next = 4;
                 return axios({
                   method: method,
                   url: url,
-                  data: dataObj
+                  data: dataObj,
+                  headers: headers
                 });
-              case 3:
+              case 4:
                 return _context3.abrupt("return", _context3.sent);
-              case 6:
-                _context3.prev = 6;
-                _context3.t0 = _context3["catch"](0);
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](1);
                 return _context3.abrupt("return", _context3.t0.response);
-              case 9:
+              case 10:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, null, [[0, 6]]);
+        }, _callee3, null, [[1, 7]]);
       }))();
     },
     callApiPaginate: function callApiPaginate(url, page) {

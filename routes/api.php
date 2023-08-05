@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
+use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\FeatureCategoryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -166,6 +167,7 @@ Route::get('get/gallery/for/editor', [GalleryController::class,'forEditorImage']
 Route::apiResource('settings', SettingController::class);
 Route::apiResource('feature-categories', FeatureCategoryController::class);
 Route::apiResource('pages', PageController::class);
+Route::apiResource('multimedia', MultimediaController::class);
 Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
 
 

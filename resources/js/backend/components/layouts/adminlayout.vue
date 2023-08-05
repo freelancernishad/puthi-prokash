@@ -140,12 +140,12 @@
                         </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 1020 }">
-                            <a href="javascript:void(0)" class="nav-link" @click="submenu(1020)"><i
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(102)"><i
                                     class="flaticon-technological"></i><span>Pages</span>
                             </a>
                             <transition name="slide">
-                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 1020"
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 102"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
                                         <router-link :to="{ name: 'pagesAdd' }" class="nav-link"><i
@@ -160,12 +160,12 @@
                         </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }">
-                            <a href="javascript:void(0)" class="nav-link" @click="submenu(102)"><i
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(103)"><i
                                     class="flaticon-technological"></i><span>Products</span>
                             </a>
                             <transition name="slide">
-                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 102"
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 103"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
                                         <router-link :to="{ name: 'productsAdd' }" class="nav-link"><i
@@ -181,12 +181,12 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 1030 }">
-                            <a href="javascript:void(0)" class="nav-link" @click="submenu(1030)"><i
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 104 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(104)"><i
                                     class="flaticon-technological"></i><span>Slider</span>
                             </a>
                             <transition name="slide">
-                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 1030"
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 104"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
                                         <router-link :to="{ name: 'sliderAdd' }" class="nav-link"><i
@@ -203,12 +203,12 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }">
-                            <a href="javascript:void(0)" class="nav-link" @click="submenu(103)"><i
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 105 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(105)"><i
                                     class="flaticon-technological"></i><span>Gallery</span>
                             </a>
                             <transition name="slide">
-                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 103"
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 105"
                                     style="display:block">
                                     <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
                                         <router-link :to="{ name: 'galleryAdd' }" class="nav-link"><i
@@ -223,14 +223,34 @@
                         </li>
 
 
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 106 }">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(106)"><i
+                                    class="flaticon-technological"></i><span>Multimedia</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 106"
+                                    style="display:block">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                        <router-link :to="{ name: 'multimediaAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Multimedia </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'multimediaIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Multimedia List </router-link>
+                                    </li>
+                                </ul>
+                            </transition>
+                        </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 104 }" v-if="this.$localStorage.getItem('position') == 'admin'">
-                            <a href="javascript:void(0)" class="nav-link" @click="submenu(104)"><i
+
+
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 107 }" v-if="this.$localStorage.getItem('position') == 'admin'">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(107)"><i
                                     class="flaticon-technological"></i><span>Orders</span>
                             </a>
                             <transition name="slide">
-                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 104"
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 107"
                                     style="display:block">
                                     <li class="nav-item" >
                                         <router-link :to="{ name: 'ordersIndex',params:{status:'pending'} }" class="nav-link"><i

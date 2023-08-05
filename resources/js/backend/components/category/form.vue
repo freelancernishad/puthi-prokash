@@ -48,23 +48,16 @@
                                     </div>
                                 </div>
 
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Image</label>
-
                                         <div class="upload-container">
-
-    <label for="fileInput">
-      <img id="imagePreview" :src="form.icon" alt="Image Preview">
-    </label>
-    <!-- Input for file upload (hidden) -->
-    <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'icon')">
-  </div>
-
-
-
-                                        <!-- <input type="text" class="form-control" v-model="form.ISBN">
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('ISBN')" v-for="name in errors.ISBN" :key="name">{{ name }}</span> -->
+                                            <label for="fileInput">
+                                            <img id="imagePreview" :src="form.icon" alt="Image Preview">
+                                            </label>
+                                            <input type="file" id="fileInput" accept="image/*" @change="FileSelected($event,'icon')">
+                                        </div>
                                     </div>
                                 </div>
 

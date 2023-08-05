@@ -76,12 +76,14 @@ export default {
             return 0;
         },
 
-        async callApi(method, url, dataObj ){
+        async callApi(method, url, dataObj,headers={}){
             try {
+
               return await axios({
                     method: method,
                     url: url,
-                    data: dataObj
+                    data: dataObj,
+                    headers: headers,
                 });
             } catch (e) {
                 return e.response

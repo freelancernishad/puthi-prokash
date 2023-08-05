@@ -49,7 +49,7 @@ li.page-item.active button {
 }
 
 .sidebar-main.sidebar-menu-one.sidebar-expand-md.sidebar-color {
-    height: 100vh !important;
+    /* height: 100vh !important; */
 }
 
 

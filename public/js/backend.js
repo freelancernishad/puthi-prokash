@@ -3696,7 +3696,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         title: '',
         media_type: 'video',
-        video_file: '',
         media_url: ''
       }
     };
@@ -3705,7 +3704,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     submitForm: function submitForm() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var formData, res;
+        var formData, updateInsertApi, Method, res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -3713,16 +3712,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData = new FormData();
                 formData.append('title', _this.form.title);
                 formData.append('media_type', _this.form.media_type);
-                formData.append('video_file', _this.form.video_file);
                 formData.append('media_url', _this.form.media_url);
-                _context.next = 7;
-                return _this.callApi('post', "/api/multimedia", formData, {
+                updateInsertApi = '';
+                Method = '';
+                if (_this.$route.params.id) {
+                  updateInsertApi = "/api/multimedia/".concat(_this.$route.params.id);
+                  Method = 'post';
+                } else {
+                  updateInsertApi = "/api/multimedia";
+                  Method = 'post';
+                }
+                _context.next = 9;
+                return _this.callApi("".concat(Method), "".concat(updateInsertApi), formData, {
                   'Content-Type': 'multipart/form-data'
                 });
-              case 7:
-                res = _context.sent;
-                console.log(res);
               case 9:
+                res = _context.sent;
+                if (res.status == 200) {
+                  Notification.customSuccess("Multimedia Updated Successfull");
+                  _this.$router.push({
+                    name: 'multimediaIndex'
+                  });
+                } else if (res.status == 201) {
+                  Notification.customSuccess("Multimedia Created Successfull");
+                  _this.$router.push({
+                    name: 'multimediaIndex'
+                  });
+                } else {
+                  Notification.customError("Something want wrong!");
+                  _this.errors = res.data.errors;
+                }
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -3732,6 +3752,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     FileSelected: function FileSelected($event, parent_index) {
       this.form[parent_index] = $event.target.files[0];
+    },
+    getItems: function getItems() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this2.callApi('get', "/api/multimedia/".concat(_this2.$route.params.id), []);
+              case 2:
+                res = _context2.sent;
+                _this2.form = res.data;
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    if (this.$route.params.id) {
+      this.getItems();
     }
   }
 });
@@ -7582,12 +7628,11 @@ var render = function render() {
     attrs: {
       type: "file",
       id: "video_file",
-      accept: "video/*",
-      required: ""
+      accept: "video/*"
     },
     on: {
       change: function change($event) {
-        return _vm.FileSelected($event, "video_file");
+        return _vm.FileSelected($event, "media_url");
       }
     }
   })]) : _vm.form.media_type === "youtube" ? _c("div", {

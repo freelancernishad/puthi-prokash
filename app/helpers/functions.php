@@ -364,33 +364,7 @@ if($width=='' && $height==''){
 
 }
 
-    function allfileupload($Image,$path,$width='',$height='',$customname='') {
 
-
-        $Y = date('Y');
-        $m = date('m');
-        $d = date('d');
-        $path = $path."$Y/$m/$d/";
-     // same file server
-        if (!file_exists(env('FILE_PATH').$path)) {
-            File::makeDirectory(env('FILE_PATH').$path, 0777, true, true);
-        }
-        $position = strpos($Image, ';');
-        $sub = substr($Image, 0, $position);
-        $ext = explode('/', $sub)[1];
-        $random = rand(10000,99999);
-        if($customname!=''){
-        $name = time().'____'.$customname.'.'.$ext;
-        }else{
-        $name = time().'____'.$random.'.'.$ext;
-        }
-        $upload_path = $path;
-        $image_url = $upload_path.$name;
-
-
-
-    
-    }
 
 
 

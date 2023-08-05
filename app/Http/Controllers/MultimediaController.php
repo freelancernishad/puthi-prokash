@@ -16,7 +16,7 @@ class MultimediaController extends Controller
 
     public function store(Request $request)
     {
-        return $request->all();
+        // return $request->all();
 
         $request->validate([
             'title' => 'required',
@@ -27,25 +27,19 @@ class MultimediaController extends Controller
             'title'=>$request->title,
             'media_type'=>$request->media_type,
         ];
-
-
-
-        if ($request->hasFile('video_file')) {
-
-            $file = $request->file('video_file');
+        if ($request->hasFile('media_url')) {
+            $file = $request->file('media_url');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('attachments', $fileName, 'public');
-            return $filePath;
-
-                die();
+            $Y = date('Y');
+            $m = date('m');
+            $d = date('d');
+            $path = "uploaded/multimedia/"."$Y/$m/$d";
+            $file->move(public_path($path), $fileName);
+            $data['media_url'] =   "$path/$fileName";
         }else{
             $data['media_url'] =   $request->media_url;
-
         }
-
-
         $multimedia = Multimedia::create($data);
-
         return response()->json(['message' => 'Multimedia created successfully', 'multimedia' => $multimedia], 201);
     }
 
@@ -57,14 +51,31 @@ class MultimediaController extends Controller
 
     public function update(Request $request, $id)
     {
+       
         $request->validate([
             'title' => 'required',
             'media_type' => 'required|in:video,youtube',
-            'media_url' => 'required_if:media_type,video|url',
+            // 'media_url' => 'required_if:media_type,video|url',
         ]);
+        $data = [
+            'title'=>$request->title,
+            'media_type'=>$request->media_type,
+        ];
+        if ($request->hasFile('media_url')) {
+            $file = $request->file('media_url');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $Y = date('Y');
+            $m = date('m');
+            $d = date('d');
+            $path = "uploaded/multimedia/"."$Y/$m/$d";
+            $file->move(public_path($path), $fileName);
+            $data['media_url'] =   "$path/$fileName";
+        }else{
+            $data['media_url'] =   $request->media_url;
+        }
 
         $multimedia = Multimedia::findOrFail($id);
-        $multimedia->update($request->all());
+        $multimedia->update($data);
 
         return response()->json(['message' => 'Multimedia updated successfully', 'multimedia' => $multimedia], 200);
     }

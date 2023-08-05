@@ -18,7 +18,7 @@
 
         <div class="form-group" v-if="form.media_type === 'video'">
             <label for="video_file">Upload Video:</label>
-            <input type="file" @change="FileSelected($event,'video_file')" id="video_file" class="form-control" accept="video/*" required />
+            <input type="file" @change="FileSelected($event,'media_url')" id="video_file" class="form-control" accept="video/*" />
         </div>
 
         <div class="form-group" v-else-if="form.media_type === 'youtube'">
@@ -39,31 +39,58 @@
         form: {
           title: '',
           media_type: 'video',
-          video_file: '',
           media_url: '',
         },
       };
     },
     methods: {
       async submitForm() {
-
         const formData = new FormData();
         formData.append('title', this.form.title);
         formData.append('media_type', this.form.media_type);
-        formData.append('video_file', this.form.video_file);
         formData.append('media_url', this.form.media_url);
 
+        var updateInsertApi = '';
+        var Method = '';
 
-        var res = await this.callApi('post',`/api/multimedia`,formData,{'Content-Type': 'multipart/form-data' });
-        console.log(res)
+        if(this.$route.params.id){
+            updateInsertApi = `/api/multimedia/${this.$route.params.id}`;
+            Method = 'post';
+        }else{
+            updateInsertApi = `/api/multimedia`;
+            Method = 'post';
+        }
+        var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData,{'Content-Type': 'multipart/form-data' });
+
+        if(res.status==200){
+            Notification.customSuccess(`Multimedia Updated Successfull`);
+            this.$router.push({name:'multimediaIndex'});
+        }else if(res.status==201){
+            Notification.customSuccess(`Multimedia Created Successfull`);
+            this.$router.push({name:'multimediaIndex'});
+        }else{
+            Notification.customError(`Something want wrong!`);
+            this.errors = res.data.errors
+        }
       },
 
       FileSelected($event, parent_index) {
         this.form[parent_index] = $event.target.files[0];
         },
 
+        async getItems(){
+            var res = await this.callApi('get',`/api/multimedia/${this.$route.params.id}`,[])
+            this.form = res.data
+        },
 
 
+
+
+    },
+    mounted() {
+        if(this.$route.params.id){
+            this.getItems();
+        }
     },
   };
   </script>

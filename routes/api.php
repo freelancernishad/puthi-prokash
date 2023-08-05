@@ -167,7 +167,16 @@ Route::get('get/gallery/for/editor', [GalleryController::class,'forEditorImage']
 Route::apiResource('settings', SettingController::class);
 Route::apiResource('feature-categories', FeatureCategoryController::class);
 Route::apiResource('pages', PageController::class);
-Route::apiResource('multimedia', MultimediaController::class);
+// Route::apiResource('multimedia', MultimediaController::class);
+
+
+Route::get('multimedia', [MultimediaController::class,'index']);
+Route::get('multimedia/{id}', [MultimediaController::class,'show']);
+Route::post('multimedia', [MultimediaController::class,'store']);
+Route::post('multimedia/{id}', [MultimediaController::class,'update']);
+Route::delete('multimedia/{id}', [MultimediaController::class,'destroy']);
+
+
 Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
 
 

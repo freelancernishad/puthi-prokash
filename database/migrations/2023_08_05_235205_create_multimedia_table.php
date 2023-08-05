@@ -18,7 +18,7 @@ class CreateMultimediaTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('media_type')->default('video'); // 'video' or 'youtube'
-            $table->string('media_url'); // For 'video', store the video file path. For 'youtube', store the YouTube embed link.
+            $table->text('media_url'); // For 'video', store the video file path. For 'youtube', store the YouTube embed link.
             $table->timestamps();
         });
     }

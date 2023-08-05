@@ -89,14 +89,13 @@ export default {
                 this.$router.push({name:'galleryIndex'});
             }else if(res.status==201){
                 Notification.customSuccess(`Gallery Created Successfull`);
-
                 this.$router.push({name:'galleryimages',params:{id:res.data.id}});
-
-
             }else{
                 Notification.customError(`Something want wrong!`);
                 this.errors = res.data.errors
             }
+
+
         }
     },
     mounted(){

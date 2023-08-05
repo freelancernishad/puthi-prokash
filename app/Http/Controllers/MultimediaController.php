@@ -16,6 +16,7 @@ class MultimediaController extends Controller
 
     public function store(Request $request)
     {
+        return $request->all();
 
         $request->validate([
             'title' => 'required',
@@ -36,14 +37,7 @@ class MultimediaController extends Controller
             $filePath = $file->storeAs('attachments', $fileName, 'public');
             return $filePath;
 
-        }
-
-
-
-
-
                 die();
-
         }else{
             $data['media_url'] =   $request->media_url;
 

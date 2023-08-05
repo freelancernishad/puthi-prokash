@@ -46,7 +46,15 @@
     },
     methods: {
       async submitForm() {
-        var res = await this.callApi('post',`/api/multimedia`,this.form,{'Content-Type': 'multipart/form-data' });
+
+        const formData = new FormData();
+        formData.append('title', this.form.title);
+        formData.append('media_type', this.form.media_type);
+        formData.append('video_file', this.form.video_file);
+        formData.append('media_url', this.form.media_url);
+
+
+        var res = await this.callApi('post',`/api/multimedia`,formData,{'Content-Type': 'multipart/form-data' });
         console.log(res)
       },
 

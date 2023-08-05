@@ -3705,19 +3705,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     submitForm: function submitForm() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
+        var formData, res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.callApi('post', "/api/multimedia", _this.form, {
+                formData = new FormData();
+                formData.append('title', _this.form.title);
+                formData.append('media_type', _this.form.media_type);
+                formData.append('video_file', _this.form.video_file);
+                formData.append('media_url', _this.form.media_url);
+                _context.next = 7;
+                return _this.callApi('post', "/api/multimedia", formData, {
                   'Content-Type': 'multipart/form-data'
                 });
-              case 2:
+              case 7:
                 res = _context.sent;
                 console.log(res);
-              case 4:
+              case 9:
               case "end":
                 return _context.stop();
             }

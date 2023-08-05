@@ -82,6 +82,7 @@
         "swiper": "^5.4.5",
         "tinymce": "^6.4.2",
         "tooltip.js": "^1.3.3",
+        "transliteration": "^2.3.5",
         "vue-awesome-swiper": "^4.1.1",
         "vue-barcode": "^1.3.0",
         "vue-chartjs": "^4.1.0",

@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex'
+import { slugify } from 'transliteration';
 export default {
     data(){
         return {
@@ -29,7 +30,15 @@ export default {
 
     methods: {
 
-
+        createSlug(title) {
+            let slug = slugify(title, {
+                lowercase: true,
+                separator: '-'
+            });
+            slug = slug.replace(/[^\w\s-]/g, '');
+            // this.form.slug = slug
+            return slug;
+        },
         async getGalleryImages(){
             var res = await this.callApi('get',`/api/get/gallery/for/editor`,[]);
             console.log(res)
@@ -79,11 +88,6 @@ export default {
             }
         },
 
-
-        makeSug(str=''){
-
-            return str.replace(" ", "-");
-        },
 
 
 

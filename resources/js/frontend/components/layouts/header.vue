@@ -119,8 +119,8 @@
                 <ul class="DownItems list-unstyled" style="list-style: inside;">
                     <li><router-link :to="{name:'pages',params:{slug:'amader-kotah'}}" class="text-dark">আমাদের কথা</router-link></li>
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'academic-books'}}" class="text-dark">একাডেমিক বই</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'creative-book'}}" class="text-dark">সৃজনশীল বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'ekaaddemik-bi'}}" class="text-dark">একাডেমিক বই</router-link></li>
+                    <li><router-link :to="{name:'categoryProduct',params:{category:'srjnshiil-bi'}}" class="text-dark">সৃজনশীল বই</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
 
                 </ul>
@@ -199,16 +199,6 @@
                     </li>
 
 
-<!--
-
-                    <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center">
-                <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
-                <ul class="DownItems list-unstyled"  style="list-style: inside;">
-                    <li>বাংলা</li>
-                    <li>English</li>
-                </ul>
-              </li> -->
-
 
 
 
@@ -235,65 +225,7 @@
         <div class="row">
             <div class="col-md-12 mt-2">
                 <ul class="nav row mt-2 row-cols-3 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 row-cols-xl-5" style="margin-left: -7px;">
-                    <li class="nav-item  col"><router-link to="/product/cat1" class="nav-link">শ্রেষ্ঠ প্রবন্ধ সিরিজ</router-link></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ক্রীড়াজগৎ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">নির্বাচিত প্রবন্ধ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">শিশু-কিশোর</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">শ্রেষ্ঠ কবিতা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">বিবিধ সমগ্র</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">গবেষণা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">উপন্যাস</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ভৌতিক গল্প</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ সংকলন</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কাব্য সমালোচনা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কমিকস্</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ভাষা আন্দোলন</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">অভিধান</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">জীবনী গ্রন্থমালা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">নাটক</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">গণিত ও বিজ্ঞান</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">প্যারাসাইকোলজি</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সাহিত্যসমালোচনা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">জীবন দর্শন</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">আন্তর্জাতিক রাজনীতি</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর উপন্যাস</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ব্যক্তিত্ব</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">বইমেলা ২০২২</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">শিক্ষা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সমাজ সংস্কৃতি রাজনীতি</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">শিশু-শিক্ষা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ধর্মবিষয়ক</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ভ্রমণ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রচনাবলি</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কবিতা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">মুক্তিযুদ্ধ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সম্পাদিত গ্রন্থ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">প্রবন্ধ-নিবন্ধ-গবেষণা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রেফারেন্স/চিরায়ত</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রবীন্দ্র-নজরুল</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">বঙ্গবন্ধু : নানাপ্রসঙ্গ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">অনুবাদ গ্রন্থ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ভাষা ও সাহিত্য</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">আত্মজীবনী/স্মৃতিকথা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সম্মাননা সংকলন/স্মরণগ্রন্থ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">গণমাধ্যম ও চলচ্চিত্র</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">স্বাস্থ্য ও চিকিৎসা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">গল্প</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">বিজ্ঞান/সাধারণ জ্ঞান</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সাক্ষাৎকার/নাটক</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">প্রকৃতি ও পরিবেশ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ইতিহাস</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রম্যরচনা</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রান্না</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর গল্প</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">কিশোর রহস্য</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">শিশিলিন কিশোর গোয়েন্দা সিরিজ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">গোয়েন্দা কাহিনি</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">রূপকথা সিরিজ</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ভৌতিক উপন্যাস</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">সায়েন্স ফিকশন</a></li>
-                    <li class="nav-item  col"><a href="#" class="nav-link">ক্যারিয়ার</a></li>
+                    <li class="nav-item  col" v-for="(srjnshiilBi,index) in srjnshiilBis" :key="'srjnshiilBis'+index"><router-link :to="{name:'Products',query:{category:srjnshiilBi.id}}" class="nav-link">{{ srjnshiilBi.name }}</router-link></li>
                 </ul>
             </div>
         </div>
@@ -406,6 +338,7 @@ document.head.appendChild(style);
                 search:''
             },
             loginStatus:false,
+            srjnshiilBis:{},
 
         }
     },
@@ -585,7 +518,15 @@ document.head.appendChild(style);
       }
     }
 
-    }
+    },
+
+
+    async srjnshiilBi(){
+        var res = await this.callApi('get',`/api/category/list/srjnshiil-bi`,[]);
+        this.srjnshiilBis = res.data.children;
+
+    },
+
 
 
     },
@@ -600,7 +541,7 @@ document.head.appendChild(style);
             this.resizeWindow();
         });
 
-
+this.srjnshiilBi();
 
 
 

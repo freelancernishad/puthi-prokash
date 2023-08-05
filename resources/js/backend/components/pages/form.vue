@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Page Name</label>
-                                        <input type="text" class="form-control" v-model="form.page_name">
+                                        <input type="text" class="form-control" v-model="form.page_name" @keyup="makeSlug(form.page_name)">
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('page_name')" v-for="name in errors.page_name" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Page Slug</label>
-                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <input type="text" class="form-control" v-model="form.slug" disabled>
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
@@ -97,6 +97,9 @@ export default {
         }
     },
     methods: {
+        makeSlug(name){
+            this.form.slug = this.createSlug(name);
+        },
 
         async getItems(){
             var res = await this.callApi('get',`/api/pages/${this.$route.params.id}`,[])

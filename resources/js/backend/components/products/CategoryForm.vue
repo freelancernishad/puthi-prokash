@@ -15,7 +15,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Category Name</label>
-                                        <input type="text" class="form-control" v-model="form.name">
+                                        <input type="text" class="form-control" v-model="form.name" @keyup="makeSlug(form.name)">
 
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('name')" v-for="name in errors.name" :key="name">{{ name }}</span>
                                         <!-- <Fromerror Fieldname="name"/> -->
@@ -25,7 +25,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Category Slug</label>
-                                        <input type="text" class="form-control" v-model="form.slug">
+                                        <input type="text" class="form-control" v-model="form.slug" disabled>
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('slug')" v-for="name in errors.slug" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
@@ -63,7 +63,9 @@ export default {
         }
     },
     methods: {
-
+        makeSlug(name){
+            this.form.slug = this.createSlug(name);
+        },
 
         async getList(){
             var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])

@@ -4271,6 +4271,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    makeSlug: function makeSlug(name) {
+      this.form.slug = this.createSlug(name);
+    },
     getList: function getList() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -8314,6 +8317,9 @@ var render = function render() {
       value: _vm.form.name
     },
     on: {
+      keyup: function keyup($event) {
+        return _vm.makeSlug(_vm.form.name);
+      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.$set(_vm.form, "name", $event.target.value);
@@ -8341,7 +8347,8 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
-      type: "text"
+      type: "text",
+      disabled: ""
     },
     domProps: {
       value: _vm.form.slug

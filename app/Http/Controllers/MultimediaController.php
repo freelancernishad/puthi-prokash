@@ -18,11 +18,6 @@ class MultimediaController extends Controller
     {
         // return $request->all();
 
-        $request->validate([
-            'title' => 'required',
-            'media_type' => 'required|in:video,youtube',
-            // 'media_url' => 'required_if:media_type,video|url',
-        ]);
         $data = [
             'title'=>$request->title,
             'media_type'=>$request->media_type,
@@ -51,7 +46,7 @@ class MultimediaController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $request->validate([
             'title' => 'required',
             'media_type' => 'required|in:video,youtube',

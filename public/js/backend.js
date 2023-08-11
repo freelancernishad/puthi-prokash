@@ -3722,12 +3722,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   updateInsertApi = "/api/multimedias";
                   Method = 'post';
                 }
-                _context.next = 9;
+                if (!(_this.form.media_type == 'video')) {
+                  _context.next = 13;
+                  break;
+                }
+                _context.next = 10;
                 return _this.callApi("".concat(Method), "".concat(updateInsertApi), formData, {
                   'Content-Type': 'multipart/form-data'
                 });
-              case 9:
+              case 10:
                 res = _context.sent;
+                _context.next = 16;
+                break;
+              case 13:
+                _context.next = 15;
+                return _this.callApi("".concat(Method), "".concat(updateInsertApi), formData);
+              case 15:
+                res = _context.sent;
+              case 16:
                 if (res.status == 200) {
                   Notification.customSuccess("Multimedia Updated Successfull");
                   _this.$router.push({
@@ -3742,7 +3754,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   Notification.customError("Something want wrong!");
                   _this.errors = res.data.errors;
                 }
-              case 11:
+              case 17:
               case "end":
                 return _context.stop();
             }

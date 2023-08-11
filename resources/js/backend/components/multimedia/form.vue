@@ -60,7 +60,15 @@
             updateInsertApi = `/api/multimedias`;
             Method = 'post';
         }
-        var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData,{'Content-Type': 'multipart/form-data' });
+
+        if(this.form.media_type=='video'){
+
+            var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData,{'Content-Type': 'multipart/form-data' });
+        }else{
+            var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData);
+
+        }
+
 
         if(res.status==200){
             Notification.customSuccess(`Multimedia Updated Successfull`);

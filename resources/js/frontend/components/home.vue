@@ -97,11 +97,11 @@
           </div> -->
 
           <div class="d-flex gap-3 justify-content-center flex-wrap mt-4 text-center">
-            <router-link v-for="(academicbooksChild,slNo) in firstLineItems" :key="'academicbooksChild1'+slNo" :to="{name:'Products',query:{category:academicbooksChild.id}}" class="border border-dark btn fs-5 px-4 rounded-0 text-white">{{ academicbooksChild.category.name }}</router-link>
+            <router-link v-for="(academicbooksChild,slNo) in firstLineItems" :key="'academicbooksChild1'+slNo" :to="{name:'Products',query:{category:academicbooksChild.category.id}}" class="border border-dark btn fs-5 px-4 rounded-0 text-white">{{ academicbooksChild.category.name }}</router-link>
           </div>
 
           <div class="d-flex gap-3 justify-content-center flex-wrap mt-4 text-center">
-            <router-link v-for="(academicbooksChild,slNo) in secondLineItems" :key="'academicbooksChild2'+slNo" :to="{name:'Products',query:{category:academicbooksChild.id}}" class="border border-dark btn fs-5 px-4 rounded-0 text-white">{{ academicbooksChild.category.name }}</router-link>
+            <router-link v-for="(academicbooksChild,slNo) in secondLineItems" :key="'academicbooksChild2'+slNo" :to="{name:'Products',query:{category:academicbooksChild.category.id}}" class="border border-dark btn fs-5 px-4 rounded-0 text-white">{{ academicbooksChild.category.name }}</router-link>
           </div>
 
         </div>

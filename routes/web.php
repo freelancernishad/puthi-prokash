@@ -63,7 +63,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
 });
 Route::get('/{vue_capture?}', function () {
 
-     $categories = Category::orderBy('id','desc')->get();
+     $categories = Category::orderBy('id','desc')->limit(10)->get();
      $sliders = Slider::orderBy('order','asc')->get();
      $settings = Setting::firstOrFail();
      return view('frontlayout',compact('categories','sliders','settings'));

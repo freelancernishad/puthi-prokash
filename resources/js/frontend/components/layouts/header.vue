@@ -121,7 +121,7 @@
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'ekaaddemik-bi'}}" class="text-dark">একাডেমিক বই</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'srjnshiil-bi'}}" class="text-dark">সৃজনশীল বই</router-link></li>
-                    <li><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
+                    <li><router-link :to="{name:'multimedia'}" class="text-dark">মাল্টিমিডিয়া</router-link></li>
 
                 </ul>
 
@@ -208,7 +208,7 @@
                     <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
 
 
-                    <li class="nav-item  col  d-flex align-items-baseline"><router-link :to="{name:'categoryProduct',params:{category:'multimedia'}}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">মাল্টিমিডিয়া</router-link></li>
+                    <li class="nav-item  col  d-flex align-items-baseline"><router-link :to="{name:'multimedia'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">মাল্টিমিডিয়া</router-link></li>
                 </ul>
 
 

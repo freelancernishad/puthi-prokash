@@ -24,7 +24,7 @@
                                 <td><img :src="$asseturl+list.image" width="50px" alt=""></td>
                                 <td>
                                     <router-link class="btn btn-info" :to="{name:'sliderEdit',params:{id:list.id}}">Edit</router-link>
-                                    <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this slider',`/api/galleries/${list.id}`,'Slider Deleted',getLists)">Delete</button>
+                                    <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this slider',`/api/sliders/${list.id}`,'Slider Deleted',getLists)">Delete</button>
 
                                 </td>
                             </tr>

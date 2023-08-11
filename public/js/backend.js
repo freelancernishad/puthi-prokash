@@ -10673,7 +10673,7 @@ var render = function render() {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
-          return _vm.DeleteAction("Are you sure?", "Delete this slider", "/api/galleries/".concat(list.id), "Slider Deleted", _vm.getLists);
+          return _vm.DeleteAction("Are you sure?", "Delete this slider", "/api/sliders/".concat(list.id), "Slider Deleted", _vm.getLists);
         }
       }
     }, [_vm._v("Delete")])], 1)]);

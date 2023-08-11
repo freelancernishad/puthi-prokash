@@ -3719,7 +3719,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   updateInsertApi = "/api/multimedia/".concat(_this.$route.params.id);
                   Method = 'post';
                 } else {
-                  updateInsertApi = "/api/multimedia";
+                  updateInsertApi = "/api/multimedias";
                   Method = 'post';
                 }
                 _context.next = 9;

@@ -57,7 +57,7 @@
             updateInsertApi = `/api/multimedia/${this.$route.params.id}`;
             Method = 'post';
         }else{
-            updateInsertApi = `/api/multimedia`;
+            updateInsertApi = `/api/multimedias`;
             Method = 'post';
         }
         var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData,{'Content-Type': 'multipart/form-data' });

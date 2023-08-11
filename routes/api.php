@@ -172,7 +172,7 @@ Route::apiResource('pages', PageController::class);
 
 Route::get('multimedia', [MultimediaController::class,'index']);
 Route::get('multimedia/{id}', [MultimediaController::class,'show']);
-Route::post('multimedia', [MultimediaController::class,'store']);
+Route::post('multimedias', [MultimediaController::class,'store']);
 Route::post('multimedia/{id}', [MultimediaController::class,'update']);
 Route::delete('multimedia/{id}', [MultimediaController::class,'destroy']);
 

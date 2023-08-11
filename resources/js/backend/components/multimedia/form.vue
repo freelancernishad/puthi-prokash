@@ -45,10 +45,7 @@
     },
     methods: {
       async submitForm() {
-        const formData = new FormData();
-        formData.append('title', this.form.title);
-        formData.append('media_type', this.form.media_type);
-        formData.append('media_url', this.form.media_url);
+      
 
         var updateInsertApi = '';
         var Method = '';
@@ -62,10 +59,14 @@
         }
 
         if(this.form.media_type=='video'){
+            const formData = new FormData();
+            formData.append('title', this.form.title);
+            formData.append('media_type', this.form.media_type);
+            formData.append('media_url', this.form.media_url);
 
             var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData,{'Content-Type': 'multipart/form-data' });
         }else{
-            var res = await this.callApi(`${Method}`,`${updateInsertApi}`,formData);
+            var res = await this.callApi(`${Method}`,`${updateInsertApi}`,this.form);
 
         }
 

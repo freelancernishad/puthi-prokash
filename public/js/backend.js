@@ -3704,15 +3704,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     submitForm: function submitForm() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var formData, updateInsertApi, Method, res;
+        var updateInsertApi, Method, formData, res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                formData = new FormData();
-                formData.append('title', _this.form.title);
-                formData.append('media_type', _this.form.media_type);
-                formData.append('media_url', _this.form.media_url);
                 updateInsertApi = '';
                 Method = '';
                 if (_this.$route.params.id) {
@@ -3726,6 +3722,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _context.next = 13;
                   break;
                 }
+                formData = new FormData();
+                formData.append('title', _this.form.title);
+                formData.append('media_type', _this.form.media_type);
+                formData.append('media_url', _this.form.media_url);
                 _context.next = 10;
                 return _this.callApi("".concat(Method), "".concat(updateInsertApi), formData, {
                   'Content-Type': 'multipart/form-data'
@@ -3736,7 +3736,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
               case 13:
                 _context.next = 15;
-                return _this.callApi("".concat(Method), "".concat(updateInsertApi), formData);
+                return _this.callApi("".concat(Method), "".concat(updateInsertApi), _this.form);
               case 15:
                 res = _context.sent;
               case 16:

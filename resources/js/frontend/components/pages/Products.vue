@@ -12,7 +12,7 @@
 
     <Breadcrumb :pages="Breadcrumb"/>
 
-    <div class="my-4 row w-100" style="width: 102.5% !important;">
+    <div class="my-4 row w-100" style="margin: 0;">
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
 

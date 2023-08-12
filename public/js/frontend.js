@@ -6070,7 +6070,7 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4 row w-100",
     staticStyle: {
-      width: "102.5% !important"
+      margin: "0"
     }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
@@ -8226,7 +8226,7 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4 row w-100",
     staticStyle: {
-      width: "102.5% !important"
+      margin: "0"
     }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"
@@ -9412,7 +9412,7 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "my-4 row w-100",
     staticStyle: {
-      width: "102.5% !important"
+      margin: "0"
     }
   }, [_c("div", {
     staticClass: "align-items-center col-md-6 d-flex justify-content-between"

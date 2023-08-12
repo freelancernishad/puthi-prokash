@@ -47,9 +47,9 @@ let profile = require('./components/profile.vue').default;
 
 
 
-let userlist = require('./components/users/list.vue').default;
+let writerslist = require('./components/writers/list.vue').default;
+let writerslistedit = require('./components/writers/form.vue').default;
 
-let userlistedit = require('./components/users/form.vue').default;
 
 
 let Customerlist = require('./components/customers/list.vue').default;
@@ -85,9 +85,9 @@ export const routes = [
 
 
 
-  { path:  `${prefix}/user/list`, component: userlist, name:'userlist',meta: { layout: adminlayout } },
-  { path:  `${prefix}/user/list/add`, component: userlistedit, name:'userlistadd',meta: { layout: adminlayout } },
-  { path:  `${prefix}/user/list/edit/:id`, component: userlistedit, name:'userlistedit',meta: { layout: adminlayout } },
+  { path:  `${prefix}/writers/list`, component: writerslist, name:'writerslist',meta: { layout: adminlayout } },
+  { path:  `${prefix}/writers/list/add`, component: writerslistedit, name:'writerslistadd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/writers/list/edit/:id`, component: writerslistedit, name:'writerslistedit',meta: { layout: adminlayout } },
 
 
 

@@ -257,7 +257,10 @@ export default {
             }else{
 
                 this.Breadcrumb.push(
+
+
                     {'route':'','params':{},'text':this.categoris.name}
+
                     );
             }
 

@@ -61,6 +61,7 @@ Route::post('/users/password/change/{id}', [UserController::class, 'changePasswo
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::get('/users/position/{position}', [UserController::class, 'getUsersByPosition']);
 Route::post('/users/register-writer', [UserController::class, 'registerWriter']);
+Route::post('/users/update-writer/{id}', [UserController::class, 'updateWriter']);
 Route::post('/users/{user_id}/addresses', [UserController::class, 'addUserAddress']);
 
 

@@ -16,22 +16,21 @@
     </div>
 
     <div class="col-md-6 d-flex gap-5 py-2">
-        <select class="form-select" style="width: 45%;" aria-label="Default select example">
-        <option selected>বাছাইয়ের ধরণ</option>
-
-        <option value="1">  কবি</option>
-        <option value="2">সাহিত্যিক</option>
-        <option value="3">গল্পকার</option>
-        <option value="3">প্রাবন্ধিক</option>
-        <option value="3">জীবন-আদশ</option>
-        <option value="3">ধম</option>
+        <select class="form-select" v-model="userType" @change="userTypeChange" style="width: 45%;" aria-label="Default select example">
+            <option value=''>ধরণ</option>
+            <option>কবি</option>
+            <option>সাহিত্যিক</option>
+            <option>গল্পকার</option>
+            <option>প্রাবন্ধিক</option>
+            <option>জীবন-আদশ</option>
+            <option>ধম</option>
       </select>
 
 
 
 
         <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
-          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="form-control writer-search-input">
+          <input type="text" placeholder="আপনার কাঙ্ক্ষিত লেখক খুজে বের করুন" v-model="form.search" class="form-control writer-search-input">
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
 
@@ -55,32 +54,32 @@
 <div class="col-2 text-center"></div>
 <div class="col-10 text-center" >
             <div class="d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2">
-                <span class="writerFilter">a</span>
-                <span class="writerFilter">b</span>
-                <span class="writerFilter">c</span>
-                <span class="writerFilter">d</span>
-                <span class="writerFilter">e</span>
-                <span class="writerFilter">f</span>
-                <span class="writerFilter">g</span>
-                <span class="writerFilter">h</span>
-                <span class="writerFilter">i</span>
-                <span class="writerFilter">j</span>
-                <span class="writerFilter">k</span>
-                <span class="writerFilter">l</span>
-                <span class="writerFilter">m</span>
-                <span class="writerFilter">n</span>
-                <span class="writerFilter">o</span>
-                <span class="writerFilter">p</span>
-                <span class="writerFilter">q</span>
-                <span class="writerFilter">r</span>
-                <span class="writerFilter">s</span>
-                <span class="writerFilter">t</span>
-                <span class="writerFilter">u</span>
-                <span class="writerFilter">v</span>
-                <span class="writerFilter">w</span>
-                <span class="writerFilter">x</span>
-                <span class="writerFilter">y</span>
-                <span class="writerFilter">z</span>
+                <span class="writerFilter" @click="clickname('a')">a</span>
+                <span class="writerFilter" @click="clickname('b')">b</span>
+                <span class="writerFilter" @click="clickname('c')">c</span>
+                <span class="writerFilter" @click="clickname('d')">d</span>
+                <span class="writerFilter" @click="clickname('e')">e</span>
+                <span class="writerFilter" @click="clickname('f')">f</span>
+                <span class="writerFilter" @click="clickname('g')">g</span>
+                <span class="writerFilter" @click="clickname('h')">h</span>
+                <span class="writerFilter" @click="clickname('i')">i</span>
+                <span class="writerFilter" @click="clickname('j')">j</span>
+                <span class="writerFilter" @click="clickname('k')">k</span>
+                <span class="writerFilter" @click="clickname('l')">l</span>
+                <span class="writerFilter" @click="clickname('m')">m</span>
+                <span class="writerFilter" @click="clickname('n')">n</span>
+                <span class="writerFilter" @click="clickname('o')">o</span>
+                <span class="writerFilter" @click="clickname('p')">p</span>
+                <span class="writerFilter" @click="clickname('q')">q</span>
+                <span class="writerFilter" @click="clickname('r')">r</span>
+                <span class="writerFilter" @click="clickname('s')">s</span>
+                <span class="writerFilter" @click="clickname('t')">t</span>
+                <span class="writerFilter" @click="clickname('u')">u</span>
+                <span class="writerFilter" @click="clickname('v')">v</span>
+                <span class="writerFilter" @click="clickname('w')">w</span>
+                <span class="writerFilter" @click="clickname('x')">x</span>
+                <span class="writerFilter" @click="clickname('y')">y</span>
+                <span class="writerFilter" @click="clickname('z')">z</span>
             </div>
             </div>
         </section>
@@ -142,7 +141,7 @@
         <div v-else-if="writer" style="background-color: #d1d2d4;margin: 11px 0px;">
             <router-link class="text-dark" :to="{name:'Products',query:{author:writer.id}}">
             <img width="100%" :src="$asseturl+writer.image+'?v=1.0'" alt="" srcset="" class="img-fluid" />
-            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">  {{ writer.name }}</h5>
+            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">  {{ writer.nameBN }}</h5>
         </router-link>
         </div>
     </div>
@@ -165,17 +164,28 @@ export default {
             totalItems:0,
             form:{
                 search:''
-            }
+            },
+            userType:'',
+            name:'',
         }
     },
     methods: {
 
         searchItem(){
+            this.processItem();
 
-            console.log(this.$route.query.search)
-            console.log(this.form.search)
+        },
 
-            this.$router.push({name:'writer',query:{search:this.form.search}});
+
+        userTypeChange(){
+
+            this.processItem();
+        },
+
+        clickname(name){
+            this.name = name
+
+            this.processItem();
         },
 
 
@@ -195,10 +205,44 @@ export default {
 
 
        async processItem() {
-            if(this.$route.query.page) this.page = this.$route.query.page
+        var page = 1;
+
+        var apiQuery = '';
+            if(this.$route.query.page){
+                this.page = this.$route.query.page
+                apiQuery += `page=${this.$route.query.page}`
+
+            }
 
 
-            var res = await this.callApi('get',`/api/users/position/writer?page=${this.page}`,[]);
+
+
+            const query = { page: page };
+
+            if (this.name) {
+                query.name = this.name;
+                apiQuery += `&name=${this.name}`
+            }
+
+            if (this.userType) {
+                query.userType = this.userType;
+                apiQuery += `&userType=${this.userType}`
+            }
+            if (this.form.search) {
+                query.search = this.form.search;
+                apiQuery += `&search=${this.form.search}`
+            }
+
+            this.$router.push({ name: 'writer', query: query });
+
+
+
+
+
+
+
+
+            var res = await this.callApi('get',`/api/users/position/writer?${apiQuery}`,[]);
             const data = res.data.data;
 
             this.totalItems =   res.data.total

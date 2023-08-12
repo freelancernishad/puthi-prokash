@@ -4561,19 +4561,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       totalItems: 0,
       form: {
         search: ''
-      }
+      },
+      userType: '',
+      name: ''
     };
   },
   methods: {
     searchItem: function searchItem() {
-      console.log(this.$route.query.search);
-      console.log(this.form.search);
-      this.$router.push({
-        name: 'writer',
-        query: {
-          search: this.form.search
-        }
-      });
+      this.processItem();
+    },
+    userTypeChange: function userTypeChange() {
+      this.processItem();
+    },
+    clickname: function clickname(name) {
+      this.name = name;
+      this.processItem();
     },
     nextPage: function nextPage() {
       this.page = Number(this.page) + Number(1);
@@ -4598,15 +4600,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     processItem: function processItem() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res, data, totalItem, per_page, current_page, CurrentPageItem, result;
+        var page, apiQuery, query, res, data, totalItem, per_page, current_page, CurrentPageItem, result;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this.$route.query.page) _this.page = _this.$route.query.page;
-                _context.next = 3;
-                return _this.callApi('get', "/api/users/position/writer?page=".concat(_this.page), []);
-              case 3:
+                page = 1;
+                apiQuery = '';
+                if (_this.$route.query.page) {
+                  _this.page = _this.$route.query.page;
+                  apiQuery += "page=".concat(_this.$route.query.page);
+                }
+                query = {
+                  page: page
+                };
+                if (_this.name) {
+                  query.name = _this.name;
+                  apiQuery += "&name=".concat(_this.name);
+                }
+                if (_this.userType) {
+                  query.userType = _this.userType;
+                  apiQuery += "&userType=".concat(_this.userType);
+                }
+                if (_this.form.search) {
+                  query.search = _this.form.search;
+                  apiQuery += "&search=".concat(_this.form.search);
+                }
+                _this.$router.push({
+                  name: 'writer',
+                  query: query
+                });
+                _context.next = 10;
+                return _this.callApi('get', "/api/users/position/writer?".concat(apiQuery), []);
+              case 10:
                 res = _context.sent;
                 data = res.data.data;
                 _this.totalItems = res.data.total;
@@ -4636,7 +4662,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   result.push('>');
                 }
                 _this.writers = result;
-              case 16:
+              case 23:
               case "end":
                 return _context.stop();
             }
@@ -9740,7 +9766,36 @@ var render = function render() {
     staticClass: "border-3 border-bottom border-top d-inline fs-4 mb-0 px-4"
   }, [_vm._v(_vm._s(_vm.totalItems))])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 d-flex gap-5 py-2"
-  }, [_vm._m(0), _vm._v(" "), _c("form", {
+  }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.userType,
+      expression: "userType"
+    }],
+    staticClass: "form-select",
+    staticStyle: {
+      width: "45%"
+    },
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.userType = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }, _vm.userTypeChange]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("ধরণ")]), _vm._v(" "), _c("option", [_vm._v("কবি")]), _vm._v(" "), _c("option", [_vm._v("সাহিত্যিক")]), _vm._v(" "), _c("option", [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", [_vm._v("জীবন-আদশ")]), _vm._v(" "), _c("option", [_vm._v("ধম")])]), _vm._v(" "), _c("form", {
     staticClass: "d-flex",
     staticStyle: {
       width: "45%"
@@ -9762,7 +9817,7 @@ var render = function render() {
     staticClass: "form-control writer-search-input",
     attrs: {
       type: "text",
-      placeholder: "আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন"
+      placeholder: "আপনার কাঙ্ক্ষিত লেখক খুজে বের করুন"
     },
     domProps: {
       value: _vm.form.search
@@ -9773,7 +9828,7 @@ var render = function render() {
         _vm.$set(_vm.form, "search", $event.target.value);
       }
     }
-  }), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("router-link", {
+  }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("router-link", {
     staticClass: "fs-5 nav-link text-dark",
     attrs: {
       "aria-current": "page",
@@ -9786,7 +9841,197 @@ var render = function render() {
       width: "35px",
       src: _vm.$asseturl + "assets/image/cart-icon.png"
     }
-  })])], 1)])], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("section", {
+  })])], 1)])], 1), _vm._v(" "), _c("section", {
+    staticClass: "row w-100 mx-auto my-4"
+  }, [_c("div", {
+    staticClass: "col-2 text-center"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-10 text-center"
+  }, [_c("div", {
+    staticClass: "d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2"
+  }, [_c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("a");
+      }
+    }
+  }, [_vm._v("a")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("b");
+      }
+    }
+  }, [_vm._v("b")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("c");
+      }
+    }
+  }, [_vm._v("c")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("d");
+      }
+    }
+  }, [_vm._v("d")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("e");
+      }
+    }
+  }, [_vm._v("e")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("f");
+      }
+    }
+  }, [_vm._v("f")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("g");
+      }
+    }
+  }, [_vm._v("g")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("h");
+      }
+    }
+  }, [_vm._v("h")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("i");
+      }
+    }
+  }, [_vm._v("i")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("j");
+      }
+    }
+  }, [_vm._v("j")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("k");
+      }
+    }
+  }, [_vm._v("k")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("l");
+      }
+    }
+  }, [_vm._v("l")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("m");
+      }
+    }
+  }, [_vm._v("m")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("n");
+      }
+    }
+  }, [_vm._v("n")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("o");
+      }
+    }
+  }, [_vm._v("o")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("p");
+      }
+    }
+  }, [_vm._v("p")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("q");
+      }
+    }
+  }, [_vm._v("q")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("r");
+      }
+    }
+  }, [_vm._v("r")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("s");
+      }
+    }
+  }, [_vm._v("s")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("t");
+      }
+    }
+  }, [_vm._v("t")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("u");
+      }
+    }
+  }, [_vm._v("u")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("v");
+      }
+    }
+  }, [_vm._v("v")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("w");
+      }
+    }
+  }, [_vm._v("w")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("x");
+      }
+    }
+  }, [_vm._v("x")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("y");
+      }
+    }
+  }, [_vm._v("y")]), _vm._v(" "), _c("span", {
+    staticClass: "writerFilter",
+    on: {
+      click: function click($event) {
+        return _vm.clickname("z");
+      }
+    }
+  }, [_vm._v("z")])])])]), _vm._v(" "), _c("section", {
     staticClass: "row w-100 mx-auto my-4"
   }, [_c("div", {
     staticClass: "col-2 text-center"
@@ -9919,50 +10164,10 @@ var render = function render() {
       staticStyle: {
         padding: "3px 6px"
       }
-    }, [_vm._v("  " + _vm._s(writer.name))])])], 1) : _vm._e()]);
+    }, [_vm._v("  " + _vm._s(writer.nameBN))])])], 1) : _vm._e()]);
   }), 0)]);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("select", {
-    staticClass: "form-select",
-    staticStyle: {
-      width: "45%"
-    },
-    attrs: {
-      "aria-label": "Default select example"
-    }
-  }, [_c("option", {
-    attrs: {
-      selected: ""
-    }
-  }, [_vm._v("বাছাইয়ের ধরণ")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "1"
-    }
-  }, [_vm._v("  কবি")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "2"
-    }
-  }, [_vm._v("সাহিত্যিক")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("জীবন-আদশ")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("ধম")])]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("button", {
@@ -9973,70 +10178,6 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-regular fa-magnifying-glass"
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("section", {
-    staticClass: "row w-100 mx-auto my-4"
-  }, [_c("div", {
-    staticClass: "col-2 text-center"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-10 text-center"
-  }, [_c("div", {
-    staticClass: "d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2"
-  }, [_c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("a")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("b")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("c")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("d")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("e")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("f")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("g")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("h")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("i")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("j")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("k")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("l")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("m")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("n")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("o")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("p")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("q")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("r")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("s")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("t")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("u")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("v")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("w")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("x")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("y")]), _vm._v(" "), _c("span", {
-    staticClass: "writerFilter"
-  }, [_vm._v("z")])])])]);
 }];
 render._withStripped = true;
 
@@ -31089,7 +31230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 30px;\n    border: 0;\n    background: #E0E65E;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 125px;\n    height: 160px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 30px;\n    border: 0;\n    background: #e0e65ead;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 90px;\n    height: 120px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -84,7 +84,7 @@ input:focus{
     right: 0;
     top: 30px;
     border: 0;
-    background: #E0E65E;
+    background: #e0e65ead;
     padding: 5px 17px;
     border-radius: 21px;
     font-size: 21px;
@@ -100,8 +100,8 @@ input:focus{
     font-size: 20px;
 }
 .sampleBooks{
-    width: 125px;
-    height: 160px;
+    width: 90px;
+    height: 120px;
     margin: 0 6px;
 }
 

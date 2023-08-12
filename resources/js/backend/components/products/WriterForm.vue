@@ -10,19 +10,25 @@
 
             <form class="row" @submit.stop.prevent="onSubmit">
 
-                <div class="form-group col-md-6">
-                <label for="">নাম</label>
-                <input type="text" v-model="form.name" class="form-control" placeholder="" aria-describedby="helpId">
-                </div>
-
-
-
 
                 <div class="form-group col-md-6">
+          <label for="">নাম (বাংলা)</label>
+          <input type="text" v-model="form.nameBN" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="">নাম (ইংলিশ্‌)</label>
+          <input type="text" v-model="form.name" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+
+
+
+                <!-- <div class="form-group col-md-6">
                 <label for="">ইমেইল</label>
                 <input type="text" v-model="form.email" class="form-control" placeholder="" aria-describedby="helpId">
                 </div>
-
+ -->
 
                 <div class="form-group col-md-6">
                 <label for="">মোবাইল নাম্বার</label>
@@ -56,6 +62,7 @@ export default {
             form:{
                 id:null,
                 name:'',
+                nameBN:'',
                 email:null,
                 phone:'',
                 password:'12345678',

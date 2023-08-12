@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserAddress;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\UserAddress;
 
 class UserController extends Controller
 {
@@ -122,10 +123,38 @@ class UserController extends Controller
             return 'not accessable position';
         }
         if($type=='all'){
-            $users = User::where('position', $position)->get();
+            $users = User::where('position', $position)->orderBy('id','desc')->get();
             return response()->json($users, 200);
         }
-        $users = User::where('position', $position)->paginate(21);
+
+
+        $userType =$request->userType;
+        $name =$request->name;
+        $search =$request->search;
+        $query = User::where('position', $position);
+
+        if ($userType) {
+            $query->where('type', $userType);
+        }
+
+        if ($name) {
+            $query->where('name', 'LIKE', '%' . $name . '%');
+        }
+        if ($search) {
+            $query->where(function($subQuery) use ($search) {
+                $subQuery->where('name', 'LIKE', '%' . $search . '%')
+                         ->orWhere('nameBN', 'LIKE', '%' . $search . '%');
+            });
+        }
+
+        $users = $query->orderBy('id','desc')->paginate(21);
+
+
+
+
+
+
+
         return response()->json($users, 200);
     }
 
@@ -133,15 +162,40 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
+            'nameBN' => 'required',
 
+        ]);
         $user = new User();
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->nameBN = $request->nameBN;
+        $user->type = $request->type;
+        $user->email = Str::random(3).time()."@puthiprokash.com";
+        $user->password = Hash::make(Str::random(20).time());
+        // $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
         $user->position = 'writer';
+        $image = $request->image;
+        $featured = '';
+        $imageCount =  count(explode(';', $image));
+        if ($imageCount > 1) {
+            $featured =   fileupload($image, "uploaded/user/writer/");
+            $user->image = $featured;
+        }
+        $user->save();
+        return response()->json($user, 201);
+    }
+
+    public function updateWriter(Request $request,$id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'nameBN' => 'required',
+
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->nameBN = $request->nameBN;
+        $user->type = $request->type;
 
         $image = $request->image;
         $featured = '';
@@ -150,13 +204,8 @@ class UserController extends Controller
             $featured =   fileupload($image, "uploaded/user/writer/");
             $user->image = $featured;
         }
-
-
-
-
         $user->save();
-
-        return response()->json($user, 201);
+        return response()->json($user, 200);
     }
 
 

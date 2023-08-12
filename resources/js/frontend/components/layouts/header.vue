@@ -58,8 +58,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul
-              class="navbar-nav ms-auto justify-content-end align-items-center" style="margin-right: -44px;"
-            >
+              class="navbar-nav ms-auto justify-content-end align-items-center">
               <li class="nav-item">
                 <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
                   <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>

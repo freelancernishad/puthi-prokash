@@ -5504,10 +5504,7 @@ var render = function render() {
       id: "navbarNavDropdown"
     }
   }, [_c("ul", {
-    staticClass: "navbar-nav ms-auto justify-content-end align-items-center",
-    staticStyle: {
-      "margin-right": "-44px"
-    }
+    staticClass: "navbar-nav ms-auto justify-content-end align-items-center"
   }, [_c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {

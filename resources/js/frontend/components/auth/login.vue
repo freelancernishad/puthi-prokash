@@ -6,17 +6,17 @@
                 <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
                     <form @submit.prevent="login" class="loginForm">
                         <div class="form">
-                            <h1 class="text-center mb-5">লগইন</h1>
+                            <h1 class="text-center mb-5">Login</h1>
                             <div class="form-item" id="inputEmail">
                                 <input type="text" id="email" v-model="form.email" @blur="blur('email')"
                                     @input="blur('email')" autocomplete="on" required />
-                                <label for="Email">ইমেইল</label>
+                                <label for="Email">Email</label>
                             </div>
 
                             <div class="form-item">
                                 <input type="password" id="password" v-model="form.password" @blur="blur('password')"
                                     @input="blur('password')" autocomplete="off" required />
-                                <label for="password">পাসওয়ার্ড</label>
+                                <label for="password">Password</label>
                             </div>
                         </div>
 
@@ -26,11 +26,11 @@
                                 <input class="form-check-input me-2" type="checkbox" v-model="rememberme"
                                     id="form2Example3" />
                                 <label class="form-check-label" for="form2Example3">
-                                    মনে রাখুন
+                                    Remember me
                                 </label>
                             </div>
 
-                            <a class="btn btn-link" href="/password/reset">পাসওয়ার্ড ভুলে গেছেন?</a>
+                            <!-- <a class="btn btn-link" href="/password/reset">for?</a> -->
 
 
                         </div>
@@ -38,7 +38,7 @@
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="submit" class="btn btn-primary btn-lg" v-if="!loadLogin"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem">
-                                লগইন করুন
+                                Login
                             </button>
 
                             <span class="btn btn-primary btn-lg" v-else
@@ -46,11 +46,11 @@
                         </div>
 
 
-                        <div class="text-center mt-3">
+                        <!-- <div class="text-center mt-3">
                                     <img width="50px" :src="$asseturl+'assets/img/bangladesh-govt.png'" alt="">
                                     <h4 style="margin: 0;    margin-top: 10px;">উপজেলা প্রশাসন</h4>
                                     তেঁতুলিয়া, পঞ্চগড়।
-								</div>
+								</div> -->
 
                     </form>
 

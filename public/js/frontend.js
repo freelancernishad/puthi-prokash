@@ -4812,7 +4812,7 @@ var render = function render() {
     staticClass: "form"
   }, [_c("h1", {
     staticClass: "text-center mb-5"
-  }, [_vm._v("লগইন")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Login")]), _vm._v(" "), _c("div", {
     staticClass: "form-item",
     attrs: {
       id: "inputEmail"
@@ -4848,7 +4848,7 @@ var render = function render() {
     attrs: {
       "for": "Email"
     }
-  }, [_vm._v("ইমেইল")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Email")])]), _vm._v(" "), _c("div", {
     staticClass: "form-item"
   }, [_c("input", {
     directives: [{
@@ -4881,7 +4881,7 @@ var render = function render() {
     attrs: {
       "for": "password"
     }
-  }, [_vm._v("পাসওয়ার্ড")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Password")])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("div", {
     staticClass: "form-check mb-0"
@@ -4923,12 +4923,7 @@ var render = function render() {
     attrs: {
       "for": "form2Example3"
     }
-  }, [_vm._v("\n                                    মনে রাখুন\n                                ")])]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-link",
-    attrs: {
-      href: "/password/reset"
-    }
-  }, [_vm._v("পাসওয়ার্ড ভুলে গেছেন?")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                    Remember me\n                                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "text-center text-lg-start mt-4 pt-2"
   }, [!_vm.loadLogin ? _c("button", {
     staticClass: "btn btn-primary btn-lg",
@@ -4939,26 +4934,13 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                                লগইন করুন\n                            ")]) : _c("span", {
+  }, [_vm._v("\n                                Login\n                            ")]) : _c("span", {
     staticClass: "btn btn-primary btn-lg",
     staticStyle: {
       "padding-left": "2.5rem",
       "padding-right": "2.5rem"
     }
-  }, [_vm._v("Looding.....")])]), _vm._v(" "), _c("div", {
-    staticClass: "text-center mt-3"
-  }, [_c("img", {
-    attrs: {
-      width: "50px",
-      src: _vm.$asseturl + "assets/img/bangladesh-govt.png",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("h4", {
-    staticStyle: {
-      margin: "0",
-      "margin-top": "10px"
-    }
-  }, [_vm._v("উপজেলা প্রশাসন")]), _vm._v("\n                                    তেঁতুলিয়া, পঞ্চগড়।\n\t\t\t\t\t\t\t\t")])])])])])]);
+  }, [_vm._v("Looding.....")])])])])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -31230,7 +31212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 0;\n    top: 30px;\n    border: 0;\n    background: #e0e65ead;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 90px;\n    height: 120px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 24px;\n    top: 30px;\n    border: 0;\n    background: #e0e65ead;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 90px;\n    height: 120px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n}\n.modal-container img {\n  max-width: 100%;\n  max-height: 100%;\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

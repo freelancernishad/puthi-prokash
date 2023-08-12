@@ -81,7 +81,7 @@ input:focus{
 }
 .singleProductCollectedButton {
     position: absolute;
-    right: 0;
+    right: 24px;
     top: 30px;
     border: 0;
     background: #e0e65ead;

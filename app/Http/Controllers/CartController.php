@@ -141,4 +141,15 @@ class CartController extends Controller
 
             return response()->json(['message' => 'Cart emptied successfully']);
         }
+
+
+        public function getCartQuantity($user_id)
+        {
+            $cartQuantity = Cart::where('user_id', $user_id)->sum('quantity');
+
+            return response()->json(['cart_quantity' => $cartQuantity]);
+        }
+
+
+
 }

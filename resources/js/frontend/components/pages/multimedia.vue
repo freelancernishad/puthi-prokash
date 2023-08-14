@@ -18,14 +18,14 @@
     <div class="col-md-6 d-flex gap-5 py-2">
 
         <form class="d-flex" style="width: 90%;" @submit.stop.prevent="searchItem">
-          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="form-control writer-search-input">
+          <input type="text" placeholder="আপনার কাঙ্খিত বই খুঁজুন" v-model="form.search" class="form-control writer-search-input">
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
 
 
 
-        <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
-                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+        <router-link class="fs-5 nav-link text-dark position-relative" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity2">{{ getCartQuantity  }}</span>
                 </router-link>
 
 

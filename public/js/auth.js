@@ -2171,9 +2171,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       Routename: '',
       Routeparams: {},
       errors: {}
+      //   CartQuantity:0,
     };
   },
+
   methods: {
+    fetchCartQuantity: function fetchCartQuantity() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res, fetchedQuantity;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApi('get', "/api/cart/quantity/".concat(_this.$localStorage.getItem('userid')), []);
+              case 2:
+                res = _context.sent;
+                fetchedQuantity = res.data.cart_quantity;
+                _this.$store.commit('setCartQuantity', fetchedQuantity);
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     createSlug: function createSlug(title) {
       var slug = (0,transliteration__WEBPACK_IMPORTED_MODULE_0__.slugify)(title, {
         lowercase: true,
@@ -2184,28 +2208,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return slug;
     },
     getGalleryImages: function getGalleryImages() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return _this.callApi('get', "/api/get/gallery/for/editor", []);
-              case 2:
-                res = _context.sent;
-                console.log(res);
-                _this.tinyInt.image_list = res.data;
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    addToCart: function addToCart(form) {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
@@ -2213,18 +2215,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                form['user_id'] = _this2.$localStorage.getItem('userid');
-                _context2.next = 3;
-                return _this2.callApi('post', "/api/cart", form);
-              case 3:
+                _context2.next = 2;
+                return _this2.callApi('get', "/api/get/gallery/for/editor", []);
+              case 2:
                 res = _context2.sent;
-                Notification.customSuccess("Added to cart");
+                console.log(res);
+                _this2.tinyInt.image_list = res.data;
               case 5:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    addToCart: function addToCart(form) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                form['user_id'] = _this3.$localStorage.getItem('userid');
+                _context3.next = 3;
+                return _this3.callApi('post', "/api/cart", form);
+              case 3:
+                res = _context3.sent;
+                Notification.customSuccess("Added to cart");
+                _this3.fetchCartQuantity();
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     },
     openModal: function openModal(img) {
@@ -2242,15 +2267,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     callApi: function callApi(method, url, dataObj) {
       var _arguments = arguments;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var headers;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 headers = _arguments.length > 3 && _arguments[3] !== undefined ? _arguments[3] : {};
-                _context3.prev = 1;
-                _context3.next = 4;
+                _context4.prev = 1;
+                _context4.next = 4;
                 return axios({
                   method: method,
                   url: url,
@@ -2258,57 +2283,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   headers: headers
                 });
               case 4:
-                return _context3.abrupt("return", _context3.sent);
+                return _context4.abrupt("return", _context4.sent);
               case 7:
-                _context3.prev = 7;
-                _context3.t0 = _context3["catch"](1);
-                return _context3.abrupt("return", _context3.t0.response);
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](1);
+                return _context4.abrupt("return", _context4.t0.response);
               case 10:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, null, [[1, 7]]);
+        }, _callee4, null, [[1, 7]]);
       }))();
     },
     callApiPaginate: function callApiPaginate(url, page) {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
         var res;
-        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.next = 2;
-                return _this3.callApi('get', "".concat(url), []);
+                _context5.next = 2;
+                return _this4.callApi('get', "".concat(url), []);
               case 2:
-                res = _context4.sent;
-                _this3.PaginateRows = res.data.per_page;
-                _this3.Totalrows = res.data.total;
-                _this3.Totalpage = res.data.links;
-                _this3.PerPageData = res.data.per_page;
-                _this3.Routename = 'categoryIndex';
-                _this3.Routeparams = {};
+                res = _context5.sent;
+                _this4.PaginateRows = res.data.per_page;
+                _this4.Totalrows = res.data.total;
+                _this4.Totalpage = res.data.links;
+                _this4.PerPageData = res.data.per_page;
+                _this4.Routename = 'categoryIndex';
+                _this4.Routeparams = {};
                 if (page == 1) {
-                  _this3.pageNO = 1;
+                  _this4.pageNO = 1;
                 } else {
-                  _this3.pageNO = (page - 1) * _this3.PerPageData + 1;
+                  _this4.pageNO = (page - 1) * _this4.PerPageData + 1;
                 }
                 if (res.data.last_page < page) {
-                  _this3.$router.push({
-                    name: _this3.Routename,
+                  _this4.$router.push({
+                    name: _this4.Routename,
                     query: {
                       page: res.data.last_page
                     }
                   });
                 }
-                return _context4.abrupt("return", res.data.data);
+                return _context5.abrupt("return", res.data.data);
               case 12:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }))();
     },
     dateformatGlobal: function dateformatGlobal() {
@@ -2323,7 +2348,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     DeleteAction: function DeleteAction() {
-      var _this4 = this;
+      var _this5 = this;
       var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
       var route = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
@@ -2339,28 +2364,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         confirmButtonText: "Yes",
         cancelButtonText: "No"
       }).then( /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(result) {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(result) {
           var res;
-          return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          return _regeneratorRuntime().wrap(function _callee6$(_context6) {
             while (1) {
-              switch (_context5.prev = _context5.next) {
+              switch (_context6.prev = _context6.next) {
                 case 0:
                   if (!result.isConfirmed) {
-                    _context5.next = 6;
+                    _context6.next = 6;
                     break;
                   }
-                  _context5.next = 3;
-                  return _this4.callApi('delete', "".concat(route), []);
+                  _context6.next = 3;
+                  return _this5.callApi('delete', "".concat(route), []);
                 case 3:
-                  res = _context5.sent;
+                  res = _context6.sent;
                   Notification.customSuccess(notification);
                   callback();
                 case 6:
                 case "end":
-                  return _context5.stop();
+                  return _context6.stop();
               }
             }
-          }, _callee5);
+          }, _callee6);
         }));
         return function (_x) {
           return _ref.apply(this, arguments);
@@ -2437,7 +2462,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
     'Users': 'getUpdateUser',
     'preload_data': 'get_pre_load_data',
-    'tinyInt': 'gettinyint'
+    'tinyInt': 'gettinyint',
+    'getCartQuantity': 'getCartQuantity'
   }))
 });
 

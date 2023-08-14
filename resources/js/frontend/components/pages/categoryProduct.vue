@@ -15,7 +15,7 @@
             <!-- <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p> -->
             </div>
 
-            <div class="col-md-6 d-flex gap-5 py-2">
+            <div class="col-md-6 d-flex gap-3 py-2">
                 <select class="form-select" style="width: 45%;" aria-label="Default select example">
                 <option selected>বাছাইয়ের ধরণ</option>
 
@@ -31,14 +31,14 @@
 
 
                 <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
-                <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" class="form-control writer-search-input">
+                <input type="text" placeholder="আপনার কাঙ্খিত বই খুঁজুন" class="form-control writer-search-input">
                 <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
 
 
 
-                <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
-                        <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+                <router-link class="fs-5 nav-link text-dark position-relative" aria-current="page" :to="{name:'cart'}" style="    margin-left: 25px;">
+                        <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity2">{{ getCartQuantity  }}</span>
                         </router-link>
 
 

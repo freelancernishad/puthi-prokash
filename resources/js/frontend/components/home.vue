@@ -2,13 +2,7 @@
  <main>
       <section class="container w-75 mx-auto my-5">
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ipsum
-          asperiores, eligendi, velit aliquid dolorum doloribus quis eveniet
-          adipisci inventore, dolor sapiente odio maiores laborum natus ut!
-          Odio, assumenda atque. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Doloribus necessitatibus magni consequuntur suscipit
-          aut tenetur. Quas maxime quaerat ipsa eaque beatae excepturi quod?
-          Unde magnam quasi nesciunt? Quas, nobis aliquam?
+            {{ preload_data.settings.about }}
         </div>
       </section>
       <section class=" mx-auto my-5">
@@ -80,11 +74,7 @@
         style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">
         <h1 class="text-center text-white"> <span style="font-size: 66px;">বই</span> সর্বোত্তম উপহার</h1>
-        <p class="col-7 mx-auto text-white" style="padding-bottom: 30px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, dolorem!
-          Rem unde
-          saepe eos et quas
-          obcaecati. Mollitia placeat velit alias ratione porro tempora sequi iusto recusandae ducimus delectus ullam
-          dolorem nihil soluta voluptates assumenda, provident asperiores illo sit sed ex cum quaerat! Hic</p>
+        <p class="col-7 mx-auto text-white" style="padding-bottom: 30px;"> {{ preload_data.settings.Books_are_the_best_gift }}</p>
 
         <div>
           <div class="text-center">

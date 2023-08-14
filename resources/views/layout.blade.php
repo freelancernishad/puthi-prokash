@@ -28,6 +28,17 @@
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
 <style>
 
+*{
+    --defaultColor: #F15C46;
+    --defaultBg: #AEBFC9;
+}
+.defaultColor{
+    color: var(--defaultColor);
+}
+.defaultBg{
+    background-color: var(--defaultBg);
+}
+
 .page-item.active .page-link {
 
     background-color: var(--defaultColor) !important;
@@ -79,7 +90,7 @@ li.page-item.active button {
 
 
 
-<script src="{{ asset('js/backend.js?ver=1.0.60') }}"></script>
+<script src="{{ asset('js/backend.js?ver=1.0.61') }}"></script>
 
 
 

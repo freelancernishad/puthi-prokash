@@ -12,6 +12,8 @@ class SettingController extends Controller
     public function index()
     {
         $settings = Setting::firstOrFail();
+        $settings['header_logo'] = asset($settings->header_logo);
+        $settings['footer_logo'] = asset($settings->footer_logo);
         return response()->json($settings, 200);
     }
 
@@ -27,10 +29,47 @@ class SettingController extends Controller
         $settingsCount = Setting::count();
         if($settingsCount){
             $settings = Setting::firstOrFail();
-            $settings->update($request->all());
+
+            $datas = $request->except('header_logo','footer_logo');
+
+            $header_logo = $request->header_logo;
+            $header_logoCount =  count(explode(';', $header_logo));
+            if ($header_logoCount > 1) {
+                $datas['header_logo'] =   fileupload($header_logo, "uploaded/header_logo/");
+            }
+
+
+            $footer_logo = $request->footer_logo;
+            $footer_logoCount =  count(explode(';', $footer_logo));
+            if ($footer_logoCount > 1) {
+                $datas['footer_logo']  =   fileupload($footer_logo, "uploaded/footer_logo/");
+            }
+
+
+
+
+            $settings->update($datas);
             return response()->json(['message' => 'Settings updated successfully'], 200);
         }else{
-            Setting::create($request->all());
+
+            $datas = $request->except('header_logo','footer_logo');
+
+            $header_logo = $request->header_logo;
+            $header_logoCount =  count(explode(';', $header_logo));
+            if ($header_logoCount > 1) {
+                $datas['header_logo'] =   fileupload($header_logo, "uploaded/header_logo/");
+            }
+
+
+            $footer_logo = $request->footer_logo;
+            $footer_logoCount =  count(explode(';', $footer_logo));
+            if ($footer_logoCount > 1) {
+                $datas['footer_logo']  =   fileupload($footer_logo, "uploaded/footer_logo/");
+            }
+
+
+
+            Setting::create($datas);
             return response()->json(['message' => 'Settings created successfully'], 201);
         }
 

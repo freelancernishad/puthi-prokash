@@ -38,7 +38,8 @@
         </div>
       </div>
       <div>
-        <span class="fs-5">আমাদের অন্যান্য প্রতিষ্ঠানঃ Bloomy</span>
+        <span class="fs-5">আমাদের অন্যান্য প্রতিষ্ঠানঃ  <a href="#" style="color:#6C757D;"> <img :src="$asseturl+'assets/image/logo-Bloomy.png'" class="linkHover" style="    width: 48px;" alt="">
+          <!-- <i class="fa-brands fa-youtube linkHover"></i> --></a></span>
       </div>
     </div>
   </div>
@@ -51,7 +52,7 @@
         <div class="row">
           <div class="col-lg-3">
             <router-link to="/" class="footer_logo">
-              <img :src="$asseturl+'assets/image/logo.png'" alt="" width="200px">
+              <img :src="$asseturl+preload_data.settings.footer_logo" alt="" width="200px">
             </router-link>
             <div class="ftext pt-3">
               <div class="align-items-center d-flex"> <i class="fa-solid fa-quote-left fs-1 text-secondary"></i>

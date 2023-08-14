@@ -33,6 +33,7 @@ export default {
 
 
     },
+
     data() {
         return {
 
@@ -41,7 +42,7 @@ export default {
     watch: {
         '$route': {
             handler(newValue, oldValue) {
-
+                this.fetchCartQuantity();
             },
             deep: true
         }
@@ -50,10 +51,15 @@ export default {
 
 
 
+
+
+
+
+
     },
     mounted() {
 
-
+        this.fetchCartQuantity();
     }
 }
 </script>
@@ -171,6 +177,49 @@ input:focus{
 .bg-light {
     --fc-bg-opacity: 1;
     background-color: #f0f3f2!important;
+}
+
+input.form-control {
+    border: 1px solid var(--defaultColor) !important;
+}
+.input-group-text {
+    border: 1px solid var(--defaultColor);
+    color: var(--defaultColor);
+}
+
+input.form-control.writer-search-input {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+
+
+
+span.CartQuantity {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    background: var(--defaultColor);
+    color: white;
+    padding: 0px 4px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 5px;
+}
+span.CartQuantity2 {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--defaultColor);
+    color: white;
+    padding: 0px 4px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 5px;
 }
 
 </style>

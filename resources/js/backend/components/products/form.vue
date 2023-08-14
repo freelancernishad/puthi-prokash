@@ -416,6 +416,9 @@ export default {
     #fileInput {
       display: none;
     }
+    #fileInput2 {
+      display: none;
+    }
 </style>
 
 

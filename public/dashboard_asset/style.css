@@ -64,10 +64,10 @@ Version: 1.0
 
 *{
     --defaultColor: #007575;
-    --bgColor2: #007575;
-    --bgColor1: #00B7B7;
-    --sidebarColor: #191f25;
-    --navItemHover: #334c4c;
+    --bgColor2: #c73d29;
+    --bgColor1: #F15C46;
+    --sidebarColor: #336685;
+    --navItemHover: #7c1303;
 }
 
     .form-group select, .form-group input {

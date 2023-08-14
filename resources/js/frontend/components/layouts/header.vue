@@ -38,7 +38,7 @@
         <!-- <div class="container-fluid" style="padding-right:0px !important;"> -->
           <router-link  to="/">
             <img
-              :src="$asseturl+'assets/image//logo.png'"
+              :src="$asseturl+preload_data.settings.header_logo"
               alt=""
               class="puthi-logo"
               srcset=""
@@ -60,8 +60,8 @@
             <ul
               class="navbar-nav ms-auto justify-content-end align-items-center">
               <li class="nav-item">
-                <router-link class="fs-5 nav-link text-dark" aria-current="page" :to="{name:'cart'}">
-                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/>
+                <router-link class="fs-5 nav-link text-dark position-relative" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity">{{ getCartQuantity  }}</span>
                 </router-link>
               </li>
               <!-- <li class="border-3 border-start border-white nav-item nav-item-menu">
@@ -135,7 +135,7 @@
 
       <section class="container" v-if="MainSearch">
         <form class="mainSearchBox d-flex" @submit.stop.prevent="searchItem">
-          <input type="text" placeholder="আপনার কাঙ্ক্ষিত বইটি খুজে বের করুন" v-model="form.search" class="book-search-input">
+          <input type="text" placeholder="আপনার কাঙ্খিত বই খুঁজুন" v-model="form.search" class="book-search-input">
           <button type="submit" class="book-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
 
@@ -191,9 +191,9 @@
 
                         <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a>
 
-                        <ul class="DownItems"  style="width: 183px;">
-                            <li><router-link :to="{name:'categoryProduct',params:{category:'childish'}}" class="text-dark">শিশুতোষ</router-link></li>
-                            <li><router-link :to="{name:'categoryProduct',params:{category:'books-for-adults'}}" class="text-dark">বড়দের বই</router-link></li>
+                        <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 247px;">
+                            <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'childish'}}" class="text-dark">শিশুতোষ</router-link></li>
+                            <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'books-for-adults'}}" class="text-dark">বড়দের বই</router-link></li>
                         </ul>
                     </li>
 
@@ -739,4 +739,12 @@ header.header.fixed-header.othersMenu.container {
     box-shadow: 0px 2px 2px 0px #4e4e4e85;
     min-width: 95%;
 }
+li.nav-item.col a.nav-link {
+    transition: all 0.5s;
+}
+li.nav-item.col a.nav-link:hover {
+    color: var(--defaultColor);
+    /* font-weight: 600 !important; */
+}
+
 </style>

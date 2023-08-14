@@ -11,6 +11,8 @@ class Setting extends Model
 
 
     protected $fillable = [
+        'header_logo',
+        'footer_logo',
         'facebook',
         'twitter',
         'instagram',
@@ -24,6 +26,7 @@ class Setting extends Model
         'address2',
         'short_about',
         'about',
+        'Books_are_the_best_gift',
         'google_map',
         'smtp_host',
         'smtp_port',

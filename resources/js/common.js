@@ -1,5 +1,6 @@
-import { mapGetters } from 'vuex'
+import { mapGetters ,mapActions } from 'vuex'
 import { slugify } from 'transliteration';
+
 export default {
     data(){
         return {
@@ -22,6 +23,7 @@ export default {
               Routename:'',
               Routeparams:{},
               errors:{},
+            //   CartQuantity:0,
 
 
 
@@ -29,6 +31,15 @@ export default {
     },
 
     methods: {
+
+
+        async fetchCartQuantity() {
+            var res = await this.callApi('get',`/api/cart/quantity/${this.$localStorage.getItem('userid')}`,[])
+        const fetchedQuantity = res.data.cart_quantity;
+        this.$store.commit('setCartQuantity', fetchedQuantity)
+
+        },
+
 
         createSlug(title) {
             let slug = slugify(title, {
@@ -54,6 +65,7 @@ export default {
 
             var res = await this.callApi('post',`/api/cart`,form);
             Notification.customSuccess("Added to cart");
+            this.fetchCartQuantity();
         },
 
 
@@ -230,6 +242,7 @@ export default {
             'Users' : 'getUpdateUser',
             'preload_data' : 'get_pre_load_data',
             'tinyInt' : 'gettinyint',
+            'getCartQuantity' : 'getCartQuantity',
         }),
 
         // getUsers(){

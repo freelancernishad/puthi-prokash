@@ -19,8 +19,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-    <title>::  ::</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/bangladesh-govt.png') }}" />
+    <title>Welcome to PuthiProkash</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,8 +52,24 @@
 
 <style>
 *{
-    --defaultColor: green;
+    --defaultColor: #F15C46;
+    --defaultBg: #AEBFC9;
 }
+
+.defaultColor{
+    color: var(--defaultColor);
+}
+.defaultBg{
+    background-color: var(--defaultBg);
+}
+
+.defaultColor2{
+    color: var(--defaultBg);
+}
+.defaultBg2{
+    background-color: var(--defaultColor);
+}
+
 ol#carousel-1___BV_indicators_ li {
     background: white;
     margin: 3px 5px;
@@ -96,7 +112,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.60') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.61') }}" async ></script>
 
 <script>
 

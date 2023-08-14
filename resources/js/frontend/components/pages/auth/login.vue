@@ -9,13 +9,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
-          <h3 class="mb-3">Login Now</h3>
+          <h3 class="mb-3 defaultColor">Login Now</h3>
           <div class="bg-white shadow rounded">
             <div class="row">
               <div class="col-md-7 pe-0">
                 <div class="form-left h-100 py-5 px-5">
                   <form @submit.prevent="login" class="row g-4">
-                    <div class="col-12">
+                    <div class="col-12 defaultColor">
                       <label>Email<span class="text-danger">*</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
@@ -23,7 +23,7 @@
                       </div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 defaultColor">
                       <label>Password<span class="text-danger">*</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
@@ -34,28 +34,28 @@
                     <div class="col-sm-6">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                        <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                        <label class="form-check-label defaultColor" for="inlineFormCheck">Remember me</label>
                       </div>
                     </div>
 
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                       <a href="#" class="float-end text-primary">Forgot Password?</a>
-                    </div>
+                    </div> -->
 
                     <div class="col-12">
 
-                    <button type="button" disabled class="btn btn-primary px-4 float-end mt-4" v-if="loadLogin">Loading....</button>
-                    <button type="submit" class="btn btn-primary px-4 float-end mt-4" v-else>Login</button>
+                    <button type="button" disabled class="btn btn-danger px-4  mt-4 defaultBg2" v-if="loadLogin">Loading....</button>
+                    <button type="submit" class="btn btn-danger px-4  mt-4 defaultBg2" v-else>Login</button>
 
+                    <router-link :to="{name:'register'}" type="button" class="btn btn-danger px-4  mt-4 ml-3 defaultBg2" style="    margin-left: 30px;">Registration</router-link>
 
                     </div>
                   </form>
                 </div>
               </div>
-              <div class="col-md-5 d-md-block d-none my-auto ps-0">
-                <img
-                  :src="$asseturl+'assets/image/demoLogo.jpg'"
-                  alt="" class="w-100">
+              <div class="col-md-5 d-md-block d-none my-auto ps-0 text-center py-5 px-5">
+                <img :src="$asseturl+'assets/image/only_Logo.png'" alt="" class="w-40 m-auto">
+                <img :src="$asseturl+'assets/image/Logo_text_Full .png'" alt="" class="w-100">
               </div>
             </div>
           </div>
@@ -158,5 +158,11 @@ export default {
 
 
 <style scoped>
-
+.form-check-input:checked {
+    background-color: var(--defaultColor);
+    border-color: var(--defaultColor);
+}
+input#inlineFormCheck {
+    border: 1px solid var(--defaultColor);
+}
 </style>

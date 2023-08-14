@@ -5233,7 +5233,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      form: {
+      form2: {
+        header_logo: "".concat(this.$asseturl, "assets/image/image.png"),
+        footer_logo: "".concat(this.$asseturl, "assets/image/image.png"),
         facebook: '',
         twitter: '',
         instagram: '',
@@ -5247,6 +5249,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         address2: '',
         short_about: '',
         about: '',
+        Books_are_the_best_gift: '',
         google_map: '',
         smtp_host: '',
         smtp_port: '',
@@ -5257,8 +5260,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    getData: function getData() {
+    FileSelected2: function FileSelected2($event, parent_index) {
       var _this = this;
+      var file = $event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        _this.form2[parent_index] = event.target.result;
+        // console.log(this.form[parent_index])
+      };
+
+      reader.readAsDataURL(file);
+    },
+    getData: function getData() {
+      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -5266,11 +5280,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/settings", []);
+                return _this2.callApi('get', "/api/settings", []);
               case 2:
                 res = _context.sent;
                 if (res.status == 200) {
-                  _this.form = res.data;
+                  _this2.form2 = res.data;
+                  if (!res.data.header_logo) {
+                    _this2.form2.header_logo = "".concat(_this2.$asseturl, "assets/image/image.png");
+                  }
+                  if (!res.data.footer_logo) {
+                    _this2.form2.footer_logo = "".concat(_this2.$asseturl, "assets/image/image.png");
+                  }
                 }
               case 4:
               case "end":
@@ -5281,20 +5301,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     createSettings: function createSettings() {
-      var _this2 = this;
+      var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return _this2.callApi('post', "/api/settings", _this2.form);
-              case 2:
+                console.log(_this3.form2);
+                _context2.next = 3;
+                return _this3.callApi('post', "/api/settings", _this3.form2);
+              case 3:
                 res = _context2.sent;
-                _this2.getData();
+                _this3.getData();
                 Notification.customSuccess("".concat(res.data.message));
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -9964,14 +9985,76 @@ var render = function render() {
     staticClass: "form-group"
   }, [_c("label", {
     attrs: {
+      "for": "header_logo"
+    }
+  }, [_vm._v("Header Logo:")]), _vm._v(" "), _c("div", {
+    staticClass: "upload-container"
+  }, [_c("label", {
+    attrs: {
+      "for": "fileInput"
+    }
+  }, [_c("img", {
+    attrs: {
+      id: "imagePreview",
+      src: _vm.form2.header_logo,
+      alt: "Image Preview"
+    }
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "file",
+      id: "fileInput",
+      accept: "image/*"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.FileSelected2($event, "header_logo");
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 mb-3"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": "footer_logo"
+    }
+  }, [_vm._v("Footer Logo:")]), _vm._v(" "), _c("div", {
+    staticClass: "upload-container"
+  }, [_c("label", {
+    attrs: {
+      "for": "fileInput2"
+    }
+  }, [_c("img", {
+    attrs: {
+      id: "imagePreview2",
+      src: _vm.form2.footer_logo,
+      alt: "Image Preview"
+    }
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "file",
+      id: "fileInput2",
+      accept: "image/*"
+    },
+    on: {
+      change: function change($event) {
+        return _vm.FileSelected2($event, "footer_logo");
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 mb-3"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
       "for": "facebook"
     }
   }, [_vm._v("Facebook:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.facebook,
-      expression: "form.facebook"
+      value: _vm.form2.facebook,
+      expression: "form2.facebook"
     }],
     staticClass: "form-control",
     attrs: {
@@ -9980,12 +10063,12 @@ var render = function render() {
       placeholder: "Facebook URL"
     },
     domProps: {
-      value: _vm.form.facebook
+      value: _vm.form2.facebook
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "facebook", $event.target.value);
+        _vm.$set(_vm.form2, "facebook", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10000,8 +10083,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.twitter,
-      expression: "form.twitter"
+      value: _vm.form2.twitter,
+      expression: "form2.twitter"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10010,17 +10093,15 @@ var render = function render() {
       placeholder: "Twitter URL"
     },
     domProps: {
-      value: _vm.form.twitter
+      value: _vm.form2.twitter
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "twitter", $event.target.value);
+        _vm.$set(_vm.form2, "twitter", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10032,8 +10113,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.instagram,
-      expression: "form.instagram"
+      value: _vm.form2.instagram,
+      expression: "form2.instagram"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10042,12 +10123,12 @@ var render = function render() {
       placeholder: "Instagram URL"
     },
     domProps: {
-      value: _vm.form.instagram
+      value: _vm.form2.instagram
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "instagram", $event.target.value);
+        _vm.$set(_vm.form2, "instagram", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10062,8 +10143,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.youtube,
-      expression: "form.youtube"
+      value: _vm.form2.youtube,
+      expression: "form2.youtube"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10072,17 +10153,15 @@ var render = function render() {
       placeholder: "Youtube URL"
     },
     domProps: {
-      value: _vm.form.youtube
+      value: _vm.form2.youtube
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "youtube", $event.target.value);
+        _vm.$set(_vm.form2, "youtube", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10094,8 +10173,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.pinterest,
-      expression: "form.pinterest"
+      value: _vm.form2.pinterest,
+      expression: "form2.pinterest"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10104,12 +10183,12 @@ var render = function render() {
       placeholder: "Pinterest URL"
     },
     domProps: {
-      value: _vm.form.pinterest
+      value: _vm.form2.pinterest
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "pinterest", $event.target.value);
+        _vm.$set(_vm.form2, "pinterest", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10124,8 +10203,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.mail,
-      expression: "form.mail"
+      value: _vm.form2.mail,
+      expression: "form2.mail"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10134,17 +10213,15 @@ var render = function render() {
       placeholder: "Email"
     },
     domProps: {
-      value: _vm.form.mail
+      value: _vm.form2.mail
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "mail", $event.target.value);
+        _vm.$set(_vm.form2, "mail", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10156,8 +10233,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.whatsapp,
-      expression: "form.whatsapp"
+      value: _vm.form2.whatsapp,
+      expression: "form2.whatsapp"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10166,12 +10243,12 @@ var render = function render() {
       placeholder: "WhatsApp"
     },
     domProps: {
-      value: _vm.form.whatsapp
+      value: _vm.form2.whatsapp
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "whatsapp", $event.target.value);
+        _vm.$set(_vm.form2, "whatsapp", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10186,8 +10263,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.phone1,
-      expression: "form.phone1"
+      value: _vm.form2.phone1,
+      expression: "form2.phone1"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10196,17 +10273,15 @@ var render = function render() {
       placeholder: "Phone 1"
     },
     domProps: {
-      value: _vm.form.phone1
+      value: _vm.form2.phone1
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "phone1", $event.target.value);
+        _vm.$set(_vm.form2, "phone1", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10218,8 +10293,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.phone2,
-      expression: "form.phone2"
+      value: _vm.form2.phone2,
+      expression: "form2.phone2"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10228,12 +10303,12 @@ var render = function render() {
       placeholder: "Phone 2"
     },
     domProps: {
-      value: _vm.form.phone2
+      value: _vm.form2.phone2
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "phone2", $event.target.value);
+        _vm.$set(_vm.form2, "phone2", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10248,8 +10323,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.address,
-      expression: "form.address"
+      value: _vm.form2.address,
+      expression: "form2.address"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10258,17 +10333,15 @@ var render = function render() {
       placeholder: "Address"
     },
     domProps: {
-      value: _vm.form.address
+      value: _vm.form2.address
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "address", $event.target.value);
+        _vm.$set(_vm.form2, "address", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10280,8 +10353,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.address2,
-      expression: "form.address2"
+      value: _vm.form2.address2,
+      expression: "form2.address2"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10290,12 +10363,12 @@ var render = function render() {
       placeholder: "Address 2"
     },
     domProps: {
-      value: _vm.form.address2
+      value: _vm.form2.address2
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "address2", $event.target.value);
+        _vm.$set(_vm.form2, "address2", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10306,12 +10379,12 @@ var render = function render() {
     attrs: {
       "for": "short_about"
     }
-  }, [_vm._v("Short About:")]), _vm._v(" "), _c("textarea", {
+  }, [_vm._v("Footer About:")]), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.short_about,
-      expression: "form.short_about"
+      value: _vm.form2.short_about,
+      expression: "form2.short_about"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10319,17 +10392,15 @@ var render = function render() {
       placeholder: "Short About"
     },
     domProps: {
-      value: _vm.form.short_about
+      value: _vm.form2.short_about
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "short_about", $event.target.value);
+        _vm.$set(_vm.form2, "short_about", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10337,12 +10408,12 @@ var render = function render() {
     attrs: {
       "for": "about"
     }
-  }, [_vm._v("About:")]), _vm._v(" "), _c("textarea", {
+  }, [_vm._v("Home About:")]), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.about,
-      expression: "form.about"
+      value: _vm.form2.about,
+      expression: "form2.about"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10350,12 +10421,41 @@ var render = function render() {
       placeholder: "About"
     },
     domProps: {
-      value: _vm.form.about
+      value: _vm.form2.about
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "about", $event.target.value);
+        _vm.$set(_vm.form2, "about", $event.target.value);
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 mb-3"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": "about"
+    }
+  }, [_vm._v("বই সর্বোত্তম উপহার:")]), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form2.Books_are_the_best_gift,
+      expression: "form2.Books_are_the_best_gift"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "about",
+      placeholder: "বই সর্বোত্তম উপহার"
+    },
+    domProps: {
+      value: _vm.form2.Books_are_the_best_gift
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form2, "Books_are_the_best_gift", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10370,8 +10470,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.google_map,
-      expression: "form.google_map"
+      value: _vm.form2.google_map,
+      expression: "form2.google_map"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10379,17 +10479,15 @@ var render = function render() {
       placeholder: "Google Map"
     },
     domProps: {
-      value: _vm.form.google_map
+      value: _vm.form2.google_map
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "google_map", $event.target.value);
+        _vm.$set(_vm.form2, "google_map", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10401,8 +10499,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.smtp_host,
-      expression: "form.smtp_host"
+      value: _vm.form2.smtp_host,
+      expression: "form2.smtp_host"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10411,12 +10509,12 @@ var render = function render() {
       placeholder: "SMTP Host"
     },
     domProps: {
-      value: _vm.form.smtp_host
+      value: _vm.form2.smtp_host
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "smtp_host", $event.target.value);
+        _vm.$set(_vm.form2, "smtp_host", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10431,8 +10529,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.smtp_port,
-      expression: "form.smtp_port"
+      value: _vm.form2.smtp_port,
+      expression: "form2.smtp_port"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10441,17 +10539,15 @@ var render = function render() {
       placeholder: "SMTP Port"
     },
     domProps: {
-      value: _vm.form.smtp_port
+      value: _vm.form2.smtp_port
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "smtp_port", $event.target.value);
+        _vm.$set(_vm.form2, "smtp_port", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10463,8 +10559,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.smtp_username,
-      expression: "form.smtp_username"
+      value: _vm.form2.smtp_username,
+      expression: "form2.smtp_username"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10473,12 +10569,12 @@ var render = function render() {
       placeholder: "SMTP Username"
     },
     domProps: {
-      value: _vm.form.smtp_username
+      value: _vm.form2.smtp_username
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "smtp_username", $event.target.value);
+        _vm.$set(_vm.form2, "smtp_username", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -10493,8 +10589,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.smtp_password,
-      expression: "form.smtp_password"
+      value: _vm.form2.smtp_password,
+      expression: "form2.smtp_password"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10503,17 +10599,15 @@ var render = function render() {
       placeholder: "SMTP Password"
     },
     domProps: {
-      value: _vm.form.smtp_password
+      value: _vm.form2.smtp_password
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "smtp_password", $event.target.value);
+        _vm.$set(_vm.form2, "smtp_password", $event.target.value);
       }
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 mb-3"
   }, [_c("div", {
     staticClass: "form-group"
@@ -10525,8 +10619,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.smtp_encryption,
-      expression: "form.smtp_encryption"
+      value: _vm.form2.smtp_encryption,
+      expression: "form2.smtp_encryption"
     }],
     staticClass: "form-control",
     attrs: {
@@ -10535,12 +10629,12 @@ var render = function render() {
       placeholder: "SMTP Encryption"
     },
     domProps: {
-      value: _vm.form.smtp_encryption
+      value: _vm.form2.smtp_encryption
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.form, "smtp_encryption", $event.target.value);
+        _vm.$set(_vm.form2, "smtp_encryption", $event.target.value);
       }
     }
   })])])]), _vm._v(" "), _vm._m(0)])])], 1);
@@ -11581,9 +11675,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       Routename: '',
       Routeparams: {},
       errors: {}
+      //   CartQuantity:0,
     };
   },
+
   methods: {
+    fetchCartQuantity: function fetchCartQuantity() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res, fetchedQuantity;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.callApi('get', "/api/cart/quantity/".concat(_this.$localStorage.getItem('userid')), []);
+              case 2:
+                res = _context.sent;
+                fetchedQuantity = res.data.cart_quantity;
+                _this.$store.commit('setCartQuantity', fetchedQuantity);
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     createSlug: function createSlug(title) {
       var slug = (0,transliteration__WEBPACK_IMPORTED_MODULE_0__.slugify)(title, {
         lowercase: true,
@@ -11594,28 +11712,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return slug;
     },
     getGalleryImages: function getGalleryImages() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return _this.callApi('get', "/api/get/gallery/for/editor", []);
-              case 2:
-                res = _context.sent;
-                console.log(res);
-                _this.tinyInt.image_list = res.data;
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    addToCart: function addToCart(form) {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var res;
@@ -11623,18 +11719,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                form['user_id'] = _this2.$localStorage.getItem('userid');
-                _context2.next = 3;
-                return _this2.callApi('post', "/api/cart", form);
-              case 3:
+                _context2.next = 2;
+                return _this2.callApi('get', "/api/get/gallery/for/editor", []);
+              case 2:
                 res = _context2.sent;
-                Notification.customSuccess("Added to cart");
+                console.log(res);
+                _this2.tinyInt.image_list = res.data;
               case 5:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    addToCart: function addToCart(form) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                form['user_id'] = _this3.$localStorage.getItem('userid');
+                _context3.next = 3;
+                return _this3.callApi('post', "/api/cart", form);
+              case 3:
+                res = _context3.sent;
+                Notification.customSuccess("Added to cart");
+                _this3.fetchCartQuantity();
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     },
     openModal: function openModal(img) {
@@ -11652,15 +11771,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     callApi: function callApi(method, url, dataObj) {
       var _arguments = arguments;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var headers;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 headers = _arguments.length > 3 && _arguments[3] !== undefined ? _arguments[3] : {};
-                _context3.prev = 1;
-                _context3.next = 4;
+                _context4.prev = 1;
+                _context4.next = 4;
                 return axios({
                   method: method,
                   url: url,
@@ -11668,57 +11787,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   headers: headers
                 });
               case 4:
-                return _context3.abrupt("return", _context3.sent);
+                return _context4.abrupt("return", _context4.sent);
               case 7:
-                _context3.prev = 7;
-                _context3.t0 = _context3["catch"](1);
-                return _context3.abrupt("return", _context3.t0.response);
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](1);
+                return _context4.abrupt("return", _context4.t0.response);
               case 10:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, null, [[1, 7]]);
+        }, _callee4, null, [[1, 7]]);
       }))();
     },
     callApiPaginate: function callApiPaginate(url, page) {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
         var res;
-        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.next = 2;
-                return _this3.callApi('get', "".concat(url), []);
+                _context5.next = 2;
+                return _this4.callApi('get', "".concat(url), []);
               case 2:
-                res = _context4.sent;
-                _this3.PaginateRows = res.data.per_page;
-                _this3.Totalrows = res.data.total;
-                _this3.Totalpage = res.data.links;
-                _this3.PerPageData = res.data.per_page;
-                _this3.Routename = 'categoryIndex';
-                _this3.Routeparams = {};
+                res = _context5.sent;
+                _this4.PaginateRows = res.data.per_page;
+                _this4.Totalrows = res.data.total;
+                _this4.Totalpage = res.data.links;
+                _this4.PerPageData = res.data.per_page;
+                _this4.Routename = 'categoryIndex';
+                _this4.Routeparams = {};
                 if (page == 1) {
-                  _this3.pageNO = 1;
+                  _this4.pageNO = 1;
                 } else {
-                  _this3.pageNO = (page - 1) * _this3.PerPageData + 1;
+                  _this4.pageNO = (page - 1) * _this4.PerPageData + 1;
                 }
                 if (res.data.last_page < page) {
-                  _this3.$router.push({
-                    name: _this3.Routename,
+                  _this4.$router.push({
+                    name: _this4.Routename,
                     query: {
                       page: res.data.last_page
                     }
                   });
                 }
-                return _context4.abrupt("return", res.data.data);
+                return _context5.abrupt("return", res.data.data);
               case 12:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }))();
     },
     dateformatGlobal: function dateformatGlobal() {
@@ -11733,7 +11852,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     DeleteAction: function DeleteAction() {
-      var _this4 = this;
+      var _this5 = this;
       var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
       var route = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
@@ -11749,28 +11868,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         confirmButtonText: "Yes",
         cancelButtonText: "No"
       }).then( /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(result) {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(result) {
           var res;
-          return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          return _regeneratorRuntime().wrap(function _callee6$(_context6) {
             while (1) {
-              switch (_context5.prev = _context5.next) {
+              switch (_context6.prev = _context6.next) {
                 case 0:
                   if (!result.isConfirmed) {
-                    _context5.next = 6;
+                    _context6.next = 6;
                     break;
                   }
-                  _context5.next = 3;
-                  return _this4.callApi('delete', "".concat(route), []);
+                  _context6.next = 3;
+                  return _this5.callApi('delete', "".concat(route), []);
                 case 3:
-                  res = _context5.sent;
+                  res = _context6.sent;
                   Notification.customSuccess(notification);
                   callback();
                 case 6:
                 case "end":
-                  return _context5.stop();
+                  return _context6.stop();
               }
             }
-          }, _callee5);
+          }, _callee6);
         }));
         return function (_x) {
           return _ref.apply(this, arguments);
@@ -11847,7 +11966,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
     'Users': 'getUpdateUser',
     'preload_data': 'get_pre_load_data',
-    'tinyInt': 'gettinyint'
+    'tinyInt': 'gettinyint',
+    'getCartQuantity': 'getCartQuantity'
   }))
 });
 
@@ -12349,10 +12469,14 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     userPermission: {},
     userRoles: {},
     preloadData: {},
-    tiny: {}
+    tiny: {},
+    cartQuantity: 0
   },
   // as like data(){return:{}}
   mutations: {
+    setCartQuantity: function setCartQuantity(state, quantity) {
+      state.cartQuantity = quantity;
+    },
     setUpdateUser: function setUpdateUser(state, data) {
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -12406,6 +12530,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     }
   },
   getters: {
+    getCartQuantity: function getCartQuantity(state) {
+      return state.cartQuantity;
+    },
     getUpdateUser: function getUpdateUser(state) {
       return state.Users;
     },
@@ -29519,7 +29646,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\n    min-height: 500px;\n}\n\n\n\n   /* Style for the image preview */\n.upload-container {\n      text-align: center;\n      cursor: pointer;\n}\n.upload-container img {\n      max-width: 100%;\n      max-height: 200px;\n      margin-top: 10px;\n}\n\n    /* Hide the file input */\n#fileInput {\n      display: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\n    min-height: 500px;\n}\n\n\n\n   /* Style for the image preview */\n.upload-container {\n      text-align: center;\n      cursor: pointer;\n}\n.upload-container img {\n      max-width: 100%;\n      max-height: 200px;\n      margin-top: 10px;\n}\n\n    /* Hide the file input */\n#fileInput {\n      display: none;\n}\n#fileInput2 {\n      display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

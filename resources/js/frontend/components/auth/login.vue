@@ -1,12 +1,27 @@
 <template>
-    <section class="vh-100">
+    <section class="vh-100 defaultBg" style="    padding: 23px 7px;overflow: hidden;">
+
+
+
         <div class="container-fluid h-custom">
+
+            <router-link  to="/">
+            <img
+              :src="$asseturl+'assets/image/logo.png'"
+              alt=""
+              class="puthi-logo"
+              srcset=""
+              width="200px"
+            />
+          </router-link>
+
+
             <div class="row d-flex justify-content-center align-items-center h-100">
 
                 <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
                     <form @submit.prevent="login" class="loginForm">
                         <div class="form">
-                            <h1 class="text-center mb-5">Login</h1>
+                            <h1 class="text-center mb-5 defaultColor">Login</h1>
                             <div class="form-item" id="inputEmail">
                                 <input type="text" id="email" v-model="form.email" @blur="blur('email')"
                                     @input="blur('email')" autocomplete="on" required />
@@ -23,9 +38,9 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <!-- Checkbox -->
                             <div class="form-check mb-0">
-                                <input class="form-check-input me-2" type="checkbox" v-model="rememberme"
+                                <input class="form-check-input me-2 defaultColor" type="checkbox" v-model="rememberme"
                                     id="form2Example3" />
-                                <label class="form-check-label" for="form2Example3">
+                                <label class="form-check-label defaultColor" for="form2Example3">
                                     Remember me
                                 </label>
                             </div>
@@ -36,12 +51,12 @@
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="submit" class="btn btn-primary btn-lg" v-if="!loadLogin"
+                            <button type="submit" class="btn btn-danger btn-lg defaultBg2" v-if="!loadLogin"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem">
                                 Login
                             </button>
 
-                            <span class="btn btn-primary btn-lg" v-else
+                            <span class="btn btn-danger btn-lg defaultBg2" v-else
                                 style="padding-left: 2.5rem; padding-right: 2.5rem">Looding.....</span>
                         </div>
 
@@ -157,6 +172,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+body{
+    background: var(--defaultBg) !important;
+}
 section.vh-100 {
     position: absolute;
     top: 50%;
@@ -166,7 +185,7 @@ section.vh-100 {
 }
 
 .blurerror input {
-    border: 1px solid red !important;
+    border: 2px solid red !important;
 }
 
 .blurerror label {
@@ -174,11 +193,11 @@ section.vh-100 {
 }
 
 .blursuccess input {
-    border: 1px solid green !important;
+    border: 2px solid var(--defaultColor) !important;
 }
 
 .blursuccess label {
-    color: green !important;
+    color: var(--defaultColor) !important;
 }
 
 .divider:after,
@@ -211,7 +230,7 @@ section.vh-100 {
     width: 100%;
     height: 40px;
     background: transparent;
-    border: solid 1px #ccc;
+    border: solid 2px var(--defaultColor);
     transition: all 0.3s ease;
     padding: 0 15px;
 }
@@ -228,9 +247,9 @@ section.vh-100 {
     left: 10px;
     font-size: 12px;
     font-weight: bold;
-    background: #fff;
+    background: var(--defaultBg);
     padding: 0 10px;
-    color: #999;
+    color: var(--defaultColor);
     transition: all 0.3s ease;
 }
 
@@ -254,6 +273,11 @@ section.vh-100 {
 }
 .col-md-12.col-lg-12.col-xl-12.offset-xl-1 {
     height: 100vh;
+}
+
+.form-check-input:checked {
+    background-color: var(--defaultColor);
+    border-color: var(--defaultColor);
 }
 
 </style>

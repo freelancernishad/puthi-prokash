@@ -15,6 +15,8 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('header_logo')->nullable();
+            $table->string('footer_logo')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
@@ -28,6 +30,7 @@ class CreateSettingsTable extends Migration
             $table->string('address2')->nullable();
             $table->text('short_about')->nullable();
             $table->text('about')->nullable();
+            $table->text('Books_are_the_best_gift')->nullable();
             $table->text('google_map')->nullable();
             // SMTP mail settings
             $table->string('smtp_host')->nullable();

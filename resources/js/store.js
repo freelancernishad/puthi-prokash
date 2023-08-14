@@ -14,10 +14,17 @@ const store = new Vuex.Store({
         userRoles:{},
         preloadData:{},
         tiny:{},
+        cartQuantity: 0,
 
 
     },// as like data(){return:{}}
     mutations:{
+
+
+        setCartQuantity(state, quantity) {
+            state.cartQuantity = quantity;
+          },
+
 
 
        async setUpdateUser(state,data){
@@ -53,7 +60,9 @@ const store = new Vuex.Store({
 
     },
     getters:{
-
+        getCartQuantity(state) {
+            return state.cartQuantity;
+          },
 
         getUpdateUser(state){
 
@@ -83,6 +92,7 @@ const store = new Vuex.Store({
 
     },// as like computed:{}
     actions:{
+
 
 
         //method 1

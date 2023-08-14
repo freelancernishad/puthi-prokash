@@ -133,6 +133,7 @@ Route::post('/cart', [CartController::class,'store'])->name('cart.store');
 Route::put('/cart/{cart}', [CartController::class,'update'])->name('cart.update');
 Route::delete('/cart/{cart}', [CartController::class,'destroy'])->name('cart.destroy');
 Route::delete('/empty/cart', [CartController::class,'emptyCart'])->name('cart.empty');
+Route::get('/cart/quantity/{user_id}', [CartController::class,'getCartQuantity'])->name('getCartQuantity');
 
 
 

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
         <Breadcrumbs brename="Multimedia Form"/>
 
       <form @submit.prevent="submitForm">
@@ -41,11 +42,12 @@
           media_type: 'video',
           media_url: '',
         },
+        preLooding:false,
       };
     },
     methods: {
       async submitForm() {
-      
+        this.preLooding = true
 
         var updateInsertApi = '';
         var Method = '';
@@ -81,6 +83,7 @@
             Notification.customError(`Something want wrong!`);
             this.errors = res.data.errors
         }
+        this.preLooding = false
       },
 
       FileSelected($event, parent_index) {
@@ -88,8 +91,10 @@
         },
 
         async getItems(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/multimedia/${this.$route.params.id}`,[])
             this.form = res.data
+            this.preLooding = false
         },
 
 

@@ -1,5 +1,9 @@
 <template>
     <div>
+
+
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+
         <Breadcrumbs brename="Settings"/>
         <div class="container mt-5">
         <form @submit.prevent="createSettings">
@@ -205,6 +209,7 @@
             smtp_password: '',
             smtp_encryption: ''
         },
+        preLooding:false
       };
     },
     methods: {
@@ -225,6 +230,7 @@
 
 
         async getData(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/settings`,[]);
             if(res.status==200){
                 this.form2 = res.data
@@ -239,14 +245,16 @@
 
 
             }
+            this.preLooding = false
         },
 
 
         async createSettings() {
-            console.log(this.form2)
+            this.preLooding = true
             var res = await this.callApi('post',`/api/settings`,this.form2);
             this.getData();
             Notification.customSuccess(`${res.data.message}`);
+            this.preLooding = false
         },
     },
     mounted() {

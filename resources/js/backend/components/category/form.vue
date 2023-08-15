@@ -1,5 +1,7 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+
         <Breadcrumbs brename="Category Form"/>
 
         <!-- <div class="row">
@@ -97,6 +99,7 @@ export default {
             },
             updateInsertApi:'/api/categories',
             Method:'post',
+            preLooding:true,
         }
     },
     watch: {
@@ -138,6 +141,7 @@ export default {
 
 
         async getList(){
+
             var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])
 
             let listsArray = res.data.filter((item)=> {
@@ -146,13 +150,16 @@ export default {
 
 
             this.lists = listsArray
+            this.preLooding = false
         },
         async getItems(){
             var res = await this.callApi('get',`/api/categories/${this.$route.params.id}`,[])
             this.form = res.data
+            this.preLooding = false
         },
 
         async onSubmit(){
+            this.preLooding = true
 
             var res = await this.callApi(`${this.Method}`,`${this.updateInsertApi}`,this.form);
 
@@ -170,6 +177,7 @@ export default {
                 Notification.customError(`Something want wrong!`);
                 this.errors = res.data.errors
             }
+            this.preLooding = false
         },
 
 

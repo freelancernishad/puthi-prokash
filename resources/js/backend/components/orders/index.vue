@@ -1,5 +1,6 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
         <Breadcrumbs brename="Orders List"/>
 
         <div class="card">
@@ -127,7 +128,7 @@ export default {
             order: {},
             isPopupVisible: false,
 
-
+            preLooding:false,
 
 
             showStatusPopup: false,
@@ -150,6 +151,7 @@ export default {
     },
     methods: {
         async getLists(page=1){
+            this.preLooding = true
             if(this.$route.query.page){
                 page = this.$route.query.page;
             }
@@ -163,6 +165,7 @@ export default {
             }
 
             this.lists = res
+            this.preLooding = false
         },
 
         showPopup(order) {
@@ -188,6 +191,7 @@ export default {
                 this.showStatusPopup = false;
             },
            async updateOrderStatus() {
+            this.preLooding = true
                 const orderId = this.form.id;
                 const newStatus = this.selectedStatus;
                 var res = await this.callApi('put',`/api/orders/${orderId}/status`,{ status: newStatus });
@@ -196,6 +200,7 @@ export default {
                     this.showStatusPopup = false;
                     this.getLists();
                 }
+                this.preLooding = false
             },
 
 

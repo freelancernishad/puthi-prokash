@@ -1,5 +1,6 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
         <Breadcrumbs brename="Pages Form"/>
 
         <div class="row">
@@ -65,6 +66,7 @@ export default {
             },
             updateInsertApi:'/api/pages',
             Method:'post',
+            preLooding:false,
 
 
 
@@ -102,11 +104,14 @@ export default {
         },
 
         async getItems(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/pages/${this.$route.params.id}`,[])
             this.form = res.data
+            this.preLooding = false
         },
 
         async onSubmit(){
+            this.preLooding = true
 
             var res = await this.callApi(`${this.Method}`,`${this.updateInsertApi}`,this.form);
 
@@ -124,6 +129,7 @@ export default {
                 Notification.customError(`Something want wrong!`);
                 this.errors = res.data.errors
             }
+            this.preLooding = false
         }
     },
     mounted(){

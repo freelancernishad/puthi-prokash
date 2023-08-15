@@ -1,5 +1,6 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
         <Breadcrumbs brename="Gallery List"/>
 
 
@@ -50,6 +51,7 @@ export default {
         return {
             lists:{},
             pageNO:1,
+            preLooding:true
         }
     },
     watch: {
@@ -62,6 +64,7 @@ export default {
     },
     methods: {
         async getLists(page=1){
+            this.preLooding = true
             if(this.$route.query.page){
                 page = this.$route.query.page;
             }
@@ -69,6 +72,7 @@ export default {
             var res = await this.callApiPaginate(`/api/galleries?page=${page}`,page);
             // console.log(res)
             this.lists = res
+            this.preLooding = false
 
 
 

@@ -1,5 +1,8 @@
 <template>
     <div>
+
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+
         <Breadcrumbs brename="Filiping Books"/>
         <form  @submit.stop.prevent="onSubmit">
       <table class="table">
@@ -59,7 +62,8 @@ export default {
             ],
             apimethod:'post',
             apiurl:`/api/products/${this.$route.params.id}/fliping/book`,
-            redirectroute:'productsIndex'
+            redirectroute:'productsIndex',
+            preLooding:false
         }
     },
     watch: {
@@ -73,8 +77,10 @@ export default {
 
     methods: {
         async getItems(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/products/${this.$route.params.id}/fliping/book`,[])
             this.forms = res.data.books
+            this.preLooding = false
         },
 
 
@@ -89,6 +95,7 @@ export default {
           this.forms.splice(index, 1);
       },
       async onSubmit(){
+        this.preLooding = true
 
               var res = await this.callApi(`${this.apimethod}`,`${this.apiurl}`,this.forms);
 
@@ -105,7 +112,7 @@ export default {
                   Notification.customError(`Something want wrong!`);
                   this.errors = res.data.errors
               }
-
+              this.preLooding = false
 
           },
 

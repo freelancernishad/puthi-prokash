@@ -1,5 +1,7 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+
         <Breadcrumbs brename="Products Form"/>
 
         <form @submit.stop.prevent="onSubmit">
@@ -265,6 +267,7 @@ export default {
             writers:{},
             isPopupOpen: false,
             isCPopupOpen: false,
+            preLooding:false
 
         }
     },
@@ -293,8 +296,10 @@ export default {
     },
     methods: {
         async getWriters(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/users/position/writer?type=all`,[]);
             this.writers = res.data
+            this.preLooding = false
         },
 
 
@@ -333,6 +338,7 @@ export default {
 
 
         async getList(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/all/categories?type=withoutpaginate`,[])
 
 
@@ -345,15 +351,18 @@ export default {
 
                 );
             });
-
+            this.preLooding = false
         },
         async getItems(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[])
             this.form = res.data
                 this.categories= res.data.categories
+                this.preLooding = false
         },
 
         async onSubmit(){
+            this.preLooding = true
             this.form.categories = this.selectedOptionIds
             this.form.slug = this.createSlug(this.form.name);
 
@@ -373,6 +382,7 @@ export default {
                 Notification.customError(`Something want wrong!`);
                 this.errors = res.data.errors
             }
+            this.preLooding = false
         }
     },
     mounted(){

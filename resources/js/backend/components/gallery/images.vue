@@ -1,5 +1,8 @@
 <template>
     <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+
+
         <Breadcrumbs brename="Category Image Upload"/>
      <multiple-file-upload  apimethod='post' :apiurl="'/api/galleries/'+ $route.params.id +'/images'" :images="images" redirectroute="galleryIndex" ></multiple-file-upload>
 
@@ -10,7 +13,8 @@
 export default {
     data() {
         return {
-            images:['']
+            images:[''],
+            preLooding:false,
         }
     },
     watch: {
@@ -23,6 +27,7 @@ export default {
     },
     methods: {
         async getItems(){
+            this.preLooding = true
             var res = await this.callApi('get',`/api/galleries/${this.$route.params.id}/images`,[])
 
 
@@ -34,6 +39,7 @@ export default {
             // console.log(img);
 
             this.images = res.data.img
+            this.preLooding = false
         },
     },
     mounted() {

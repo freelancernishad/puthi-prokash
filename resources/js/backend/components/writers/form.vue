@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
 <div class="breadcrumbs-area">
     <h3>Writers List</h3>
     <ul>
@@ -108,6 +108,7 @@ export default {
 
             },
             unions:{},
+            preLooding:false
         }
     },
     methods:{
@@ -132,14 +133,16 @@ export default {
 
 
         async getsonodById(){
+            this.preLooding = true
            var id =  this.$route.params.id;
             var res = await this.callApi('get', `/api/users/${id}`, []);
             this.form = res.data;
+            this.preLooding = false
         },
 
 
         async onSubmit() {
-
+            this.preLooding = true
             if(this.$route.params.id){
 
                 var res = await this.callApi('post', `/api/users/update-writer/${this.$route.params.id}`, this.form);
@@ -152,7 +155,7 @@ export default {
 
              this.$router.push({ name: 'writerslist'})
 
-
+             this.preLooding = false
         },
 
 

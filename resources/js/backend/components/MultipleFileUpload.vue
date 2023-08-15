@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
   <form  @submit.stop.prevent="onSubmit">
       <table class="table">
           <thead>
@@ -34,6 +36,7 @@
 
       <button class="btn btn-info">Upload</button>
     </form>
+</div>
 </template>
 
 <script>
@@ -41,7 +44,7 @@ export default {
   props:['apimethod','apiurl','images','redirectroute'],
   data() {
     return {
-
+        preLooding:false
 
 
     }
@@ -57,7 +60,7 @@ export default {
           this.images.splice(index, 1);
       },
       async onSubmit(){
-
+        this.preLooding = true
               var res = await this.callApi(`${this.apimethod}`,`${this.apiurl}`,this.images);
               console.log(res)
 
@@ -72,6 +75,7 @@ export default {
                   Notification.customError(`Something want wrong!`);
                   this.errors = res.data.errors
               }
+              this.preLooding = false
           },
 
     FileSelected($event, parent_index) {

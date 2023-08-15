@@ -182,6 +182,7 @@ class ProductController extends Controller
         'short_description' => $request->short_description,
         'description' => $request->description,
         'price' => $request->price,
+        'author_id' => $request->author_id,
         'visit' => 0,
         'share' => 0,
         'buy' => 0,
@@ -253,6 +254,7 @@ class ProductController extends Controller
             $product->short_description = $request->short_description;
             $product->description = $request->description;
             $product->price = $request->price;
+            $product->author_id = $request->author_id;
 
 
             $image = $request->image;

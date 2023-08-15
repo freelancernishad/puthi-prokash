@@ -26,6 +26,7 @@
             <thead>
 
                 <tr>
+                    <th>SL</th>
                     <th>ছবি</th>
                     <th>নাম (বাংলা)</th>
                     <th>নাম (ইংলিশ্‌)</th>
@@ -40,6 +41,7 @@
 
             <tbody>
                 <tr v-for="(item,index) in items" :key="''+item.id">
+                    <td>{{ index+pageNO }}</td>
                     <td><img :src="$asseturl+item.image" width="50px" alt=""></td>
                     <td>{{ item.nameBN }}</td>
                     <td>{{ item.name }}</td>
@@ -87,6 +89,7 @@ export default {
     },
     data() {
         return {
+            pageNO:1,
 
             preLooding:true,
 
@@ -159,7 +162,7 @@ export default {
                         cancelButtonText: `বাতিল`
                     }).then(async (result) => {
                         if (result.isConfirmed) {
-                            var res = await this.callApi('get', `/api/get/users/delete/${id}`, []);
+                            var res = await this.callApi('delete', `/api/users/${id}`, []);
                             Notification.customSuccess(`লেখক সফল ভাবে ডিলিট হয়েছে`);
                             this.preLooding = false
                             this.sonodname()

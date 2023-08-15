@@ -1,7 +1,7 @@
 <template>
  <main>
       <section class="container w-75 mx-auto my-5">
-        <div>
+        <div style="text-align: justify">
             {{ preload_data.settings.about }}
         </div>
       </section>
@@ -74,7 +74,7 @@
         style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">
         <h1 class="text-center text-white"> <span style="font-size: 66px;">বই</span> সর্বোত্তম উপহার</h1>
-        <p class="col-7 mx-auto text-white" style="padding-bottom: 30px;"> {{ preload_data.settings.Books_are_the_best_gift }}</p>
+        <p class="col-7 mx-auto text-white" style="padding-bottom: 30px;text-align: justify"> {{ preload_data.settings.Books_are_the_best_gift }}</p>
 
         <div>
           <div class="text-center">

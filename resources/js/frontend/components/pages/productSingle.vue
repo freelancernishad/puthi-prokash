@@ -2,7 +2,7 @@
     <main>
         <section class="container d-md-flex my-5" style="padding-top: 50px;grid-gap: 25px;">
             <div class="col-md-3 col-sm-5 col-sm-12 singleProductImage">
-                <img :src="$asseturl+item.image" alt="" srcset="">
+                <img :src="item.image" alt="" srcset="">
             </div>
             <div class="col-md-9 col-sm-7 position-relative">
 

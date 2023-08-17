@@ -213,7 +213,7 @@
             <div class="navbar-collapse collapse" id="navbarNavDropdown1">
 
 
-                <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5">
+                <ul class="nav row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-5 row-cols-xl-5">
                     <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'pages',params:{slug:'amader-kotah'}}" class="border-3  text-dark d-flex align-item" style="padding-left: 16px;    padding-top: 9px;">আমাদের কথা</router-link></li>
                     <li class="nav-item  col d-flex align-items-baseline"><router-link :to="{name:'writer'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">লেখক পরিচিতি</router-link></li>
 
@@ -305,38 +305,7 @@ export default {
     created() {
 
 
-        // 1. Create a new CSS class dynamically
-const css = `a.carousel-control-prev {
-    width: 3% !important;
-}
-
-.carousel-control-prev-icon {
-    background-image: url(${this.$asseturl}assets/image/preIcon.svg);
-    padding: 45px 18px;
-    background-size: cover;
-}
-
-a.carousel-control-next {
-    width: 3% !important;
-}
-
-.carousel-control-next-icon {
-    background-image: url(${this.$asseturl}assets/image/preIcon.svg);
-    padding: 45px 18px;
-    background-size: cover;
-    transform: rotate(180deg);
-}`;
-
-// 2. Append the newly created CSS class to the <head> element
-const style = document.createElement('style');
-style.type = 'text/css';
-style.appendChild(document.createTextNode(css));
-
-// Append the <style> element to the <head> element
-document.head.appendChild(style);
-
-
-
+        this.addcssCarosal();
 
 
 
@@ -535,11 +504,16 @@ document.head.appendChild(style);
       const windowWidth = window.innerWidth;
     //   console.log(windowWidth)
 
+
+    if (windowWidth < 991) {
+
+      }
+
       const navbarNavDropdown1 = document.getElementById('navbarNavDropdown1');
 
 
       if (navbarNavDropdown1) {
-      if (windowWidth < 768) {
+      if (windowWidth < 991) {
         this.submenu2 = false
         this.submenu3 = false
         this.mobileMenu = true;
@@ -548,6 +522,9 @@ document.head.appendChild(style);
         this.mobileMenu = false;
         navbarNavDropdown1.classList.add('show');
       }
+
+
+
     }
 
     },
@@ -560,6 +537,40 @@ document.head.appendChild(style);
     },
 
 
+    addcssCarosal(){
+
+                    // 1. Create a new CSS class dynamically
+            const css = `a.carousel-control-prev {
+                width: 3%;
+            }
+
+            .carousel-control-prev-icon {
+                background-image: url(${this.$asseturl}assets/image/preIcon.svg);
+                padding: 45px 18px;
+                background-size: cover;
+            }
+
+            a.carousel-control-next {
+                width: 3%;
+            }
+
+            .carousel-control-next-icon {
+                background-image: url(${this.$asseturl}assets/image/preIcon.svg);
+                padding: 45px 18px;
+                background-size: cover;
+                transform: rotate(180deg);
+            }`;
+
+            // 2. Append the newly created CSS class to the <head> element
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.appendChild(document.createTextNode(css));
+
+            // Append the <style> element to the <head> element
+            document.head.appendChild(style);
+
+
+    }
 
     },
     mounted() {
@@ -810,7 +821,7 @@ div#navbarNavDropdown ul li {
 
 }
 
-@media (max-width:768px) {
+@media (max-width:991px) {
 
 
 div#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}
@@ -823,7 +834,9 @@ div#navbarNavDropdown1 ul li a {
 
 div#navbarNavDropdown1 ul {background: var(--defaultBg);}
 
-
+li.submenu1 {
+    width: 100%;
+}
 
 
 

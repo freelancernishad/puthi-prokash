@@ -131,11 +131,16 @@
 
 
 
-    <div v-if="modalOpen" @click="closeModal" class="modal-overlay">
-      <div class="modal-container">
-        <img :src="imageUrl" alt="Modal Image" />
-      </div>
-    </div>
+
+    <div v-if="modalOpen"  class="modal-overlay">
+                        <div class="modal-container" >
+                            <span class="imageshowCloseButton" @click="closeModal"><i class="fa-regular fa-xmark"></i></span>
+                            <button class="ImageModalButton" @click="preImage" :disabled="imageUrlIndex == 0"><i class="fa-solid fa-chevron-left"></i></button>
+                            <img :src="imageUrl" alt="Modal Image" />
+                            <button class="ImageModalButton" @click="nextImage" :disabled="imageUrlIndex == 3"><i class="fa-solid fa-chevron-right"></i></button>
+
+                        </div>
+                    </div>
 
 
 
@@ -149,6 +154,8 @@ export default {
     return {
         modalOpen: false,
         imageUrl:'',
+        imageUrls:'',
+        imageUrlIndex:0,
         item:{},
         Breadcrumb:[],
     };

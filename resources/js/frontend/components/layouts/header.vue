@@ -56,10 +56,13 @@
           >
           <i class="fa-solid fa-bars"></i>
           </button>
+
+
+
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul
               class="navbar-nav ms-auto justify-content-end align-items-center">
-              <li class="nav-item">
+              <li class="nav-item desktopBlock">
                 <router-link class="fs-5 nav-link text-dark position-relative" aria-current="page" :to="{name:'cart'}">
                   <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity">{{ getCartQuantity  }}</span>
                 </router-link>
@@ -104,18 +107,18 @@
               </li>
 
 
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" @click="MainSearchFun">
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopBlock" @click="MainSearchFun">
                 <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)"
                   >অনুসন্ধান <i class="fa-solid fa-magnifying-glass"></i
                 ></a>
               </li>
               <li class="nav-item  position-relative DropItem" >
 
-                <span class="nav-link dark-bars text-dark text-white">
+                <span class="nav-link dark-bars text-dark text-white desktopBlock">
                   <i class="fa-solid fa-bars fs-3"></i>
                 </span>
 
-                <ul class="DownItems list-unstyled" style="list-style: inside;">
+                <ul class="DownItems list-unstyled desktopBlock" style="list-style: inside;">
                     <li><router-link :to="{name:'pages',params:{slug:'amader-kotah'}}" class="text-dark">আমাদের কথা</router-link></li>
                     <li><router-link :to="{name:'writer'}" class="text-dark">লেখক পরিচিতি</router-link></li>
                     <li><router-link :to="{name:'categoryProduct',params:{category:'ekaaddemik-bi'}}" class="text-dark">একাডেমিক বই</router-link></li>
@@ -746,5 +749,49 @@ li.nav-item.col a.nav-link:hover {
     color: var(--defaultColor);
     /* font-weight: 600 !important; */
 }
+
+
+@media (max-width:991px) {
+    div#navbarNavDropdown {
+    background: white;
+    width: 100%;
+    margin-top: 13px;
+}
+
+div#navbarNavDropdown ul li {
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid var(--defaultColor);
+}
+.desktopBlock{
+    display: none !important;
+}
+
+
+
+
+
+
+}
+
+@media (max-width:768px) {
+
+
+div#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}
+
+div#navbarNavDropdown1 ul li a {
+    padding: 0 !important;
+    display: block !important;
+    border-left: 0 !important;
+}
+
+div#navbarNavDropdown1 ul {background: var(--defaultBg);}
+
+
+
+
+
+}
+
 
 </style>

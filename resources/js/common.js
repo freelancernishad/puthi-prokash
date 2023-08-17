@@ -70,13 +70,32 @@ export default {
 
 
 
-        openModal(img) {
+        openModal(img,index=0,imgs=[]) {
+            this.imageUrls = imgs
             this.imageUrl = img
+            this.imageUrlIndex = index
             this.modalOpen = true;
             },
             closeModal() {
             this.modalOpen = false;
             },
+
+        nextImage() {
+
+            this.imageUrl = this.$asseturl+this.imageUrls[this.imageUrlIndex+1].image;
+            this.imageUrlIndex = this.imageUrlIndex+1;
+
+
+            },
+
+        preImage() {
+
+            this.imageUrl = this.$asseturl+this.imageUrls[this.imageUrlIndex-1].image;
+            this.imageUrlIndex = this.imageUrlIndex-1;
+
+
+            },
+
 
 
 

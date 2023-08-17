@@ -106,8 +106,19 @@ class ProductController extends Controller
         }
 
 
+
         // Retrieve the filtered and sorted products
         $products = $query->paginate(18);
+
+
+        foreach ($products as  $product) {
+            $product->load([
+                'flippingBooks' => function ($query) {
+                    $query->take(4); // Limit the number of flippingBooks to 4 per product
+                }
+            ]);
+        }
+
 
         // Return the filtered products as a response
         return response()->json(['products'=>$products,'category'=>$category]);

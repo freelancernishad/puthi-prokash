@@ -59,6 +59,10 @@ class Product extends Model
     {
         return $this->hasMany(FlippingBook::class);
     }
+
+
+
+
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');

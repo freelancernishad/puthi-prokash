@@ -3,7 +3,7 @@
     font-family: "Tiro Bangla", serif;
     --headerHight:42px;
   }
-@media (max-width:768px){
+@media (max-width:991px){
     * {
         font-family: "Tiro Bangla", serif;
         --headerHight:50px;

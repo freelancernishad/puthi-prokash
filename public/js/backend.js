@@ -7460,7 +7460,7 @@ var render = function render() {
     staticClass: "social-media bg-fb hover-fb"
   }, [_vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "social-like"
-  }, [_vm._v(_vm._s(_vm.stats.totalUsers))])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.stats.totalOrders))])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-lg-3 col-sm-6 col-12"
   }, [_c("div", {
     staticClass: "card dashboard-card-seven"
@@ -7468,15 +7468,15 @@ var render = function render() {
     staticClass: "social-media bg-twitter hover-twitter"
   }, [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "social-like"
-  }, [_vm._v(_vm._s(_vm.stats.totalUniqueCustomers))])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.stats.todayOrders))])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-lg-3 col-sm-6 col-12"
   }, [_c("div", {
     staticClass: "card dashboard-card-seven"
   }, [_c("div", {
-    staticClass: "social-media bg-gplus hover-gplus"
+    staticClass: "social-media bg-warning hover-gplus"
   }, [_vm._m(6), _vm._v(" "), _c("div", {
     staticClass: "social-like"
-  }, [_vm._v(_vm._s(_vm.stats.totalWriters))])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.stats.pendingOrders))])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-lg-3 col-sm-6 col-12"
   }, [_c("div", {
     staticClass: "card dashboard-card-seven"
@@ -7484,7 +7484,15 @@ var render = function render() {
     staticClass: "social-media bg-linkedin hover-linked"
   }, [_vm._m(7), _vm._v(" "), _c("div", {
     staticClass: "social-like"
-  }, [_vm._v(_vm._s(_vm.stats.totalBooks))])])])])])], 1);
+  }, [_vm._v(_vm._s(_vm.stats.processingOrders))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-success hover-linked"
+  }, [_vm._m(8), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.completedOrders))])])])])])], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -7583,7 +7591,7 @@ var staticRenderFns = [function () {
     staticClass: "media-body space-sm"
   }, [_c("h6", {
     staticClass: "item-title"
-  }, [_vm._v("Total Writer")])])]);
+  }, [_vm._v("Pending Order")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -7597,7 +7605,21 @@ var staticRenderFns = [function () {
     staticClass: "media-body space-sm"
   }, [_c("h6", {
     staticClass: "item-title"
-  }, [_vm._v("Total Books")])])]);
+  }, [_vm._v("Processing Order")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-duotone fa-book-open-cover"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Completed Order")])])]);
 }];
 render._withStripped = true;
 

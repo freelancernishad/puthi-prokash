@@ -86,7 +86,7 @@
                                         <h6 class="item-title">Total Order</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">{{ stats.totalUsers }}</div>
+                                <div class="social-like">{{ stats.totalOrders }}</div>
                             </div>
                         </div>
                     </div>
@@ -101,25 +101,26 @@
                                         <h6 class="item-title">Todays Order</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">{{ stats.totalUniqueCustomers }}</div>
+                                <div class="social-like">{{ stats.todayOrders }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="card dashboard-card-seven">
-                            <div class="social-media bg-gplus hover-gplus">
+                            <div class="social-media bg-warning hover-gplus">
                                 <div class="media media-none--lg">
                                     <div class="social-icon">
                                         <i class="fa-solid fa-user-pen"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Total Writer</h6>
+                                        <h6 class="item-title">Pending Order</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">{{ stats.totalWriters }}</div>
+                                <div class="social-like">{{ stats.pendingOrders }}</div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="card dashboard-card-seven">
                             <div class="social-media bg-linkedin hover-linked">
@@ -128,13 +129,31 @@
                                         <i class="fa-duotone fa-book-open-cover"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Total Books</h6>
+                                        <h6 class="item-title">Processing Order</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">{{ stats.totalBooks }}</div>
+                                <div class="social-like">{{ stats.processingOrders }}</div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-success hover-linked">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-duotone fa-book-open-cover"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Completed Order</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.completedOrders }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
 

@@ -130,13 +130,33 @@ input:focus{
 .modal-container {
   max-width: 90%;
   max-height: 90%;
+  text-align: center;
 }
 
+
 .modal-container img {
-  max-width: 100%;
+  max-width: 30%;
   max-height: 100%;
 }
 
+
+
+.ProductListBorderBottom{
+    border-bottom: 3px solid var(--red)
+}
+
+
+
+@media (max-width:768px) {
+
+.ProductListBorderBottom{
+    border-bottom: 0px solid var(--red)
+}
+    .modal-container img {
+  max-width: 70%;
+  max-height: 100%;
+}
+}
 
 
 

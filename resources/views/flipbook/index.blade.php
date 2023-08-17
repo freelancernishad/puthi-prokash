@@ -380,7 +380,7 @@ p.bookMenuList {
 
         <div class="headerLeft">
           <div class="mobileNav" onclick="sidemenuButton()"><i class="fa-solid fa-bars"></i></div>
-          <img src="{{ asset('assets/image/logo.jpg') }}" width="170px" alt="">
+          <img src="{{ asset($settings->header_logo) }}" width="170px" alt="">
         </div>
 
         <div class="headerRight">

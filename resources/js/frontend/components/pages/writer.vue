@@ -54,32 +54,10 @@
 <div class="col-2 text-center"></div>
 <div class="col-10 text-center" >
             <div class="d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2">
-                <span class="writerFilter" @click="clickname('a')">a</span>
-                <span class="writerFilter" @click="clickname('b')">b</span>
-                <span class="writerFilter" @click="clickname('c')">c</span>
-                <span class="writerFilter" @click="clickname('d')">d</span>
-                <span class="writerFilter" @click="clickname('e')">e</span>
-                <span class="writerFilter" @click="clickname('f')">f</span>
-                <span class="writerFilter" @click="clickname('g')">g</span>
-                <span class="writerFilter" @click="clickname('h')">h</span>
-                <span class="writerFilter" @click="clickname('i')">i</span>
-                <span class="writerFilter" @click="clickname('j')">j</span>
-                <span class="writerFilter" @click="clickname('k')">k</span>
-                <span class="writerFilter" @click="clickname('l')">l</span>
-                <span class="writerFilter" @click="clickname('m')">m</span>
-                <span class="writerFilter" @click="clickname('n')">n</span>
-                <span class="writerFilter" @click="clickname('o')">o</span>
-                <span class="writerFilter" @click="clickname('p')">p</span>
-                <span class="writerFilter" @click="clickname('q')">q</span>
-                <span class="writerFilter" @click="clickname('r')">r</span>
-                <span class="writerFilter" @click="clickname('s')">s</span>
-                <span class="writerFilter" @click="clickname('t')">t</span>
-                <span class="writerFilter" @click="clickname('u')">u</span>
-                <span class="writerFilter" @click="clickname('v')">v</span>
-                <span class="writerFilter" @click="clickname('w')">w</span>
-                <span class="writerFilter" @click="clickname('x')">x</span>
-                <span class="writerFilter" @click="clickname('y')">y</span>
-                <span class="writerFilter" @click="clickname('z')">z</span>
+
+                <span v-for="letter in letters" :key="'letter-'+letter" class="writerFilter" :class="{ active: letter === $route.query.name }" @click="clickname(letter)">{{ letter }}</span>
+
+
             </div>
             </div>
         </section>
@@ -158,6 +136,7 @@
 export default {
     data() {
         return {
+            letters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
             writers:{},
             page:1,
             last_page:1,
@@ -320,9 +299,13 @@ export default {
 
 },
 mounted() {
+
     if(this.$route.query.search){
         this.form.search = this.$route.query.search;
     }
+    this.name = this.$route.query.name;
+    this.userType = this.$route.query.userType;
+
     this.processItem();
 
 },
@@ -330,6 +313,10 @@ mounted() {
 }
 </script>
 <style scoped>
+span.writerFilter.active {
+    background: var(--defaultColor);
+    color: white;
+}
 .writerArrow{
     padding: 9px;
     margin: 11px 0px;

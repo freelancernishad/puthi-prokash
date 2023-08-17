@@ -5,13 +5,19 @@
 </template>
 <script>
 export default {
-     props: ['user'],
-    created() {
+    props: ['user','categories','sliders','settings'],
+    async created() {
+        localStorage.setItem('position',this.user.position)
 
+        this.$store.commit('setUpdateUser', this.user)
 
+        var pre_load_data = {
+            categories:this.categories,
+            sliders:this.sliders,
+            settings:this.settings,
+        };
 
-        console.log(this.user)
-
+        this.$store.commit('set_pre_load_data', pre_load_data)
 
 
     },

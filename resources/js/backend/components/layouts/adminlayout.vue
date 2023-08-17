@@ -120,14 +120,14 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 101 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 101 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Product Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(101)"><i
                                     class="flaticon-technological"></i><span>Category</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 101"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item">
                                         <router-link :to="{ name: 'categoryAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Category </router-link>
                                     </li>
@@ -140,14 +140,14 @@
                         </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 102 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(102)"><i
                                     class="flaticon-technological"></i><span>Pages</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 102"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item">
                                         <router-link :to="{ name: 'pagesAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Pages </router-link>
                                     </li>
@@ -160,14 +160,14 @@
                         </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 103 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Product Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(103)"><i
                                     class="flaticon-technological"></i><span>Products</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 103"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item">
                                         <router-link :to="{ name: 'productsAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Products </router-link>
                                     </li>
@@ -181,14 +181,14 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 104 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 104 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Media Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(104)"><i
                                     class="flaticon-technological"></i><span>Slider</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 104"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item">
                                         <router-link :to="{ name: 'sliderAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Slider </router-link>
                                     </li>
@@ -203,14 +203,14 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 105 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 105 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Media Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(105)"><i
                                     class="flaticon-technological"></i><span>Gallery</span>
                             </a>
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 105"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item">
                                         <router-link :to="{ name: 'galleryAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Gallery </router-link>
                                     </li>
@@ -223,7 +223,7 @@
                         </li>
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 106 }">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 106 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Media Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(106)"><i
                                     class="flaticon-technological"></i><span>Multimedia</span>
                             </a>
@@ -245,7 +245,7 @@
 
 
 
-                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 107 }" v-if="this.$localStorage.getItem('position') == 'admin'">
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 107 }"  v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Sales Manager'">
                             <a href="javascript:void(0)" class="nav-link" @click="submenu(107)"><i
                                     class="flaticon-technological"></i><span>Orders</span>
                             </a>
@@ -287,7 +287,7 @@
 
 
 
-                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
                                 <router-link :to="{ name: 'Customerlist' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>Customers</span></router-link>
                         </li>
@@ -296,20 +296,27 @@
 
 
 
-                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Product Manager'">
                                 <router-link :to="{ name: 'writerslist' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>Writer</span></router-link>
                         </li>
 
 
 
-                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin'">
+                                <router-link :to="{ name: 'userslist' }" class="nav-link"><i
+                                    class="flaticon-dashboard"></i><span>Users</span></router-link>
+                        </li>
+
+
+
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
                                 <router-link :to="{ name: 'feature_categories' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>বই সর্বোত্তম উপহার</span></router-link>
                         </li>
 
 
-                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'admin'">
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
                                 <router-link :to="{ name: 'settings' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>Settings</span></router-link>
                         </li>

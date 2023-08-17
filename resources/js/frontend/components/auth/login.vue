@@ -7,7 +7,7 @@
 
             <router-link  to="/">
             <img
-              :src="$asseturl+'assets/image/logo.png'"
+              :src="$asseturl+preload_data.settings.header_logo"
               alt=""
               class="puthi-logo"
               srcset=""

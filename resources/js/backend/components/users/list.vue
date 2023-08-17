@@ -3,12 +3,12 @@
  <loader v-if="preLooding" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
 
 <div class="breadcrumbs-area">
-    <h3>Writers List</h3>
+    <h3>Users List</h3>
     <ul>
         <li>
             <router-link :to="{name:'Dashboard'}">Home</router-link>
         </li>
-        <li>Writers List</li>
+        <li>Users List</li>
     </ul>
 </div>
 
@@ -17,7 +17,7 @@
 
         <div class="card">
             <div class="card-header">
-                <router-link :to="{ name: 'writerslistadd' }" class="btn btn-info">Add New</router-link>
+                <router-link :to="{ name: 'userslistadd' }" class="btn btn-info">Add New</router-link>
             </div>
         <div class="card-body">
 
@@ -32,7 +32,7 @@
                     <th>নাম (ইংলিশ্‌)</th>
                     <th>ধরণ</th>
 
-                    <!-- <th>ইমেইল</th> -->
+                    <th>ইমেইল</th>
                     <th>মোবাইল</th>
                     <th>Action</th>
                 </tr>
@@ -46,12 +46,12 @@
                     <td>{{ item.nameBN }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.type }}</td>
-                    <!-- <td>{{ item.email }}</td> -->
+                    <td>{{ item.email }}</td>
                     <td>{{ item.phone }}</td>
 
                     <td>
                         <span class="btn btn-danger" @click="deleteUser(item.id)">Delete</span>
-                        <router-link size="sm" :to="{ name: 'writerslistedit', params: { id: item.id } }"
+                        <router-link size="sm" :to="{ name: 'userslistedit', params: { id: item.id } }"
                     class="btn btn-info mr-1 mt-1">
                     Edit
                 </router-link></td>
@@ -67,7 +67,7 @@
 
 
 
-    <Paginate :Paginaterowsprops="PaginateRows" :Totalrowsprops="Totalrows" :Totalpageprops="Totalpage" Routenameprops="writerslist" :Routeparamsprops="Routeparams"/>
+    <Paginate :Paginaterowsprops="PaginateRows" :Totalrowsprops="Totalrows" :Totalpageprops="Totalpage" Routenameprops="userslist" :Routeparamsprops="Routeparams"/>
 
 
             </div>
@@ -96,11 +96,11 @@ export default {
             access:'',
             sortstatus:false,
             Filter:true,
-            addNew:'writerslistadd',
+            addNew:'userslistadd',
             FilterOn:false,
             PerPage:false,
             deleteRoute:'/api/get/users/delete',
-            editRoute:'writerslistedit',
+            editRoute:'userslistedit',
             applicationRoute:'',
             viewRoute:'',
             approveRoute:'',
@@ -145,7 +145,7 @@ export default {
             if(this.$route.query.page){
                 page = this.$route.query.page;
             }
-            var res = await this.callApiPaginate(`/api/users/position/writer?page=${page}`,page);
+            var res = await this.callApiPaginate(`/api/users/position/users?page=${page}`,page);
             this.items = res
         this.preLooding = false
         },

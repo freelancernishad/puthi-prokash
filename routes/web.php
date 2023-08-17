@@ -41,7 +41,8 @@ Route::get('/books/{slug}/{id}', function ($slug,$id) {
 
         $Books =  Product::with('flippingBooks')->where(['slug'=>$slug,'id'=>$id])->first();
          $flipping_books = $Books->flippingBooks;
-        return view('flipbook.index',compact('Books','flipping_books'));
+         $settings = Setting::firstOrFail();
+        return view('flipbook.index',compact('Books','flipping_books','settings'));
     }else{
         echo "Books Not Found";
     }

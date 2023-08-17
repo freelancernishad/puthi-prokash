@@ -60,8 +60,13 @@ Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users/password/change/{id}', [UserController::class, 'changePassword']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::get('/users/position/{position}', [UserController::class, 'getUsersByPosition']);
+
 Route::post('/users/register-writer', [UserController::class, 'registerWriter']);
 Route::post('/users/update-writer/{id}', [UserController::class, 'updateWriter']);
+
+Route::post('/users/register-user', [UserController::class, 'registerUser']);
+Route::post('/users/update-user/{id}', [UserController::class, 'updateUser']);
+
 Route::post('/users/{user_id}/addresses', [UserController::class, 'addUserAddress']);
 
 

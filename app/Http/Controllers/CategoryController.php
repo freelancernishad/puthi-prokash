@@ -92,10 +92,21 @@ class CategoryController extends Controller
                 'products' => function ($query) {
                     $query->latest()->take(6);
                 },
-                'products.flippingBooks' => function ($query2) {
-                    $query2->take(4);
-                }
+
             ]);
+
+            foreach ($child->products as $products) {
+                $products->load([
+                    'flippingBooks' => function ($query) {
+                        $query->latest()->take(4);
+                    },
+                ]);
+
+            }
+
+
+
+
         }
 
 

@@ -122,6 +122,11 @@ class UserController extends Controller
         if($position=='admin'){
             return 'not accessable position';
         }
+        if($position=='users'){
+            $users = User::where('position_type', $position)->orderBy('id','desc')->paginate(21);
+            return response()->json($users, 200);
+        }
+
         if($type=='all'){
             $users = User::where('position', $position)->orderBy('id','desc')->get();
             return response()->json($users, 200);
@@ -173,6 +178,7 @@ class UserController extends Controller
         $user->password = Hash::make(Str::random(20).time());
         // $user->email = $request->email;
         // $user->password = Hash::make($request->password);
+        $user->phone = $request->phone;
         $user->position = 'writer';
         $image = $request->image;
         $featured = '';
@@ -196,8 +202,62 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->nameBN = $request->nameBN;
         $user->type = $request->type;
-
+        $user->phone = $request->phone;
         $image = $request->image;
+        $featured = '';
+        $imageCount =  count(explode(';', $image));
+        if ($imageCount > 1) {
+            $featured =   fileupload($image, "uploaded/user/writer/");
+            $user->image = $featured;
+        }
+        $user->save();
+        return response()->json($user, 200);
+    }
+
+
+    public function registerUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'nameBN' => 'required',
+
+        ]);
+        $user = new User();
+        $user->name = $request->name;
+        $user->nameBN = $request->nameBN;
+        $user->type = $request->type;
+        // $user->email = Str::random(3).time()."@puthiprokash.com";
+        // $user->password = Hash::make(Str::random(20).time());
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->position = $request->position;
+        $user->position_type = 'users';
+        $image = $request->image;
+        $featured = '';
+        $imageCount =  count(explode(';', $image));
+        if ($imageCount > 1) {
+            $featured =   fileupload($image, "uploaded/user/writer/");
+            $user->image = $featured;
+        }
+        $user->save();
+        return response()->json($user, 201);
+    }
+
+    public function updateUser(Request $request,$id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'nameBN' => 'required',
+
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->nameBN = $request->nameBN;
+        $user->type = $request->type;
+        $user->position = $request->position;
+        $image = $request->image;
+        $user->phone = $request->phone;
         $featured = '';
         $imageCount =  count(explode(';', $image));
         if ($imageCount > 1) {

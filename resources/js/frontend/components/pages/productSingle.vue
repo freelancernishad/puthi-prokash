@@ -1,5 +1,9 @@
 <template>
     <main>
+
+        <Breadcrumb :pages="Breadcrumb"/>
+
+
         <section class="container d-md-flex my-5" style="padding-top: 50px;grid-gap: 25px;">
             <div class="col-md-3 col-sm-5 col-sm-12 singleProductImage">
                 <img :src="item.image" alt="" srcset="">
@@ -43,16 +47,37 @@
                     <h5 class="book-meta eng-text">
                         ISBN : {{ item.ISBN }}
                     </h5>
+
+
+
                     <div class="mt-2 font-18">
                         <div class="font-weight-bold">
-                            Price: Tk. {{ item.price }}
-                            <span class="ml-2 text-danger"> (<span>25</span><span>%</span><span class="ml-1">OFF</span>) </span>
+                            <span>Price: Tk. {{ item.price-totalDiscountValue }}</span>
+
+
+                            <span class="ml-2 text-danger" v-if="item.discount_status">
+
+                                <span v-if="item.discount_type=='percent'">
+                                    (<span>{{ item.discount }}</span><span> % </span><span class="ml-1">OFF</span>)
+                                </span>
+
+                                <span v-else-if="item.discount_type=='Fixed'">
+                                    (<span>{{ item.discount }}</span><span> টাকা </span><span class="ml-1">OFF</span>)
+                                </span>
+
+
+                            </span>
+
                         </div>
-                        <div class="font-weight-bold">
+                        <div class="font-weight-bold" v-if="item.discount_status">
                             Regular Price:
                             <strike class="item-price">Tk. {{ item.price }} </strike>
                         </div>
                     </div>
+
+
+
+
                     <div class="my-3 d-flex align-items-center" >
 
 
@@ -124,14 +149,40 @@ export default {
     return {
         modalOpen: false,
         imageUrl:'',
-        item:{}
+        item:{},
+        Breadcrumb:[],
     };
   },
+
+  computed: {
+    totalDiscountValue() {
+
+        if(this.item.discount_status){
+                    if (this.item.discount_type === 'Fixed') {
+            return this.item.discount;
+          } else if (this.item.discount_type === 'percent') {
+            return (this.item.price * this.item.discount)/100;
+          }else{
+            return 0;
+          }
+        }else{
+            return 0;
+          }
+
+    },
+
+  },
+
   methods: {
+
 
     async getItem(){
         var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[]);
+        this.Breadcrumb = [{'route':'home','params':{},'text':'হোম'}];
         this.item = res.data;
+        this.Breadcrumb.push(
+                    {'route':'','params':{},'text':res.data.name}
+                )
     },
   },
   mounted() {

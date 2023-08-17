@@ -3,7 +3,7 @@
 <section class="container mb-3" style="width: 88%;">
 
 
-    <div style="border-bottom: 3px solid var(--red)">
+    <div class="ProductListBorderBottom" >
         <div class="d-flex fs-3 gap-2 text-white py-1" style="    width: 300px;
     background-color: rgb(243, 91, 67);
     clip-path: polygon(0% 0%, 81% 0%, 100% 100%, 0% 100%);

@@ -183,7 +183,7 @@ export default {
           firstLineItems:{},
           secondLineItems:{},
 
-          mobileImage: `${this.$asseturl}assets/image/bg-M.png`,
+          mobileImage: `${this.$asseturl}assets/image/bB-bg.jpg`,
             desktopImage: `${this.$asseturl}assets/image/uddomSection.jpg`
         }
 

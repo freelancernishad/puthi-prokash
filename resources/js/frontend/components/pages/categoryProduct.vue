@@ -53,7 +53,9 @@
 
 
 <div  v-if="items.children.length === 0">
-    <Productslist  :key="'children'" :category_name="items.name" :category_slug="items.slug" :category_id="items.id" :products="items.products" :children="items.children"/>
+
+    <Productslist  :key="'children'" :category_name="items.name" :category_slug="items.slug" :category_id="items.id" :products="items.products" :children="items.children" v-if="items.products.length>0"/>
+
 </div>
 
 <div  v-else>

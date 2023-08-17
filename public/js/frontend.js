@@ -5127,7 +5127,7 @@ var render = function render() {
     staticClass: "container w-75 mx-auto my-5"
   }, [_c("div", {
     staticStyle: {
-      "text-align": "justify"
+      "text-align": "center"
     }
   }, [_vm._v("\n            " + _vm._s(_vm.preload_data.settings.about) + "\n        ")])]), _vm._v(" "), _c("section", {
     staticClass: "mx-auto my-5"
@@ -8405,7 +8405,7 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "CartQuantity2"
-  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1)])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_c("Productslist", {
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1)])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_vm.items.products.length > 0 ? _c("Productslist", {
     key: "children",
     attrs: {
       category_name: _vm.items.name,
@@ -8414,7 +8414,7 @@ var render = function render() {
       products: _vm.items.products,
       children: _vm.items.children
     }
-  })], 1) : _c("div", _vm._l(_vm.items.children, function (item, index) {
+  }) : _vm._e()], 1) : _c("div", _vm._l(_vm.items.children, function (item, index) {
     return _c("Productslist", {
       key: "children" + index,
       attrs: {

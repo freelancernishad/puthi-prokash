@@ -1,7 +1,7 @@
 <template>
  <main>
       <section class="container w-75 mx-auto my-5">
-        <div style="text-align: justify">
+        <div style="text-align: center">
             {{ preload_data.settings.about }}
         </div>
       </section>

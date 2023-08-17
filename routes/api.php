@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use  App\Http\Controllers\api\authController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\FeatureCategoryController;
@@ -186,4 +187,5 @@ Route::delete('multimedia/{id}', [MultimediaController::class,'destroy']);
 
 Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
 
+Route::get('/dashboard-stats', [DashboardController::class,'getDashboardStats']);
 

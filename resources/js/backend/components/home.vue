@@ -5,7 +5,7 @@
 
 
 
-<!--
+
 
         <div class="row gutters-20">
                     <div class="col-lg-3 col-sm-6 col-12">
@@ -13,13 +13,13 @@
                             <div class="social-media bg-fb hover-fb">
                                 <div class="media media-none--lg">
                                     <div class="social-icon">
-                                        <i class="fab fa-facebook-f"></i>
+                                        <i class="fa-solid fa-user"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Like us on facebook</h6>
+                                        <h6 class="item-title">Total User</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">30,000</div>
+                                <div class="social-like">{{ stats.totalUsers }}</div>
                             </div>
                         </div>
                     </div>
@@ -28,13 +28,13 @@
                             <div class="social-media bg-twitter hover-twitter">
                                 <div class="media media-none--lg">
                                     <div class="social-icon">
-                                        <i class="fab fa-twitter"></i>
+                                        <i class="fa-regular fa-users"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Follow us on twitter</h6>
+                                        <h6 class="item-title">Total Unique Customer</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">1,11,000</div>
+                                <div class="social-like">{{ stats.totalUniqueCustomers }}</div>
                             </div>
                         </div>
                     </div>
@@ -43,13 +43,13 @@
                             <div class="social-media bg-gplus hover-gplus">
                                 <div class="media media-none--lg">
                                     <div class="social-icon">
-                                        <i class="fab fa-google-plus-g"></i>
+                                        <i class="fa-solid fa-user-pen"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Follow us on googleplus</h6>
+                                        <h6 class="item-title">Total Writer</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">19,000</div>
+                                <div class="social-like">{{ stats.totalWriters }}</div>
                             </div>
                         </div>
                     </div>
@@ -58,17 +58,84 @@
                             <div class="social-media bg-linkedin hover-linked">
                                 <div class="media media-none--lg">
                                     <div class="social-icon">
-                                        <i class="fab fa-linkedin-in"></i>
+                                        <i class="fa-duotone fa-book-open-cover"></i>
                                     </div>
                                     <div class="media-body space-sm">
-                                        <h6 class="item-title">Follow us on linked</h6>
+                                        <h6 class="item-title">Total Books</h6>
                                     </div>
                                 </div>
-                                <div class="social-like">45,000</div>
+                                <div class="social-like">{{ stats.totalBooks }}</div>
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
+
+
+
+
+        <div class="row gutters-20">
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-fb hover-fb">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Total Order</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.totalUsers }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-twitter hover-twitter">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-regular fa-users"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Todays Order</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.totalUniqueCustomers }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-gplus hover-gplus">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Total Writer</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.totalWriters }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-linkedin hover-linked">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-duotone fa-book-open-cover"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Total Books</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.totalBooks }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -90,7 +157,8 @@ export default {
     },
     data() {
         return {
-            preLooding:false
+            preLooding:false,
+            stats:{},
 
         };
     },
@@ -98,11 +166,16 @@ export default {
 
         this.preLooding = false
 
+        this.getDashboardStats();
 
     },
     methods: {
 
 
+        async getDashboardStats(){
+            var res = await this.callApi('get',`/api/dashboard-stats`,[]);
+            this.stats = res.data
+        }
 
 
 

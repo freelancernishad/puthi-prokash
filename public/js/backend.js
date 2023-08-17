@@ -3568,13 +3568,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      preLooding: false
+      preLooding: false,
+      stats: {}
     };
   },
   mounted: function mounted() {
     this.preLooding = false;
+    this.getDashboardStats();
   },
-  methods: {}
+  methods: {
+    getDashboardStats: function getDashboardStats() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this.callApi('get', "/api/dashboard-stats", []);
+              case 2:
+                res = _context2.sent;
+                _this.stats = res.data;
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    }
+  }
 });
 
 /***/ }),
@@ -7392,9 +7416,189 @@ var render = function render() {
     attrs: {
       brename: "ড্যাশবোর্ড"
     }
-  })], 1);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "row gutters-20"
+  }, [_c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-fb hover-fb"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalUsers))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-twitter hover-twitter"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalUniqueCustomers))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-gplus hover-gplus"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalWriters))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-linkedin hover-linked"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalBooks))])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row gutters-20"
+  }, [_c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-fb hover-fb"
+  }, [_vm._m(4), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalUsers))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-twitter hover-twitter"
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalUniqueCustomers))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-gplus hover-gplus"
+  }, [_vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalWriters))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-linkedin hover-linked"
+  }, [_vm._m(7), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.totalBooks))])])])])])], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total User")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-regular fa-users"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Unique Customer")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user-pen"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Writer")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-duotone fa-book-open-cover"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Books")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Order")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-regular fa-users"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Todays Order")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user-pen"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Writer")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-duotone fa-book-open-cover"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Books")])])]);
+}];
 render._withStripped = true;
 
 

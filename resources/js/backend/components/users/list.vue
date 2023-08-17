@@ -45,7 +45,7 @@
                     <td><img :src="$asseturl+item.image" width="50px" alt=""></td>
                     <td>{{ item.nameBN }}</td>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.type }}</td>
+                    <td>{{ item.position_type }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.phone }}</td>
 

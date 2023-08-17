@@ -40,8 +40,6 @@
         </div>
 
 
-
-
         <div class="form-group col-md-6">
           <label for="">ইমেইল</label>
           <input type="text" v-model="form.email" class="form-control" placeholder="" aria-describedby="helpId">
@@ -50,7 +48,7 @@
 
         <div class="form-group col-md-6" v-if="!this.$route.params.id">
           <label for="">পাসওয়ার্ড</label>
-          <input type="text" v-model="form.password" class="form-control" placeholder="" aria-describedby="helpId">
+          <input type="password" v-model="form.password" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
 

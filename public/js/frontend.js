@@ -8415,7 +8415,7 @@ var render = function render() {
       children: _vm.items.children
     }
   }) : _vm._e()], 1) : _c("div", _vm._l(_vm.items.children, function (item, index) {
-    return _c("Productslist", {
+    return item.products.length > 0 ? _c("Productslist", {
       key: "children" + index,
       attrs: {
         category_id: item.id,
@@ -8424,7 +8424,7 @@ var render = function render() {
         products: item.products,
         children: item.children
       }
-    });
+    }) : _vm._e();
   }), 1), _vm._v(" "), _vm.modalOpen ? _c("div", {
     staticClass: "modal-overlay",
     on: {

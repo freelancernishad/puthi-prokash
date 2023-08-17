@@ -59,7 +59,7 @@
 </div>
 
 <div  v-else>
-    <Productslist v-for="(item,index) in items.children" :key="'children'+index" :category_id="item.id" :category_name="item.name" :category_slug="item.slug" :products="item.products" :children="item.children"/>
+    <Productslist v-for="(item,index) in items.children" :key="'children'+index" :category_id="item.id" :category_name="item.name" :category_slug="item.slug" :products="item.products" :children="item.children" v-if="item.products.length>0"/>
 </div>
 
 

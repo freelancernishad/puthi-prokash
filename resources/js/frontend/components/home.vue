@@ -1,7 +1,7 @@
 <template>
  <main>
-      <section class="container w-75 mx-auto my-5">
-        <div style="text-align: center">
+      <section class="container w-75 mx-auto my-5 containerMobileWidth">
+        <div style="text-align: center" >
             {{ preload_data.settings.about }}
         </div>
       </section>
@@ -227,6 +227,20 @@ export default {
     height: 100%;
     background: #ff000000;
 }
+
+@media (max-width:991px) {
+    .containerMobileWidth{
+        width: 100% !important;
+    }
+    .containerMobileWidth div{
+        text-align:justify !important;
+    }
+    .header.fixed-header nav .container {
+        margin-top: 9px !important;
+    }
+}
+
+
 </style>
 
 

@@ -5128,7 +5128,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("main", [_c("section", {
-    staticClass: "container w-75 mx-auto my-5"
+    staticClass: "container w-75 mx-auto my-5 containerMobileWidth"
   }, [_c("div", {
     staticStyle: {
       "text-align": "center"
@@ -5590,7 +5590,27 @@ var render = function render() {
       srcset: "",
       width: "145px"
     }
-  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("router-link", {
+    staticClass: "fs-5 nav-link text-dark position-relative desktopNone",
+    staticStyle: {
+      "margin-right": "13px"
+    },
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "cart"
+      }
+    }
+  }, [_c("img", {
+    attrs: {
+      width: "35px",
+      src: _vm.$asseturl + "assets/image/cart-icon.png"
+    }
+  }), _c("span", {
+    staticClass: "CartQuantity"
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])]), _vm._v(" "), _vm._m(0)], 1), _vm._v(" "), _c("div", {
     staticClass: "collapse navbar-collapse",
     attrs: {
       id: "navbarNavDropdown"
@@ -5614,7 +5634,61 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "CartQuantity"
-  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm.loginStatus ? _c("li", {
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1), _vm._v(" "), _c("li", {
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center desktopNone"
+  }, [_c("router-link", {
+    staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      to: {
+        name: "pages",
+        params: {
+          slug: "amader-kotah"
+        }
+      }
+    }
+  }, [_vm._v("আমাদের কথা")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center desktopNone"
+  }, [_c("router-link", {
+    staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      to: {
+        name: "writer"
+      }
+    }
+  }, [_vm._v("লেখক পরিচিতি")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center desktopNone"
+  }, [_c("router-link", {
+    staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      to: {
+        name: "categoryProduct",
+        params: {
+          category: "ekaaddemik-bi"
+        }
+      }
+    }
+  }, [_vm._v("একাডেমিক বই")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center desktopNone"
+  }, [_c("router-link", {
+    staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      to: {
+        name: "categoryProduct",
+        params: {
+          category: "srjnshiil-bi"
+        }
+      }
+    }
+  }, [_vm._v("সৃজনশীল বই")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center desktopNone"
+  }, [_c("router-link", {
+    staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      to: {
+        name: "multimedia"
+      }
+    }
+  }, [_vm._v("মাল্টিমিডিয়া")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm.loginStatus ? _c("li", {
     staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center"
   }, [_c("router-link", {
     staticClass: "fs-5 text-dark border-start border-white px-2",
@@ -5750,7 +5824,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "container"
   }, [_vm.mobileMenu ? _c("div", {
-    staticClass: "d-flex",
+    staticClass: "d-flex align-items-center",
     staticStyle: {
       "justify-content": "space-between"
     }
@@ -5767,7 +5841,27 @@ var render = function render() {
       srcset: "",
       width: "180px"
     }
-  })]), _vm._v(" "), _vm._m(5)], 1) : _vm._e(), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("router-link", {
+    staticClass: "fs-5 nav-link text-dark position-relative desktopNone",
+    staticStyle: {
+      "margin-right": "13px"
+    },
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "cart"
+      }
+    }
+  }, [_c("img", {
+    attrs: {
+      width: "35px",
+      src: _vm.$asseturl + "assets/image/cart-icon.png"
+    }
+  }), _c("span", {
+    staticClass: "CartQuantity"
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])]), _vm._v(" "), _vm._m(5)], 1)], 1) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "navbar-collapse collapse",
     attrs: {
       id: "navbarNavDropdown1"
@@ -31159,7 +31253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-2a1c1b9c]{\r\n    background: var(--defaultBg) !important;\n}\nsection.vh-100[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\r\n    border: 2px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\r\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\r\n    border: 2px solid var(--defaultColor) !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\r\n    color: var(--defaultColor) !important;\n}\n.divider[data-v-2a1c1b9c]:after,\r\n.divider[data-v-2a1c1b9c]:before {\r\n    content: \"\";\r\n    flex: 1;\r\n    height: 1px;\r\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\r\n*[data-v-2a1c1b9c]:focus {\r\n    outline: none;\n}\r\n\r\n/* .form{\r\n  width: 500px;\r\n  margin: 0 auto;\r\n  margin-top: 150px;\r\n  font-family: sans-serif;\r\n  background: #fff\r\n} */\n.form-item[data-v-2a1c1b9c] {\r\n    position: relative;\r\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    background: transparent;\r\n    border: solid 2px var(--defaultColor);\r\n    transition: all 0.3s ease;\r\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\r\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\r\n    position: absolute;\r\n    cursor: text;\r\n    z-index: 2;\r\n    top: 13px;\r\n    left: 10px;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    background: var(--defaultBg);\r\n    padding: 0 10px;\r\n    color: var(--defaultColor);\r\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\r\n.form-item input:valid+label[data-v-2a1c1b9c] {\r\n    font-size: 11px;\r\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\r\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\r\n    width: 370px !important;\r\n    margin: 0 auto;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\r\n    height: 100vh;\n}\n.form-check-input[data-v-2a1c1b9c]:checked {\r\n    background-color: var(--defaultColor);\r\n    border-color: var(--defaultColor);\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-2a1c1b9c]{\n    background: var(--defaultBg) !important;\n}\nsection.vh-100[data-v-2a1c1b9c] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\n    border: 2px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\n    border: 2px solid var(--defaultColor) !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\n    color: var(--defaultColor) !important;\n}\n.divider[data-v-2a1c1b9c]:after,\n.divider[data-v-2a1c1b9c]:before {\n    content: \"\";\n    flex: 1;\n    height: 1px;\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\n*[data-v-2a1c1b9c]:focus {\n    outline: none;\n}\n\n/* .form{\n  width: 500px;\n  margin: 0 auto;\n  margin-top: 150px;\n  font-family: sans-serif;\n  background: #fff\n} */\n.form-item[data-v-2a1c1b9c] {\n    position: relative;\n    margin-bottom: 15px;\n}\n.form-item input[data-v-2a1c1b9c] {\n    display: block;\n    width: 100%;\n    height: 40px;\n    background: transparent;\n    border: solid 2px var(--defaultColor);\n    transition: all 0.3s ease;\n    padding: 0 15px;\n}\n.form-item input[data-v-2a1c1b9c]:focus {\n    border-color: blue;\n}\n.form-item label[data-v-2a1c1b9c] {\n    position: absolute;\n    cursor: text;\n    z-index: 2;\n    top: 13px;\n    left: 10px;\n    font-size: 12px;\n    font-weight: bold;\n    background: var(--defaultBg);\n    padding: 0 10px;\n    color: var(--defaultColor);\n    transition: all 0.3s ease;\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\n.form-item input:valid+label[data-v-2a1c1b9c] {\n    font-size: 11px;\n    top: -5px;\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\n    color: blue;\n}\n.loginForm[data-v-2a1c1b9c] {\n    width: 370px !important;\n    margin: 0 auto;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%,-50%);\n}\n.col-md-12.col-lg-12.col-xl-12.offset-xl-1[data-v-2a1c1b9c] {\n    height: 100vh;\n}\n.form-check-input[data-v-2a1c1b9c]:checked {\n    background-color: var(--defaultColor);\n    border-color: var(--defaultColor);\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31207,7 +31301,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\n    /* width: 240px; */\n}\n.slideProductHome {\n    background-color: rgb(235, 239, 242);\n    margin: 6px 5px;\n}\n.slideProductHome:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: #ff000000;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\n    /* width: 240px; */\n}\n.slideProductHome {\n    background-color: rgb(235, 239, 242);\n    margin: 6px 5px;\n}\n.slideProductHome:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: #ff000000;\n}\n@media (max-width:991px) {\n.containerMobileWidth{\n        width: 100% !important;\n}\n.containerMobileWidth div{\n        text-align:justify !important;\n}\n.header.fixed-header nav .container {\n        margin-top: 9px !important;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31231,7 +31325,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\r\n    position: fixed;\r\n    bottom: 100px;\r\n    right: 36px;\r\n    width: 40px;\r\n    height: 40px;\r\n    background-color: #333;\r\n    color: #fff;\r\n    border-radius: 50%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    cursor: pointer;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    transition: opacity 0.3s, visibility 0.3s;\r\n    z-index: 999;\n}\n.scroll-top-btn.show {\r\n  opacity: 1;\r\n  visibility: visible;\n}\n.scroll-top-btn i {\r\n  font-size: 20px;\n}\n.title_footer {\r\n    display: flex;\r\n    justify-content: center;\r\n    grid-gap: 12px;\r\n    align-items: center;\n}\n.ftext{\r\n    margin: 0 32px 0 7px;\r\n    font-size: 16px !important;\n}\r\n/* Add any additional styles as needed */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n    position: fixed;\n    bottom: 100px;\n    right: 36px;\n    width: 40px;\n    height: 40px;\n    background-color: #333;\n    color: #fff;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.3s, visibility 0.3s;\n    z-index: 999;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n/* Add any additional styles as needed */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31255,7 +31349,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    padding-left: 0;\r\n    margin-bottom: 0;\r\n    list-style: none;\n}\nbutton.navbar-toggler {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\r\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\r\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\r\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: baseline;\n}\n.submenu1 a {\r\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 0 16px;\r\n    padding-top: 9px;\r\n    width: 100%;\n}\nheader.fixed-header {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 9999;\n}\n.dropdown-menus {\r\n    position: absolute;\r\n    width: 100%;\r\n    background: white;\r\n    z-index: 9999;\r\n    height: 78vh;\r\n    overflow: scroll;\n}\n.nav-single{\r\n    width: 25%;\r\n    margin: 0 auto;\n}\nul.DownItems {\r\n    position: absolute;\r\n    top: var(--headerHight);\r\n    left: 0;\r\n    background: wheat;\r\n    width: 140px;\r\n    display: none;\r\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\r\n    display: block;\n}\nul.DownItems li {\r\n    padding: 5px 8px;\r\n    border-bottom: 1px solid white;\r\n    cursor: pointer;\n}\nul.DownItems li:hover {\r\n    background: #f5c263;\n}\n.mainSearchBox{\r\n  display: flex!important;\r\n    box-shadow: 0px 0px 16px -3px #0000008a;\r\n    background: white;\r\n    margin: 11px auto;\r\n    padding: 2px 3px;\r\n    width: 50%;\n}\ninput.book-search-input {\r\n    width: 90%;\r\n    /* margin: 6px 0px; */\r\n    padding: 8px 6px;\r\n    border: 0px solid #F05C41;\r\n    border-right: 0px;\r\n    background: transparent;\n}\nbutton.book-search-button {\r\n    width: 10%;\r\n    /* margin: 6px 0; */\r\n    background: transparent;\r\n    border: 0px solid #F05C41;\r\n    border-left: 0px;\r\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\r\n    position: absolute;\r\n    top: 3px;\r\n    right: -7px;\r\n    font-size: 45px;\r\n    color: var(--red);\n}\n.desktopDisplayNone{\r\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\r\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\r\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\r\n        display: block;\n}\ndiv#navbarNavDropdown1 {\r\n    background: #CED9DF;\r\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\r\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\r\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\r\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\r\n    left: 41px;\r\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\r\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\r\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\r\n    color: var(--defaultColor);\r\n    /* font-weight: 600 !important; */\n}\n@media (max-width:991px) {\ndiv#navbarNavDropdown {\r\n    background: white;\r\n    width: 100%;\r\n    margin-top: 13px;\n}\ndiv#navbarNavDropdown ul li {\r\n    text-align: left;\r\n    width: 100%;\r\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\r\n    display: none !important;\n}\n}\n@media (max-width:768px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\r\n    padding: 0 !important;\r\n    display: block !important;\r\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nbutton.navbar-toggler {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\n    display: flex;\n    justify-content: space-between;\n    align-items: baseline;\n}\n.submenu1 a {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    padding-top: 9px;\n    width: 100%;\n}\nheader.fixed-header {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\n    display: block;\n}\nul.DownItems li {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li:hover {\n    background: #f5c263;\n}\n.mainSearchBox{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n.desktopDisplayNone{\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\n        display: block;\n}\ndiv#navbarNavDropdown1 {\n    background: #CED9DF;\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\n    left: 41px;\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\n    color: var(--defaultColor);\n    /* font-weight: 600 !important; */\n}\n.desktopNone{\n    display: none !important;\n}\n@media (max-width:991px) {\n.desktopNone{\n    display: flex !important;\n}\ndiv#navbarNavDropdown {\n    background: white;\n    width: 100%;\n    margin-top: 13px;\n}\ndiv#navbarNavDropdown ul li {\n    text-align: left;\n    width: 100%;\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\n    display: none !important;\n}\n}\n@media (max-width:768px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\n    padding: 0 !important;\n    display: block !important;\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31279,7 +31373,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\r\n    border: 0px;\r\n    background: var(--red);\r\n    color: white;\r\n    padding: 4px 9px;\r\n    font-size: 18px;\n}\n.linkHover{\r\n    cursor: pointer;\r\n    transition: all 0.5s;\n}\n.linkHover:hover{\r\n    color: #F05C41 !important;\n}\ninput:focus{\r\n    outline: none;\n}\n.cursor-pointer{\r\n    cursor: pointer;\n}\n.singleProductCollectedButton {\r\n    position: absolute;\r\n    right: 24px;\r\n    top: 30px;\r\n    border: 0;\r\n    background: #e0e65ead;\r\n    padding: 5px 17px;\r\n    border-radius: 21px;\r\n    font-size: 21px;\n}\n.singleProductcloseButton {\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    background: transparent;\r\n    border: 0;\r\n    padding: 0px 9px;\r\n    font-size: 20px;\n}\n.sampleBooks{\r\n    width: 90px;\r\n    height: 120px;\r\n    margin: 0 6px;\n}\n.modal-overlay {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 102%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    z-index: 99999;\r\n    overflow: scroll;\n}\n.modal-container {\r\n  max-width: 90%;\r\n  max-height: 90%;\r\n  text-align: center;\n}\n.modal-container img {\r\n  max-width: 30%;\r\n  max-height: 100%;\n}\n.ProductListBorderBottom{\r\n    border-bottom: 3px solid var(--red)\n}\n@media (max-width:768px) {\n.ProductListBorderBottom{\r\n    border-bottom: 0px solid var(--red)\n}\n.modal-container img {\r\n  max-width: 70%;\r\n  max-height: 100%;\n}\n}\n.pe-lg-10 {\r\n    padding-right: 3rem!important;\n}\n.pt-10 {\r\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\r\n    padding: 3rem!important;\n}\n.p-md-6 {\r\n    padding: 1.5rem!important;\n}\n.py-6 {\r\n    padding-bottom: 1.5rem!important;\r\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\r\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\r\n    background-color: transparent;\r\n    border-radius: .5rem;\r\n    color: #21313c;\r\n    font-weight: 500;\r\n    margin-bottom: .25rem;\r\n    padding: .5rem .75rem;\n}\n.bg-light {\r\n    --fc-bg-opacity: 1;\r\n    background-color: #f0f3f2!important;\n}\ninput.form-control {\r\n    border: 1px solid var(--defaultColor) !important;\n}\n.input-group-text {\r\n    border: 1px solid var(--defaultColor);\r\n    color: var(--defaultColor);\n}\ninput.form-control.writer-search-input {\r\n    border-top-right-radius: 0 !important;\r\n    border-bottom-right-radius: 0 !important;\n}\nspan.CartQuantity {\r\n    position: absolute;\r\n    top: 3px;\r\n    right: 0;\r\n    background: var(--defaultColor);\r\n    color: white;\r\n    padding: 0px 4px 1px 4px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    font-size: 12px;\r\n    border-radius: 5px;\n}\nspan.CartQuantity2 {\r\n    position: absolute;\r\n    top: -6px;\r\n    right: -6px;\r\n    background: var(--defaultColor);\r\n    color: white;\r\n    padding: 0px 4px 1px 4px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    font-size: 12px;\r\n    border-radius: 5px;\n}\nspan.imageshowCloseButton {\r\n    position: absolute;\r\n    top: 18px;\r\n    left: 49%;\r\n    color: white;\r\n    background: var(--defaultColor);\r\n    padding: 1px 7px;\r\n    border-radius: 50%;\r\n    cursor: pointer;\n}\n.ImageModalButton{\r\n    border: 0;\r\n    background: var(--defaultColor);\r\n    color: white;\r\n    font-size: 30px;\r\n    padding: 3px 6px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbutton.writer-search-button {\n    border: 0px;\n    background: var(--red);\n    color: white;\n    padding: 4px 9px;\n    font-size: 18px;\n}\n.linkHover{\n    cursor: pointer;\n    transition: all 0.5s;\n}\n.linkHover:hover{\n    color: #F05C41 !important;\n}\ninput:focus{\n    outline: none;\n}\n.cursor-pointer{\n    cursor: pointer;\n}\n.singleProductCollectedButton {\n    position: absolute;\n    right: 24px;\n    top: 30px;\n    border: 0;\n    background: #e0e65ead;\n    padding: 5px 17px;\n    border-radius: 21px;\n    font-size: 21px;\n}\n.singleProductcloseButton {\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: transparent;\n    border: 0;\n    padding: 0px 9px;\n    font-size: 20px;\n}\n.sampleBooks{\n    width: 90px;\n    height: 120px;\n    margin: 0 6px;\n}\n.modal-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 102%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 99999;\n    overflow: scroll;\n}\n.modal-container {\n  max-width: 90%;\n  max-height: 90%;\n  text-align: center;\n}\n.modal-container img {\n  max-width: 30%;\n  max-height: 100%;\n}\n.ProductListBorderBottom{\n    border-bottom: 3px solid var(--red)\n}\n@media (max-width:768px) {\n.ProductListBorderBottom{\n    border-bottom: 0px solid var(--red)\n}\n.modal-container img {\n  max-width: 70%;\n  max-height: 100%;\n}\n}\n.pe-lg-10 {\n    padding-right: 3rem!important;\n}\n.pt-10 {\n    padding-top: 3rem!important;\n}\n.p-lg-10 {\n    padding: 3rem!important;\n}\n.p-md-6 {\n    padding: 1.5rem!important;\n}\n.py-6 {\n    padding-bottom: 1.5rem!important;\n    padding-top: 1.5rem!important;\n}\n.text-inherit {\n    color: #21313c;\n}\n.nav-pills-dark .nav-item .nav-link {\n    background-color: transparent;\n    border-radius: .5rem;\n    color: #21313c;\n    font-weight: 500;\n    margin-bottom: .25rem;\n    padding: .5rem .75rem;\n}\n.bg-light {\n    --fc-bg-opacity: 1;\n    background-color: #f0f3f2!important;\n}\ninput.form-control {\n    border: 1px solid var(--defaultColor) !important;\n}\n.input-group-text {\n    border: 1px solid var(--defaultColor);\n    color: var(--defaultColor);\n}\ninput.form-control.writer-search-input {\n    border-top-right-radius: 0 !important;\n    border-bottom-right-radius: 0 !important;\n}\nspan.CartQuantity {\n    position: absolute;\n    top: 3px;\n    right: 0;\n    background: var(--defaultColor);\n    color: white;\n    padding: 0px 4px 1px 4px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: 12px;\n    border-radius: 5px;\n}\nspan.CartQuantity2 {\n    position: absolute;\n    top: -6px;\n    right: -6px;\n    background: var(--defaultColor);\n    color: white;\n    padding: 0px 4px 1px 4px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: 12px;\n    border-radius: 5px;\n}\nspan.imageshowCloseButton {\n    position: absolute;\n    top: 18px;\n    left: 49%;\n    color: white;\n    background: var(--defaultColor);\n    padding: 1px 7px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.ImageModalButton{\n    border: 0;\n    background: var(--defaultColor);\n    color: white;\n    font-size: 30px;\n    padding: 3px 6px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31327,7 +31421,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-overlay[data-v-6f6d6966] {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    z-index: 999999;\r\n    overflow: auto;\n}\r\n\r\n/* Popup content styles */\n.popup[data-v-6f6d6966] {\r\n  background-color: #fff;\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\r\n  width: 90%;\n}\r\n\r\n/* Table styles */\ntable[data-v-6f6d6966] {\r\n  width: 100%;\r\n  border-collapse: collapse;\r\n  margin-top: 15px;\n}\nthead[data-v-6f6d6966] {\r\n  background-color: #f2f2f2;\n}\nth[data-v-6f6d6966], td[data-v-6f6d6966] {\r\n  padding: 10px;\r\n  text-align: left;\r\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-6f6d6966]:hover {\r\n  background-color: #f9f9f9;\n}\r\n\r\n/* Close button style */\nbutton[data-v-6f6d6966] {\r\n  margin-top: 15px;\r\n  background-color: #007bff;\r\n  color: #fff;\r\n  border: none;\r\n  padding: 10px 20px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  transition: background-color 0.2s ease;\n}\nbutton[data-v-6f6d6966]:hover {\r\n  background-color: #0056b3;\n}\nbutton[data-v-6f6d6966]:focus {\r\n  outline: none;\n}\r\n\r\n/* Popup heading style */\nh2[data-v-6f6d6966] {\r\n  font-size: 20px;\r\n  margin-bottom: 10px;\n}\r\n\r\n/* Responsive styles */\n@media (max-width: 768px) {\n.popup[data-v-6f6d6966] {\r\n    width: 90%;\n}\n}\r\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-overlay[data-v-6f6d6966] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 999999;\n    overflow: auto;\n}\n\n/* Popup content styles */\n.popup[data-v-6f6d6966] {\n  background-color: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n  width: 90%;\n}\n\n/* Table styles */\ntable[data-v-6f6d6966] {\n  width: 100%;\n  border-collapse: collapse;\n  margin-top: 15px;\n}\nthead[data-v-6f6d6966] {\n  background-color: #f2f2f2;\n}\nth[data-v-6f6d6966], td[data-v-6f6d6966] {\n  padding: 10px;\n  text-align: left;\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-6f6d6966]:hover {\n  background-color: #f9f9f9;\n}\n\n/* Close button style */\nbutton[data-v-6f6d6966] {\n  margin-top: 15px;\n  background-color: #007bff;\n  color: #fff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\nbutton[data-v-6f6d6966]:hover {\n  background-color: #0056b3;\n}\nbutton[data-v-6f6d6966]:focus {\n  outline: none;\n}\n\n/* Popup heading style */\nh2[data-v-6f6d6966] {\n  font-size: 20px;\n  margin-bottom: 10px;\n}\n\n/* Responsive styles */\n@media (max-width: 768px) {\n.popup[data-v-6f6d6966] {\n    width: 90%;\n}\n}\n  ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31351,7 +31445,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-link.router-link-exact-active.router-link-active[data-v-4dafed76]{\r\n    background-color: #001e2b;\r\n    color: white;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-link.router-link-exact-active.router-link-active[data-v-4dafed76]{\n    background-color: #001e2b;\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31375,7 +31469,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.form-check-input[data-v-24a7d3c7]:checked {\r\n    background-color: var(--defaultColor);\r\n    border-color: var(--defaultColor);\n}\ninput#inlineFormCheck[data-v-24a7d3c7] {\r\n    border: 1px solid var(--defaultColor);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.form-check-input[data-v-24a7d3c7]:checked {\n    background-color: var(--defaultColor);\n    border-color: var(--defaultColor);\n}\ninput#inlineFormCheck[data-v-24a7d3c7] {\n    border: 1px solid var(--defaultColor);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31399,7 +31493,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid[data-v-241b3165] {\r\n    margin-top: 70px;\n}\n.card-body[data-v-241b3165] {\r\n    flex: 1 1 auto;\r\n    padding: 1.4rem;\n}\n.img-sm[data-v-241b3165] {\r\n    width: 80px;\r\n    height: 80px;\n}\n.itemside .info[data-v-241b3165] {\r\n    padding-left: 15px;\r\n    padding-right: 7px;\n}\n.table-shopping-cart .price-wrap[data-v-241b3165] {\r\n    line-height: 1.2;\n}\n.table-shopping-cart .price[data-v-241b3165] {\r\n    font-weight: bold;\r\n    margin-right: 5px;\r\n    display: block;\n}\n.text-muted[data-v-241b3165] {\r\n    color: #969696 !important;\n}\na[data-v-241b3165] {\r\n    text-decoration: none !important;\n}\n.card[data-v-241b3165] {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 0;\r\n    word-wrap: break-word;\r\n    background-color: #fff;\r\n    background-clip: border-box;\r\n    border: 1px solid rgba(0, 0, 0, 0.125);\r\n    border-radius: 0px;\n}\n.itemside[data-v-241b3165] {\r\n    position: relative;\r\n    display: flex;\r\n    width: 100%;\n}\n.dlist-align[data-v-241b3165] {\r\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-241b3165] {\r\n    margin-bottom: 5px;\n}\n.coupon[data-v-241b3165] {\r\n    border-radius: 1px;\n}\n.price[data-v-241b3165] {\r\n    font-weight: 600;\r\n    color: #212529;\n}\n.btn.btn-out[data-v-241b3165] {\r\n    outline: 1px solid #fff;\r\n    outline-offset: -5px;\n}\n.btn-main[data-v-241b3165] {\r\n    border-radius: 2px;\r\n    text-transform: capitalize;\r\n    font-size: 15px;\r\n    padding: 10px 19px;\r\n    cursor: pointer;\r\n    color: #fff;\r\n    width: 100%;\n}\n.btn-light[data-v-241b3165] {\r\n    color: #ffffff;\r\n    background-color: #f44336;\r\n    border-color: #f8f9fa;\r\n    font-size: 12px;\n}\n.btn-light[data-v-241b3165]:hover {\r\n    color: #ffffff;\r\n    background-color: #f44336;\r\n    border-color: #f44336;\n}\n.btn-apply[data-v-241b3165] {\r\n    font-size: 11px;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid[data-v-241b3165] {\n    margin-top: 70px;\n}\n.card-body[data-v-241b3165] {\n    flex: 1 1 auto;\n    padding: 1.4rem;\n}\n.img-sm[data-v-241b3165] {\n    width: 80px;\n    height: 80px;\n}\n.itemside .info[data-v-241b3165] {\n    padding-left: 15px;\n    padding-right: 7px;\n}\n.table-shopping-cart .price-wrap[data-v-241b3165] {\n    line-height: 1.2;\n}\n.table-shopping-cart .price[data-v-241b3165] {\n    font-weight: bold;\n    margin-right: 5px;\n    display: block;\n}\n.text-muted[data-v-241b3165] {\n    color: #969696 !important;\n}\na[data-v-241b3165] {\n    text-decoration: none !important;\n}\n.card[data-v-241b3165] {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    min-width: 0;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: border-box;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n    border-radius: 0px;\n}\n.itemside[data-v-241b3165] {\n    position: relative;\n    display: flex;\n    width: 100%;\n}\n.dlist-align[data-v-241b3165] {\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-241b3165] {\n    margin-bottom: 5px;\n}\n.coupon[data-v-241b3165] {\n    border-radius: 1px;\n}\n.price[data-v-241b3165] {\n    font-weight: 600;\n    color: #212529;\n}\n.btn.btn-out[data-v-241b3165] {\n    outline: 1px solid #fff;\n    outline-offset: -5px;\n}\n.btn-main[data-v-241b3165] {\n    border-radius: 2px;\n    text-transform: capitalize;\n    font-size: 15px;\n    padding: 10px 19px;\n    cursor: pointer;\n    color: #fff;\n    width: 100%;\n}\n.btn-light[data-v-241b3165] {\n    color: #ffffff;\n    background-color: #f44336;\n    border-color: #f8f9fa;\n    font-size: 12px;\n}\n.btn-light[data-v-241b3165]:hover {\n    color: #ffffff;\n    background-color: #f44336;\n    border-color: #f44336;\n}\n.btn-apply[data-v-241b3165] {\n    font-size: 11px;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31471,7 +31565,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dlist-align[data-v-77eae20b] {\r\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-77eae20b] {\r\n    margin-bottom: 5px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dlist-align[data-v-77eae20b] {\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-77eae20b] {\n    margin-bottom: 5px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31495,7 +31589,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ProductPreviewIcon[data-v-240a275b]{\r\n    position: absolute;\r\n    z-index: 9;\r\n    bottom: 0;\r\n    right: -14px;\r\n    width: 44px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ProductPreviewIcon[data-v-240a275b]{\n    position: absolute;\n    z-index: 9;\n    bottom: 0;\n    right: -14px;\n    width: 44px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31519,7 +31613,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.googleMapIframe iframe {\r\n    height: 235px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.googleMapIframe iframe {\n    height: 235px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31543,7 +31637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.iframeContainer iframe {\r\n    width: 100% !important;\r\n    height: 100% !important;\n}\n.multimediaContainer .col .card{\r\n    height: 100% !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.iframeContainer iframe {\n    width: 100% !important;\n    height: 100% !important;\n}\n.multimediaContainer .col .card{\n    height: 100% !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31591,7 +31685,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nspan.writerFilter.active[data-v-2ef441f8] {\r\n    background: var(--defaultColor);\r\n    color: white;\n}\n.writerArrow[data-v-2ef441f8]{\r\n    padding: 9px;\r\n    margin: 11px 0px;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    height: 100%;\r\n    font-size: 3em;\r\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\r\n    background-color: rgb(209, 210, 212);\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    padding: 0 !important;\r\n    cursor: pointer;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nspan.writerFilter.active[data-v-2ef441f8] {\n    background: var(--defaultColor);\n    color: white;\n}\n.writerArrow[data-v-2ef441f8]{\n    padding: 9px;\n    margin: 11px 0px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    height: 100%;\n    font-size: 3em;\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\n    background-color: rgb(209, 210, 212);\n    width: 30px;\n    height: 30px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    padding: 0 !important;\n    cursor: pointer;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

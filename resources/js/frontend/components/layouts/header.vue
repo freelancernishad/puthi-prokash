@@ -45,17 +45,25 @@
               width="145px"
             />
           </router-link>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-          <i class="fa-solid fa-bars"></i>
-          </button>
+
+          <div class="d-flex">
+                       <router-link class="fs-5 nav-link text-dark position-relative desktopNone" style="    margin-right: 13px;" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity">{{ getCartQuantity  }}</span>
+                </router-link>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                <i class="fa-solid fa-bars"></i>
+                </button>
+          </div>
+
 
 
 
@@ -74,6 +82,19 @@
                   >আমার পছন্দ</a
                 >
               </li> -->
+
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopNone"  >
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'pages',params:{slug:'amader-kotah'}}">আমাদের কথা</router-link>
+              </li>
+
+                <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopNone"><router-link :to="{name:'writer'}" class="fs-5 text-dark border-start border-white px-2">লেখক পরিচিতি</router-link></li>
+                <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopNone"><router-link :to="{name:'categoryProduct',params:{category:'ekaaddemik-bi'}}" class="fs-5 text-dark border-start border-white px-2">একাডেমিক বই</router-link></li>
+                <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopNone"><router-link :to="{name:'categoryProduct',params:{category:'srjnshiil-bi'}}" class="fs-5 text-dark border-start border-white px-2">সৃজনশীল বই</router-link></li>
+                <li class="border-3 nav-item nav-item-menu  d-flex align-items-center desktopNone"><router-link :to="{name:'multimedia'}" class="fs-5 text-dark border-start border-white px-2">মাল্টিমিডিয়া</router-link></li>
+
+
+
+
 
               <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center">
                 <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
@@ -149,7 +170,7 @@
 
         <div class="container">
 
-            <div class="d-flex" style="justify-content: space-between;" v-if="mobileMenu">
+            <div class="d-flex align-items-center" style="justify-content: space-between;" v-if="mobileMenu">
 
 
 
@@ -163,7 +184,13 @@
                 width="180px"
                 />
             </router-link>
-            <button
+
+            <div class="d-flex">
+                       <router-link class="fs-5 nav-link text-dark position-relative desktopNone" style="    margin-right: 13px;" aria-current="page" :to="{name:'cart'}">
+                  <img width="35px" :src="$asseturl+'assets/image/cart-icon.png'"/><span class="CartQuantity">{{ getCartQuantity  }}</span>
+                </router-link>
+
+                <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -174,6 +201,9 @@
             >
             <i class="fa-solid fa-bars"></i>
             </button>
+          </div>
+
+
         </div>
 
 
@@ -751,7 +781,13 @@ li.nav-item.col a.nav-link:hover {
 }
 
 
+.desktopNone{
+    display: none !important;
+}
 @media (max-width:991px) {
+    .desktopNone{
+    display: flex !important;
+}
     div#navbarNavDropdown {
     background: white;
     width: 100%;

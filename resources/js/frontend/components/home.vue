@@ -69,7 +69,7 @@
 
 
 
-      <section :style="`padding: 55px 0px;background: url(${$asseturl}assets/image/uddomSection.jpg);background-size: cover;`">
+      <section :style="sectionStyle">
       <div
         style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">
@@ -119,9 +119,12 @@ export default {
     components: { VueSlickCarousel },
 
     created() {
-
+        window.addEventListener("resize", this.handleResize);
     },
-
+    beforeDestroy() {
+    // Remove the event listener when the component is destroyed
+    window.removeEventListener("resize", this.handleResize);
+  },
     data() {
         return {
             Carouselsettings:{
@@ -180,14 +183,34 @@ export default {
           firstLineItems:{},
           secondLineItems:{},
 
-
+          mobileImage: `${this.$asseturl}assets/image/bB-bg.jpg`,
+            desktopImage: `${this.$asseturl}assets/image/uddomSection.jpg`
         }
 
 
 
     },
+    computed: {
+    sectionStyle() {
+      if (window.innerWidth <= 768) {
+        return {
+          padding: "55px 0px",
+          backgroundImage: `url(${this.mobileImage})`,
+          backgroundSize: "cover"
+        };
+      } else {
+        return {
+          padding: "55px 0px",
+          backgroundImage: `url(${this.desktopImage})`,
+          backgroundSize: "cover"
+        };
+      }
+    }
+  },
     methods: {
-
+        handleResize() {
+      this.$forceUpdate(); // Update the computed property when window is resized
+    },
         async childCategoryAcademicbooks(){
             var res = await this.callApi('get',`/api/feature-categories`,[]);
 
@@ -238,6 +261,18 @@ export default {
     .header.fixed-header nav .container {
         margin-top: 9px !important;
     }
+}
+
+@media (max-width:768px) {
+    .carousel-control-prev-icon {
+         padding: 28px 12px !important;
+        }
+        .carousel-control-next-icon {
+         padding: 28px 12px !important;
+        }
+        a.carousel-control-next {
+    width: 4%;
+}
 }
 
 

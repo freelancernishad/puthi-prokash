@@ -2275,7 +2275,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     VueSlickCarousel: (vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0___default())
   },
-  created: function created() {},
+  created: function created() {
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeDestroy: function beforeDestroy() {
+    // Remove the event listener when the component is destroyed
+    window.removeEventListener("resize", this.handleResize);
+  },
   data: function data() {
     return {
       Carouselsettings: {
@@ -2324,10 +2330,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       academicbooksChilds: {},
       firstLineItems: {},
-      secondLineItems: {}
+      secondLineItems: {},
+      mobileImage: "".concat(this.$asseturl, "assets/image/bB-bg.jpg"),
+      desktopImage: "".concat(this.$asseturl, "assets/image/uddomSection.jpg")
     };
   },
+  computed: {
+    sectionStyle: function sectionStyle() {
+      if (window.innerWidth <= 768) {
+        return {
+          padding: "55px 0px",
+          backgroundImage: "url(".concat(this.mobileImage, ")"),
+          backgroundSize: "cover"
+        };
+      } else {
+        return {
+          padding: "55px 0px",
+          backgroundImage: "url(".concat(this.desktopImage, ")"),
+          backgroundSize: "cover"
+        };
+      }
+    }
+  },
   methods: {
+    handleResize: function handleResize() {
+      this.$forceUpdate(); // Update the computed property when window is resized
+    },
     childCategoryAcademicbooks: function childCategoryAcademicbooks() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -2516,16 +2544,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
-    // 1. Create a new CSS class dynamically
-    var css = "a.carousel-control-prev {\n    width: 3% !important;\n}\n\n.carousel-control-prev-icon {\n    background-image: url(".concat(this.$asseturl, "assets/image/preIcon.svg);\n    padding: 45px 18px;\n    background-size: cover;\n}\n\na.carousel-control-next {\n    width: 3% !important;\n}\n\n.carousel-control-next-icon {\n    background-image: url(").concat(this.$asseturl, "assets/image/preIcon.svg);\n    padding: 45px 18px;\n    background-size: cover;\n    transform: rotate(180deg);\n}");
-
-    // 2. Append the newly created CSS class to the <head> element
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    style.appendChild(document.createTextNode(css));
-
-    // Append the <style> element to the <head> element
-    document.head.appendChild(style);
+    this.addcssCarosal();
     this.checkLogin();
     this.StoreUID();
   },
@@ -2681,9 +2700,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var windowWidth = window.innerWidth;
       //   console.log(windowWidth)
 
+      if (windowWidth < 991) {}
       var navbarNavDropdown1 = document.getElementById('navbarNavDropdown1');
       if (navbarNavDropdown1) {
-        if (windowWidth < 768) {
+        if (windowWidth < 991) {
           this.submenu2 = false;
           this.submenu3 = false;
           this.mobileMenu = true;
@@ -2714,6 +2734,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
+    },
+    addcssCarosal: function addcssCarosal() {
+      // 1. Create a new CSS class dynamically
+      var css = "a.carousel-control-prev {\n                width: 3%;\n            }\n\n            .carousel-control-prev-icon {\n                background-image: url(".concat(this.$asseturl, "assets/image/preIcon.svg);\n                padding: 45px 18px;\n                background-size: cover;\n            }\n\n            a.carousel-control-next {\n                width: 3%;\n            }\n\n            .carousel-control-next-icon {\n                background-image: url(").concat(this.$asseturl, "assets/image/preIcon.svg);\n                padding: 45px 18px;\n                background-size: cover;\n                transform: rotate(180deg);\n            }");
+
+      // 2. Append the newly created CSS class to the <head> element
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.appendChild(document.createTextNode(css));
+
+      // Append the <style> element to the <head> element
+      document.head.appendChild(style);
     }
   },
   mounted: function mounted() {
@@ -5157,7 +5189,7 @@ var render = function render() {
       }
     })])])]);
   }), 0)], 1), _vm._v(" "), _c("section", {
-    style: "padding: 55px 0px;background: url(".concat(_vm.$asseturl, "assets/image/uddomSection.jpg);background-size: cover;")
+    style: _vm.sectionStyle
   }, [_c("div", {
     staticClass: "py-3",
     staticStyle: {
@@ -5867,7 +5899,7 @@ var render = function render() {
       id: "navbarNavDropdown1"
     }
   }, [_c("ul", {
-    staticClass: "nav row row-cols-1 row-cols-sm-1 row-cols-md-5 row-cols-lg-5 row-cols-xl-5"
+    staticClass: "nav row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-5 row-cols-xl-5"
   }, [_c("li", {
     staticClass: "nav-item col d-flex align-items-baseline"
   }, [_c("router-link", {
@@ -31299,7 +31331,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\n    /* width: 240px; */\n}\n.slideProductHome {\n    background-color: rgb(235, 239, 242);\n    margin: 6px 5px;\n}\n.slideProductHome:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: #ff000000;\n}\n@media (max-width:991px) {\n.containerMobileWidth{\n        width: 100% !important;\n}\n.containerMobileWidth div{\n        text-align:justify !important;\n}\n.header.fixed-header nav .container {\n        margin-top: 9px !important;\n}\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\r\n    /* width: 240px; */\n}\n.slideProductHome {\r\n    background-color: rgb(235, 239, 242);\r\n    margin: 6px 5px;\n}\n.slideProductHome:after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: #ff000000;\n}\n@media (max-width:991px) {\n.containerMobileWidth{\r\n        width: 100% !important;\n}\n.containerMobileWidth div{\r\n        text-align:justify !important;\n}\n.header.fixed-header nav .container {\r\n        margin-top: 9px !important;\n}\n}\n@media (max-width:768px) {\n.carousel-control-prev-icon {\r\n         padding: 28px 12px !important;\n}\n.carousel-control-next-icon {\r\n         padding: 28px 12px !important;\n}\na.carousel-control-next {\r\n    width: 4%;\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31347,7 +31379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nbutton.navbar-toggler {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\n    display: flex;\n    justify-content: space-between;\n    align-items: baseline;\n}\n.submenu1 a {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    padding-top: 9px;\n    width: 100%;\n}\nheader.fixed-header {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    height: 78vh;\n    overflow: scroll;\n}\n.nav-single{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: wheat;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\n    display: block;\n}\nul.DownItems li {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li:hover {\n    background: #f5c263;\n}\n.mainSearchBox{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n.desktopDisplayNone{\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\n        display: block;\n}\ndiv#navbarNavDropdown1 {\n    background: #CED9DF;\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\n    left: 41px;\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\n    color: var(--defaultColor);\n    /* font-weight: 600 !important; */\n}\n.desktopNone{\n    display: none !important;\n}\n@media (max-width:991px) {\n.desktopNone{\n    display: flex !important;\n}\ndiv#navbarNavDropdown {\n    background: white;\n    width: 100%;\n    margin-top: 13px;\n}\ndiv#navbarNavDropdown ul li {\n    text-align: left;\n    width: 100%;\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\n    display: none !important;\n}\n}\n@media (max-width:768px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\n    padding: 0 !important;\n    display: block !important;\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    padding-left: 0;\r\n    margin-bottom: 0;\r\n    list-style: none;\n}\nbutton.navbar-toggler {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\r\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\r\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\r\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: baseline;\n}\n.submenu1 a {\r\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 0 16px;\r\n    padding-top: 9px;\r\n    width: 100%;\n}\nheader.fixed-header {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 9999;\n}\n.dropdown-menus {\r\n    position: absolute;\r\n    width: 100%;\r\n    background: white;\r\n    z-index: 9999;\r\n    height: 78vh;\r\n    overflow: scroll;\n}\n.nav-single{\r\n    width: 25%;\r\n    margin: 0 auto;\n}\nul.DownItems {\r\n    position: absolute;\r\n    top: var(--headerHight);\r\n    left: 0;\r\n    background: wheat;\r\n    width: 140px;\r\n    display: none;\r\n    z-index: 999;\n}\n.DropItem:hover .DownItems {\r\n    display: block;\n}\nul.DownItems li {\r\n    padding: 5px 8px;\r\n    border-bottom: 1px solid white;\r\n    cursor: pointer;\n}\nul.DownItems li:hover {\r\n    background: #f5c263;\n}\n.mainSearchBox{\r\n  display: flex!important;\r\n    box-shadow: 0px 0px 16px -3px #0000008a;\r\n    background: white;\r\n    margin: 11px auto;\r\n    padding: 2px 3px;\r\n    width: 50%;\n}\ninput.book-search-input {\r\n    width: 90%;\r\n    /* margin: 6px 0px; */\r\n    padding: 8px 6px;\r\n    border: 0px solid #F05C41;\r\n    border-right: 0px;\r\n    background: transparent;\n}\nbutton.book-search-button {\r\n    width: 10%;\r\n    /* margin: 6px 0; */\r\n    background: transparent;\r\n    border: 0px solid #F05C41;\r\n    border-left: 0px;\r\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\r\n    position: absolute;\r\n    top: 3px;\r\n    right: -7px;\r\n    font-size: 45px;\r\n    color: var(--red);\n}\n.desktopDisplayNone{\r\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\r\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\r\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\r\n        display: block;\n}\ndiv#navbarNavDropdown1 {\r\n    background: #CED9DF;\r\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\r\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\r\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\r\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\r\n    left: 41px;\r\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\r\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\r\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\r\n    color: var(--defaultColor);\r\n    /* font-weight: 600 !important; */\n}\n.desktopNone{\r\n    display: none !important;\n}\n@media (max-width:991px) {\n.desktopNone{\r\n    display: flex !important;\n}\ndiv#navbarNavDropdown {\r\n    background: white;\r\n    width: 100%;\r\n    margin-top: 13px;\n}\ndiv#navbarNavDropdown ul li {\r\n    text-align: left;\r\n    width: 100%;\r\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\r\n    display: none !important;\n}\n}\n@media (max-width:991px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\r\n    padding: 0 !important;\r\n    display: block !important;\r\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\nli.submenu1 {\r\n    width: 100%;\n}\n}\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

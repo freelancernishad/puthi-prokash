@@ -302,6 +302,9 @@ export default {
     align-items: center;
     flex-direction: column;
 }
+.footerSocial div span {
+    font-size: 1rem !important;
+}
 
 
 }

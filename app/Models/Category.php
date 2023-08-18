@@ -47,4 +47,13 @@ class Category extends Model
         return $this->hasMany(CategoryImage::class);
     }
 
+
+    public function productCount()
+        {
+            return $this->hasMany(CategoryProduct::class)
+                ->selectRaw('category_id, count(*) as count')
+                ->groupBy('category_id');
+        }
+
+
 }

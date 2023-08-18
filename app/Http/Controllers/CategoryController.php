@@ -20,20 +20,18 @@ class CategoryController extends Controller
     }
 
 
-  public function indexAll(Request $request)
+    public function indexAll(Request $request)
     {
-
         $type = $request->type;
-        if($type=='withoutpaginate'){
-            $categories = Category::all();
-        }else{
-            $categories = Category::with('parent')->paginate(20);
 
+        if ($type == 'withoutpaginate') {
+            $categories = Category::with('productCount')->get();
+        } else {
+            $categories = Category::with(['parent', 'productCount'])->paginate(20);
         }
 
         return response()->json($categories);
     }
-
     public function SearchItem(Request $request)
     {
 
@@ -168,7 +166,7 @@ class CategoryController extends Controller
       // Validate the request data
       $validator = Validator::make($request->all(), [
         'name' => 'required',
-        'slug' => 'required',
+        'slug' => 'required|unique:categories',
     ]);
     if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors()], 422);
@@ -205,7 +203,10 @@ class CategoryController extends Controller
         // Validate the request data
     $validator = Validator::make($request->all(), [
         'name' => 'required',
-        'slug' => 'required',
+        'slug' => [
+            'required',
+            Rule::unique('categories')->ignore($category->id),
+        ],
         'parent_id' => [
             'nullable',
             Rule::exists('categories', 'id'),

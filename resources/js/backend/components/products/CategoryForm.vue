@@ -97,8 +97,27 @@ export default {
         },
         async onSubmit() {
             var res = await this.callApi('post', '/api/categories', this.form);
+
+            if(res.status==200){
+                Notification.customSuccess(`Category Updated Successfull`);
+
+                this.close();
+            this.$emit('call_data')
+            }else if(res.status==201){
+                Notification.customSuccess(`Category Created Successfull`);
+
             this.close();
             this.$emit('call_data')
+                // this.$router.push({name:'categoryimages',params:{id:res.data.id}});
+
+
+            }else{
+                Notification.customError(`Something want wrong!`);
+                this.errors = res.data.errors
+            }
+
+
+
 
         },
         close(){

@@ -43,7 +43,15 @@
 
                                     <router-link class="btn btn-info" :to="{name:'categoryimages',params:{id:list.id}}">Image Upload</router-link>
                                     <router-link class="btn btn-info" :to="{name:'categoryEdit',params:{id:list.id}}">Edit</router-link>
-                                    <button class="btn btn-danger" @click="DeleteAction('Are you sure?','Delete this category',`/api/categories/${list.id}`,'Category Deleted',getLists)">Delete</button>
+
+
+
+                                        <button class="btn btn-danger"  v-if="list.product_count.length<1" @click="DeleteAction('Are you sure?','Delete this category',`/api/categories/${list.id}`,'Category Deleted',getLists)">Delete</button>
+                                   
+
+
+
+
 
                                 </td>
                             </tr>

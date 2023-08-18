@@ -177,7 +177,7 @@
 
             <router-link class="navbar-brand" to="/" >
                 <img
-                :src="$asseturl+'assets/image//logo.png'"
+                :src="$asseturl+preload_data.settings.header_logo"
                 alt=""
                 class="puthi-logo"
                 srcset=""
@@ -291,7 +291,7 @@
 
 
 
-    <a class="btn border-0 text-base text-white font-bold bg-[#F85559]">Shop Now</a>
+    <!-- <a class="btn border-0 text-base text-white font-bold bg-[#F85559]">Shop Now</a> -->
 
     </div>
 </template>

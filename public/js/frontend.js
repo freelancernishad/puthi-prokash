@@ -5836,7 +5836,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "puthi-logo",
     attrs: {
-      src: _vm.$asseturl + "assets/image//logo.png",
+      src: _vm.$asseturl + _vm.preload_data.settings.header_logo,
       alt: "",
       srcset: "",
       width: "180px"
@@ -6029,9 +6029,7 @@ var render = function render() {
     attrs: {
       to: "/product/cat1"
     }
-  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _vm._m(9), _vm._v(" "), _vm._m(10), _vm._v(" "), _vm._m(11), _vm._v(" "), _vm._m(12), _vm._v(" "), _vm._m(13), _vm._v(" "), _vm._m(14)])])])])]) : _vm._e()]), _vm._v(" "), _c("a", {
-    staticClass: "btn border-0 text-base text-white font-bold bg-[#F85559]"
-  }, [_vm._v("Shop Now")])]);
+  }, [_vm._v("শ্রেষ্ঠ প্রবন্ধ সিরিজ")])], 1), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _vm._m(9), _vm._v(" "), _vm._m(10), _vm._v(" "), _vm._m(11), _vm._v(" "), _vm._m(12), _vm._v(" "), _vm._m(13), _vm._v(" "), _vm._m(14)])])])])]) : _vm._e()])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,

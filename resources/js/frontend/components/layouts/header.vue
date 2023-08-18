@@ -804,7 +804,7 @@ li.nav-item.col a.nav-link:hover {
     div#navbarNavDropdown {
     background: white;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 7px;
 }
 
 div#navbarNavDropdown ul li {

@@ -238,6 +238,8 @@ if ("{{ Auth::user() }}") {
     IntitalizeFireBaseMessaging();
 </script>
  --}}
+
+
 <!-- Messenger Chat Plugin Code -->
 <div id="fb-root"></div>
 
@@ -247,7 +249,7 @@ if ("{{ Auth::user() }}") {
 
 <script>
   var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "113544647006542");
+  chatbox.setAttribute("page_id", "115295298247240");
   chatbox.setAttribute("attribution", "biz_inbox");
 </script>
 
@@ -267,7 +269,9 @@ if ("{{ Auth::user() }}") {
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-</script>
+    </script>
+
+
 
 </body>
 </html>

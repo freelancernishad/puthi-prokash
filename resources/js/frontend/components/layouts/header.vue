@@ -842,8 +842,13 @@ li.submenu1 {
 li.submenu1 {
     height: auto !important;
 }
-
-
+.nav-item-menu {
+    padding: 7px 7px;
+    height: auto  !important;
+}
+ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
+    font-size: 13px !important;
+}
 }
 
 

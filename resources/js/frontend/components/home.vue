@@ -69,7 +69,7 @@
 
 
 
-      <section :style="sectionStyle">
+      <section class="bookBestGift" :style="sectionStyle">
       <div
         style=";background-repeat: no-repeat;background-size:contain;"
         class="py-3">
@@ -260,6 +260,9 @@ export default {
     }
     .header.fixed-header nav .container {
         margin-top: 9px !important;
+    }
+    section.bookBestGift {
+        padding: 20px 0 !important;
     }
 }
 

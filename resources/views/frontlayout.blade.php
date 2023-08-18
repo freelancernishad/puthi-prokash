@@ -54,6 +54,7 @@
 *{
     --defaultColor: #F15C46;
     --defaultBg: #AEBFC9;
+    user-select: none;
 }
 
 .defaultColor{
@@ -112,7 +113,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.84') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.85') }}" async ></script>
 
 <script>
 
@@ -269,6 +270,11 @@ if ("{{ Auth::user() }}") {
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+    document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    });
+
     </script>
 
 

@@ -14,6 +14,7 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  user-select: none;
 }
 
 header{
@@ -984,6 +985,9 @@ if(windowWidth<401){
 
 
 // });
+document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    });
 
     </script>
 

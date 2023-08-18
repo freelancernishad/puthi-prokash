@@ -363,6 +363,7 @@ export default {
       }else{
         this.homePage = false
         this.submenu1 = true
+        this.isFixed = true;
       }
 
 
@@ -597,6 +598,7 @@ this.srjnshiilBi();
       }else{
         this.homePage = false
         this.submenu1 = true
+        this.isFixed = true;
       }
 
 

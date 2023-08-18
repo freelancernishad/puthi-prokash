@@ -46,7 +46,7 @@ export default {
         async downloadImage() {
             const blob = await (await fetch(this.imageUrl)).blob();
             const url = URL.createObjectURL(blob);
-            Object.assign(document.createElement('a'), { href: url, download: 'image.jpg' })
+            Object.assign(document.createElement('a'), { href: url, download: `${this.list.slug}.jpg` })
                 .click();
             URL.revokeObjectURL(url);
         },

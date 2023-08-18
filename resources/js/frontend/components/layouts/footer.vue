@@ -5,7 +5,7 @@
 
 <footer>
     <div class="bg-white my-2 ">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5 footerSocial">
       <div class="align-items-center  d-flex flex-wrap fs-5 gap-2 ">
         <span>অনুসরন করুনঃ </span>
         <div class="d-flex fs-5 gap-3 text-secondary">
@@ -97,7 +97,7 @@
 
           </div>
           <div class="col-lg-3">
-            <div class="fborder ">
+            <div class="fborder mobileFooter">
               <div class="row">
                 <div class="col-lg-12">
                   <h2>যোগাযোগ</h2>
@@ -257,5 +257,54 @@ export default {
     margin: 0 32px 0 7px;
     font-size: 16px !important;
 }
+
+
+
+@media (max-width:991px) {
+
+    div#footer {
+    text-align: center;
+}
+
+.fborder h2 {
+    line-height: 36px;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.fborder2 .row h2, .fborder2 .row a {
+    line-height: 30px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.fborder {
+    margin-top: 20px;
+    margin-right: 0 !important;
+}
+.fborder2 {
+    margin-right: 0 !important;
+}
+.fborder.mobileFooter h2 {
+    margin-bottom: 20px;
+}
+.title_footer {
+    flex-direction: column !important;
+
+}
+.fborder.mobileFooter h5 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.footerSocial {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+}
+
 /* Add any additional styles as needed */
 </style>

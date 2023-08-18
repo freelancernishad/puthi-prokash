@@ -5304,7 +5304,7 @@ var render = function render() {
   return _c("div", [_c("footer", [_c("div", {
     staticClass: "bg-white my-2"
   }, [_c("div", {
-    staticClass: "container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5"
+    staticClass: "container d-flex flex-wrap justify-content-between align-items-center pb-3 pt-5 footerSocial"
   }, [_c("div", {
     staticClass: "align-items-center d-flex flex-wrap fs-5 gap-2"
   }, [_c("span", [_vm._v("অনুসরন করুনঃ ")]), _vm._v(" "), _c("div", {
@@ -5463,7 +5463,7 @@ var render = function render() {
   }, [_vm._v("যোগাযোগ")])], 1), _vm._v(" "), _vm._m(4)])])]), _vm._v(" "), _c("div", {
     staticClass: "col-lg-3"
   }, [_c("div", {
-    staticClass: "fborder"
+    staticClass: "fborder mobileFooter"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
@@ -31357,7 +31357,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n    position: fixed;\n    bottom: 100px;\n    right: 36px;\n    width: 40px;\n    height: 40px;\n    background-color: #333;\n    color: #fff;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.3s, visibility 0.3s;\n    z-index: 999;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n/* Add any additional styles as needed */\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.scroll-top-btn {\n    position: fixed;\n    bottom: 100px;\n    right: 36px;\n    width: 40px;\n    height: 40px;\n    background-color: #333;\n    color: #fff;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.3s, visibility 0.3s;\n    z-index: 999;\n}\n.scroll-top-btn.show {\n  opacity: 1;\n  visibility: visible;\n}\n.scroll-top-btn i {\n  font-size: 20px;\n}\n.title_footer {\n    display: flex;\n    justify-content: center;\n    grid-gap: 12px;\n    align-items: center;\n}\n.ftext{\n    margin: 0 32px 0 7px;\n    font-size: 16px !important;\n}\n@media (max-width:991px) {\ndiv#footer {\n    text-align: center;\n}\n.fborder h2 {\n    line-height: 36px;\n    margin-bottom: 0;\n    font-size: 24px;\n}\n.fborder2 .row h2, .fborder2 .row a {\n    line-height: 30px;\n    font-size: 14px;\n    margin-bottom: 0;\n}\n.fborder {\n    margin-top: 20px;\n    margin-right: 0 !important;\n}\n.fborder2 {\n    margin-right: 0 !important;\n}\n.fborder.mobileFooter h2 {\n    margin-bottom: 20px;\n}\n.title_footer {\n    flex-direction: column !important;\n}\n.fborder.mobileFooter h5 {\n    font-size: 16px;\n    margin-bottom: 4px;\n}\n.footerSocial {\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    flex-direction: column;\n}\n}\n\n/* Add any additional styles as needed */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

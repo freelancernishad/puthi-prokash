@@ -96,7 +96,7 @@
 
 
 
-              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center">
+              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center mobileMainNavBg">
                 <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
                 <ul class="DownItems list-unstyled"  style="list-style: inside;">
                     <li>বাংলা</li>
@@ -105,11 +105,11 @@
               </li>
 
 
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center"  v-if="loginStatus">
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg"  v-if="loginStatus">
                 <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
               </li>
 
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" v-if="loginStatus">
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg" v-if="loginStatus">
                 <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'logout'}"
                   >লগ আউট
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
@@ -117,10 +117,10 @@
               </li>
 
 
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center"  v-if="!loginStatus">
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg"  v-if="!loginStatus">
                 <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'register'}">রেজিস্টার</router-link>
               </li>
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center" v-if="!loginStatus">
+              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg" v-if="!loginStatus">
                 <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'login'}"
                   >সাইন ইন
                   <i class="fa-sharp fa-regular fa-arrow-right-to-arc"></i
@@ -849,6 +849,11 @@ li.submenu1 {
 ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
     font-size: 13px !important;
 }
+
+    .mobileMainNavBg{
+            background: var(--defaultBg);
+    }
+
 }
 
 

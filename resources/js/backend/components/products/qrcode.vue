@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumbs brename="Flipping Book QrCode"/>
+        <Breadcrumbs brename="Flipping Book QrCode" :secname="list.name"/>
 
         <div class="container">
 

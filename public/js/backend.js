@@ -2731,7 +2731,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['brename']
+  props: ['brename', 'secname']
 });
 
 /***/ }),
@@ -6524,7 +6524,11 @@ var render = function render() {
         name: "Dashboard"
       }
     }
-  }, [_vm._v(_vm._s(_vm.brename))])], 1)])])]);
+  }, [_vm._v(_vm._s(_vm.brename))])], 1), _vm._v(" "), _vm.secname ? _c("li", [_c("a", {
+    attrs: {
+      href: "javascript:void(0)"
+    }
+  }, [_vm._v(_vm._s(_vm.secname))])]) : _vm._e()])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -10442,7 +10446,8 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("Breadcrumbs", {
     attrs: {
-      brename: "Flipping Book QrCode"
+      brename: "Flipping Book QrCode",
+      secname: _vm.list.name
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "container"

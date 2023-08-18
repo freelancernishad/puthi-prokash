@@ -839,7 +839,9 @@ div#navbarNavDropdown1 ul {background: var(--defaultBg);}
 li.submenu1 {
     width: 100%;
 }
-
+li.submenu1 {
+    height: auto !important;
+}
 
 
 }

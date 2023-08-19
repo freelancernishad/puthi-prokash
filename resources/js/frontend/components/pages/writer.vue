@@ -30,7 +30,9 @@
 
 
         <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
+
           <input type="text" placeholder="আপনার পছন্দের লেখক খুঁজুন" v-model="form.search" class="form-control writer-search-input">
+
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
 
@@ -51,8 +53,8 @@
     <section class="row w-100 mx-auto my-4">
 
 
-<div class="col-2 text-center"></div>
-<div class="col-10 text-center" >
+<div class="col-md-2 col-1 text-center"></div>
+<div class="col-md-10 col-10 text-center" >
             <div class="d-flex flex-wrap me-2 text-capitalize justify-content-between gap-2">
 
                 <span v-for="letter in letters" :key="'letter-'+letter" class="writerFilter" :class="{ active: letter === $route.query.name }" @click="clickname(letter)">{{ letter }}</span>
@@ -60,6 +62,10 @@
 
             </div>
             </div>
+
+            <div class="col-md-0 col-1 text-center"></div>
+
+
         </section>
 
 

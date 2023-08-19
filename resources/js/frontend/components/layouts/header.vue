@@ -170,7 +170,7 @@
 
         <div class="container">
 
-            <div class="d-flex align-items-center" style="justify-content: space-between;" v-if="mobileMenu">
+            <div class="d-flex align-items-center" style="justify-content: space-between;margin-top: 10px;" v-if="mobileMenu">
 
 
 
@@ -181,7 +181,7 @@
                 alt=""
                 class="puthi-logo"
                 srcset=""
-                width="180px"
+                width="145px"
                 />
             </router-link>
 

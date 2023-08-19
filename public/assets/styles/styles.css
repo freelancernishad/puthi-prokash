@@ -28,7 +28,7 @@ span.nav-link::after {
   width: 140px;
   margin-right: 0px;
   text-align: center;
-  clip-path: polygon(44% 0%, 100% 1%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 1%, 100% 100%, 0% 100%);
 }
 span.nav-link.text-dark.text-white {
     padding: 5px 7px;

@@ -95,6 +95,13 @@ input:focus{
     border-radius: 21px;
     font-size: 21px;
 }
+.singleProductCollectedButton2 {
+    border: 0;
+    background: #e0e65ead;
+    padding: 5px 17px;
+    border-radius: 21px;
+    font-size: 21px;
+}
 
 .singleProductcloseButton {
     position: absolute;
@@ -105,6 +112,7 @@ input:focus{
     padding: 0px 9px;
     font-size: 20px;
 }
+
 .sampleBooks{
     width: 90px;
     height: 120px;
@@ -144,6 +152,10 @@ input:focus{
 .ProductListBorderBottom{
     border-bottom: 3px solid var(--red)
 }
+
+
+
+
 
 
 

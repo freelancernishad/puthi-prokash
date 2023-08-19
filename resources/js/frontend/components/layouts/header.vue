@@ -96,9 +96,9 @@
 
 
 
-              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center mobileMainNavBg">
+              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center mobileMainNavBg" >
                 <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">ভাষা</a>
-                <ul class="DownItems list-unstyled"  style="list-style: inside;">
+                <ul class="DownItems list-unstyled DropItem2"  style="list-style: inside;">
                     <li>বাংলা</li>
                     <li>English</li>
                 </ul>
@@ -224,7 +224,7 @@
 
                         <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a>
 
-                        <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 247px;">
+                        <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 100%;">
                             <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'childish'}}" class="text-dark">শিশুতোষ</router-link></li>
                             <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'books-for-adults'}}" class="text-dark">বড়দের বই</router-link></li>
                         </ul>
@@ -506,8 +506,10 @@ export default {
     //   console.log(windowWidth)
 
 
-    if (windowWidth < 991) {
-
+    if (windowWidth > 767) {
+        // this.mobileSearch = true
+      }else{
+        // this.mobileSearch = false
       }
 
       const navbarNavDropdown1 = document.getElementById('navbarNavDropdown1');
@@ -679,7 +681,7 @@ header.fixed-header {
     width: 100%;
     background: white;
     z-index: 9999;
-    height: 78vh;
+    max-height: 78vh;
     overflow: scroll;
 }
 
@@ -693,10 +695,15 @@ ul.DownItems {
     position: absolute;
     top: var(--headerHight);
     left: 0;
-    background: wheat;
+    background: #ced9df;
     width: 140px;
     display: none;
     z-index: 999;
+}
+ul.DropItem2{
+    left: auto;
+    right: -9px !important;
+    width: 171px;
 }
 .DropItem:hover .DownItems {
     display: block;
@@ -709,7 +716,7 @@ ul.DownItems li {
 }
 
 ul.DownItems li:hover {
-    background: #f5c263;
+    background: #a3c1d1;
 }
 
 

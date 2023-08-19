@@ -19,7 +19,7 @@
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4" v-if="searchItem">{{ searchItem }}</p>
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4" v-else>{{ categoris.name }}</p>
 
-    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
+    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ int_en_to_bn(totalItems) }}</p>
     </div>
 
     <div class="col-md-6 d-flex gap-3 py-2">

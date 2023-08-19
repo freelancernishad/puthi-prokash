@@ -12,7 +12,7 @@
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">লেখক</p>
-    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ totalItems }}</p>
+    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ int_en_to_bn(totalItems) }}</p>
     </div>
 
     <div class="col-md-6 d-flex gap-3 py-2">
@@ -29,10 +29,11 @@
 
 
 
-        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
 
+      <button type="button" class="writer-search-button mobileSearchButton" v-if="!mobileSearch" @click="mobileSearch = !mobileSearch" ><i class="fa-regular fa-magnifying-glass"></i></button>
+
+        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem" v-if="mobileSearch">
           <input type="text" placeholder="আপনার পছন্দের লেখক খুঁজুন" v-model="form.search" class="form-control writer-search-input">
-
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
 
@@ -152,6 +153,7 @@ export default {
             },
             userType:'',
             name:'',
+            mobileSearch:false,
         }
     },
     methods: {
@@ -301,6 +303,17 @@ export default {
             }
 
             this.writers = result;
+
+
+            const windowWidth = window.innerWidth;
+            if (windowWidth > 767) {
+                this.mobileSearch = true
+            }else{
+                this.mobileSearch = false
+            }
+
+
+
             }
 
 },

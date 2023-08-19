@@ -29,8 +29,9 @@
 
 
 
+                <button type="button" class="writer-search-button mobileSearchButton" v-if="!mobileSearch" @click="mobileSearch = !mobileSearch" ><i class="fa-regular fa-magnifying-glass"></i></button>
 
-                <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem">
+                <form class="d-flex mobileSearchForm" style="width: 45%;" @submit.stop.prevent="searchItem"  v-if="mobileSearch" >
                 <input type="text" placeholder="আপনার কাঙ্খিত বই খুঁজুন" class="form-control writer-search-input">
                 <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
@@ -98,12 +99,14 @@ export default {
             parentCategory:{},
             allParents:[],
             Breadcrumb:[],
+            mobileSearch:false,
         }
     },
     watch: {
         '$route': async function (to, from) {
 
             this.getCategoryProduct();
+
 
         }
     },
@@ -137,6 +140,12 @@ export default {
                 {'route':'','params':{},'text':res.data.name}
             );
 
+            const windowWidth = window.innerWidth;
+            if (windowWidth > 767) {
+                this.mobileSearch = true
+            }else{
+                this.mobileSearch = false
+            }
 
         },
 
@@ -164,6 +173,7 @@ export default {
     },
     mounted() {
         this.getCategoryProduct();
+
     },
 }
 </script>

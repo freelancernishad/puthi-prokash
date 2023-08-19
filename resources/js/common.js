@@ -16,6 +16,7 @@ export default {
                 8: "৮",
                 9: "৯",
               },
+
               PaginateRows:20,
               Totalrows:0,
               PerPageData:0,
@@ -204,30 +205,26 @@ export default {
         // },
 
 
-        int_en_to_bn(text=0) {
-            var result;
-            if (text == '0') {
-                result = '০';
-            } else if (text == '1') {
-                result = '১';
-            } else if (text == '2') {
-                result = '২';
-            } else if (text == '3') {
-                result = '৩';
-            } else if (text == '4') {
-                result = '৪';
-            } else if (text == '5') {
-                result = '৫';
-            } else if (text == '6') {
-                result = '৬';
-            } else if (text == '7') {
-                result = '৭';
-            } else if (text == '8') {
-                result = '৮';
-            } else if (text == '9') {
-                result = '৯';
-            }
-            return result;
+        int_en_to_bn(number=0) {
+
+                const englishDigits = ['0','1','2','3','4','5','6','7','8','9'];
+                const bengaliDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+
+                const englishNumberString = String(number);
+                let bengaliNumberString = '';
+
+                for (let i = 0; i < englishNumberString.length; i++) {
+                  const digit = englishNumberString.charAt(i);
+                  const digitIndex = englishDigits.indexOf(digit);
+                  if (digitIndex !== -1) {
+                    bengaliNumberString += bengaliDigits[digitIndex];
+                  } else {
+                    bengaliNumberString += digit;
+                  }
+                }
+
+                return bengaliNumberString;
+
         },
 
 

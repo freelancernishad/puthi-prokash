@@ -130,7 +130,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Right Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt="">
+        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Rights Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt="">
       </div>
     </div>
   </div>
@@ -258,7 +258,9 @@ export default {
     font-size: 16px !important;
 }
 
-
+.fborder h5 {
+    font-size: 18px;
+}
 
 @media (max-width:991px) {
 

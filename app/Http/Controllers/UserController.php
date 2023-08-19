@@ -143,7 +143,8 @@ class UserController extends Controller
         }
 
         if ($name) {
-            $query->where('name', 'LIKE', '%' . $name . '%');
+            // $query->where('name', 'LIKE', '%' . $name . '%');
+            $query->where('name', 'LIKE', $name . '%');
         }
         if ($search) {
             $query->where(function($subQuery) use ($search) {

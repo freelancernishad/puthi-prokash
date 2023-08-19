@@ -6,7 +6,7 @@
         </div>
       </section>
       <section class=" mx-auto my-5">
-        <h2 class="text-center">পুথি প্রকাশের বই</h2>
+        <h2 class="text-center">পুথিপ্রকাশের বই</h2>
 
         <hr class="mx-auto  hr-1" />
 

@@ -14,9 +14,13 @@
                         <router-link :to="{name:'productSingle',params:{id:product.id}}" class="mb-0" style="    color: #037adb;font-weight: bold;" >{{ product.name }}</router-link>
                         <p class="mb-0 fs-9 product-lebel-text" style="color: #0000008f;">Price : {{ product.price-product.discount }}</p>
                         <p class="mb-0  fs-8 product-lebel-text orgPrice" style="color: #0000008f;">Regular Price : {{ product.price }}</p>
+
+                        <button class="singleProductCollectedButton2" @click="addToCart({'product_id':product.id})">সংগ্রহ করুন</button>
+
+
                         <p class="mb-0  fs-8 mt-3 mb-2" style="font-weight: bold;">উল্লেখযোগ্য অংশবিশেষ</p>
                         <div>
-                            <div class="d-flex">
+                            <div class="d-flex flex-wrap">
 
 
 
@@ -68,3 +72,24 @@ export default {
 
 }
 </script>
+
+<style scoped>
+
+.singleProductCollectedButton {
+        display: block;
+    }
+    .singleProductCollectedButton2 {
+        display: none;
+    }
+@media (max-width:768px) {
+
+    .singleProductCollectedButton {
+        display: none;
+    }
+    .singleProductCollectedButton2 {
+        display: block;
+    }
+
+}
+
+</style>>

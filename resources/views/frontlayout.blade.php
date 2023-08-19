@@ -28,8 +28,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.5') }}">
-    <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css?var=1.0.1') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.6') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css?var=1.0.2') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
 
     <!-- Bootstrap CSS v5.2.1 -->

@@ -10394,7 +10394,9 @@ var render = function render() {
     }), _vm._v(" "), _c("h5", {
       staticClass: "fs-6 mt-2 text-end w-100",
       staticStyle: {
-        padding: "3px 6px"
+        padding: "6px 6px",
+        "border-top": "3px solid white",
+        margin: "0 !important"
       }
     }, [_vm._v("  " + _vm._s(writer.nameBN))])])], 1) : _vm._e()]);
   }), 0)]);

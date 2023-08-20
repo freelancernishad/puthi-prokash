@@ -144,7 +144,7 @@
         <div v-else-if="writer" style="background-color: #d1d2d4;margin: 11px 0px;">
             <router-link class="text-dark" :to="{name:'Products',query:{author:writer.id}}">
             <img width="100%" :src="$asseturl+writer.image+'?v=1.0'" alt="" srcset="" class="img-fluid" />
-            <h5 class="fs-6 mt-2 text-end w-100" style="padding: 3px 6px;">  {{ writer.nameBN }}</h5>
+            <h5 class="fs-6 mt-2 text-end w-100" style="    padding: 6px 6px;border-top: 3px solid white;margin: 0 !important;">  {{ writer.nameBN }}</h5>
         </router-link>
         </div>
     </div>

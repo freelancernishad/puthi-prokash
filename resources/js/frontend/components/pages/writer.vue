@@ -19,11 +19,23 @@
         <select class="form-select" v-model="userType" @change="userTypeChange" style="width: 45%;" aria-label="Default select example">
             <option value=''>ধরণ</option>
             <option>কবি</option>
-            <option>সাহিত্যিক</option>
+            <option>কথাসাহিত্যক</option>
             <option>গল্পকার</option>
             <option>প্রাবন্ধিক</option>
-            <option>জীবন-আদশ</option>
-            <option>ধম</option>
+            <option>জীবন-আদর্শ</option>
+            <option>ধর্ম</option>
+            <option>অঙ্কন শিল্পী</option>
+            <option>ছড়াকার</option>
+            <option>ঔপন্যাসিক</option>
+            <option>গবেষক</option>
+            <option>কথা শিল্পী</option>
+            <option>শিশু সাহিত্যক</option>
+            <option>অনুবাদক</option>
+            <option>কলামিষ্ট</option>
+
+
+
+
       </select>
 
 

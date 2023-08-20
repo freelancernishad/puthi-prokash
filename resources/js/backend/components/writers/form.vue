@@ -32,11 +32,19 @@
             <select class="form-control"  v-model="form.type" required>
                 <option selected>ধরণ</option>
                 <option>কবি</option>
-                <option>সাহিত্যিক</option>
+                <option>কথাসাহিত্যক</option>
                 <option>গল্পকার</option>
                 <option>প্রাবন্ধিক</option>
-                <option>জীবন-আদশ</option>
-                <option>ধম</option>
+                <option>জীবন-আদর্শ</option>
+                <option>ধর্ম</option>
+                <option>অঙ্কন শিল্পী</option>
+                <option>ছড়াকার</option>
+                <option>ঔপন্যাসিক</option>
+                <option>গবেষক</option>
+                <option>কথা শিল্পী</option>
+                <option>শিশু সাহিত্যক</option>
+                <option>অনুবাদক</option>
+                <option>কলামিষ্ট</option>
             </select>
         </div>
 

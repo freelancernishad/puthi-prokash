@@ -10175,7 +10175,7 @@ var render = function render() {
     attrs: {
       value: ""
     }
-  }, [_vm._v("ধরণ")]), _vm._v(" "), _c("option", [_vm._v("কবি")]), _vm._v(" "), _c("option", [_vm._v("সাহিত্যিক")]), _vm._v(" "), _c("option", [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", [_vm._v("জীবন-আদশ")]), _vm._v(" "), _c("option", [_vm._v("ধম")])]), _vm._v(" "), !_vm.mobileSearch ? _c("button", {
+  }, [_vm._v("ধরণ")]), _vm._v(" "), _c("option", [_vm._v("কবি")]), _vm._v(" "), _c("option", [_vm._v("কথাসাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", [_vm._v("জীবন-আদর্শ")]), _vm._v(" "), _c("option", [_vm._v("ধর্ম")]), _vm._v(" "), _c("option", [_vm._v("অঙ্কন শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("ছড়াকার")]), _vm._v(" "), _c("option", [_vm._v("ঔপন্যাসিক")]), _vm._v(" "), _c("option", [_vm._v("গবেষক")]), _vm._v(" "), _c("option", [_vm._v("কথা শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("শিশু সাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("অনুবাদক")]), _vm._v(" "), _c("option", [_vm._v("কলামিষ্ট")])]), _vm._v(" "), !_vm.mobileSearch ? _c("button", {
     staticClass: "writer-search-button mobileSearchButton",
     attrs: {
       type: "button"

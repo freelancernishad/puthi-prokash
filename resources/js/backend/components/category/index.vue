@@ -45,9 +45,10 @@
                                     <router-link class="btn btn-info" :to="{name:'categoryEdit',params:{id:list.id}}">Edit</router-link>
 
 
+                                    <span v-if="list.name=='একাডেমিক বই' || list.name=='সৃজনশীল বই' || list.name=='মাল্টিমিডিয়া' || list.name=='শিশুতোষ' || list.name=='বড়দের বই'"></span>
 
-                                        <button class="btn btn-danger"  v-if="list.product_count.length<1" @click="DeleteAction('Are you sure?','Delete this category',`/api/categories/${list.id}`,'Category Deleted',getLists)">Delete</button>
-                                   
+                                        <button class="btn btn-danger"  v-else-if="list.product_count.length<1" @click="DeleteAction('Are you sure?','Delete this category',`/api/categories/${list.id}`,'Category Deleted',getLists)">Delete</button>
+
 
 
 

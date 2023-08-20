@@ -2,7 +2,7 @@
     <div>
         <div class="container mt-2" style="padding-top: 30px;">
 
-      
+
       <Breadcrumb :pages="[{'route':'home','params':{},'text':'হোম'},{'route':'','params':{},'text': 'যোগাযোগ'}]"/>
 
 
@@ -10,7 +10,7 @@
         <p>আপনি আমাদের সাথে ই-মেইল, টেলিফোন, মোবাইল বা সরাসরি আমাদের হেড অফিসে যোগাযোগ করতে পারেন।</p>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="padding: 0 50px;">
                 <form>
                     <div class="form-group">
                         <label for="name">আপনার নাম *</label>
@@ -41,7 +41,7 @@
 
 
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="padding: 0 50px;">
                 <div class="align-items-center d-flex justify-content-between">
                     <div>
                         <h1 class="fs-4">হেড অফিসের ঠিকানাঃ

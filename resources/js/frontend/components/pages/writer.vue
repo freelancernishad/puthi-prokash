@@ -15,7 +15,7 @@
     <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">{{ int_en_to_bn(totalItems) }}</p>
     </div>
 
-    <div class="col-md-6 d-flex gap-3 py-2">
+    <div class="col-md-6 d-flex gap-3 py-2 mobilePageHead">
         <select class="form-select" v-model="userType" @change="userTypeChange" style="width: 45%;" aria-label="Default select example">
             <option value=''>ধরণ</option>
             <option>কবি</option>
@@ -75,32 +75,38 @@
 <section class="row w-100 mx-auto my-4">
 
 
-    <div class="col-2 text-center" ></div>
+    <div class="col-md-2 col-1 text-center"></div>
+
+
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/P.png'" alt="" srcset="" class="img-fluid" />
+            <img width="100%" :src="$asseturl+'assets/image/P-2.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/t.png'" alt="" srcset="" class="img-fluid" />
+            <img width="100%" :src="$asseturl+'assets/image/P-3.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/pr.png'" alt="" srcset="" class="img-fluid" />
+            <img width="100%" :src="$asseturl+'assets/image/P-1.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/k.png'" alt="" srcset="" class="img-fluid" />
+            <img width="100%" :src="$asseturl+'assets/image/P-4.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/s.png'" alt="" srcset="" class="img-fluid" />
+            <img width="100%" :src="$asseturl+'assets/image/P-5.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
+
+    <div class="col-md-0 col-1 text-center"></div>
+
+
 
 
     </section>
@@ -110,7 +116,7 @@
 
 
 
-    <div class="col-md-2 text-center"  v-for="(writer,indexN) in writers" :key="'writer'+indexN">
+    <div class="col-6 col-md-2 text-center"  v-for="(writer,indexN) in writers" :key="'writer'+indexN">
 
         <div v-if="writer=='<'"  class="writerArrow" >
 
@@ -357,5 +363,10 @@ span.writerFilter.active {
     cursor: pointer;
 }
 
+@media (max-width:768px) {
+    .mobilePageHead{
+        justify-content: space-around;
+    }
+}
 
 </style>

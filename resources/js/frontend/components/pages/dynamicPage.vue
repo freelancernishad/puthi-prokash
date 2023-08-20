@@ -2,7 +2,7 @@
     <div class="container mt-3 pt-5">
         <Breadcrumb :pages="[{'route':'home','params':{},'text':'হোম'},{'route':'','params':{},'text': page.page_name}]"/>
 
-        <div v-html="page.content"></div>
+        <div class="container-fluid" v-html="page.content"></div>
     </div>
 </template>
 

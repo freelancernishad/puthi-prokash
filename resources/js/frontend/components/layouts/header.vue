@@ -239,8 +239,31 @@
 
                     <li v-else class="nav-item  col submenu1 submenuhave"><a href="javascript:void(0)" class="border-3 border-start border-white text-dark" @click="level2Submenu" >সৃজনশীল বই <i class="fa-light fa-arrow-down-long"></i></a></li>
 
-
+<!--
                     <li class="nav-item  col  d-flex align-items-baseline"><router-link :to="{name:'multimedia'}" class="border-3 border-start border-white text-dark" style="padding-left: 16px;    padding-top: 9px;">মাল্টিমিডিয়া</router-link></li>
+
+ -->
+
+
+ <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="border-3 border-start border-white text-dark">মাল্টিমিডিয়া </router-link></li>
+
+<li v-else class="nav-item  col submenu1 submenuhave position-relative DropItem">
+
+    <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">মাল্টিমিডিয়া <i class="fa-light fa-arrow-down-long"></i></a>
+
+    <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 100%;">
+        <li><a style="display: contents;" href="#" class="text-dark">video</a></li>
+        <li><a style="display: contents;" href="#" class="text-dark">Image</a></li>
+    </ul>
+</li>
+
+
+
+
+
+
+
+
                 </ul>
 
 

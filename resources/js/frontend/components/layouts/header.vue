@@ -224,7 +224,7 @@
 
                         <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">একাডেমিক বই <i class="fa-light fa-arrow-down-long"></i></a>
 
-                        <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 100%;">
+                        <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 100%;z-index: 9999999;">
                             <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'childish'}}" class="text-dark">শিশুতোষ</router-link></li>
                             <li><router-link style="display: contents;" :to="{name:'categoryProduct',params:{category:'books-for-adults'}}" class="text-dark">বড়দের বই</router-link></li>
                         </ul>

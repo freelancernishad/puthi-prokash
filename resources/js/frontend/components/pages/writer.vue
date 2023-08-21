@@ -92,17 +92,17 @@
 
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
+            <img width="100%" :src="$asseturl+'assets/image/P-1.png'" alt="" srcset="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-2 text-center" >
+        <div style="background-color: #d1d2d4;margin: 11px 0px;">
             <img width="100%" :src="$asseturl+'assets/image/P-2.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
         <div style="background-color: #d1d2d4;margin: 11px 0px;">
             <img width="100%" :src="$asseturl+'assets/image/P-3.png'" alt="" srcset="" class="img-fluid" />
-        </div>
-    </div>
-    <div class="col-2 text-center" >
-        <div style="background-color: #d1d2d4;margin: 11px 0px;">
-            <img width="100%" :src="$asseturl+'assets/image/P-1.png'" alt="" srcset="" class="img-fluid" />
         </div>
     </div>
     <div class="col-2 text-center" >
@@ -117,8 +117,6 @@
     </div>
 
     <div class="col-md-0 col-1 text-center"></div>
-
-
 
 
     </section>

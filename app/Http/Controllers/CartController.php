@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,7 +20,10 @@ class CartController extends Controller
         //  $cartItems = $user->carts()->with('user', 'product','product.author')->get();
     if ($user) {
         // If user exists, load the 'user', 'product', and 'product.author' relationships
-        $cartItems = $user->carts()->with('user', 'product', 'product.author')->get();
+        // $cartItems = $user->carts()->with('user', 'product', 'product.author')->get();
+        $cartItems = Cart::where('user_id', $userid)
+        ->with('product', 'product.author')
+        ->get();
     } else {
         // If user does not exist, load only the 'product' and 'product.author' relationships
         $cartItems = Cart::with('product', 'product.author')->get();
@@ -44,6 +48,8 @@ class CartController extends Controller
             'product_id' => 'required|exists:products,id',
             // 'quantity' => 'required|integer|min:1',
         ]);
+
+
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
@@ -60,51 +66,88 @@ class CartController extends Controller
             $quantity = 1;
         }
 
-
-    // Check if the cart item already exists for the same user and product
-    $cartItem = Cart::where('user_id', $userId)->where('product_id', $productId)->first();
+        $product = Product::find($request->product_id);
 
 
-    if ($cartItem) {
-        // Update the quantity of the existing cart item
-        if($quantityItem){
-            $cartItem->quantity = (int)$quantityItem;
-        }else{
-            $cartItem->quantity += 1;
 
-        }
+            $cartItem = Cart::where('user_id', $userId)->where('product_id', $productId)->first();
+            if ($cartItem) {
+
+                $newStock = $cartItem->quantity;
+
+                if ($product->stock-$newStock >= $quantity) {
+                    if($quantityItem){
+                        $cartItem->quantity = (int)$quantityItem;
+                    }else{
+                        $cartItem->quantity += 1;
+                    }
+                    $cartItem->save();
+                }else{
+                    return response()->json(['message' => 'Product not available in stock'], 400);
+                }
 
 
-        $cartItem->save();
-    } else {
-        // Create a new cart item
-        $cartItem = Cart::create([
-            'user_id' => $userId,
-            'product_id' => $productId,
-            'quantity' => $quantity,
-        ]);
-    }
 
-    return response()->json($cartItem, 201);
+
+            } else {
+                if ($product->stock >= $quantity) {
+                    $cartItem = Cart::create([
+                        'user_id' => $userId,
+                        'product_id' => $productId,
+                        'quantity' => $quantity,
+                    ]);
+                } else {
+
+                    return response()->json(['message' => 'Product not available in stock'], 400);
+                }
+
+
+            }
+            return response()->json($cartItem, 201);
+
+
+
+
+
+
+
+
     }
 
 
 
     public function update(Request $request, Cart $cart)
     {
+        // return $request->all();
         $user_id = $request->user_id;
 
-         $cart->update(['quantity'=>$request->quantity]);
+        $product = Product::find($cart->product_id);
 
 
-         $user = User::find($user_id);
-         $cartItems = $user->carts()->with('user', 'product','product.author')->get();
 
-         if(count($cartItems) > 0){
-            return response()->json($cartItems);
-       }else{
-              $cartItems = count($cartItems);
+        if ($product->stock >= $request->quantity) {
+
+            $cart->update(['quantity'=>$request->quantity]);
+
+
+            $user = User::find($user_id);
+            $cartItems = $user->carts()->with('user', 'product','product.author')->get();
+
+        if(count($cartItems) > 0){
+            //    return response()->json($cartItems);
+                return response()->json($cartItems, 200);
+          }else{
+                 $cartItems = count($cartItems);
+           }
+
+        } else {
+
+            return response()->json(['message' => 'Product not available in stock'], 400);
         }
+
+
+
+
 
     }
 

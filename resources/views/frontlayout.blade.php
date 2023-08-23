@@ -144,7 +144,7 @@ if ("{{ Auth::user() }}") {
 
 		localStorage.removeItem('token')
 		localStorage.removeItem('user')
-		localStorage.removeItem('userid')
+		// localStorage.removeItem('userid')
 		localStorage.removeItem('role')
 		localStorage.removeItem('position')
 

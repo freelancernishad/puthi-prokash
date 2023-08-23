@@ -83,7 +83,13 @@
             <hr class="mb-4">
 
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit" v-if="carts && $localStorage.getItem('token')">Continue to checkout</button>
+
+            <router-link :to="{name:'login'}" v-else-if="!$localStorage.getItem('token')" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Login or Create an account First </router-link>
+
 
           </form>
         </div>
@@ -244,20 +250,24 @@ export default {
             this.carts = res.data
             var user = userRes.data
 
+           
 
             this.form.user_id = user.id
             this.form.name = user.name
             this.form.email = user.email
 
-     
 
 
+            if(userRes.data.user_addresses){
 
-            if(user.user_addresses.address) this.form.address = user.user_addresses.address
-            if(user.user_addresses.city) this.form.city = user.user_addresses.city
-            if(user.user_addresses.state) this.form.state = user.user_addresses.state
-            if(user.user_addresses.country) this.form.country = user.user_addresses.country
-            if(user.user_addresses.zip) this.form.zip = user.user_addresses.zip
+                var user_addresses = userRes.data.user_addresses
+
+                if(user_addresses.address) this.form.address = user_addresses.address
+                if(user_addresses.city) this.form.city = user_addresses.city
+                if(user_addresses.state) this.form.state = user_addresses.state
+                if(user_addresses.country) this.form.country = user_addresses.country
+                if(user_addresses.zip) this.form.zip = user_addresses.zip
+            }
 
 
 
@@ -316,16 +326,28 @@ export default {
         },
 
         async onSubmit(){
-          var res = await this.callApi('post',`/api/orders`,this.form);
 
-        //   console.log(res)
-          if(res.status==201){
-            Notification.customSuccess(`${res.data.message}`);
-            this.$router.push({ name: "home" });
-          }else{
-            Notification.customError(`${res.data.message}`);
-            this.$router.push({ name: "home" });
-          }
+            if(carts && this.$localStorage.getItem('token')){
+                var res = await this.callApi('post',`/api/orders`,this.form);
+
+                //   console.log(res)
+                if(res.status==201){
+                    Notification.customSuccess(`${res.data.message}`);
+                    this.$router.push({ name: "home" });
+                }else{
+                    Notification.customError(`${res.data.message}`);
+                    this.$router.push({ name: "home" });
+                }
+            }else{
+                Notification.customError("Login or Create an account First");
+            }
+
+
+
+
+
+
+
         }
 
 

@@ -2621,10 +2621,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return timestamp + randomPart;
     },
     StoreUID: function StoreUID() {
-      this.uniqueId = localStorage.getItem(this.storageKey);
+      this.uniqueId = localStorage.getItem('userid');
       if (!this.uniqueId) {
         this.uniqueId = this.generateUUID();
-        localStorage.setItem(this.storageKey, this.uniqueId);
+        localStorage.setItem('userid', this.uniqueId);
       }
     },
     checkLogin: function checkLogin() {
@@ -3752,7 +3752,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.callApi('put', "/api/cart/".concat(id), _this5.cartUpdateForm);
               case 6:
                 res = _context4.sent;
-                _this5.carts = res.data;
+                if (res.status == 200) {
+                  _this5.carts = res.data;
+                  Notification.customSuccess("Cart updated");
+                } else {
+                  Notification.customError("Product not available in stock");
+                  _this5.getCartFromDb();
+                }
               case 8:
               case "end":
                 return _context4.stop();
@@ -4064,7 +4070,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getCartFromDb: function getCartFromDb() {
       var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var userRes, res, user;
+        var userRes, res, user, user_addresses;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -4082,12 +4088,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this3.form.user_id = user.id;
                 _this3.form.name = user.name;
                 _this3.form.email = user.email;
-                if (user.user_addresses.address) _this3.form.address = user.user_addresses.address;
-                if (user.user_addresses.city) _this3.form.city = user.user_addresses.city;
-                if (user.user_addresses.state) _this3.form.state = user.user_addresses.state;
-                if (user.user_addresses.country) _this3.form.country = user.user_addresses.country;
-                if (user.user_addresses.zip) _this3.form.zip = user.user_addresses.zip;
-              case 16:
+                if (userRes.data.user_addresses) {
+                  user_addresses = userRes.data.user_addresses;
+                  if (user_addresses.address) _this3.form.address = user_addresses.address;
+                  if (user_addresses.city) _this3.form.city = user_addresses.city;
+                  if (user_addresses.state) _this3.form.state = user_addresses.state;
+                  if (user_addresses.country) _this3.form.country = user_addresses.country;
+                  if (user_addresses.zip) _this3.form.zip = user_addresses.zip;
+                }
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -4188,9 +4197,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.next = 2;
+                if (!(carts && _this6.$localStorage.getItem('token'))) {
+                  _context5.next = 7;
+                  break;
+                }
+                _context5.next = 3;
                 return _this6.callApi('post', "/api/orders", _this6.form);
-              case 2:
+              case 3:
                 res = _context5.sent;
                 //   console.log(res)
                 if (res.status == 201) {
@@ -4204,7 +4217,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     name: "home"
                   });
                 }
-              case 4:
+                _context5.next = 8;
+                break;
+              case 7:
+                Notification.customError("Login or Create an account First");
+              case 8:
               case "end":
                 return _context5.stop();
             }
@@ -4602,9 +4619,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       imageUrl: '',
       imageUrls: '',
       imageUrlIndex: 0,
-      item: {},
+      item: {
+        author: {
+          id: ''
+        },
+        category: {
+          id: '',
+          name: ''
+        }
+      },
+      relateds: {},
       Breadcrumb: []
     };
+  },
+  watch: {
+    '$route': {
+      handler: function handler(newValue, oldValue) {
+        this.getItem();
+        this.getRelatedProducts();
+      },
+      deep: true
+    }
   },
   computed: {
     totalDiscountValue: function totalDiscountValue() {
@@ -4622,6 +4657,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    goDetialsFun: function goDetialsFun(id, productid, showDetialsProduct) {
+      this.$router.push({
+        name: 'productSingle',
+        params: {
+          id: productid
+        }
+      });
+    },
     getItem: function getItem() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -4652,10 +4695,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    getRelatedProducts: function getRelatedProducts() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this2.callApi('get', "/api/products/".concat(_this2.$route.params.id, "/related"), []);
+              case 2:
+                res = _context2.sent;
+                _this2.relateds = res.data;
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   mounted: function mounted() {
     this.getItem();
+    this.getRelatedProducts();
   }
 });
 
@@ -8434,7 +8499,7 @@ var render = function render() {
     staticClass: "dlist-align"
   }, [_c("dt", [_vm._v("Total:")]), _vm._v(" "), _c("dd", {
     staticClass: "text-right text-dark b ml-3"
-  }, [_c("strong", [_vm._v(" " + _vm._s(_vm.finalSubtotal))])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm.carts ? _c("router-link", {
+  }, [_c("strong", [_vm._v(" " + _vm._s(_vm.finalSubtotal))])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm.carts && _vm.$localStorage.getItem("token") ? _c("router-link", {
     staticClass: "btn btn-out btn-primary btn-square btn-main",
     attrs: {
       to: {
@@ -8442,7 +8507,15 @@ var render = function render() {
       },
       "data-abc": "true"
     }
-  }, [_vm._v(" Make Purchase ")]) : _vm._e(), _vm._v(" "), _c("router-link", {
+  }, [_vm._v(" Make Purchase ")]) : !_vm.$localStorage.getItem("token") ? _c("router-link", {
+    staticClass: "btn btn-out btn-primary btn-square btn-main",
+    attrs: {
+      to: {
+        name: "login"
+      },
+      "data-abc": "true"
+    }
+  }, [_vm._v(" Login or Create an account First ")]) : _vm._e(), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-out btn-success btn-square btn-main mt-2",
     attrs: {
       to: {
@@ -9039,12 +9112,20 @@ var render = function render() {
     }
   }, [_vm._v("Ekpay")])])]), _vm._v(" "), _c("hr", {
     staticClass: "mb-4"
-  }), _vm._v(" "), _c("button", {
+  }), _vm._v(" "), _vm.carts && _vm.$localStorage.getItem("token") ? _c("button", {
     staticClass: "btn btn-primary btn-lg btn-block",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Continue to checkout")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Continue to checkout")]) : !_vm.$localStorage.getItem("token") ? _c("router-link", {
+    staticClass: "btn btn-out btn-primary btn-square btn-main",
+    attrs: {
+      to: {
+        name: "login"
+      },
+      "data-abc": "true"
+    }
+  }, [_vm._v(" Login or Create an account First ")]) : _vm._e()], 1)]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 order-md-2 mb-4"
   }, [_vm._m(2), _vm._v(" "), _c("ul", {
     staticClass: "list-group mb-3"
@@ -10027,6 +10108,8 @@ var render = function render() {
     staticClass: "eng-text"
   }, [_vm._v(_vm._s(_vm.item.cover_type))])]), _vm._v(" "), _c("h5", {
     staticClass: "book-meta eng-text"
+  }, [_vm._v("\n                        Stock : " + _vm._s(_vm.item.stock) + "\n                    ")]), _vm._v(" "), _c("h5", {
+    staticClass: "book-meta eng-text"
   }, [_vm._v("\n                        ISBN : " + _vm._s(_vm.item.ISBN) + "\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "mt-2 font-18"
   }, [_c("div", {
@@ -10055,11 +10138,78 @@ var render = function render() {
       },
       on: {
         click: function click($event) {
-          return _vm.openModal(_vm.$asseturl + flipping_book.image);
+          return _vm.openModal(_vm.$asseturl + flipping_book.image, index, _vm.item.flipping_books);
         }
       }
     });
-  }), 0), _vm._v(" "), _vm._m(0)])])])]), _vm._v(" "), _vm.modalOpen ? _c("div", {
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "btn-group"
+  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+    staticClass: "dropdown-menu dropdown-menu-end"
+  }, [_c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      target: "_blank",
+      href: "https://www.facebook.com/sharer.php?u=https://puthiprokash.com/product/single/".concat(this.$route.params.id)
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-facebook"
+  }), _vm._v(" Share on Facebook")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "https://twitter.com/intent/tweet?url=https://puthiprokash.com/product/single/".concat(this.$route.params.id, "&text=Check%20out%20this%20book!")
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-twitter"
+  }), _vm._v(" Share on Twitter")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      target: "_blank",
+      href: "https://www.linkedin.com/sharing/share-offsite/?url=https://puthiprokash.com/product/single/".concat(this.$route.params.id)
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-linkedin"
+  }), _vm._v(" Share on LinkedIn")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      target: "_blank",
+      href: "https://www.reddit.com/submit?url=https://puthiprokash.com/product/single/".concat(this.$route.params.id, "&title=Check%20out%20this%20book")
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-reddit"
+  }), _vm._v(" Share on Reddit")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      target: "_blank",
+      href: "https://pinterest.com/pin/create/button/?url=https://puthiprokash.com/product/single/".concat(this.$route.params.id, "&description=Check%20out%20this%20book")
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-pinterest"
+  }), _vm._v(" Share on Pinterest")])]), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      target: "_blank",
+      href: "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://puthiprokash.com/product/single/".concat(this.$route.params.id, "&title=Check%20out%20this%20book")
+    }
+  }, [_c("i", {
+    staticClass: "fab fa-tumblr"
+  }), _vm._v(" Share on Tumblr")])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2"
+  }, _vm._l(_vm.relateds, function (product, indexs) {
+    return _c("Product", {
+      key: "product" + indexs,
+      attrs: {
+        product: product
+      },
+      on: {
+        show_details: function show_details($event) {
+          return _vm.goDetialsFun(_vm.index, product.id, product);
+        }
+      }
+    });
+  }), 1)]), _vm._v(" "), _vm.modalOpen ? _c("div", {
     staticClass: "modal-overlay"
   }, [_c("div", {
     staticClass: "modal-container"
@@ -10100,9 +10250,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "btn-group"
-  }, [_c("button", {
+  return _c("button", {
     staticClass: "btn btn-secondary btn-sm dropdown-toggle",
     attrs: {
       type: "button",
@@ -10115,56 +10263,15 @@ var staticRenderFns = [function () {
     attrs: {
       "aria-hidden": "true"
     }
-  }), _vm._v(" Share This Book\n    ")]), _vm._v(" "), _c("ul", {
-    staticClass: "dropdown-menu dropdown-menu-end"
-  }, [_c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      target: "_blank",
-      href: "https://www.facebook.com/sharer.php?u=https://example.com/book"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-facebook"
-  }), _vm._v(" Share on Facebook")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      href: "https://twitter.com/intent/tweet?url=https://example.com/book&text=Check%20out%20this%20book!"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-twitter"
-  }), _vm._v(" Share on Twitter")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      target: "_blank",
-      href: "https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/book"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-linkedin"
-  }), _vm._v(" Share on LinkedIn")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      target: "_blank",
-      href: "https://www.reddit.com/submit?url=https://example.com/book&title=Check%20out%20this%20book"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-reddit"
-  }), _vm._v(" Share on Reddit")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      target: "_blank",
-      href: "https://pinterest.com/pin/create/button/?url=https://example.com/book&description=Check%20out%20this%20book"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-pinterest"
-  }), _vm._v(" Share on Pinterest")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      target: "_blank",
-      href: "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://example.com/book&title=Check%20out%20this%20book"
-    }
-  }, [_c("i", {
-    staticClass: "fab fa-tumblr"
-  }), _vm._v(" Share on Tumblr")])])])]);
+  }), _vm._v(" Share This Book\n    ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("p", {
+    staticClass: "fw-bold mb-3 ms-3"
+  }, [_c("span", {
+    staticClass: "border-2 border-bottom border-danger pe-1"
+  }, [_vm._v("এই ")]), _vm._v("বিষয়ে আরও বই সমূহঃ")]);
 }];
 render._withStripped = true;
 
@@ -10673,7 +10780,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this3.callApi('post', "/api/cart", form);
               case 3:
                 res = _context3.sent;
-                Notification.customSuccess("Added to cart");
+                if (res.status == 201) {
+                  Notification.customSuccess("Added to cart");
+                } else if (res.status == 400) {
+                  Notification.customError("Product not available in stock");
+                }
                 _this3.fetchCartQuantity();
               case 6:
               case "end":
@@ -31553,7 +31664,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    padding-left: 0;\r\n    margin-bottom: 0;\r\n    list-style: none;\n}\nbutton.navbar-toggler {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\r\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\r\n    border: 1px solid #a9a6a6 !important;\r\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\r\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\r\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: baseline;\n}\n.submenu1 a {\r\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 0 16px;\r\n    padding-top: 9px;\r\n    width: 100%;\n}\nheader.fixed-header {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 9999;\n}\n.dropdown-menus {\r\n    position: absolute;\r\n    width: 100%;\r\n    background: white;\r\n    z-index: 9999;\r\n    max-height: 78vh;\r\n    overflow: scroll;\n}\n.nav-single{\r\n    width: 25%;\r\n    margin: 0 auto;\n}\nul.DownItems {\r\n    position: absolute;\r\n    top: var(--headerHight);\r\n    left: 0;\r\n    background: #ced9df;\r\n    width: 140px;\r\n    display: none;\r\n    z-index: 999;\n}\nul.DropItem2{\r\n    left: auto;\r\n    right: -9px !important;\r\n    width: 171px;\n}\n.DropItem:hover .DownItems {\r\n    display: block;\n}\nul.DownItems li {\r\n    padding: 5px 8px;\r\n    border-bottom: 1px solid white;\r\n    cursor: pointer;\n}\nul.DownItems li:hover {\r\n    background: #a3c1d1;\n}\n.mainSearchBox{\r\n  display: flex!important;\r\n    box-shadow: 0px 0px 16px -3px #0000008a;\r\n    background: white;\r\n    margin: 11px auto;\r\n    padding: 2px 3px;\r\n    width: 50%;\n}\ninput.book-search-input {\r\n    width: 90%;\r\n    /* margin: 6px 0px; */\r\n    padding: 8px 6px;\r\n    border: 0px solid #F05C41;\r\n    border-right: 0px;\r\n    background: transparent;\n}\nbutton.book-search-button {\r\n    width: 10%;\r\n    /* margin: 6px 0; */\r\n    background: transparent;\r\n    border: 0px solid #F05C41;\r\n    border-left: 0px;\r\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\r\n    position: absolute;\r\n    top: 3px;\r\n    right: -7px;\r\n    font-size: 45px;\r\n    color: var(--red);\n}\n.desktopDisplayNone{\r\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\r\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\r\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\r\n        display: block;\n}\ndiv#navbarNavDropdown1 {\r\n    background: #CED9DF;\r\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\r\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\r\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\r\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\r\n    left: 41px;\r\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\r\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\r\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\r\n    color: var(--defaultColor);\r\n    /* font-weight: 600 !important; */\n}\n.desktopNone{\r\n    display: none !important;\n}\n@media (max-width:991px) {\n.desktopNone{\r\n    display: flex !important;\n}\ndiv#navbarNavDropdown {\r\n    background: white;\r\n    width: 100%;\r\n    margin-top: 7px;\n}\ndiv#navbarNavDropdown ul li {\r\n    text-align: left;\r\n    width: 100%;\r\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\r\n    display: none !important;\n}\n}\n@media (max-width:991px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\r\n    padding: 0 !important;\r\n    display: block !important;\r\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\nli.submenu1 {\r\n    width: 100%;\n}\nli.submenu1 {\r\n    height: auto !important;\n}\n.nav-item-menu {\r\n    padding: 7px 7px;\r\n    height: auto  !important;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\r\n    font-size: 13px !important;\n}\n.mobileMainNavBg{\r\n            background: var(--defaultBg);\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n    display: flex;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\nbutton.navbar-toggler {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n    padding: 5px 14px;\n}\nbutton.navbar-toggler:focus {\n    border: 1px solid #a9a6a6 !important;\n    box-shadow: 0 0 0 0 !important;\n}\nli.submenu1 {\n    width: 20%;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 15px !important;\n}\n.submenu1.submenuhave{\n    display: flex;\n    justify-content: space-between;\n    align-items: baseline;\n}\n.submenu1 a {\n    padding: 10px 16px;\n}\n.submenu1.submenuhave a {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 16px;\n    padding-top: 9px;\n    width: 100%;\n}\nheader.fixed-header {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 9999;\n}\n.dropdown-menus {\n    position: absolute;\n    width: 100%;\n    background: white;\n    z-index: 9999;\n    max-height: 78vh;\n    overflow: scroll;\n}\n.nav-single{\n    width: 25%;\n    margin: 0 auto;\n}\nul.DownItems {\n    position: absolute;\n    top: var(--headerHight);\n    left: 0;\n    background: #ced9df;\n    width: 140px;\n    display: none;\n    z-index: 999;\n}\nul.DropItem2{\n    left: auto;\n    right: -9px !important;\n    width: 171px;\n}\n.DropItem:hover .DownItems {\n    display: block;\n}\nul.DownItems li {\n    padding: 5px 8px;\n    border-bottom: 1px solid white;\n    cursor: pointer;\n}\nul.DownItems li:hover {\n    background: #a3c1d1;\n}\n.mainSearchBox{\n  display: flex!important;\n    box-shadow: 0px 0px 16px -3px #0000008a;\n    background: white;\n    margin: 11px auto;\n    padding: 2px 3px;\n    width: 50%;\n}\ninput.book-search-input {\n    width: 90%;\n    /* margin: 6px 0px; */\n    padding: 8px 6px;\n    border: 0px solid #F05C41;\n    border-right: 0px;\n    background: transparent;\n}\nbutton.book-search-button {\n    width: 10%;\n    /* margin: 6px 0; */\n    background: transparent;\n    border: 0px solid #F05C41;\n    border-left: 0px;\n    position:  relative;\n}\n.book-search-button .fa-regular.fa-magnifying-glass {\n    position: absolute;\n    top: 3px;\n    right: -7px;\n    font-size: 45px;\n    color: var(--red);\n}\n.desktopDisplayNone{\n    display: none;\n}\n@media (max-width: 992px){\nli.nav-item a {\n            font-size: 13px !important;\n}\nli.nav-item.col .nav-link {\n            font-size: 13px !important;\n}\n}\n@media (max-width: 767px){\n.desktopDisplayNone{\n        display: block;\n}\ndiv#navbarNavDropdown1 {\n    background: #CED9DF;\n    z-index: 999999;\n}\ndiv#navbarNavDropdown1 ul {\n    padding: 0 !important;\n}\ndiv#navbarNavDropdown1 ul li {\n    border-bottom: 2px solid white;\n}\nli.submenu1 {\n    width: 100%;\n}\n}\nheader.header.fixed-header.othersMenu.container {\n    left: 41px;\n    box-shadow: 0px 2px 2px 0px #4e4e4e85;\n    min-width: 95%;\n}\nli.nav-item.col a.nav-link {\n    transition: all 0.5s;\n}\nli.nav-item.col a.nav-link:hover {\n    color: var(--defaultColor);\n    /* font-weight: 600 !important; */\n}\n.desktopNone{\n    display: none !important;\n}\n@media (max-width:991px) {\n.desktopNone{\n    display: flex !important;\n}\ndiv#navbarNavDropdown {\n    background: white;\n    width: 100%;\n    margin-top: 7px;\n}\ndiv#navbarNavDropdown ul li {\n    text-align: left;\n    width: 100%;\n    border-bottom: 1px solid var(--defaultColor);\n}\n.desktopBlock{\n    display: none !important;\n}\n}\n@media (max-width:991px) {\ndiv#navbarNavDropdown1 ul li {border-bottom: 1px solid var(--defaultColor);padding: 10px 15px !important;display: block !important;}\ndiv#navbarNavDropdown1 ul li a {\n    padding: 0 !important;\n    display: block !important;\n    border-left: 0 !important;\n}\ndiv#navbarNavDropdown1 ul {background: var(--defaultBg);}\nli.submenu1 {\n    width: 100%;\n}\nli.submenu1 {\n    height: auto !important;\n}\n.nav-item-menu {\n    padding: 7px 7px;\n    height: auto  !important;\n}\nul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {\n    font-size: 13px !important;\n}\n.mobileMainNavBg{\n            background: var(--defaultBg);\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31697,7 +31808,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid[data-v-241b3165] {\r\n    margin-top: 70px;\n}\n.card-body[data-v-241b3165] {\r\n    flex: 1 1 auto;\r\n    padding: 1.4rem;\n}\n.img-sm[data-v-241b3165] {\r\n    width: 80px;\r\n    height: 80px;\n}\n.itemside .info[data-v-241b3165] {\r\n    padding-left: 15px;\r\n    padding-right: 7px;\n}\n.table-shopping-cart .price-wrap[data-v-241b3165] {\r\n    line-height: 1.2;\n}\n.table-shopping-cart .price[data-v-241b3165] {\r\n    font-weight: bold;\r\n    margin-right: 5px;\r\n    display: block;\n}\n.text-muted[data-v-241b3165] {\r\n    color: #969696 !important;\n}\na[data-v-241b3165] {\r\n    text-decoration: none !important;\n}\n.card[data-v-241b3165] {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 0;\r\n    word-wrap: break-word;\r\n    background-color: #fff;\r\n    background-clip: border-box;\r\n    border: 1px solid rgba(0, 0, 0, 0.125);\r\n    border-radius: 0px;\n}\n.itemside[data-v-241b3165] {\r\n    position: relative;\r\n    display: flex;\r\n    width: 100%;\n}\n.dlist-align[data-v-241b3165] {\r\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-241b3165] {\r\n    margin-bottom: 5px;\n}\n.coupon[data-v-241b3165] {\r\n    border-radius: 1px;\n}\n.price[data-v-241b3165] {\r\n    font-weight: 600;\r\n    color: #212529;\n}\n.btn.btn-out[data-v-241b3165] {\r\n    outline: 1px solid #fff;\r\n    outline-offset: -5px;\n}\n.btn-main[data-v-241b3165] {\r\n    border-radius: 2px;\r\n    text-transform: capitalize;\r\n    font-size: 15px;\r\n    padding: 10px 19px;\r\n    cursor: pointer;\r\n    color: #fff;\r\n    width: 100%;\n}\n.btn-light[data-v-241b3165] {\r\n    color: #ffffff;\r\n    background-color: #f44336;\r\n    border-color: #f8f9fa;\r\n    font-size: 12px;\n}\n.btn-light[data-v-241b3165]:hover {\r\n    color: #ffffff;\r\n    background-color: #f44336;\r\n    border-color: #f44336;\n}\n.btn-apply[data-v-241b3165] {\r\n    font-size: 11px;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid[data-v-241b3165] {\n    margin-top: 70px;\n}\n.card-body[data-v-241b3165] {\n    flex: 1 1 auto;\n    padding: 1.4rem;\n}\n.img-sm[data-v-241b3165] {\n    width: 80px;\n    height: 80px;\n}\n.itemside .info[data-v-241b3165] {\n    padding-left: 15px;\n    padding-right: 7px;\n}\n.table-shopping-cart .price-wrap[data-v-241b3165] {\n    line-height: 1.2;\n}\n.table-shopping-cart .price[data-v-241b3165] {\n    font-weight: bold;\n    margin-right: 5px;\n    display: block;\n}\n.text-muted[data-v-241b3165] {\n    color: #969696 !important;\n}\na[data-v-241b3165] {\n    text-decoration: none !important;\n}\n.card[data-v-241b3165] {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    min-width: 0;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: border-box;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n    border-radius: 0px;\n}\n.itemside[data-v-241b3165] {\n    position: relative;\n    display: flex;\n    width: 100%;\n}\n.dlist-align[data-v-241b3165] {\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-241b3165] {\n    margin-bottom: 5px;\n}\n.coupon[data-v-241b3165] {\n    border-radius: 1px;\n}\n.price[data-v-241b3165] {\n    font-weight: 600;\n    color: #212529;\n}\n.btn.btn-out[data-v-241b3165] {\n    outline: 1px solid #fff;\n    outline-offset: -5px;\n}\n.btn-main[data-v-241b3165] {\n    border-radius: 2px;\n    text-transform: capitalize;\n    font-size: 15px;\n    padding: 10px 19px;\n    cursor: pointer;\n    color: #fff;\n    width: 100%;\n}\n.btn-light[data-v-241b3165] {\n    color: #ffffff;\n    background-color: #f44336;\n    border-color: #f8f9fa;\n    font-size: 12px;\n}\n.btn-light[data-v-241b3165]:hover {\n    color: #ffffff;\n    background-color: #f44336;\n    border-color: #f44336;\n}\n.btn-apply[data-v-241b3165] {\n    font-size: 11px;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31769,7 +31880,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dlist-align[data-v-77eae20b] {\r\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-77eae20b] {\r\n    margin-bottom: 5px;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dlist-align[data-v-77eae20b] {\n    display: flex;\n}\n[class*=\"dlist-\"][data-v-77eae20b] {\n    margin-bottom: 5px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

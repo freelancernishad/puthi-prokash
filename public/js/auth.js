@@ -2242,7 +2242,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this3.callApi('post', "/api/cart", form);
               case 3:
                 res = _context3.sent;
-                Notification.customSuccess("Added to cart");
+                if (res.status == 201) {
+                  Notification.customSuccess("Added to cart");
+                } else if (res.status == 400) {
+                  Notification.customError("Product not available in stock");
+                }
                 _this3.fetchCartQuantity();
               case 6:
               case "end":

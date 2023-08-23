@@ -45,6 +45,10 @@
                         <span class="eng-text">{{ item.cover_type }}</span>
                     </h5>
                     <h5 class="book-meta eng-text">
+                        Stock : {{ item.stock }}
+                    </h5>
+
+                    <h5 class="book-meta eng-text">
                         ISBN : {{ item.ISBN }}
                     </h5>
 
@@ -83,7 +87,10 @@
 
 
                         <div class="d-flex flex-wrap">
-                            <img :src="$asseturl+flipping_book.image" v-for="(flipping_book,index) in item.flipping_books" :key="'flipping_books'+index" @click="openModal($asseturl+flipping_book.image)"  class="img-thumbnail sampleBooks" role="button">
+
+                            <img :src="$asseturl+flipping_book.image" v-for="(flipping_book,index) in item.flipping_books" :key="'flipping_books'+index" @click="openModal($asseturl+flipping_book.image,index,item.flipping_books)"  class="img-thumbnail sampleBooks" role="button">
+
+
                         </div>
 
 
@@ -94,12 +101,12 @@
         <i class="fa fa-share" aria-hidden="true"></i> Share This Book
     </button>
     <ul class="dropdown-menu dropdown-menu-end">
-        <li><a target="_blank" class="dropdown-item" href="https://www.facebook.com/sharer.php?u=https://example.com/book"><i class="fab fa-facebook"></i> Share on Facebook</a></li>
-        <li><a class="dropdown-item" href="https://twitter.com/intent/tweet?url=https://example.com/book&text=Check%20out%20this%20book!"><i class="fab fa-twitter"></i> Share on Twitter</a></li>
-        <li><a target="_blank" class="dropdown-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/book"><i class="fab fa-linkedin"></i> Share on LinkedIn</a></li>
-        <li><a target="_blank" class="dropdown-item" href="https://www.reddit.com/submit?url=https://example.com/book&title=Check%20out%20this%20book"><i class="fab fa-reddit"></i> Share on Reddit</a></li>
-        <li><a target="_blank" class="dropdown-item" href="https://pinterest.com/pin/create/button/?url=https://example.com/book&description=Check%20out%20this%20book"><i class="fab fa-pinterest"></i> Share on Pinterest</a></li>
-        <li><a target="_blank" class="dropdown-item" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://example.com/book&title=Check%20out%20this%20book"><i class="fab fa-tumblr"></i> Share on Tumblr</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://www.facebook.com/sharer.php?u=https://puthiprokash.com/product/single/${this.$route.params.id}`"><i class="fab fa-facebook"></i> Share on Facebook</a></li>
+        <li><a class="dropdown-item" :href="`https://twitter.com/intent/tweet?url=https://puthiprokash.com/product/single/${this.$route.params.id}&text=Check%20out%20this%20book!`"><i class="fab fa-twitter"></i> Share on Twitter</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://www.linkedin.com/sharing/share-offsite/?url=https://puthiprokash.com/product/single/${this.$route.params.id}`"><i class="fab fa-linkedin"></i> Share on LinkedIn</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://www.reddit.com/submit?url=https://puthiprokash.com/product/single/${this.$route.params.id}&title=Check%20out%20this%20book`"><i class="fab fa-reddit"></i> Share on Reddit</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://pinterest.com/pin/create/button/?url=https://puthiprokash.com/product/single/${this.$route.params.id}&description=Check%20out%20this%20book`"><i class="fab fa-pinterest"></i> Share on Pinterest</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://puthiprokash.com/product/single/${this.$route.params.id}&title=Check%20out%20this%20book`"><i class="fab fa-tumblr"></i> Share on Tumblr</a></li>
         <!-- Add more social network share links here -->
     </ul>
 </div>
@@ -122,7 +129,21 @@
 
 
             </div>
+
+
+
     </section>
+
+    <div class="container">
+        <p class="fw-bold mb-3 ms-3"><span class="border-2 border-bottom border-danger pe-1">এই </span>বিষয়ে আরও বই সমূহঃ</p>
+        <div class="row row-cols-xxl-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-2 row-cols-sm-2 row-cols-2">
+            <Product v-for="(product,indexs) in relateds" :key="'product'+indexs"  :product="product" @show_details="goDetialsFun(index,product.id,product)"/>
+        </div>
+    </div>
+
+
+
+
 
 
 
@@ -151,11 +172,30 @@ export default {
         imageUrl:'',
         imageUrls:'',
         imageUrlIndex:0,
-        item:{},
+        item:{
+
+            author:{
+                id:''
+            },
+            category:{
+                id:'',
+                name:'',
+            }
+
+        },
+        relateds:{},
         Breadcrumb:[],
     };
   },
-
+  watch: {
+        '$route': {
+            handler(newValue, oldValue) {
+                this.getItem();
+                this.getRelatedProducts();
+            },
+            deep: true
+        }
+    },
   computed: {
     totalDiscountValue() {
 
@@ -177,6 +217,9 @@ export default {
 
   methods: {
 
+    goDetialsFun(id,productid,showDetialsProduct){
+        this.$router.push({name:'productSingle',params:{id:productid}})
+        },
 
     async getItem(){
         var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[]);
@@ -186,9 +229,20 @@ export default {
                     {'route':'','params':{},'text':res.data.name}
                 )
     },
+
+
+    async getRelatedProducts(){
+        var res = await this.callApi('get',`/api/products/${this.$route.params.id}/related`,[]);
+        this.relateds = res.data;
+    },
+
+
+
+
   },
   mounted() {
     this.getItem();
+    this.getRelatedProducts();
   },
 };
 </script>

@@ -10133,6 +10133,72 @@ var render = function render() {
     attrs: {
       "for": ""
     }
+  }, [_vm._v("বইয়ের স্টক")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.stock,
+      expression: "form.stock"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.stock
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "stock", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.stock, function (name) {
+    return _vm.errorHandleing("stock") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("বইয়ের ওজন (গ্রাম)")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.weight,
+      expression: "form.weight"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.form.weight
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "weight", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.errors.weight, function (name) {
+    return _vm.errorHandleing("weight") ? _c("span", {
+      key: name,
+      staticClass: "text-danger font-weight-bold"
+    }, [_vm._v(_vm._s(name))]) : _vm._e();
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
   }, [_vm._v("প্রকাশের তারিখ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -13083,7 +13149,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this3.callApi('post', "/api/cart", form);
               case 3:
                 res = _context3.sent;
-                Notification.customSuccess("Added to cart");
+                if (res.status == 201) {
+                  Notification.customSuccess("Added to cart");
+                } else if (res.status == 400) {
+                  Notification.customError("Product not available in stock");
+                }
                 _this3.fetchCartQuantity();
               case 6:
               case "end":
@@ -30986,7 +31056,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\r\n    min-height: 500px;\n}\r\n\r\n\r\n\r\n   /* Style for the image preview */\n.upload-container {\r\n      text-align: center;\r\n      cursor: pointer;\n}\n.upload-container img {\r\n      max-width: 100%;\r\n      max-height: 200px;\r\n      margin-top: 10px;\n}\r\n\r\n    /* Hide the file input */\n#fileInput {\r\n      display: none;\n}\n#fileInput2 {\r\n      display: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tox.tox-tinymce {\n    min-height: 500px;\n}\n\n\n\n   /* Style for the image preview */\n.upload-container {\n      text-align: center;\n      cursor: pointer;\n}\n.upload-container img {\n      max-width: 100%;\n      max-height: 200px;\n      margin-top: 10px;\n}\n\n    /* Hide the file input */\n#fileInput {\n      display: none;\n}\n#fileInput2 {\n      display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

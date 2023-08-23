@@ -60,12 +60,15 @@ export default {
 
 
         async addToCart(form){
+
             form['user_id'] = this.$localStorage.getItem('userid');
-
-
-
             var res = await this.callApi('post',`/api/cart`,form);
-            Notification.customSuccess("Added to cart");
+            if(res.status==201){
+                Notification.customSuccess("Added to cart");
+            }else if(res.status==400){
+                Notification.customError("Product not available in stock");
+            }
+
             this.fetchCartQuantity();
         },
 

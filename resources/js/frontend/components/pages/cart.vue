@@ -122,7 +122,11 @@
                         </dl>
                         <hr>
 
-                        <router-link :to="{name:'checkout'}" v-if="carts" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </router-link>
+
+
+                        <router-link :to="{name:'checkout'}" v-if="carts && $localStorage.getItem('token')" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </router-link>
+
+                        <router-link :to="{name:'login'}" v-else-if="!$localStorage.getItem('token')" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Login or Create an account First </router-link>
 
 
                         <router-link :to="{name:'home'}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</router-link>
@@ -257,7 +261,13 @@ export default {
 
             var res = await this.callApi('put',`/api/cart/${id}`,this.cartUpdateForm)
 
-            this.carts = res.data
+            if(res.status==200){
+                this.carts = res.data
+                Notification.customSuccess("Cart updated");
+            }else{
+                Notification.customError("Product not available in stock");
+                this.getCartFromDb();
+            }
 
         },
         cartUpdateCancelFun(id){

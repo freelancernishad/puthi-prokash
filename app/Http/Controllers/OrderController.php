@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -106,12 +107,22 @@ class OrderController extends Controller
             $productId = $cartItem->product_id;
             $quantity = $cartItem->quantity;
 
+            $product = Product::find($productId);
+            $product->stock -= $quantity;
+            $product->save();
+
             $orderProduct = new OrderProduct([
                 'product_id' => $productId,
                 'quantity' => $quantity,
             ]);
 
             $order->orderProducts()->save($orderProduct);
+
+
+
+
+
+
         }
 
         Cart::where('user_id', $userId)->delete();

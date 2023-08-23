@@ -30,6 +30,8 @@ class CreateProductsTable extends Migration
             $table->string('short_description')->nullable();
             $table->longText('description')->nullable();
             $table->integer('price')->nullable();
+            $table->integer('stock')->default(0);
+            $table->integer('weight')->default(0);
             $table->integer('visit');
             $table->integer('share');
             $table->integer('buy');

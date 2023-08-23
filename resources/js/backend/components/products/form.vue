@@ -169,6 +169,26 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label for="">বইয়ের স্টক</label>
+                                        <input type="text" class="form-control" v-model="form.stock">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('stock')" v-for="name in errors.stock" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">বইয়ের ওজন (গ্রাম)</label>
+                                        <input type="text" class="form-control" v-model="form.weight">
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('weight')" v-for="name in errors.weight" :key="name">{{ name }}</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label for="">প্রকাশের তারিখ</label>
                                         <input type="date" class="form-control" v-model="form.release_date">
                                         <span class="text-danger font-weight-bold" v-if="errorHandleing('release_date')" v-for="name in errors.release_date" :key="name">{{ name }}</span>

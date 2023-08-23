@@ -193,11 +193,13 @@ class ProductController extends Controller
         'short_description' => $request->short_description,
         'description' => $request->description,
         'price' => $request->price,
-        'author_id' => $request->author_id,
+        'stock' => $request->stock,
+        'weight' => $request->weight,
         'visit' => 0,
         'share' => 0,
         'buy' => 0,
         'image' => $featured,
+        'author_id' => $request->author_id,
     ]);
 
 
@@ -265,6 +267,8 @@ class ProductController extends Controller
             $product->short_description = $request->short_description;
             $product->description = $request->description;
             $product->price = $request->price;
+            $product->stock = $request->stock;
+            $product->weight = $request->weight;
             $product->author_id = $request->author_id;
 
 
@@ -387,4 +391,32 @@ class ProductController extends Controller
 
     return response()->json(['message' => 'Product deleted successfully'],204);
     }
+
+
+    public function getRelatedProducts($productId)
+{
+    // Find the product by its ID
+    $product = Product::findOrFail($productId);
+
+    // Get the categories associated with the product
+    $categories = $product->categories;
+
+    // Get all products that belong to the same categories as the given product
+    $relatedProducts = Product::whereHas('categories', function ($query) use ($categories) {
+        $query->whereIn('category_id', $categories->pluck('id'));
+    })
+    ->where('id', '!=', $productId) // Exclude the original product itself
+    ->take(6) // You can limit the number of related products as needed
+    ->get();
+
+    return response()->json($relatedProducts, 200);
+}
+
+
+
+
+
+
+
+
 }

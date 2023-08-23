@@ -415,11 +415,13 @@ export default {
 
 
         StoreUID() {
-            this.uniqueId = localStorage.getItem(this.storageKey);
+            this.uniqueId = localStorage.getItem('userid');
             if (!this.uniqueId) {
-            this.uniqueId = this.generateUUID();
-            localStorage.setItem(this.storageKey, this.uniqueId);
+                this.uniqueId = this.generateUUID();
+                localStorage.setItem('userid', this.uniqueId);
             }
+
+
         },
 
 

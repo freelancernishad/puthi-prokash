@@ -15,7 +15,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
-use  App\Http\Controllers\api\authController;
+use App\Http\Controllers\api\authController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
@@ -126,11 +126,13 @@ Route::delete('/products/{product}', [ProductController::class,'destroy']);
 Route::get('/products/{product}/fliping/book', [ProductController::class,'getFlipingImages']);
 Route::post('/products/{product}/fliping/book', [ProductController::class,'uploadFlipingImages']);
 Route::get('/filter/products', [ProductController::class, 'filter'])->name('products.filter');
+Route::get('products/{productId}/related', [ProductController::class,'getRelatedProducts']);
 
 
 Route::get('/products/{product}/images', [ProductImageController::class,'index']);
 Route::post('/products/{product}/images', [ProductImageController::class,'store']);
 Route::delete('/products/{product}/images/{image}', [ProductImageController::class,'destroy']);
+
 
 
 

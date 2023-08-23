@@ -83,14 +83,19 @@ export default {
     methods: {
 
         showDetialsFun(id,productid,showDetialsProduct){
-            if(this.showDetials==id && this.productId==productid){
-                this.showDetials = -1;
-                this.productId = -1;
+            const windowWidth = window.innerWidth;
+            if (windowWidth <= 991) {
+                this.$router.push({name:'productSingle',params:{id:productid}})
             }else{
-                this.showDetials = id;
-                this.productId = productid;
-                this.showDetialsProduct = showDetialsProduct
+                if(this.showDetials==id && this.productId==productid){
+                    this.showDetials = -1;
+                    this.productId = -1;
+                }else{
+                    this.showDetials = id;
+                    this.productId = productid;
+                    this.showDetialsProduct = showDetialsProduct
 
+                }
             }
         },
         closeDetialsFun(){

@@ -76,10 +76,14 @@
             <div class="fborder2" style="margin: 0px 60px 0 0;">
               <div class="row">
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2 class="linkHover">আমাদের সম্পর্কে</h2>
+                    <router-link :to="{name:'pages',params:{slug:'amader-kotah'}}">
+                        <h2 class="linkHover">আমাদের কথা</h2>
+                    </router-link>
                 </div>
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2 class="linkHover">রেজিস্ট্রেশন</h2>
+                    <router-link :to="{name:'register'}">
+                        <h2 class="linkHover">রেজিস্ট্রেশন</h2>
+                    </router-link>
                 </div>
               </div>
             </div>

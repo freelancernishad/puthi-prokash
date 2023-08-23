@@ -98,15 +98,28 @@ export default {
     methods: {
 
         showDetialsFun(id,productid,showDetialsProduct){
-            if(this.showDetials==id && this.productId==productid){
-                this.showDetials = 0;
-                this.productId = 0;
-            }else{
-                this.showDetials = id;
-                this.productId = productid;
-                this.showDetialsProduct = showDetialsProduct
+            const windowWidth = window.innerWidth;
+            if (windowWidth <= 991) {
 
+                this.$router.push({name:'productSingle',params:{id:productid}})
+            }else{
+
+                if(this.showDetials==id && this.productId==productid){
+                    this.showDetials = 0;
+                    this.productId = 0;
+                }else{
+                    this.showDetials = id;
+                    this.productId = productid;
+                    this.showDetialsProduct = showDetialsProduct
+
+                }
             }
+
+
+
+
+
+
         },
 
         closeDetialsFun(){

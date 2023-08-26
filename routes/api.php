@@ -14,12 +14,13 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\api\authController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\FeatureCategoryController;
+use App\Http\Controllers\TheBookOfPuthiprakashController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -128,6 +129,8 @@ Route::post('/products/{product}/fliping/book', [ProductController::class,'uploa
 Route::get('/filter/products', [ProductController::class, 'filter'])->name('products.filter');
 Route::get('products/{productId}/related', [ProductController::class,'getRelatedProducts']);
 
+Route::post('add/stock/{id}', [ProductController::class,'stockAdd']);
+
 
 Route::get('/products/{product}/images', [ProductImageController::class,'index']);
 Route::post('/products/{product}/images', [ProductImageController::class,'store']);
@@ -176,6 +179,7 @@ Route::get('get/gallery/for/editor', [GalleryController::class,'forEditorImage']
 
 Route::apiResource('settings', SettingController::class);
 Route::apiResource('feature-categories', FeatureCategoryController::class);
+Route::resource('the-book-of-puthiprakashes', TheBookOfPuthiprakashController::class);
 Route::apiResource('pages', PageController::class);
 // Route::apiResource('multimedia', MultimediaController::class);
 

@@ -19,9 +19,9 @@
            <div v-for="(latestProduct,sl) in preload_data.categories" :key="'latestProduct'+sl">
           <div class="position-relative homeBooks">
             <div class="slideProductHome">
-              <p class="booktitle">{{ latestProduct.name }}</p>
+              <p class="booktitle">{{ latestProduct.category.name }}</p>
               <img
-                :src="$asseturl+latestProduct.icon"
+                :src="$asseturl+latestProduct.category.icon"
                 alt=""
                 srcset=""
                 class="img-fluid px-4 py-5"

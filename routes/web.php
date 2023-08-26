@@ -1,15 +1,16 @@
 <?php
 
 use App\Models\Role;
+use App\Models\Slider;
+use App\Models\Product;
+use App\Models\Setting;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\TheBookOfPuthiprakash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Setting;
-use App\Models\Slider;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +65,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
 });
 Route::get('/{vue_capture?}', function () {
 
-     $categories = Category::orderBy('id','desc')->limit(10)->get();
+     $categories = TheBookOfPuthiprakash::with('category')->get();
+
      $sliders = Slider::orderBy('order','asc')->get();
      $settings = Setting::firstOrFail();
      return view('frontlayout',compact('categories','sliders','settings'));

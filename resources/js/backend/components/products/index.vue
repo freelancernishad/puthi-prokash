@@ -17,6 +17,7 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Price</th>
+                                <th>Stock</th>
                                 <th>Categories</th>
                                 <th>Action</th>
                             </tr>
@@ -28,10 +29,12 @@
                                 <td><img :src="$asseturl+list.image" width="50px" alt=""></td>
                                 <td>{{ list.name }}</td>
                                 <td>{{ list.price }}</td>
+                                <td>{{ list.stock }} <br> <span class="btn btn-warning" @click="addStock(list)">Add Stock</span></td>
                                 <td>
                                     <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
                                 </td>
                                 <td>
+
 
 
                                     <router-link class="btn btn-info" :to="{name:'flipingbooksqr',params:{id:list.id}}">Flipping Book and QR Code</router-link>
@@ -56,18 +59,25 @@
             </div>
         </div>
 
+        <stockAdd v-if="isPopupOpen" @close_popup="closePopup" @call_data="getLists" :items="list"  />
 
 
     </div>
 </template>
 
 <script>
+  import stockAdd from "./stockAdd.vue";
 export default {
+    components: {
+        stockAdd,
+    },
     data() {
         return {
             lists:{},
             pageNO:1,
-            preLooding:false
+            preLooding:false,
+            isPopupOpen: false,
+            list: {},
         }
     },
     watch: {
@@ -79,6 +89,20 @@ export default {
         }
     },
     methods: {
+
+
+        addStock(list){
+            this.list = list;
+
+            this.isPopupOpen = true;
+        },
+
+        closePopup(){
+            this.isPopupOpen = false;
+        },
+
+
+
         async getLists(page=1){
             this.preLooding = true
             if(this.$route.query.page){

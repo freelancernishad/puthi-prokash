@@ -62,6 +62,8 @@ let Customerlist = require('./components/customers/list.vue').default;
 
 let feature_categories = require('./components/feature_categories.vue').default;
 
+let theBookOfPuthiprakash = require('./components/theBookOfPuthiprakash/list.vue').default;
+
 let settings = require('./components/settings.vue').default;
 
 
@@ -152,6 +154,8 @@ export const routes = [
 
 
   { path:  `${prefix}/feature_categories`, component: feature_categories, name:'feature_categories',meta: { layout: adminlayout } },
+
+  { path:  `${prefix}/the-book-of-puthiprakashes`, component: theBookOfPuthiprakash, name:'theBookOfPuthiprakash',meta: { layout: adminlayout } },
 
   { path:  `${prefix}/settings`, component: settings, name:'settings',meta: { layout: adminlayout } },
 

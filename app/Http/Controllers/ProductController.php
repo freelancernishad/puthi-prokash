@@ -413,6 +413,13 @@ class ProductController extends Controller
 }
 
 
+function stockAdd(Request $request,$id){
+
+    $stock = $request->stock;
+    $product = Product::find($id);
+    $product->update(['stock'=>$stock]);
+    return response()->json(['message' => 'Product Stock Updated successfully'],200);
+}
 
 
 

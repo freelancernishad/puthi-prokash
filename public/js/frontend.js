@@ -5285,10 +5285,10 @@ var render = function render() {
       staticClass: "slideProductHome"
     }, [_c("p", {
       staticClass: "booktitle"
-    }, [_vm._v(_vm._s(latestProduct.name))]), _vm._v(" "), _c("img", {
+    }, [_vm._v(_vm._s(latestProduct.category.name))]), _vm._v(" "), _c("img", {
       staticClass: "img-fluid px-4 py-5",
       attrs: {
-        src: _vm.$asseturl + latestProduct.icon,
+        src: _vm.$asseturl + latestProduct.category.icon,
         alt: "",
         srcset: ""
       }
@@ -31616,7 +31616,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\r\n    /* width: 240px; */\n}\n.slideProductHome {\r\n    background-color: rgb(235, 239, 242);\r\n    margin: 6px 5px;\n}\n.slideProductHome:after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: #ff000000;\n}\n@media (max-width:991px) {\n.containerMobileWidth{\r\n        width: 100% !important;\n}\n.containerMobileWidth div{\r\n        text-align:justify !important;\n}\n.header.fixed-header nav .container {\r\n        margin-top: 9px !important;\n}\nsection.bookBestGift {\r\n        padding: 20px 0 !important;\n}\n}\n@media (max-width:768px) {\n.carousel-control-prev-icon {\r\n         padding: 28px 12px !important;\n}\n.carousel-control-next-icon {\r\n         padding: 28px 12px !important;\n}\na.carousel-control-next {\r\n    width: 4%;\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.position-relative.homeBooks {\n    /* width: 240px; */\n}\n.slideProductHome {\n    background-color: rgb(235, 239, 242);\n    margin: 6px 5px;\n}\n.slideProductHome:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: #ff000000;\n}\n@media (max-width:991px) {\n.containerMobileWidth{\n        width: 100% !important;\n}\n.containerMobileWidth div{\n        text-align:justify !important;\n}\n.header.fixed-header nav .container {\n        margin-top: 9px !important;\n}\nsection.bookBestGift {\n        padding: 20px 0 !important;\n}\n}\n@media (max-width:768px) {\n.carousel-control-prev-icon {\n         padding: 28px 12px !important;\n}\n.carousel-control-next-icon {\n         padding: 28px 12px !important;\n}\na.carousel-control-next {\n    width: 4%;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

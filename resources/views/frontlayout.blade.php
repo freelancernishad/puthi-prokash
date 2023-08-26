@@ -271,9 +271,9 @@ if ("{{ Auth::user() }}") {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-    document.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    });
+    // document.addEventListener("contextmenu", (e) => {
+    // e.preventDefault();
+    // });
 
     </script>
 

@@ -199,6 +199,9 @@ export default {
                 if(res.status==200){
                     this.showStatusPopup = false;
                     this.getLists();
+                    Notification.customSuccess(`Status changed`);
+                }else{
+                    Notification.customError(`Can't change same status`);
                 }
                 this.preLooding = false
             },
@@ -238,7 +241,7 @@ export default {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
+        z-index: 999;
     }
 
     /* Styles for the popup content */

@@ -135,6 +135,9 @@ ol#carousel-1___BV_indicators_ li {
   100% { transform: rotate(360deg); }
 }
 
+div#overlay-circular {
+    z-index: 999999999 !important;
+}
   </style>
 
 </head>

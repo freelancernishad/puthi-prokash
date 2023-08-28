@@ -178,9 +178,23 @@ class OrderController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $order = Order::findOrFail($id);
+
+        $order = Order::with('user')->findOrFail($id);
+
+        if($order->status==$request->input('status')){
+            return response()->json('Cant update same status' , 422);
+        }
+
+        $user = $order->user;
+
         $order->status = $request->input('status');
+        $message = "Dear $user->name, Your Order $order->orderId status updated.Your order status is $order->status";
+        SmsBdsmsportal($message,$order->user->phone);
+
         $order->save();
+
+
+
 
         return response()->json(['message' => 'Order status updated successfully', 'order' => $order], 200);
     }

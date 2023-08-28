@@ -102,7 +102,7 @@
     </button>
     <ul class="dropdown-menu dropdown-menu-end">
         <li><a target="_blank" class="dropdown-item" :href="`https://www.facebook.com/sharer.php?u=https://puthiprokash.com/product/single/${this.$route.params.id}`"><i class="fab fa-facebook"></i> Share on Facebook</a></li>
-        <li><a class="dropdown-item" :href="`https://twitter.com/intent/tweet?url=https://puthiprokash.com/product/single/${this.$route.params.id}&text=Check%20out%20this%20book!`"><i class="fab fa-twitter"></i> Share on Twitter</a></li>
+        <li><a target="_blank" class="dropdown-item" :href="`https://twitter.com/intent/tweet?url=https://puthiprokash.com/product/single/${this.$route.params.id}&text=Check%20out%20this%20book!`"><i class="fab fa-twitter"></i> Share on Twitter</a></li>
         <li><a target="_blank" class="dropdown-item" :href="`https://www.linkedin.com/sharing/share-offsite/?url=https://puthiprokash.com/product/single/${this.$route.params.id}`"><i class="fab fa-linkedin"></i> Share on LinkedIn</a></li>
         <li><a target="_blank" class="dropdown-item" :href="`https://www.reddit.com/submit?url=https://puthiprokash.com/product/single/${this.$route.params.id}&title=Check%20out%20this%20book`"><i class="fab fa-reddit"></i> Share on Reddit</a></li>
         <li><a target="_blank" class="dropdown-item" :href="`https://pinterest.com/pin/create/button/?url=https://puthiprokash.com/product/single/${this.$route.params.id}&description=Check%20out%20this%20book`"><i class="fab fa-pinterest"></i> Share on Pinterest</a></li>

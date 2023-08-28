@@ -311,9 +311,9 @@ setTimeout(() => {
 }(document, 'script', 'facebook-jssdk'));
 }, 3000);
 
-    // document.addEventListener("contextmenu", (e) => {
-    // e.preventDefault();
-    // });
+    document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    });
 
 
 

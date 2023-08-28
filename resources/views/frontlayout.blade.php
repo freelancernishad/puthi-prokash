@@ -292,8 +292,11 @@ if ("{{ Auth::user() }}") {
 
 <!-- Your SDK code -->
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
+
+setTimeout(() => {
+
+    window.fbAsyncInit = function() {
+        FB.init({
       xfbml            : true,
       version          : 'v17.0'
     });
@@ -305,11 +308,14 @@ if ("{{ Auth::user() }}") {
     js = d.createElement(s); js.id = id;
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk'));
+}, 3000);
 
     // document.addEventListener("contextmenu", (e) => {
     // e.preventDefault();
     // });
+
+
 
     </script>
 

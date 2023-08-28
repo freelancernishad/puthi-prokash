@@ -149,7 +149,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.92') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.93') }}" async ></script>
 
 <script>
 

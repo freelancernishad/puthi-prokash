@@ -45,8 +45,6 @@
 
 
 
-
-
 <meta name="csrf-token"             ="{{ csrf_token() }}" />
 	{{-- <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet"> --}}
 
@@ -80,15 +78,53 @@ ol#carousel-1___BV_indicators_ li {
 }ol#carousel-1___BV_indicators_ li.active {
     background: #F05D41;
 }
-</style>
 
+
+
+</style>
+<style>
+    /* Preloader styles */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+/* Center the loader */
+
+
+.loader {
+    border: 14px solid #f3f3f3;
+    border-top: 14px solid #F15C46;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  </style>
 
 </head>
 
 <body style="font-family: 'Tiro Bangla', serif !important;">
 
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+  </div>
 
     <div id="app">
+
 
         @php
         if(Auth::user()){
@@ -113,7 +149,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.91') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.92') }}" async ></script>
 
 <script>
 
@@ -271,9 +307,9 @@ if ("{{ Auth::user() }}") {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-    document.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    });
+    // document.addEventListener("contextmenu", (e) => {
+    // e.preventDefault();
+    // });
 
     </script>
 

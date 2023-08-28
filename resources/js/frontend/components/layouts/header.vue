@@ -326,7 +326,7 @@ export default {
 
 
     created() {
-
+        document.getElementById('preloader').style.display = 'none';
 
         this.addcssCarosal();
 

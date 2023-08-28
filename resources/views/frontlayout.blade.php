@@ -5,21 +5,43 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
   <meta http-equiv="content-language" content="en">
-  <meta name="keywords" content="website, blog, foo, bar">
-  <meta name="author" content="John Doe">
+  <title>{{ $web_details->name }}</title>
+
   <meta name="publisher" content="John Doe">
   <meta name="copyright" content="John Doe">
-  <meta name="description" content="This short description describes my website.">
+
   <meta name="page-topic" content="Media">
   <meta name="page-type" content="Blogging">
   <meta name="audience" content="Everyone">
   <meta name="robots" content="index, follow">
 
+
+  <meta name="title" content="{{ $web_details->name }}" />
+  <meta name="description" content="{{ $web_details->short_description }}" />
+  <meta name="keywords" content="{{ $web_details->slug }}" />
+  <meta name="author" content="পুথিপ্রকাশ" />
+  <meta name="news_keywords" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ $web_details->name }}" />
+  <meta property="og:description" content="{{ $web_details->short_description }}" />
+  <meta property="og:image" content="{{ $web_details->fiture }}" />
+  <meta property="og:image:width" content="1200px" />
+  <meta name="brand_name" content="পুথিপ্রকাশ" />
+
+  <meta property="fb:app_id" content="863998424666012"/>
+
+
+
+
+
+
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-    <title>Welcome to PuthiProkash</title>
+
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
 
 
@@ -134,10 +156,11 @@ ol#carousel-1___BV_indicators_ li {
             $users = json_encode([]);
         }
 
+        $web_details = json_encode($web_details);
        @endphp
 
 
-        <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  :categories="{{$categories}}"  :sliders="{{$sliders}}" :settings="{{$settings}}"  >
+        <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  :categories="{{$categories}}"  :sliders="{{$sliders}}" :settings="{{$settings}}" :web_details="{{$web_details}}"  >
             <router-view />
           </component>
 
@@ -149,7 +172,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.93') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.94') }}" async ></script>
 
 <script>
 

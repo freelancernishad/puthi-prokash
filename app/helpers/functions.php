@@ -3,6 +3,7 @@
 use App\Models\Cart;
 use App\Models\Sonod;
 use App\Models\Gallery;
+use App\Models\Setting;
 use App\Models\Visitor;
 use App\Models\Category;
 use App\Models\Uniouninfo;
@@ -13,7 +14,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
+ function settings()
+{
+    $settings = Setting::firstOrFail();
 
+    return $settings;
+}
 
 
     function makeshorturl($url){
@@ -1161,4 +1167,20 @@ function tinyInt(){
     } else {
         return 0;
     }
+}
+
+function base64Withsize($savefilename,$Image,$width=1200,$height=1200)
+{
+    if (!file_exists(env('FILE_PATH') . 'facebook')) {
+        File::makeDirectory(env('FILE_PATH') . 'facebook', 0777, true, true);
+    }
+    if (File::exists(env('FILE_PATH') . $Image)) {
+        $Image = env('FILE_PATH') . $Image;
+    } else {
+        $Image = env('FILE_PATH') . 'image.png';
+    }
+    $img = Image::make($Image);
+    $img->resize($width, $height);
+    $img->save(env('FILE_PATH') ."facebook/$savefilename.jpg");
+    return asset("facebook/$savefilename.jpg");
 }

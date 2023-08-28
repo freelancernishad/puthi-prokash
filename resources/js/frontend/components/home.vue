@@ -120,6 +120,7 @@ export default {
 
     created() {
         window.addEventListener("resize", this.handleResize);
+
     },
     beforeDestroy() {
     // Remove the event listener when the component is destroyed
@@ -224,7 +225,6 @@ export default {
     },
     mounted() {
         this.childCategoryAcademicbooks();
-
 
     }
 };

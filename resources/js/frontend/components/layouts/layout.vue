@@ -17,7 +17,7 @@ import Footercomponent from './footer.vue'
 
 export default {
     components:{Headercomponent,Footercomponent},
-    props: ['user','categories','sliders','settings'],
+    props: ['user','categories','sliders','settings','web_details'],
     async created() {
         localStorage.setItem('position',this.user.position)
 
@@ -27,6 +27,7 @@ export default {
             categories:this.categories,
             sliders:this.sliders,
             settings:this.settings,
+            read_post:this.web_details,
         };
 
         this.$store.commit('set_pre_load_data', pre_load_data)
@@ -43,6 +44,7 @@ export default {
         '$route': {
             handler(newValue, oldValue) {
                 this.fetchCartQuantity();
+
             },
             deep: true
         }

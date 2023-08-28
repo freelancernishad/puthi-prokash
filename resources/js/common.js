@@ -31,6 +31,7 @@ export default {
         }
     },
 
+
     methods: {
 
 
@@ -283,7 +284,6 @@ export default {
         //  },
 
     },
-
 
 
 

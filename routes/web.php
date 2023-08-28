@@ -63,12 +63,74 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
         return view('layout',compact('settinyint'));
     })->where('vue_capture', '[\/\w\.-]*')->name('dashboard');
 });
-Route::get('/{vue_capture?}', function () {
+Route::get('/{vue_capture?}', function ($vue_capture='') {
+
+
+
+
+    $urldata = explode('/',$vue_capture);
+    if(count($urldata)>2){
+
+        if($urldata[0]=='product' && $urldata[1]=='single'){
+            $productId = $urldata[2];
+            $web_details =  Product::find($productId);
+
+            if($web_details->image){
+                $fiture =  base64Withsize("Product-$productId",$web_details->image);
+            }else{
+
+                $fiture =  base64Withsize("Product-$productId", settings()->header_logo);
+            }
+
+            $web_details['fiture'] = $fiture;
+
+
+        }else{
+            $fiture =  base64Withsize('Product-main',settings()->header_logo);
+            $web_details = [
+                "name"=> "পুথিপ্রকাশ",
+                "short_description"=> 'পুথিপ্রকাশ',
+                "long_description"=> "",
+                "slug"=> "পুথিপ্রকাশ",
+                "fiture"=> $fiture,
+            ]  ;
+            $web_details= json_decode(json_encode($web_details));
+        }
+
+    }else{
+        $fiture =  base64Withsize('Product-main',settings()->header_logo);
+        $web_details = [
+            "name"=> "পুথিপ্রকাশ",
+            "short_description"=> 'পুথিপ্রকাশ',
+            "long_description"=> "",
+            "slug"=> "পুথিপ্রকাশ",
+            "fiture"=> $fiture,
+        ]  ;
+        $web_details= json_decode(json_encode($web_details));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
      $categories = TheBookOfPuthiprakash::with('category')->get();
 
      $sliders = Slider::orderBy('order','asc')->get();
      $settings = Setting::firstOrFail();
-     return view('frontlayout',compact('categories','sliders','settings'));
+     return view('frontlayout',compact('categories','sliders','settings','web_details'));
+
+
+
+
+
 
 })->where('vue_capture', '[\/\w\.-]*')->name('frontend');

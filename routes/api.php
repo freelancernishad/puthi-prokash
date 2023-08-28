@@ -19,6 +19,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\FeatureCategoryController;
 use App\Http\Controllers\TheBookOfPuthiprakashController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -195,3 +196,6 @@ Route::get('pages/slug/{slug}', [PageController::class,'showBySlug']);
 
 Route::get('/dashboard-stats', [DashboardController::class,'getDashboardStats']);
 
+
+Route::resource('delivery-charges', DeliveryChargeController::class);
+Route::post('calculate-delivery-charge', [DeliveryChargeController::class, 'calculateDeliveryCharge']);

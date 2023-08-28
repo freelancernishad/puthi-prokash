@@ -7,6 +7,7 @@ use App\Models\Visitor;
 use App\Models\Category;
 use App\Models\Uniouninfo;
 use App\Models\Sonodnamelist;
+use App\Models\DeliveryCharge;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
@@ -954,6 +955,35 @@ function SmsNocSmsSend($deccription = '', $applicant_mobile = '01909756552')
 
 
 
+function SmsBdsmsportal($deccription = '', $applicant_mobile = '01909756552')
+{
+// return $applicant_mobile;
+
+    $smsnocapikey =  177527945664381801917167030;
+
+    $url = 'https://www.bdsmsportal.com/api/smsSendApi';
+    $data = array(
+    'customer_id' => 325,
+    'api_key' => $smsnocapikey,
+    'message' =>$deccription,
+    'mobile_no' => $applicant_mobile
+    );
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    $output = curl_exec($curl);
+    curl_close($curl);
+    return $output;
+
+
+
+}
+
+
+
 
 
 function characterCount($string){
@@ -1117,4 +1147,18 @@ function tinyInt(){
     return $data;
 
 
+}
+
+
+ function calculateDeliveryChargeG($weight=0)
+{
+
+
+    $deliveryCharge = DeliveryCharge::inRange($weight)->first();
+
+    if ($deliveryCharge) {
+        return $deliveryCharge->charge;
+    } else {
+        return 0;
+    }
 }

@@ -322,6 +322,12 @@
 
 
                         <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
+                                <router-link :to="{ name: 'deliveryCharge' }" class="nav-link"><i
+                                    class="flaticon-dashboard"></i><span>Delivery Charge</span></router-link>
+                        </li>
+
+
+                        <li class="nav-item" @click="submenu(0)" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin'">
                                 <router-link :to="{ name: 'settings' }" class="nav-link"><i
                                     class="flaticon-dashboard"></i><span>Settings</span></router-link>
                         </li>

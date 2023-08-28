@@ -19,14 +19,20 @@ class CartController extends Controller
 
         //  $cartItems = $user->carts()->with('user', 'product','product.author')->get();
     if ($user) {
+
         // If user exists, load the 'user', 'product', and 'product.author' relationships
         // $cartItems = $user->carts()->with('user', 'product', 'product.author')->get();
         $cartItems = Cart::where('user_id', $userid)
         ->with('product', 'product.author')
         ->get();
+
+
     } else {
         // If user does not exist, load only the 'product' and 'product.author' relationships
+
         $cartItems = Cart::with('product', 'product.author')->get();
+
+
     }
 
 

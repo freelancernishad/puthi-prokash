@@ -113,7 +113,7 @@ ol#carousel-1___BV_indicators_ li {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.90') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.91') }}" async ></script>
 
 <script>
 
@@ -271,9 +271,9 @@ if ("{{ Auth::user() }}") {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-    // document.addEventListener("contextmenu", (e) => {
-    // e.preventDefault();
-    // });
+    document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    });
 
     </script>
 

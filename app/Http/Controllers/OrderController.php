@@ -62,6 +62,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
+
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
         ]);
@@ -77,9 +78,22 @@ class OrderController extends Controller
         }
 
             // Calculate the total amount and total quantity from the cart items
-            $totalAmount = $cartItems->sum(function ($cartItem) {
+            $ProducttotalAmount = $cartItems->sum(function ($cartItem) {
                 return $cartItem->product->price * $cartItem->quantity;
             });
+
+
+
+            $totalWeight = 0; // Initialize the total weight variable
+            $totalWeight = $cartItems->sum(function ($cartItem) {
+                return $cartItem->product->weight * $cartItem->quantity;
+            });
+
+
+            $delivery = calculateDeliveryChargeG($totalWeight);
+
+            $totalAmount =  $ProducttotalAmount + $delivery;
+
 
             $totalQuantity = $cartItems->sum('quantity');
 
@@ -87,6 +101,8 @@ class OrderController extends Controller
         $orderData = [
             'orderId' => $orderId,
             'user_id' => $userId,
+            'amount' => $ProducttotalAmount,
+            'delevery' => $delivery,
             'total_amount' => $totalAmount,
             'total_quantity' => $totalQuantity,
 

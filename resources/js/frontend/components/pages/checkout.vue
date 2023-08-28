@@ -124,12 +124,21 @@
               </div>
               <span class="text-muted">{{ subtotal }}</span>
             </li>
+
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Discount</h6>
                 <!-- <small class="text-muted">Brief description</small> -->
               </div>
               <span class="text-muted">-{{ subtotalDiscount }}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Delivery Charage</h6>
+                <!-- <small class="text-muted">Brief description</small> -->
+              </div>
+              <span class="text-muted">-{{ deliveryCharge }}</span>
             </li>
 
             <li class="list-group-item d-flex justify-content-between">
@@ -173,10 +182,23 @@ export default {
 
                 quantity:'',
                 user_id:'',
-            }
+            },
+            deliveryCharges:{}
         }
     },
     computed:{
+
+
+
+        totalWeight() {
+            return this.carts.reduce((sum, product) => sum + product.product.weight * product.quantity, 0);
+        },
+        deliveryCharge() {
+            const applicableCharge = this.deliveryCharges.find(
+                charge => this.totalWeight >= charge.weight_from && this.totalWeight <= charge.weight_to
+            );
+            return applicableCharge ? applicableCharge.charge : 0;
+        },
 
         subquantity() {
             if (!Array.isArray(this.carts)) {
@@ -196,7 +218,7 @@ export default {
             if (!Array.isArray(this.carts)) {
                 return 0;
             }
-            return this.carts.reduce((total, cart) => total + (this.getDiscountedPrice(cart)*cart.quantity), 0);
+            return this.carts.reduce((total, cart) => total + (this.getDiscountedPrice(cart)*cart.quantity), 0)+Number(this.deliveryCharge);
         },
 
         subtotalDiscount() {
@@ -244,13 +266,17 @@ export default {
 
         async getCartFromDb(){
 
+            var deli = await this.callApi('get',`/api/delivery-charges`,[]);
+            this.deliveryCharges = deli.data
 
             var userRes = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}`,[]);
+
             var res = await this.callApi('get',`/api/cart?userid=${this.$localStorage.getItem('userid')}`,[]);
+
             this.carts = res.data
             var user = userRes.data
 
-           
+
 
             this.form.user_id = user.id
             this.form.name = user.name
@@ -327,17 +353,18 @@ export default {
 
         async onSubmit(){
 
-            if(carts && this.$localStorage.getItem('token')){
+            if(this.carts && this.$localStorage.getItem('token')){
                 var res = await this.callApi('post',`/api/orders`,this.form);
 
                 //   console.log(res)
-                if(res.status==201){
-                    Notification.customSuccess(`${res.data.message}`);
-                    this.$router.push({ name: "home" });
-                }else{
-                    Notification.customError(`${res.data.message}`);
-                    this.$router.push({ name: "home" });
-                }
+
+                // if(res.status==201){
+                //     Notification.customSuccess(`${res.data.message}`);
+                //     this.$router.push({ name: "home" });
+                // }else{
+                //     Notification.customError(`${res.data.message}`);
+                //     this.$router.push({ name: "home" });
+                // }
             }else{
                 Notification.customError("Login or Create an account First");
             }

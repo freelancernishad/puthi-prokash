@@ -17,7 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('orderId')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->decimal('total_amount', 8, 2);
+            $table->decimal('amount', 65, 2);
+            $table->decimal('delevery', 65, 2);
+            $table->decimal('total_amount', 65, 2);
             $table->integer('total_quantity');
             $table->string('name')->nullable();
             $table->string('email')->nullable();

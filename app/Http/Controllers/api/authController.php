@@ -3,15 +3,65 @@ namespace App\Http\Controllers\api;
 use Exception;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\Notification;
+
+use App\Notifications\EmailVerification;
+
 
 class authController extends Controller
 {
+
+    public function sendEmailVerification(Request $request)
+    {
+
+        $otp = rand(1000, 9999);
+        $user = User::where(['email'=>$request->email])->first();
+
+        if(!$user->email_verified_at){
+            if(!$user){
+                $user = User::create(['email' => $request->email,'password'=>'','email_verification'=>$otp]);
+            }
+            $user->notify(new EmailVerification($otp));
+            return response()->json(['message' => 'Email verification OTP sent.'], 200);
+        }else{
+            return response()->json(['message' => 'Email Already Registered.'], 422);
+        }
+
+
+
+
+
+    }
+
+
+     public function verifyEmail(Request $request)
+    {
+        $otp = $request->otp;
+        $email = $request->email;
+        $user = User::where(['email'=>$email,'email_verification'=> $otp])->first();
+        if (!$user) {
+            return response()->json(['message' => 'Invalid or expired OTP'], 422);
+        }
+        $user->update(['email_verified_at' => now(),'email_verification'=>null]);
+        return response()->json(['message' => 'Email verified successfully.']);
+    }
+
+
+
+
+
+
+
     public function login(Request $r)
     {
 

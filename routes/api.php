@@ -56,6 +56,14 @@ Route::group([
 });
 
 
+Route::post('send-email-verification', [authController::class,'sendEmailVerification']);
+Route::post('verify-email', [authController::class,'verifyEmail']);
+
+
+
+
+
+
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::post('/users', [UserController::class, 'store']);

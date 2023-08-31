@@ -1,21 +1,23 @@
 <?php
 namespace App\Http\Controllers\api;
+use id;
 use Exception;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\OTPVerification;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Validator;
 
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Cache;
 
 use App\Notifications\EmailVerification;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 
 
 class authController extends Controller
@@ -37,6 +39,25 @@ class authController extends Controller
             return response()->json(['message' => 'Email Already Registered.'], 422);
         }
 
+
+
+    }
+
+    public function sendPhoneVerification(Request $request)
+    {
+
+        $otp = rand(1000, 9999);
+        $phone = $request->phone;
+       return SmsBdsmsportal("Your verification code is $otp",$phone);
+
+        OTPVerification::create([
+            'phone_number' => $phone,
+            'otp' => $otp,
+            'expires_at' => now()->addMinutes(10), // OTP expires in 10 minutes
+        ]);
+
+
+        return response()->json(['message' => 'verification OTP sent.'], 200);
 
 
 
@@ -114,6 +135,25 @@ class authController extends Controller
 
     public function register(Request $r)
     {
+
+
+
+        $otpData = OTPVerification::where('phone_number', $r->phone)
+        ->where('otp', $r->otp)
+        ->where('expires_at', '>', now())
+        ->whereNull('verified_at')
+        ->first();
+
+    if ($otpData) {
+        $otpData->update(['verified_at' => now()]);
+    } else {
+        return response()->json(['error' => 'Invalid OTP'], 423);
+    }
+
+
+
+
+
         $data = [
             'name'=>$r->name,
             'email'=>$r->email,

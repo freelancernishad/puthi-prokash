@@ -3557,6 +3557,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         name: null,
         phone: null,
+        otp: null,
         email: null,
         password: null
       },
@@ -3571,33 +3572,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     otpSentFunction: function otpSentFunction() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var emailPattern, invalidEmail, res;
+        var res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                invalidEmail = !emailPattern.test(_this.form.email);
-                if (!invalidEmail) {
-                  _context.next = 5;
-                  break;
-                }
-                Notification.customError("Please add a valid Email address");
-                return _context.abrupt("return");
-              case 5:
-                _this.emailsent.email = _this.form.email;
-                _context.next = 8;
-                return _this.callApi('post', "/api/send-email-verification", _this.emailsent);
-              case 8:
+                _this.emailsent.phone = _this.form.phone;
+                _context.next = 3;
+                return _this.callApi('post', "/api/send-phone-verification", _this.emailsent);
+              case 3:
                 res = _context.sent;
                 if (res.status == 200) {
-                  Notification.customSuccess("Email verification OTP sent.");
+                  Notification.customSuccess("verification OTP sent.");
                   _this.otpSent = true;
                 } else {
                   _this.otpSent = false;
-                  Notification.customError("Email Already Registered.");
+                  Notification.customError("Something went wrong!");
                 }
-              case 10:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -3607,16 +3599,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     register: function register() {
       var _this2 = this;
-      axios.post('api/auth/register', this.form).then(function (res) {
-        // User.responseAfterLogin(res)
-
-        Notification.customSuccess("Registration Success");
-        _this2.$router.push({
-          name: "login"
-        });
-      })["catch"](function (error) {
-        return _this2.errors = error.response.data.errors;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this2.callApi('post', "/api/auth/register", _this2.form);
+              case 2:
+                res = _context2.sent;
+                if (res.status == 201) {
+                  // User.responseAfterLogin(res)
+                  _this2.$router.push({
+                    name: "login"
+                  });
+                  Notification.customSuccess("Registration success");
+                } else if (res.status == 422) {
+                  Notification.customError("validation error");
+                } else if (res.status == 423) {
+                  Notification.customError("Invalid Otp");
+                }
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   }
 });
@@ -8231,11 +8241,46 @@ var render = function render() {
         _vm.$set(_vm.form, "phone", $event.target.value);
       }
     }
-  })])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "input-group-text",
+    staticStyle: {
+      cursor: "pointer"
+    },
+    on: {
+      click: _vm.otpSentFunction
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-paper-plane"
+  })])])]), _vm._v(" "), _vm.otpSent ? _c("div", {
     staticClass: "col-12 defaultColor"
   }, [_vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "input-group"
   }, [_vm._m(5), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.otp,
+      expression: "form.otp"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Enter Otp"
+    },
+    domProps: {
+      value: _vm.form.otp
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "otp", $event.target.value);
+      }
+    }
+  })])]) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "col-12 defaultColor"
+  }, [_vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "input-group"
+  }, [_vm._m(7), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -8257,42 +8302,7 @@ var render = function render() {
         _vm.$set(_vm.form, "email", $event.target.value);
       }
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "input-group-text",
-    staticStyle: {
-      cursor: "pointer"
-    },
-    on: {
-      click: _vm.otpSentFunction
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-paper-plane"
-  })])])]), _vm._v(" "), _vm.otpSent ? _c("div", {
-    staticClass: "col-12 defaultColor"
-  }, [_vm._m(6), _vm._v(" "), _c("div", {
-    staticClass: "input-group"
-  }, [_vm._m(7), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.email,
-      expression: "form.email"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      placeholder: "Enter Email"
-    },
-    domProps: {
-      value: _vm.form.email
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.form, "email", $event.target.value);
-      }
-    }
-  })])]) : _vm._e(), _vm._v(" "), _c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-12 defaultColor"
   }, [_vm._m(8), _vm._v(" "), _c("div", {
     staticClass: "input-group"
@@ -8388,7 +8398,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("label", [_vm._v("Email"), _c("span", {
+  return _c("label", [_vm._v("OTP"), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
@@ -8402,7 +8412,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("label", [_vm._v("Email Verification Code"), _c("span", {
+  return _c("label", [_vm._v("Email"), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {

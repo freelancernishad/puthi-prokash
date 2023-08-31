@@ -59,6 +59,7 @@ Route::group([
 Route::post('send-email-verification', [authController::class,'sendEmailVerification']);
 Route::post('verify-email', [authController::class,'verifyEmail']);
 
+Route::post('send-phone-verification', [authController::class,'sendPhoneVerification']);
 
 
 

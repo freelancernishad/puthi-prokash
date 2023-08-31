@@ -30,9 +30,17 @@
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
                         <input type="text" class="form-control" v-model="form.phone" placeholder="Enter Phone Number">
+                        <div class="input-group-text" style="cursor: pointer;" @click="otpSentFunction"><i class="fa-solid fa-paper-plane"></i></div>
                       </div>
                     </div>
 
+                    <div class="col-12 defaultColor" v-if="otpSent">
+                      <label>OTP<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                        <input type="text" class="form-control" v-model="form.otp" placeholder="Enter Otp">
+                      </div>
+                    </div>
 
 
                     <div class="col-12 defaultColor">
@@ -40,19 +48,13 @@
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
                         <input type="email" name="email" class="form-control" v-model="form.email" placeholder="Enter Email">
-                        <div class="input-group-text" style="cursor: pointer;" @click="otpSentFunction"><i class="fa-solid fa-paper-plane"></i></div>
+
                       </div>
                     </div>
 
 
 
-                    <div class="col-12 defaultColor" v-if="otpSent">
-                      <label>Email Verification Code<span class="text-danger">*</span></label>
-                      <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
-                        <input type="text" class="form-control" v-model="form.email" placeholder="Enter Email">
-                      </div>
-                    </div>
+
 
 
 
@@ -120,6 +122,7 @@ export default {
 			form:{
 				name: null,
 				phone: null,
+				otp: null,
 				email: null,
 				password: null,
 			},
@@ -136,42 +139,36 @@ export default {
 
         async otpSentFunction(){
 
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-      var invalidEmail = !emailPattern.test(this.form.email);
-            if(invalidEmail){
-                Notification.customError("Please add a valid Email address");
-                return;
-            }
 
 
 
 
-            this.emailsent.email = this.form.email
-            var res = await this.callApi('post',`/api/send-email-verification`,this.emailsent);
+
+            this.emailsent.phone = this.form.phone
+            var res = await this.callApi('post',`/api/send-phone-verification`,this.emailsent);
             if(res.status==200){
-                Notification.customSuccess("Email verification OTP sent.");
+                Notification.customSuccess("verification OTP sent.");
                 this.otpSent = true;
             }else{
                 this.otpSent = false;
-                Notification.customError("Email Already Registered.");
+                Notification.customError("Something went wrong!");
             }
 
         },
 
 
-		register(){
-			axios.post('api/auth/register', this.form)
-			.then(res => {
+		async register(){
+            var res = await this.callApi('post',`/api/auth/register`,this.form);
+            if(res.status==201){
 				// User.responseAfterLogin(res)
-
-                Notification.customSuccess("Registration Success");
-
                 this.$router.push({ name: "login" });
+                Notification.customSuccess("Registration success");
+            }else if(res.status==422){
+                Notification.customError("validation error");
+            }else if(res.status==423){
+                Notification.customError("Invalid Otp");
+            }
 
-			})
-			.catch(error => this.errors = error.response.data.errors)
 		}
 	}
 }

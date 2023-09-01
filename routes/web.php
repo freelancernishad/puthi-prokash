@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\TheBookOfPuthiprakash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,18 @@ Route::get('/books/{slug}/{id}', function ($slug,$id) {
         return view('flipbook.index',compact('Books','flipping_books','settings'));
     }else{
         echo "Books Not Found";
+    }
+
+});
+
+
+Route::get('/invoice/{id}', function ($id) {
+
+    $order = Order::with(['user','orderProducts.product'])->find($id);
+    if($order){
+        return view('invoice',compact('order'));
+    }else{
+        return "<h1 style='color:red;text-align:center'>Invoice not found!</h1>";
     }
 
 });

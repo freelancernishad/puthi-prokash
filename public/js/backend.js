@@ -9362,7 +9362,13 @@ var render = function render() {
           return _vm.showPopup(list);
         }
       }
-    }, [_vm._v("Show Order Products")])])]);
+    }, [_vm._v("Show Order Products")]), _vm._v(" "), _c("a", {
+      staticClass: "btn btn-warning",
+      attrs: {
+        href: "/invoice/".concat(list.id),
+        target: "_blank"
+      }
+    }, [_vm._v("Invoice")])])]);
   }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("Paginate", {

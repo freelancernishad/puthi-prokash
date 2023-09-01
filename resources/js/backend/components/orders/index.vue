@@ -51,6 +51,8 @@
 
                                     <button @click="openStatusPopup(list)" class="btn btn-success">Change Status</button>
                                     <button @click="showPopup(list)" class="btn btn-info">Show Order Products</button>
+
+                                    <a :href="`/invoice/${list.id}`" target="_blank" class="btn btn-warning">Invoice</a>
                                 </td>
 
                             </tr>

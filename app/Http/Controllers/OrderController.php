@@ -142,8 +142,12 @@ class OrderController extends Controller
         }
 
         Cart::where('user_id', $userId)->delete();
-        $order->load(['orderProducts.product']);
+        $order->load(['orderProducts.product','user']);
 
+        return $order;
+
+        $message = "Dear ".$order->user->name.", Your Order $order->orderId has been confirmed";
+        SmsBdsmsportal($message,$order->user->phone);
 
         return response()->json([
             'message'=>'Order Complete'

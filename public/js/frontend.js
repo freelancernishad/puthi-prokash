@@ -4052,29 +4052,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'zip': '',
         'paymentMethod': 'Cash on Delivery'
       },
-      carts: {},
+      carts: [],
       cartUpdateForm: {
         quantity: '',
         user_id: ''
       },
-      deliveryCharges: {}
+      deliveryCharges: []
     };
   },
   computed: {
     totalWeight: function totalWeight() {
+      if (this.carts.length === 0) {
+        return 0;
+      }
       return this.carts.reduce(function (sum, product) {
         return sum + product.product.weight * product.quantity;
       }, 0);
     },
     deliveryCharge: function deliveryCharge() {
       var _this = this;
-      var applicableCharge = this.deliveryCharges.find(function (charge) {
-        return _this.totalWeight >= charge.weight_from && _this.totalWeight <= charge.weight_to;
-      });
-      return applicableCharge ? applicableCharge.charge : 0;
+      if (this.deliveryCharges) {
+        var applicableCharge = this.deliveryCharges.find(function (charge) {
+          return _this.totalWeight >= charge.weight_from && _this.totalWeight <= charge.weight_to;
+        });
+        return applicableCharge ? applicableCharge.charge : 0;
+      } else {
+        return 0;
+      }
     },
     subquantity: function subquantity() {
-      if (!Array.isArray(this.carts)) {
+      if (this.carts.length === 0) {
         return 0;
       }
       return this.carts.reduce(function (total, cart) {
@@ -4082,7 +4089,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, 0);
     },
     subtotal: function subtotal() {
-      if (!Array.isArray(this.carts)) {
+      if (this.carts.length === 0) {
         return 0;
       }
       return this.carts.reduce(function (total, cart) {
@@ -4091,7 +4098,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     finalSubtotal: function finalSubtotal() {
       var _this2 = this;
-      if (!Array.isArray(this.carts)) {
+      if (this.carts.length === 0) {
         return 0;
       }
       return this.carts.reduce(function (total, cart) {
@@ -4100,7 +4107,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     subtotalDiscount: function subtotalDiscount() {
       var _this3 = this;
-      if (!Array.isArray(this.carts)) {
+      if (this.carts.length === 0) {
         return 0;
       }
       return this.carts.reduce(function (total, cart) {
@@ -4109,7 +4116,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     hasDiscount: function hasDiscount() {
       return function (cart) {
-        if (!Array.isArray(this.carts)) {
+        if (this.carts.length === 0) {
           return false;
         }
         return cart.product.discount_status == 1;
@@ -9258,7 +9265,7 @@ var render = function render() {
     staticClass: "list-group-item d-flex justify-content-between lh-condensed"
   }, [_vm._m(6), _vm._v(" "), _c("span", {
     staticClass: "text-muted"
-  }, [_vm._v("-" + _vm._s(_vm.deliveryCharge))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v(_vm._s(_vm.deliveryCharge))])]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item d-flex justify-content-between"
   }, [_c("span", [_vm._v("Total (USD)")]), _vm._v(" "), _c("strong", [_vm._v(_vm._s(_vm.finalSubtotal))])])])])])])])], 1);
 };

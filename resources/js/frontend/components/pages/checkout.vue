@@ -138,7 +138,7 @@
                 <h6 class="my-0">Delivery Charage</h6>
                 <!-- <small class="text-muted">Brief description</small> -->
               </div>
-              <span class="text-muted">-{{ deliveryCharge }}</span>
+              <span class="text-muted">{{ deliveryCharge }}</span>
             </li>
 
             <li class="list-group-item d-flex justify-content-between">
@@ -176,14 +176,14 @@ export default {
                 'zip':'',
                 'paymentMethod':'Cash on Delivery',
             },
-            carts:{},
+            carts:[],
 
             cartUpdateForm:{
 
                 quantity:'',
                 user_id:'',
             },
-            deliveryCharges:{}
+            deliveryCharges:[]
         }
     },
     computed:{
@@ -191,38 +191,49 @@ export default {
 
 
         totalWeight() {
+            if (this.carts.length === 0) {
+                return 0;
+            }
             return this.carts.reduce((sum, product) => sum + product.product.weight * product.quantity, 0);
         },
         deliveryCharge() {
-            const applicableCharge = this.deliveryCharges.find(
+
+            if(this.deliveryCharges){
+                const applicableCharge = this.deliveryCharges.find(
                 charge => this.totalWeight >= charge.weight_from && this.totalWeight <= charge.weight_to
             );
             return applicableCharge ? applicableCharge.charge : 0;
+            }else{
+                return 0;
+            }
+
+
+
         },
 
         subquantity() {
-            if (!Array.isArray(this.carts)) {
+            if (this.carts.length === 0) {
                 return 0;
             }
             return this.carts.reduce((total, cart) => total + cart.quantity, 0);
         },
 
         subtotal() {
-            if (!Array.isArray(this.carts)) {
+            if (this.carts.length === 0) {
                 return 0;
             }
             return this.carts.reduce((total, cart) => total + (cart.product.price*cart.quantity), 0);
         },
 
         finalSubtotal() {
-            if (!Array.isArray(this.carts)) {
+            if (this.carts.length === 0) {
                 return 0;
             }
             return this.carts.reduce((total, cart) => total + (this.getDiscountedPrice(cart)*cart.quantity), 0)+Number(this.deliveryCharge);
         },
 
         subtotalDiscount() {
-            if (!Array.isArray(this.carts)) {
+            if (this.carts.length === 0) {
                 return 0;
             }
             return this.carts.reduce((total, cart) => total + (this.getProductDiscount(cart)*cart.quantity), 0);
@@ -230,7 +241,7 @@ export default {
 
         hasDiscount() {
         return function (cart) {
-            if (!Array.isArray(this.carts)) {
+            if (this.carts.length === 0) {
                 return false;
             }
             return cart.product.discount_status==1;

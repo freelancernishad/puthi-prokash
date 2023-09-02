@@ -1,11 +1,19 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
+
+
+
+
+
+
+
+use Spatie\Analytics\Period;
+use Spatie\Analytics\Analytics;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
-
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
@@ -23,6 +31,13 @@ use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\FeatureCategoryController;
 use App\Http\Controllers\TheBookOfPuthiprakashController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +68,14 @@ Route::group([
     Route::post('me', [authController::class,'login']);
     Route::post('register', [authController::class,'register']);
 
+});
+
+
+
+Route::get('/test/visitor', function (Request $request) {
+
+    //retrieve visitors and page view data for the current day and the last seven days
+  return   $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
 });
 
 

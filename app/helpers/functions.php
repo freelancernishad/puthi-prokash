@@ -4,7 +4,7 @@ use App\Models\Cart;
 use App\Models\Sonod;
 use App\Models\Gallery;
 use App\Models\Setting;
-use App\Models\Visitor;
+
 use App\Models\Category;
 use App\Models\Uniouninfo;
 use App\Models\Sonodnamelist;
@@ -13,6 +13,42 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+
+use Illuminate\Support\Carbon;
+use Shetabit\Visitor\Models\Visit;
+
+
+
+ function getStatistics()
+{
+    $totalVisits = Visit::count();
+
+    $dailyUniqueVisits = Visit::whereDate('created_at', Carbon::today())->distinct('ip')->count();
+
+    $weeklyUniqueVisits = Visit::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        ->distinct('ip')
+        ->count();
+
+    $monthlyUniqueVisits = Visit::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)
+        ->distinct('ip')
+        ->count();
+
+    $yearlyUniqueVisits = Visit::whereYear('created_at', Carbon::now()->year)
+        ->distinct('ip')
+        ->count();
+
+    $totalUniqueVisits = Visit::distinct('ip')->count();
+
+    return $data =[
+        'totalVisits'=>$totalVisits,
+        'dailyUniqueVisits'=>$dailyUniqueVisits,
+        'weeklyUniqueVisits'=>$weeklyUniqueVisits,
+        'monthlyUniqueVisits'=>$monthlyUniqueVisits,
+        'yearlyUniqueVisits'=>$yearlyUniqueVisits,
+        'totalUniqueVisits'=>$totalUniqueVisits
+    ];
+}
 
  function settings()
 {
@@ -223,28 +259,28 @@ function day_en_to_bn($day)
 
 
 
-    function visitor(){
-        $ip =  $_SERVER['REMOTE_ADDR'];
+    // function visitor(){
+    //     $ip =  $_SERVER['REMOTE_ADDR'];
 
-        $visitorWhere = [
-            'ip'=>$ip,
-            'date'=>date('d-m-Y'),
-        ];
+    //     $visitorWhere = [
+    //         'ip'=>$ip,
+    //         'date'=>date('d-m-Y'),
+    //     ];
 
-     $Visitor = Visitor::where($visitorWhere)->count();
-      if($Visitor>0){
+    //  $Visitor = Visitor::where($visitorWhere)->count();
+    //   if($Visitor>0){
 
-      }else{
+    //   }else{
 
-          $datainsert = [
-              'ip'=>$ip,
-              'date'=>date('d-m-Y'),
-              'month'=>date('F'),
-              'year'=>date('Y'),
-          ];
-          Visitor::create($datainsert);
-      }
-    }
+    //       $datainsert = [
+    //           'ip'=>$ip,
+    //           'date'=>date('d-m-Y'),
+    //           'month'=>date('F'),
+    //           'year'=>date('Y'),
+    //       ];
+    //       Visitor::create($datainsert);
+    //   }
+    // }
 
 
 

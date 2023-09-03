@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Role;
+use App\Models\User;
+use App\Models\Order;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Setting;
@@ -11,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\TheBookOfPuthiprakash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function() {
     })->where('vue_capture', '[\/\w\.-]*')->name('dashboard');
 });
 Route::get('/{vue_capture?}', function ($vue_capture='') {
+
 
 
 

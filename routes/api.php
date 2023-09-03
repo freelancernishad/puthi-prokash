@@ -30,6 +30,7 @@ use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\FeatureCategoryController;
 use App\Http\Controllers\TheBookOfPuthiprakashController;
+use App\Http\Controllers\VisitorController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -82,6 +83,9 @@ $analytics = new Spatie\Analytics\Analytics();
 return $data = $analytics->fetchVisitorsAndPageViews();
 
 });
+
+
+
 
 
 Route::post('send-email-verification', [authController::class,'sendEmailVerification']);

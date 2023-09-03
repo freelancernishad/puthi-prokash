@@ -47,6 +47,10 @@ class DashboardController extends Controller
     // Get top sales category
     $topSalesCategory = Category::withCount('products')->orderBy('products_count', 'desc')->first();
 
+
+
+    $visitors = getStatistics();
+
     $dashboardStats = [
         'totalUsers' => $totalUsers,
         'totalUniqueCustomers' => $totalUniqueCustomers,
@@ -64,6 +68,7 @@ class DashboardController extends Controller
         'monthWiseSalesVariance' => $monthWiseSalesVariance,
         'yearWiseSalesVariance' => $yearWiseSalesVariance,
         'topSalesCategory' => $topSalesCategory,
+        'visitors' => $visitors,
     ];
 
     return response()->json($dashboardStats, 200);

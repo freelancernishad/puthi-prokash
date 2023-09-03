@@ -158,6 +158,90 @@
 
 
 
+        <div class="row gutters-20">
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-fb hover-fb">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Total Visitors</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.visitors.totalUniqueVisits }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-twitter hover-twitter">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-regular fa-users"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Todays Visitors</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.visitors.dailyUniqueVisits }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-warning hover-gplus">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Weekly visitors</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.visitors.weeklyUniqueVisits }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-linkedin hover-linked">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-duotone fa-book-open-cover"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Monthly visitors</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.visitors.monthlyUniqueVisits }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="card dashboard-card-seven">
+                            <div class="social-media bg-success hover-linked">
+                                <div class="media media-none--lg">
+                                    <div class="social-icon">
+                                        <i class="fa-duotone fa-book-open-cover"></i>
+                                    </div>
+                                    <div class="media-body space-sm">
+                                        <h6 class="item-title">Yearly Visitors</h6>
+                                    </div>
+                                </div>
+                                <div class="social-like">{{ stats.visitors.yearlyUniqueVisits }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
 
 
 

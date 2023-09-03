@@ -8130,7 +8130,49 @@ var render = function render() {
     staticClass: "social-media bg-success hover-linked"
   }, [_vm._m(8), _vm._v(" "), _c("div", {
     staticClass: "social-like"
-  }, [_vm._v(_vm._s(_vm.stats.completedOrders))])])])])])], 1);
+  }, [_vm._v(_vm._s(_vm.stats.completedOrders))])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row gutters-20"
+  }, [_c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-fb hover-fb"
+  }, [_vm._m(9), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.visitors.totalUniqueVisits))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-twitter hover-twitter"
+  }, [_vm._m(10), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.visitors.dailyUniqueVisits))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-warning hover-gplus"
+  }, [_vm._m(11), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.visitors.weeklyUniqueVisits))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-linkedin hover-linked"
+  }, [_vm._m(12), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.visitors.monthlyUniqueVisits))])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-sm-6 col-12"
+  }, [_c("div", {
+    staticClass: "card dashboard-card-seven"
+  }, [_c("div", {
+    staticClass: "social-media bg-success hover-linked"
+  }, [_vm._m(13), _vm._v(" "), _c("div", {
+    staticClass: "social-like"
+  }, [_vm._v(_vm._s(_vm.stats.visitors.yearlyUniqueVisits))])])])])])], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -8258,6 +8300,76 @@ var staticRenderFns = [function () {
   }, [_c("h6", {
     staticClass: "item-title"
   }, [_vm._v("Completed Order")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Total Visitors")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-regular fa-users"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Todays Visitors")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user-pen"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Weekly visitors")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-duotone fa-book-open-cover"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Monthly visitors")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "media media-none--lg"
+  }, [_c("div", {
+    staticClass: "social-icon"
+  }, [_c("i", {
+    staticClass: "fa-duotone fa-book-open-cover"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "media-body space-sm"
+  }, [_c("h6", {
+    staticClass: "item-title"
+  }, [_vm._v("Yearly Visitors")])])]);
 }];
 render._withStripped = true;
 

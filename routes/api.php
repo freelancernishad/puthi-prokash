@@ -74,8 +74,13 @@ Route::group([
 
 Route::get('/test/visitor', function (Request $request) {
 
-    //retrieve visitors and page view data for the current day and the last seven days
-  return   $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+
+    // Create an instance of the Analytics class
+$analytics = new Spatie\Analytics\Analytics();
+
+// Call the non-static method on the instance
+return $data = $analytics->fetchVisitorsAndPageViews();
+
 });
 
 

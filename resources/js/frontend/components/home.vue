@@ -16,10 +16,10 @@
         <VueSlickCarousel v-bind="Carouselsettings">
 
 
-           <div v-for="(latestProduct,sl) in preload_data.categories" :key="'latestProduct'+sl">
+           <div v-for="(latestProduct,sl) in preload_data.categories" :key="'latestProduct'+sl" >
           <div class="position-relative homeBooks">
             <div class="slideProductHome">
-              <p class="booktitle">{{ latestProduct.category.name }}</p>
+              <p class="booktitle" @click="gotoThisLink(latestProduct.category.id)">{{ latestProduct.category.name }}</p>
               <img
                 :src="$asseturl+latestProduct.category.icon"
                 alt=""
@@ -209,6 +209,12 @@ export default {
     }
   },
     methods: {
+
+        gotoThisLink(id){
+            this.$router.push({name:'Products',query:{category:id}});
+        },
+
+
         handleResize() {
       this.$forceUpdate(); // Update the computed property when window is resized
     },

@@ -50,7 +50,7 @@
 <link href="{{ asset('css/TiroBangla.css') }}" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.6') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/styles.css?var=1.0.7') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css?var=1.0.2') }}">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.4.0/css/pro.min.css">
 
@@ -122,12 +122,13 @@ ol#carousel-1___BV_indicators_ li {
 
 
 .loader {
-    border: 14px solid #f3f3f3;
-    border-top: 14px solid #F15C46;
-    border-radius: 50%;
+    background-image: url(/assets/image/load-min.gif);
+    /* border: 14px solid #f3f3f3; */
+    /* border-top: 14px solid #F15C46; */
+    /* border-radius: 50%; */
     width: 200px;
     height: 200px;
-    animation: spin 2s linear infinite;
+    /* animation: spin 2s linear infinite; */
 }
 
 @keyframes spin {

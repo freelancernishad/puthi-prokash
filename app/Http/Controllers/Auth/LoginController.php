@@ -38,34 +38,37 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
     public function userLogin(Request $request)
     {
+
+        // Check if the input is an email or phone number
+        $input = $request->input('email');
+        $field = filter_var($input, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+
         $userFilter = [
-            'email' => $request->email,
+            $field => $input,
             'position' => 'user',
         ];
 
-         $singleUser = User::where($userFilter)->count();
+        $singleUser = User::where($userFilter)->count();
 
+        if ($singleUser > 0) {
+            $credentials = [
+                $field => $input,
+                'password' => $request->input('password'),
+            ];
 
-         if($singleUser>0){
-
-             $credentials = $request->only('email', 'password');
-             if (Auth::attempt($credentials)) {
-             $user = Auth::user();
-            $user['access_token'] = $user->createToken('accessToken')->accessToken;
-            //  updateCartUser($user->id);
-            return $this->respondWithToken($user['access_token']);
-
+         
+            if (Auth::attempt($credentials)) {
+                $user = Auth::user();
+                $user['access_token'] = $user->createToken('accessToken')->accessToken;
+                return $this->respondWithToken($user['access_token']);
+            } else {
+                return 0; // Login failed
+            }
         } else {
-            return 0;
+            return 0; // User not found
         }
-    }else{
-        return 0;
-    }
-
-
     }
     public function login(Request $request)
     {

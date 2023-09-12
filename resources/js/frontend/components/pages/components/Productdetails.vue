@@ -38,9 +38,9 @@
                     <div v-if="modalOpen"  class="modal-overlay">
                         <div class="modal-container" >
                             <span class="imageshowCloseButton" @click="closeModal"><i class="fa-regular fa-xmark"></i></span>
-                            <button class="ImageModalButton" @click="preImage" :disabled="imageUrlIndex == 0"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button class="ImageModalButton" @click="preImage" :disabled="imageUrlIndex == 0"><i class="fa-solid fa-chevron-left" style="margin-top: 12px;"></i></button>
                             <img :src="imageUrl" alt="Modal Image" />
-                            <button class="ImageModalButton" @click="nextImage" :disabled="imageUrlIndex == 3"><i class="fa-solid fa-chevron-right"></i></button>
+                            <button class="ImageModalButton" @click="nextImage" :disabled="imageUrlIndex == 3"><i class="fa-solid fa-chevron-right" style="margin-top: 12px;"></i></button>
 
                         </div>
                     </div>

@@ -16,10 +16,10 @@
                 <div class="form-left h-100 py-5 px-5">
                   <form @submit.prevent="login" class="row g-4">
                     <div class="col-12 defaultColor">
-                      <label>Email<span class="text-danger">*</span></label>
+                      <label>Email or Phone<span class="text-danger">*</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                        <input type="email" class="form-control" v-model="form.email" placeholder="Enter Email">
+                        <input type="text" class="form-control" v-model="form.email" placeholder="Enter Email or Phone">
                       </div>
                     </div>
 

@@ -168,6 +168,7 @@ export default {
     methods: {
         searchBooks(){
             this.$router.push({name:'Products',query:{search:this.form.search}});
+            this.searchItem = this.form.search
         },
         Products(data=[]) {
             const result = [];
@@ -230,6 +231,7 @@ export default {
             if (this.author) {
             query.author = this.author;
             }
+
 
 
 

@@ -36,13 +36,32 @@ class OrderController extends Controller
 
 
 
-    public function getOrdersByUserId($user_id)
+    public function getOrdersByUserId(Request $request,$user_id)
     {
-        $orders = Order::where('user_id', $user_id)
+
+        if($request->status){
+            $orders = Order::where('user_id', $user_id)
+            ->where('status',$request->status)
             ->with('orderProducts.product')
             ->with('user')
             ->orderBy('id','desc')
             ->get();
+        }else{
+            $orders = Order::where('user_id', $user_id)
+            ->where('status','!==','canceled')
+            ->with('orderProducts.product')
+            ->with('user')
+            ->orderBy('id','desc')
+            ->get();
+        }
+
+        // $orders = Order::where('user_id', $user_id)
+        //     ->with('orderProducts.product')
+        //     ->with('user')
+        //     ->orderBy('id','desc')
+        //     ->get();
+
+
 
         if ($orders->isEmpty()) {
             return response()->json(['message' => 'No orders found for the user'], 404);

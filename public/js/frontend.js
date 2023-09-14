@@ -2931,6 +2931,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           search: this.form.search
         }
       });
+      this.searchItem = this.form.search;
     },
     Products: function Products() {
       var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -3405,26 +3406,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isPopupVisible: false
     };
   },
-  methods: {
-    getOrders: function getOrders() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
+  watch: {
+    '$route': function () {
+      var _$route = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(to, from) {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.callApi('get', "/api/users/".concat(_this.$localStorage.getItem('userid'), "/orders"));
-              case 2:
-                res = _context.sent;
-                _this.orders = res.data;
-              case 4:
+                this.getOrders();
+              case 1:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, this);
+      }));
+      function $route(_x, _x2) {
+        return _$route.apply(this, arguments);
+      }
+      return $route;
+    }()
+  },
+  methods: {
+    getOrders: function getOrders() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var status, query, res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                status = _this.$route.query.status;
+                if (status) {
+                  query = "?status=".concat(status);
+                } else {
+                  query = '';
+                }
+                _context2.next = 4;
+                return _this.callApi('get', "/api/users/".concat(_this.$localStorage.getItem('userid'), "/orders").concat(query));
+              case 4:
+                res = _context2.sent;
+                _this.orders = res.data;
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     },
     showPopup: function showPopup(order) {
@@ -4869,7 +4897,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       userType: '',
       name: '',
-      mobileSearch: false
+      mobileSearch: false,
+      mobileSearchdesabled: false
     };
   },
   methods: {
@@ -4971,8 +5000,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 windowWidth = window.innerWidth;
                 if (windowWidth > 767) {
                   _this.mobileSearch = true;
+                  _this.mobileSearchdesabled = true;
                 } else {
                   _this.mobileSearch = false;
+                  _this.mobileSearchdesabled = false;
                 }
               case 25:
               case "end":
@@ -5959,15 +5990,57 @@ var render = function render() {
       }
     }
   }, [_vm._v("মাল্টিমিডিয়া")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm.loginStatus ? _c("li", {
-    staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center mobileMainNavBg"
-  }, [_c("router-link", {
+    staticClass: "border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center mobileMainNavBg"
+  }, [_c("a", {
     staticClass: "fs-5 text-dark border-start border-white px-2",
+    attrs: {
+      href: "javascript:void(0)"
+    }
+  }, [_vm._v("অ্যাকাউন্ট")]), _vm._v(" "), _c("ul", {
+    staticClass: "DownItems list-unstyled DropItem2",
+    staticStyle: {
+      width: "250px"
+    }
+  }, [_c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: {
+        name: "accountsettings"
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-user"
+  }), _vm._v("   Manage My Account")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
     attrs: {
       to: {
         name: "orders"
       }
     }
-  }, [_vm._v("অ্যাকাউন্ট")])], 1) : _vm._e(), _vm._v(" "), _vm.loginStatus ? _c("li", {
+  }, [_c("i", {
+    staticClass: "fa-solid fa-truck-fast"
+  }), _vm._v("   My Orders")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: {
+        name: "orders",
+        query: {
+          status: "canceled"
+        }
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-circle-xmark"
+  }), _vm._v("   My Return And Cancellations")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    staticClass: "text-dark",
+    attrs: {
+      to: {
+        name: "logout"
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-right-from-bracket"
+  }), _vm._v("   Logout")])], 1)])]) : _vm._e(), _vm._v(" "), _vm.loginStatus ? _c("li", {
     staticClass: "border-3 nav-item nav-item-menu d-flex align-items-center mobileMainNavBg"
   }, [_c("router-link", {
     staticClass: "fs-5 text-dark border-start border-white px-2",
@@ -7940,27 +8013,24 @@ var render = function render() {
     staticClass: "py-6 p-md-6 p-lg-10"
   }, [_c("h2", {
     staticClass: "mb-6"
-  }, [_vm._v("Your Orders")]), _vm._v(" "), _c("div", {
-    staticClass: "table-responsive-xxl border-0"
-  }, [_c("table", {
-    staticClass: "table mb-0 text-nowrap table-centered"
-  }, [_vm._m(0), _vm._v(" "), _vm.orders.message == "No orders found for the user" ? _c("tbody", [_c("tr", [_c("td", {
+  }, [_vm._v("Your Orders")]), _vm._v(" "), _vm.orders.message == "No orders found for the user" ? _c("tbody", [_c("tr", [_c("td", {
     staticClass: "align-middle border-top-0",
     attrs: {
       colspan: "5"
     }
-  }, [_vm._v(_vm._s(_vm.orders.message))])])]) : _c("tbody", _vm._l(_vm.orders, function (order, index) {
-    return _c("tr", {
-      key: "order" + index
-    }, [_c("td", {
-      staticClass: "align-middle border-top-0"
-    }, [_vm._v("#" + _vm._s(order.orderId))]), _vm._v(" "), _c("td", {
-      staticClass: "align-middle border-top-0"
-    }, [_vm._v(_vm._s(_vm.dateformatGlobal(order.created_at)[6]))]), _vm._v(" "), _c("td", {
-      staticClass: "align-middle border-top-0"
-    }, [_vm._v(_vm._s(order.total_quantity))]), _vm._v(" "), _c("td", {
-      staticClass: "align-middle border-top-0"
-    }, [order.status == "pending" ? _c("span", {
+  }, [_vm._v(_vm._s(_vm.orders.message))])])]) : _vm._l(_vm.orders, function (order, index) {
+    return _c("div", {
+      key: "order" + index,
+      staticClass: "card"
+    }, [_c("div", {
+      staticClass: "card-header"
+    }, [_c("div", {
+      staticClass: "d-flex justify-content-between align-items-center"
+    }, [_c("div", {
+      staticClass: "firstItems"
+    }, [_c("h4", [_vm._v("Order #" + _vm._s(order.orderId))]), _vm._v(" "), _c("span", [_vm._v("Place on " + _vm._s(_vm.dateformatGlobal(order.created_at)[6]))])]), _vm._v(" "), _c("div", {
+      staticClass: "lastItems"
+    }, [_c("span", [_vm._v("Status: ")]), _vm._v(" "), order.status == "pending" ? _c("span", {
       staticClass: "badge bg-warning"
     }, [_vm._v(_vm._s(order.status))]) : order.status == "processing" ? _c("span", {
       staticClass: "badge bg-warning"
@@ -7968,19 +8038,38 @@ var render = function render() {
       staticClass: "badge bg-success"
     }, [_vm._v(_vm._s(order.status))]) : order.status == "canceled" ? _c("span", {
       staticClass: "badge bg-danger"
-    }, [_vm._v(_vm._s(order.status))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "align-middle border-top-0"
-    }, [_vm._v(_vm._s(order.total_amount))]), _vm._v(" "), _c("td", {
-      staticClass: "text-muted align-middle border-top-0"
-    }, [_c("button", {
-      staticClass: "btn btn-info",
-      on: {
-        click: function click($event) {
-          return _vm.showPopup(order);
+    }, [_vm._v(_vm._s(order.status))]) : _vm._e()])])]), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("table", {
+      staticClass: "table"
+    }, [_vm._m(0, true), _vm._v(" "), _c("tbody", [_vm._l(order.order_products, function (product) {
+      return _c("tr", {
+        key: product.id
+      }, [_c("td", [_c("img", {
+        attrs: {
+          width: "100%",
+          src: _vm.$asseturl + product.product.image,
+          alt: product.product.slug
         }
+      })]), _vm._v(" "), _c("td", [_c("router-link", {
+        attrs: {
+          to: {
+            name: "productSingle",
+            params: {
+              id: product.product.id
+            }
+          }
+        }
+      }, [_vm._v(_vm._s(product.product.name))])], 1), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.quantity))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.product.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.product.price * product.quantity))])]);
+    }), _vm._v(" "), _c("tr", [_c("td", {
+      staticStyle: {
+        "text-align": "right"
+      },
+      attrs: {
+        colspan: "2"
       }
-    }, [_vm._v("Show Order Products")])])]);
-  }), 0)])])])])], 1)])]), _vm._v(" "), _vm.isPopupVisible ? _c("popup-order-products", {
+    }, [_vm._v("Total:")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(order.total_quantity))]), _vm._v(" "), _c("td"), _vm._v(" "), _c("td", [_vm._v(_vm._s(order.total_amount))])])], 2)])])]);
+  })], 2)])], 1)])]), _vm._v(" "), _vm.isPopupVisible ? _c("popup-order-products", {
     attrs: {
       orderProducts: _vm.order
     },
@@ -7992,9 +8081,11 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", {
-    staticClass: "bg-light"
-  }, [_c("tr", [_c("th", [_vm._v("Order")]), _vm._v(" "), _c("th", [_vm._v("Date")]), _vm._v(" "), _c("th", [_vm._v("Items")]), _vm._v(" "), _c("th", [_vm._v("Status")]), _vm._v(" "), _c("th", [_vm._v("Amount")]), _vm._v(" "), _c("th"), _vm._v(" "), _c("th")])]);
+  return _c("thead", [_c("tr", [_c("th", {
+    attrs: {
+      width: "10%"
+    }
+  }), _vm._v(" "), _c("th", [_vm._v("Product Name")]), _vm._v(" "), _c("th", [_vm._v("Quantity")]), _vm._v(" "), _c("th", [_vm._v("Price")]), _vm._v(" "), _c("th", [_vm._v("Total Price")])])]);
 }];
 render._withStripped = true;
 
@@ -8025,18 +8116,6 @@ var render = function render() {
   }, [_c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
-    staticClass: "nav-link active",
-    attrs: {
-      "aria-current": "page",
-      to: {
-        name: "orders"
-      }
-    }
-  }, [_c("i", {
-    staticClass: "feather-icon icon-shopping-bag me-2"
-  }), _vm._v("Your Orders")])], 1), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
       to: {
@@ -8044,8 +8123,8 @@ var render = function render() {
       }
     }
   }, [_c("i", {
-    staticClass: "feather-icon icon-settings me-2"
-  }), _vm._v("Settings")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "fa-regular fa-user"
+  }), _vm._v("   My Profile")])], 1), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
@@ -8055,8 +8134,35 @@ var render = function render() {
       }
     }
   }, [_c("i", {
-    staticClass: "feather-icon icon-map-pin me-2"
-  }), _vm._v("Address")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("li", {
+    staticClass: "fa-solid fa-location-dot"
+  }), _vm._v("   Address")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link active",
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "orders"
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-truck-fast"
+  }), _vm._v("   Your Orders")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link active",
+    attrs: {
+      "aria-current": "page",
+      to: {
+        name: "orders",
+        query: {
+          status: "canceled"
+        }
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-circle-xmark"
+  }), _vm._v("   Canceled Orders")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
@@ -8066,8 +8172,8 @@ var render = function render() {
       }
     }
   }, [_c("i", {
-    staticClass: "feather-icon icon-log-out me-2"
-  }), _vm._v("Log out")])], 1)])])]);
+    staticClass: "fa-solid fa-right-from-bracket"
+  }), _vm._v("   Log out")])], 1)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -10690,7 +10796,7 @@ var render = function render() {
     attrs: {
       value: ""
     }
-  }, [_vm._v("ধরণ")]), _vm._v(" "), _c("option", [_vm._v("কবি")]), _vm._v(" "), _c("option", [_vm._v("কথাসাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", [_vm._v("জীবন-আদর্শ")]), _vm._v(" "), _c("option", [_vm._v("ধর্ম")]), _vm._v(" "), _c("option", [_vm._v("অঙ্কন শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("ছড়াকার")]), _vm._v(" "), _c("option", [_vm._v("ঔপন্যাসিক")]), _vm._v(" "), _c("option", [_vm._v("গবেষক")]), _vm._v(" "), _c("option", [_vm._v("কথা শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("শিশু সাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("অনুবাদক")]), _vm._v(" "), _c("option", [_vm._v("কলামিষ্ট")])]), _vm._v(" "), !_vm.mobileSearch ? _c("button", {
+  }, [_vm._v("ধরণ")]), _vm._v(" "), _c("option", [_vm._v("কবি")]), _vm._v(" "), _c("option", [_vm._v("কথাসাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("গল্পকার")]), _vm._v(" "), _c("option", [_vm._v("প্রাবন্ধিক")]), _vm._v(" "), _c("option", [_vm._v("জীবন-আদর্শ")]), _vm._v(" "), _c("option", [_vm._v("ধর্ম")]), _vm._v(" "), _c("option", [_vm._v("অঙ্কন শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("ছড়াকার")]), _vm._v(" "), _c("option", [_vm._v("ঔপন্যাসিক")]), _vm._v(" "), _c("option", [_vm._v("গবেষক")]), _vm._v(" "), _c("option", [_vm._v("কথা শিল্পী")]), _vm._v(" "), _c("option", [_vm._v("শিশু সাহিত্যক")]), _vm._v(" "), _c("option", [_vm._v("অনুবাদক")]), _vm._v(" "), _c("option", [_vm._v("কলামিষ্ট")])]), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("button", {
     staticClass: "writer-search-button mobileSearchButton",
     attrs: {
       type: "button"
@@ -10700,9 +10806,11 @@ var render = function render() {
         _vm.mobileSearch = !_vm.mobileSearch;
       }
     }
-  }, [_c("i", {
+  }, [!_vm.mobileSearch ? _c("i", {
     staticClass: "fa-regular fa-magnifying-glass"
-  })]) : _vm._e(), _vm._v(" "), _vm.mobileSearch ? _c("form", {
+  }) : _c("i", {
+    staticClass: "fa-solid fa-xmark"
+  })]) : _vm._e(), _vm._v(" "), _vm.mobileSearchdesabled ? _c("form", {
     staticClass: "d-flex",
     staticStyle: {
       width: "45%"
@@ -10753,7 +10861,42 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "CartQuantity2"
-  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1)])], 1), _vm._v(" "), _c("section", {
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("div", {
+    staticClass: "col-md-12"
+  }, [_vm.mobileSearch ? _c("form", {
+    staticClass: "d-flex mobileSearchForm",
+    staticStyle: {
+      width: "100%"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        return _vm.searchItem.apply(null, arguments);
+      }
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
+    staticClass: "form-control writer-search-input",
+    attrs: {
+      type: "text",
+      placeholder: "আপনার পছন্দের লেখক খুঁজুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._m(1)]) : _vm._e()]) : _vm._e()])], 1), _vm._v(" "), _c("section", {
     staticClass: "row w-100 mx-auto my-4"
   }, [_c("div", {
     staticClass: "col-md-2 col-1 text-center"
@@ -10917,6 +11060,17 @@ var render = function render() {
   }), 0)]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "writer-search-button",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("button", {
@@ -32091,7 +32245,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-link.router-link-exact-active.router-link-active[data-v-4dafed76]{\r\n    background-color: #001e2b;\r\n    color: white;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-link.router-link-exact-active.router-link-active[data-v-4dafed76]{\n    background-color: #001e2b;\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32355,7 +32509,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nspan.writerFilter.active[data-v-2ef441f8] {\r\n    background: var(--defaultColor);\r\n    color: white;\n}\n.writerArrow[data-v-2ef441f8]{\r\n    padding: 9px;\r\n    margin: 11px 0px;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    height: 100%;\r\n    font-size: 3em;\r\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\r\n    background-color: rgb(209, 210, 212);\r\n    width: 30px;\r\n    height: 30px;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    padding: 0 !important;\r\n    cursor: pointer;\n}\n@media (max-width:768px) {\n.mobilePageHead[data-v-2ef441f8]{\r\n        justify-content: space-around;\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nspan.writerFilter.active[data-v-2ef441f8] {\n    background: var(--defaultColor);\n    color: white;\n}\n.writerArrow[data-v-2ef441f8]{\n    padding: 9px;\n    margin: 11px 0px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    height: 100%;\n    font-size: 3em;\n    color: var(--red);\n}\n.writerFilter[data-v-2ef441f8]{\n    background-color: rgb(209, 210, 212);\n    width: 30px;\n    height: 30px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    padding: 0 !important;\n    cursor: pointer;\n}\n@media (max-width:768px) {\n.mobilePageHead[data-v-2ef441f8]{\n        justify-content: space-around;\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

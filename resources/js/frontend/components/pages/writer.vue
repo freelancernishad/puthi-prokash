@@ -41,10 +41,16 @@
 
 
 
+        <button type="button" class="writer-search-button mobileSearchButton" v-if="!mobileSearchdesabled" @click="mobileSearch = !mobileSearch" >
+            <i class="fa-regular fa-magnifying-glass" v-if="!mobileSearch" ></i>
+            <i class="fa-solid fa-xmark" v-else></i>
+        </button>
 
-      <button type="button" class="writer-search-button mobileSearchButton" v-if="!mobileSearch" @click="mobileSearch = !mobileSearch" ><i class="fa-regular fa-magnifying-glass"></i></button>
 
-        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem" v-if="mobileSearch">
+
+
+
+        <form class="d-flex" style="width: 45%;" @submit.stop.prevent="searchItem" v-if="mobileSearchdesabled">
           <input type="text" placeholder="আপনার পছন্দের লেখক খুঁজুন" v-model="form.search" class="form-control writer-search-input">
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
@@ -57,6 +63,18 @@
 
 
     </div>
+
+
+
+    <div class="col-md-12" v-if="!mobileSearchdesabled">
+                <form class="d-flex mobileSearchForm" style="width: 100%;" @submit.stop.prevent="searchItem"  v-if="mobileSearch" >
+                    <input type="text" placeholder="আপনার পছন্দের লেখক খুঁজুন" v-model="form.search" class="form-control writer-search-input">
+                <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
+
+
     </div>
     </section>
 
@@ -170,6 +188,7 @@ export default {
             userType:'',
             name:'',
             mobileSearch:false,
+            mobileSearchdesabled:false,
         }
     },
     methods: {
@@ -324,8 +343,10 @@ export default {
             const windowWidth = window.innerWidth;
             if (windowWidth > 767) {
                 this.mobileSearch = true
+                this.mobileSearchdesabled = true
             }else{
                 this.mobileSearch = false
+                this.mobileSearchdesabled = false
             }
 
 

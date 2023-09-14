@@ -105,9 +105,22 @@
               </li>
 
 
-              <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg"  v-if="loginStatus">
-                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
+              <li class="border-3 nav-item nav-item-menu position-relative DropItem d-flex align-items-center mobileMainNavBg"  v-if="loginStatus" >
+                <a class="fs-5 text-dark border-start border-white px-2" href="javascript:void(0)">অ্যাকাউন্ট</a>
+                <ul class="DownItems list-unstyled DropItem2"  style="width: 250px;">
+
+                    <li><router-link :to="{name:'accountsettings'}" class="text-dark"><i class="fa-regular fa-user"></i> &nbsp; Manage My Account</router-link></li>
+                    <li><router-link :to="{name:'orders'}" class="text-dark"><i class="fa-solid fa-truck-fast"></i> &nbsp; My Orders</router-link></li>
+                    <li><router-link :to="{name:'orders',query:{status:'canceled'}}" class="text-dark"><i class="fa-regular fa-circle-xmark"></i> &nbsp; My Return And Cancellations</router-link></li>
+                    <li><router-link :to="{name:'logout'}" class="text-dark"><i class="fa-solid fa-right-from-bracket"></i> &nbsp; Logout</router-link></li>
+
+                </ul>
               </li>
+
+
+              <!-- <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg"  v-if="loginStatus">
+                <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'orders'}">অ্যাকাউন্ট</router-link>
+              </li> -->
 
               <li class="border-3 nav-item nav-item-menu  d-flex align-items-center mobileMainNavBg" v-if="loginStatus">
                 <router-link class="fs-5 text-dark border-start border-white px-2" :to="{name:'logout'}"

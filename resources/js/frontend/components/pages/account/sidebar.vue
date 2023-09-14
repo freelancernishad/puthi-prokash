@@ -4,21 +4,31 @@
           <div class="pt-10 pe-lg-10">
             <!-- nav -->
             <ul class="nav flex-column nav-pills nav-pills-dark">
+
+
               <!-- nav item -->
               <li class="nav-item">
-                <router-link class="nav-link active" aria-current="page" :to="{name:'orders'}"><i
-                    class="feather-icon icon-shopping-bag me-2"></i>Your Orders</router-link>
+                <router-link class="nav-link" :to="{name:'accountsettings'}"><i class="fa-regular fa-user"></i> &nbsp; My Profile</router-link>
               </li>
+
+
               <!-- nav item -->
               <li class="nav-item">
-                <router-link class="nav-link" :to="{name:'accountsettings'}"><i
-                    class="feather-icon icon-settings me-2"></i>Settings</router-link>
+                <router-link class="nav-link" :to="{name:'accountaddress'}"><i class="fa-solid fa-location-dot"></i> &nbsp; Address</router-link>
               </li>
+
+
               <!-- nav item -->
               <li class="nav-item">
-                <router-link class="nav-link" :to="{name:'accountaddress'}"><i
-                    class="feather-icon icon-map-pin me-2"></i>Address</router-link>
+                <router-link class="nav-link active" aria-current="page" :to="{name:'orders'}"><i class="fa-solid fa-truck-fast"></i> &nbsp; Your Orders</router-link>
               </li>
+
+
+              <!-- nav item -->
+              <li class="nav-item">
+                <router-link class="nav-link active" aria-current="page" :to="{name:'orders',query:{status:'canceled'}}"><i class="fa-regular fa-circle-xmark"></i> &nbsp; Canceled Orders</router-link>
+              </li>
+
 
               <!-- nav item -->
               <!-- <li class="nav-item">
@@ -31,7 +41,7 @@
               </li>
               <!-- nav item -->
               <li class="nav-item">
-                <router-link class="nav-link " :to="{name:'logout'}"><i class="feather-icon icon-log-out me-2"></i>Log out</router-link>
+                <router-link class="nav-link " :to="{name:'logout'}"><i class="fa-solid fa-right-from-bracket"></i> &nbsp; Log out</router-link>
               </li>
             </ul>
           </div>

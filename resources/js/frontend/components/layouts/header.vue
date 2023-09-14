@@ -439,9 +439,6 @@ export default {
         },
 
         searchItem(){
-            console.log(this.$route.query.search)
-            console.log(this.form.search)
-
             this.$router.push({name:'Products',query:{search:this.form.search}});
         },
 

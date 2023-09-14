@@ -2644,8 +2644,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     searchItem: function searchItem() {
-      console.log(this.$route.query.search);
-      console.log(this.form.search);
       this.$router.push({
         name: 'Products',
         query: {
@@ -2893,7 +2891,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       totalitems: 0,
       Totalpageprops: [],
       Routenameprops: '',
-      Routeparamsprops: {}
+      Routeparamsprops: {},
+      mobileSearch: false,
+      mobileSearchdesabled: false,
+      form: {
+        search: ''
+      }
     };
   },
   watch: {
@@ -2921,7 +2924,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }()
   },
   methods: {
-    Products: function Products(data) {
+    searchBooks: function searchBooks() {
+      this.$router.push({
+        name: 'Products',
+        query: {
+          search: this.form.search
+        }
+      });
+    },
+    Products: function Products() {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
       var result = [];
       for (var i = 0; i < data.length; i += 6) {
         result.push(data.slice(i, i + 6));
@@ -2935,7 +2947,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _arguments = arguments,
         _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var page, searchQuery, sortQuery, categoryQuery, authorQuery, query, res, parantCategory;
+        var page, searchQuery, sortQuery, categoryQuery, authorQuery, query, res, parantCategory, windowWidth;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -2994,6 +3006,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 // this.items = res.data.products.data
 
                 _this.categoris = res.data.category;
+                if (!res.data.category.children) {
+                  _this.categoris.children = [];
+                }
                 _this.allParents = [];
                 _this.Breadcrumb = [{
                   'route': 'home',
@@ -3026,7 +3041,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     'text': _this.categoris.name
                   });
                 }
-              case 33:
+                windowWidth = window.innerWidth;
+                if (windowWidth > 767) {
+                  _this.mobileSearch = true;
+                  _this.mobileSearchdesabled = true;
+                } else {
+                  _this.mobileSearch = false;
+                  _this.mobileSearchdesabled = false;
+                }
+              case 36:
               case "end":
                 return _context2.stop();
             }
@@ -3923,7 +3946,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       parentCategory: {},
       allParents: [],
       Breadcrumb: [],
-      mobileSearch: false
+      mobileSearch: false,
+      mobileSearchdesabled: false,
+      form: {
+        search: ''
+      }
     };
   },
   watch: {
@@ -3948,6 +3975,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }()
   },
   methods: {
+    searchBooks: function searchBooks() {
+      this.$router.push({
+        name: 'Products',
+        query: {
+          search: this.form.search
+        }
+      });
+    },
     showDetialsFun: function showDetialsFun(id) {
       console.log(id);
       if (this.showDetials == id) {
@@ -3997,8 +4032,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 windowWidth = window.innerWidth;
                 if (windowWidth > 767) {
                   _this.mobileSearch = true;
+                  _this.mobileSearchdesabled = true;
                 } else {
                   _this.mobileSearch = false;
+                  _this.mobileSearchdesabled = false;
                 }
               case 13:
               case "end":
@@ -6608,8 +6645,22 @@ var render = function render() {
     attrs: {
       value: "price_high_low"
     }
-  }, [_vm._v("মূল্য উচ্চ-নিম্ন")])]), _vm._v(" "), _c("form", {
-    staticClass: "d-flex",
+  }, [_vm._v("মূল্য উচ্চ-নিম্ন")])]), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("button", {
+    staticClass: "writer-search-button mobileSearchButton",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        _vm.mobileSearch = !_vm.mobileSearch;
+      }
+    }
+  }, [!_vm.mobileSearch ? _c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  }) : _c("i", {
+    staticClass: "fa-solid fa-xmark"
+  })]) : _vm._e(), _vm._v(" "), _vm.mobileSearchdesabled ? _c("form", {
+    staticClass: "d-flex mobileSearchForm",
     staticStyle: {
       width: "45%"
     },
@@ -6617,16 +6668,31 @@ var render = function render() {
       submit: function submit($event) {
         $event.stopPropagation();
         $event.preventDefault();
-        return _vm.searchItem.apply(null, arguments);
+        return _vm.searchBooks.apply(null, arguments);
       }
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
     staticClass: "form-control writer-search-input",
     attrs: {
       type: "text",
       placeholder: "আপনার কাঙ্খিত বই খুঁজুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
     }
-  }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("router-link", {
+  }), _vm._v(" "), _vm._m(0)]) : _vm._e(), _vm._v(" "), _c("router-link", {
     staticClass: "fs-5 nav-link text-dark position-relative",
     staticStyle: {
       "margin-left": "25px"
@@ -6644,7 +6710,42 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "CartQuantity2"
-  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1)])], 1), _vm._v(" "), _c("Productslistpaginate", {
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("div", {
+    staticClass: "col-md-12"
+  }, [_vm.mobileSearch ? _c("form", {
+    staticClass: "d-flex mobileSearchForm",
+    staticStyle: {
+      width: "100%"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        return _vm.searchBooks.apply(null, arguments);
+      }
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
+    staticClass: "form-control writer-search-input",
+    attrs: {
+      type: "text",
+      placeholder: "আপনার কাঙ্খিত বই খুঁজুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._m(1)]) : _vm._e()]) : _vm._e()])], 1), _vm._v(" "), _c("Productslistpaginate", {
     key: "childrenProduct",
     attrs: {
       category_name: _vm.categoris.name,
@@ -6677,6 +6778,17 @@ var render = function render() {
   })])]) : _vm._e()], 1);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "writer-search-button",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("button", {
@@ -8794,7 +8906,7 @@ var render = function render() {
     staticClass: "d-inline fs-2 fw-normal mb-0 me-auto ps-4"
   }, [_vm._v(_vm._s(_vm.items.name))])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 d-flex gap-3 py-2"
-  }, [_vm._m(0), _vm._v(" "), !_vm.mobileSearch ? _c("button", {
+  }, [_vm._m(0), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("button", {
     staticClass: "writer-search-button mobileSearchButton",
     attrs: {
       type: "button"
@@ -8804,9 +8916,11 @@ var render = function render() {
         _vm.mobileSearch = !_vm.mobileSearch;
       }
     }
-  }, [_c("i", {
+  }, [!_vm.mobileSearch ? _c("i", {
     staticClass: "fa-regular fa-magnifying-glass"
-  })]) : _vm._e(), _vm._v(" "), _vm.mobileSearch ? _c("form", {
+  }) : _c("i", {
+    staticClass: "fa-solid fa-xmark"
+  })]) : _vm._e(), _vm._v(" "), _vm.mobileSearchdesabled ? _c("form", {
     staticClass: "d-flex mobileSearchForm",
     staticStyle: {
       width: "45%"
@@ -8815,14 +8929,29 @@ var render = function render() {
       submit: function submit($event) {
         $event.stopPropagation();
         $event.preventDefault();
-        return _vm.searchItem.apply(null, arguments);
+        return _vm.searchBooks.apply(null, arguments);
       }
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
     staticClass: "form-control writer-search-input",
     attrs: {
       type: "text",
       placeholder: "আপনার কাঙ্খিত বই খুঁজুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
     }
   }), _vm._v(" "), _vm._m(1)]) : _vm._e(), _vm._v(" "), _c("router-link", {
     staticClass: "fs-5 nav-link text-dark position-relative",
@@ -8842,7 +8971,42 @@ var render = function render() {
     }
   }), _c("span", {
     staticClass: "CartQuantity2"
-  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1)])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_vm.items.products.length > 0 ? _c("Productslist", {
+  }, [_vm._v(_vm._s(_vm.getCartQuantity))])])], 1), _vm._v(" "), !_vm.mobileSearchdesabled ? _c("div", {
+    staticClass: "col-md-12"
+  }, [_vm.mobileSearch ? _c("form", {
+    staticClass: "d-flex mobileSearchForm",
+    staticStyle: {
+      width: "100%"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        return _vm.searchBooks.apply(null, arguments);
+      }
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.search,
+      expression: "form.search"
+    }],
+    staticClass: "form-control writer-search-input",
+    attrs: {
+      type: "text",
+      placeholder: "আপনার কাঙ্খিত বই খুঁজুন"
+    },
+    domProps: {
+      value: _vm.form.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.form, "search", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _vm._m(2)]) : _vm._e()]) : _vm._e()])], 1), _vm._v(" "), _vm.items.children.length === 0 ? _c("div", [_vm.items.products.length > 0 ? _c("Productslist", {
     key: "children",
     attrs: {
       category_name: _vm.items.name,
@@ -8916,6 +9080,17 @@ var staticRenderFns = [function () {
       value: "3"
     }
   }, [_vm._v("ধম")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "writer-search-button",
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa-regular fa-magnifying-glass"
+  })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

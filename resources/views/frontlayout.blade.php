@@ -176,7 +176,7 @@ div#overlay-circular {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.0.96') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.97') }}" async ></script>
 
 <script>
 
@@ -338,9 +338,9 @@ setTimeout(() => {
 }(document, 'script', 'facebook-jssdk'));
 }, 3000);
 
-    // document.addEventListener("contextmenu", (e) => {
-    // e.preventDefault();
-    // });
+    document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    });
 
 
 

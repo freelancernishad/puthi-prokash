@@ -15,6 +15,7 @@ const store = new Vuex.Store({
         preloadData:{},
         tiny:{},
         cartQuantity: 0,
+        preCarts: {},
 
 
     },// as like data(){return:{}}
@@ -23,6 +24,10 @@ const store = new Vuex.Store({
 
         setCartQuantity(state, quantity) {
             state.cartQuantity = quantity;
+          },
+
+        setCarts(state, carts) {
+            state.preCarts = carts;
           },
 
 
@@ -60,8 +65,12 @@ const store = new Vuex.Store({
 
     },
     getters:{
+
         getCartQuantity(state) {
             return state.cartQuantity;
+          },
+        getCarts(state) {
+            return state.preCarts;
           },
 
         getUpdateUser(state){

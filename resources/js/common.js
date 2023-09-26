@@ -39,7 +39,9 @@ export default {
             var res = await this.callApi('get',`/api/cart/quantity/${this.$localStorage.getItem('userid')}`,[])
             console.log(res)
         const fetchedQuantity = res.data.cart_quantity;
+        const carts = res.data.carts;
         this.$store.commit('setCartQuantity', fetchedQuantity)
+        this.$store.commit('setCarts', carts)
 
         },
 
@@ -267,6 +269,7 @@ export default {
             'preload_data' : 'get_pre_load_data',
             'tinyInt' : 'gettinyint',
             'getCartQuantity' : 'getCartQuantity',
+            'getCarts' : 'getCarts',
         }),
 
         // getUsers(){

@@ -49,6 +49,9 @@ Vue.component('Product', Product)
 import Productdetails from './components/pages/components/Productdetails.vue';
 Vue.component('Productdetails', Productdetails)
 
+import Cartpopup from './components/pages/components/cartPopup.vue';
+Vue.component('Cartpopup', Cartpopup)
+
 
 import VueScrollTo from 'vue-scrollto';
 Vue.use(VueScrollTo);

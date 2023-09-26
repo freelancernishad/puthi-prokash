@@ -268,7 +268,18 @@ span.imageshowCloseButton {
     border-radius: 50%;
     cursor: pointer;
 }
-
+span.CartCloseButton {
+    background: #d5d5d5;
+    color: black;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
 
 .ImageModalButton{

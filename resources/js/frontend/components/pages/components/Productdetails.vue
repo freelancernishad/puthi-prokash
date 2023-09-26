@@ -34,34 +34,7 @@
                     </div>
 
 
-
-                    <div v-if="CartModalOpen"  class="modal-overlay">
-                        <div class="modal-container" style="min-width: 80% !important;" >
-
-
-                            <div class="card">
-                                <div class="card-header d-flex align-items-center justify-content-between" style="background: #5C636A;color: white;">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <img width="40px" :src="$asseturl+'assets/image/only_Logo.png'" alt="">
-                                        <h3 class="mb-0">Cart Summary</h3>
-                                    </div>
-
-                                    <span class="CartCloseButton" @click="CartCloseModal"><i class="fa-regular fa-xmark"></i></span>
-                                </div>
-                                <div class="card-body"></div>
-                                <div class="card-footer">
-                                    <h3>Total = TK. 500</h3>
-                                    <div class="d-flex align-items-center justify-content-center gap-2">
-                                        <router-link :to="{name:'home'}" class="btn btn-secondary"><i class="fa-solid fa-bags-shopping"></i> Shop More</router-link>
-                                        <router-link :to="{name:'home'}" class="btn btn-success"><i class="fa-solid fa-cart-circle-check"></i> Go to Cart</router-link>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
+                    <Cartpopup :car_modal_open="CartModalOpen" @CartCloseModal="CartCloseModal"/>
 
 
 
@@ -88,9 +61,16 @@ export default {
             default: {}
         },
     },
+
+
+
+
+
+
+
     data() {
         return {
-            CartModalOpen: true,
+            CartModalOpen: false,
             modalOpen: false,
         imageUrl:'',
         imageUrls:'',

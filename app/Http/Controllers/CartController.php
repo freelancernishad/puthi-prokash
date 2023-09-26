@@ -194,9 +194,10 @@ class CartController extends Controller
 
         public function getCartQuantity($user_id)
         {
+            $carts = Cart::with(['product','user'])->where('user_id', $user_id)->get();
             $cartQuantity = Cart::where('user_id', $user_id)->sum('quantity');
 
-            return response()->json(['cart_quantity' => $cartQuantity]);
+            return response()->json(['cart_quantity' => $cartQuantity,'carts'=>$carts]);
         }
 
 

@@ -46,11 +46,6 @@
 
 
 
-    <div v-if="modalOpen" @click="closeModal" class="modal-overlay">
-      <div class="modal-container">
-        <img :src="imageUrl" alt="Modal Image" />
-      </div>
-    </div>
 
 
 
@@ -91,8 +86,7 @@ export default {
             showDetials:0,
             productId:0,
             showDetialsProduct:{},
-            modalOpen: false,
-            imageUrl:'',
+
         }
     },
     methods: {

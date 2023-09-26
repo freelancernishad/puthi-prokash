@@ -256,6 +256,8 @@ span.CartQuantity2 {
     border-radius: 5px;
 }
 
+
+
 span.imageshowCloseButton {
     position: absolute;
     top: 18px;
@@ -266,6 +268,9 @@ span.imageshowCloseButton {
     border-radius: 50%;
     cursor: pointer;
 }
+
+
+
 .ImageModalButton{
     border: 0;
     background: var(--defaultColor);

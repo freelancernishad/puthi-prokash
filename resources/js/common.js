@@ -37,6 +37,7 @@ export default {
 
         async fetchCartQuantity() {
             var res = await this.callApi('get',`/api/cart/quantity/${this.$localStorage.getItem('userid')}`,[])
+            console.log(res)
         const fetchedQuantity = res.data.cart_quantity;
         this.$store.commit('setCartQuantity', fetchedQuantity)
 
@@ -54,7 +55,7 @@ export default {
         },
         async getGalleryImages(){
             var res = await this.callApi('get',`/api/get/gallery/for/editor`,[]);
-            console.log(res)
+
             this.tinyInt.image_list = res.data;
         },
 
@@ -66,13 +67,16 @@ export default {
             var res = await this.callApi('post',`/api/cart`,form);
             if(res.status==201){
                 Notification.customSuccess("Added to cart");
+                this.CartModalOpen = true;
             }else if(res.status==400){
                 Notification.customError("Product not available in stock");
             }
 
             this.fetchCartQuantity();
         },
-
+        CartCloseModal() {
+            this.CartModalOpen = false;
+            },
 
 
         openModal(img,index=0,imgs=[]) {

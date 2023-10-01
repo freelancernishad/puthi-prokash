@@ -29,16 +29,21 @@
                       <label>Phone Number<span class="text-danger">*</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
-                        <input type="text" class="form-control" v-model="form.phone" placeholder="Enter Phone Number">
-                        <div class="input-group-text" style="cursor: pointer;" @click="otpSentFunction"><i class="fa-solid fa-paper-plane"></i></div>
+                        <input type="tel" name="phone" minlength="11" maxlength="11"  class="form-control" v-model="form.phone" placeholder="Enter Phone Number" required>
+
+
+                        <div class="input-group-text" style="cursor: pointer;" v-if="otpSent">{{countdown}}s</div>
+
+                        <div class="input-group-text" style="cursor: pointer;" v-else @click="otpSentFunction"><i class="fa-solid fa-paper-plane"></i></div>
+
                       </div>
                     </div>
 
-                    <div class="col-12 defaultColor" v-if="otpSent">
+                    <div class="col-12 defaultColor">
                       <label>OTP<span class="text-danger">*</span></label>
                       <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
-                        <input type="text" class="form-control" v-model="form.otp" placeholder="Enter Otp">
+                        <div class="input-group-text"><i class="fa-thin fa-lock-hashtag"></i></div>
+                        <input type="text" class="form-control" v-model="form.otp" placeholder="Enter Otp" required>
                       </div>
                     </div>
 
@@ -127,20 +132,40 @@ export default {
 				password: null,
 			},
             emailsent:{
-                email:'',
+                phone:'',
             },
 			errors: {},
             otpSent:false,
+            loadLogin:false,
+            countdown: 6,
+            timerInterval: null
 		}
 	},
 	methods:{
-
+        startTimer() {
+            this.timerInterval = setInterval(() => {
+                if (this.countdown > 0) {
+                    this.countdown--;
+                } else {
+                    clearInterval(this.timerInterval);
+                    this.otpSent = false;
+                    this.countdown = 6
+                    this.timerInterval = null
+                    // Timer is done; you can add your desired action here.
+                }
+            }, 1000); // Update the countdown every 1 second (1000ms)
+        },
+        stopTimer() {
+            clearInterval(this.timerInterval);
+            this.otpSent = false;
+        },
 
 
         async otpSentFunction(){
 
 
 
+            this.startTimer();
 
 
 
@@ -158,8 +183,10 @@ export default {
 
 
 		async register(){
+            this.loadLogin = true;
             var res = await this.callApi('post',`/api/auth/register`,this.form);
             if(res.status==201){
+
 				// User.responseAfterLogin(res)
                 this.$router.push({ name: "login" });
                 Notification.customSuccess("Registration success");
@@ -168,6 +195,7 @@ export default {
             }else if(res.status==423){
                 Notification.customError("Invalid Otp");
             }
+            this.loadLogin = false;
 
 		}
 	}

@@ -897,6 +897,12 @@ ul.navbar-nav.ms-auto.justify-content-end.align-items-center li a {
     }
 
 }
-
+.booktitle {
+transition: all 0.3s;
+}
+.slideProductHome:hover .booktitle {
+    color: var(--defaultColor);
+    text-decoration: underline;
+}
 
 </style>

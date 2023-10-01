@@ -142,7 +142,7 @@
             </li>
 
             <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
+              <span>Total (BDT)</span>
               <strong>{{ finalSubtotal }}</strong>
             </li>
           </ul>

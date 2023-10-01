@@ -38,7 +38,7 @@
                                 <div class="card-footer">
                                     <h3>Total = TK. {{ finalSubtotal }}</h3>
                                     <div class="d-flex align-items-center justify-content-center gap-2">
-                                        <router-link :to="{name:'home'}" class="btn btn-secondary"><i class="fa-solid fa-bags-shopping"></i> Shop More</router-link>
+                                        <a href="javascript:void(0)" @click="$emit('CartCloseModal')" class="btn btn-secondary"><i class="fa-solid fa-bags-shopping"></i> Shop More</a>
                                         <router-link :to="{name:'cart'}" class="btn btn-success"><i class="fa-solid fa-cart-circle-check"></i> Go to Cart</router-link>
                                     </div>
                                 </div>

@@ -137,7 +137,7 @@ export default {
 			errors: {},
             otpSent:false,
             loadLogin:false,
-            countdown: 6,
+            countdown: 60,
             timerInterval: null
 		}
 	},

@@ -14,8 +14,11 @@ class UserAddress extends Model
         'city',
         'state',
         'country',
+        'division',
+        'district',
+        'thana',
+        'union',
         'zip',
-        // Add any other fillable columns you need
     ];
 
     public function user()

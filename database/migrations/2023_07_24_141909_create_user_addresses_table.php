@@ -20,6 +20,10 @@ class CreateUserAddressesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('country');
+            $table->string('division');
+            $table->string('district');
+            $table->string('thana');
+            $table->string('union');
             $table->string('zip');
             // Add any other address-related columns you need
 

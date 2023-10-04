@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use Spatie\Analytics\Period;
 use Spatie\Analytics\Analytics;
+use App\Http\Controllers\GeoCode;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\api\authController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -30,7 +32,6 @@ use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\FeatureCategoryController;
 use App\Http\Controllers\TheBookOfPuthiprakashController;
-use App\Http\Controllers\VisitorController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -240,3 +241,20 @@ Route::get('/dashboard-stats', [DashboardController::class,'getDashboardStats'])
 
 Route::resource('delivery-charges', DeliveryChargeController::class);
 Route::post('calculate-delivery-charge', [DeliveryChargeController::class, 'calculateDeliveryCharge']);
+
+
+
+
+Route::get('all/geo', [GeoCode::class, 'allGeo']);
+
+Route::get('divisions', [GeoCode::class, 'Divisions']);
+Route::get('divisions/{id}', [GeoCode::class, 'Divisions']);
+
+Route::get('districts', [GeoCode::class, 'Districts']);
+Route::get('districts/{id}', [GeoCode::class, 'Districts']);
+
+Route::get('thanas', [GeoCode::class, 'Thanas']);
+Route::get('thanas/{id}', [GeoCode::class, 'Thanas']);
+
+Route::get('unions', [GeoCode::class, 'Unions']);
+Route::get('unions/{id}', [GeoCode::class, 'Unions']);

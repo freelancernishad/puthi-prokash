@@ -13,6 +13,11 @@ class GeoCode extends Controller
 {
 
 
+    function allGeo(Request $request) {
+
+           return $divisions = Division::with('districts','districts.thanas','districts.thanas.unions')->get();
+    }
+
     function Divisions(Request $request) {
 
         if($request->id){

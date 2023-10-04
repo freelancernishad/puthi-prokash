@@ -1005,7 +1005,7 @@ function SmsBdsmsportal($deccription = '', $applicant_mobile = '01909756552')
 
     $url = 'https://www.bdsmsportal.com/api/smsSendApi';
     $data = array(
-    'customer_id' => 325,
+    'customer_id' => 290,
     'api_key' => $smsnocapikey,
     'message' =>$deccription,
     'mobile_no' => $applicant_mobile

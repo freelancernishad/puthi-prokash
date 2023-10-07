@@ -1001,7 +1001,7 @@ function SmsBdsmsportal($deccription = '', $applicant_mobile = '01909756552')
 {
 // return $applicant_mobile;
 
-    $smsnocapikey =  177527945664381801917167030;
+    $smsnocapikey =  177527968779660301818582912;
 
     $url = 'https://www.bdsmsportal.com/api/smsSendApi';
     $data = array(

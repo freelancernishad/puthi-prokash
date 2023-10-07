@@ -9,7 +9,7 @@ class DeliveryCharge extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['weight_from', 'weight_to', 'charge'];
+    protected $fillable = ['distict','weight_from', 'weight_to', 'charge'];
 
     public function scopeInRange($query, $weight)
     {

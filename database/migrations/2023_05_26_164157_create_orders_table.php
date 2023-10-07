@@ -23,9 +23,14 @@ class CreateOrdersTable extends Migration
             $table->integer('total_quantity');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('address2')->nullable();
             $table->string('country')->nullable();
+            $table->string('user_division')->nullable();
+            $table->string('user_district')->nullable();
+            $table->string('user_thana')->nullable();
+            $table->string('user_union')->nullable();
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('paymentMethod')->nullable();

@@ -14,8 +14,9 @@
                         <thead>
                             <tr>
                                 <th>Serial</th>
-                                <th>Weight From</th>
-                                <th>Weight To</th>
+                                <th>Delivered to</th>
+                                <th>Weight From (গ্রাম)</th>
+                                <th>Weight To (গ্রাম)</th>
                                 <th>Charge</th>
                                 <th>Action</th>
                             </tr>
@@ -25,6 +26,7 @@
 
                             <tr v-for="(item,index) in items" :key="index">
                                 <th>{{ index+1 }}</th>
+                                <th>{{ item.distict }}</th>
                                 <th>{{ item.weight_from }}</th>
                                 <th>{{ item.weight_to }}</th>
                                 <th>{{ item.charge }}</th>

@@ -3140,30 +3140,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         city: '',
         state: '',
         country: '',
+        division: '',
+        district: '',
+        thana: '',
+        union: '',
         zip: ''
-      }
+      },
+      divisions: {},
+      districts: {},
+      thanas: {},
+      unions: {}
     };
   },
   methods: {
-    getFromDb: function getFromDb() {
+    getGeoList: function getGeoList() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var userRes, user;
+        var res;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "/api/users/".concat(_this.$localStorage.getItem('userid')), []);
+                return _this.callApi('get', "/api/all/geo", []);
               case 2:
-                userRes = _context.sent;
-                user = userRes.data;
-                if (user.user_addresses.address) _this.form.address = user.user_addresses.address;
-                if (user.user_addresses.city) _this.form.city = user.user_addresses.city;
-                if (user.user_addresses.state) _this.form.state = user.user_addresses.state;
-                if (user.user_addresses.country) _this.form.country = user.user_addresses.country;
-                if (user.user_addresses.zip) _this.form.zip = user.user_addresses.zip;
-              case 9:
+                res = _context.sent;
+                _this.divisions = res.data;
+                _this.getFromDb();
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -3171,39 +3175,116 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    updateProfile: function updateProfile() {
+    changeDivision: function changeDivision() {
       var _this2 = this;
+      this.districts = this.divisions.filter(function (division) {
+        return division.id == _this2.form.division;
+      }).map(function (division) {
+        return division.districts;
+      })[0];
+    },
+    changeDistrict: function changeDistrict() {
+      var _this3 = this;
+      this.thanas = this.districts.filter(function (district) {
+        return district.id == _this3.form.district;
+      }).map(function (district) {
+        return district.thanas;
+      })[0];
+    },
+    changeThana: function changeThana() {
+      var _this4 = this;
+      this.unions = this.thanas.filter(function (thana) {
+        return thana.id == _this4.form.thana;
+      }).map(function (thana) {
+        return thana.unions;
+      })[0];
+    },
+    getFromDb: function getFromDb() {
+      var _this5 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var res;
+        var userRes, user;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.callApi("post", "/api/users/".concat(_this2.$localStorage.getItem('userid'), "/addresses"), _this2.form);
+                return _this5.callApi('get', "/api/users/".concat(_this5.$localStorage.getItem('userid')), []);
               case 2:
-                res = _context2.sent;
-                if (res.status == 200) {
-                  Notification.customSuccess("Address Updated Successfull");
-                  _this2.getFromDb();
-                } else if (res.status == 201) {
-                  Notification.customSuccess("Address added Successfull");
-                  _this2.getFromDb();
-                } else {
-                  Notification.customError(res.data.message);
-                  _this2.errors = res.data.errors;
+                userRes = _context2.sent;
+                user = userRes.data;
+                if (user.user_addresses.address) _this5.form.address = user.user_addresses.address;
+                if (user.user_addresses.city) _this5.form.city = user.user_addresses.city;
+                if (user.user_addresses.state) _this5.form.state = user.user_addresses.state;
+                if (user.user_addresses.country) _this5.form.country = user.user_addresses.country;
+                if (user.user_addresses.zip) _this5.form.zip = user.user_addresses.zip;
+                if (user.user_addresses.division) {
+                  _this5.form.division = user.user_addresses.division;
                 }
-              case 4:
+                if (user.user_addresses.district) {
+                  _this5.changeDivision();
+                  _this5.form.district = user.user_addresses.district;
+                }
+                if (user.user_addresses.thana) {
+                  _this5.changeDistrict();
+                  _this5.form.thana = user.user_addresses.thana;
+                }
+                if (user.user_addresses.union) {
+                  _this5.changeThana();
+                  _this5.form.union = user.user_addresses.union;
+                }
+              case 13:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
       }))();
+    },
+    updateProfile: function updateProfile() {
+      var _this6 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return _this6.callApi("post", "/api/users/".concat(_this6.$localStorage.getItem('userid'), "/addresses"), _this6.form);
+              case 2:
+                res = _context3.sent;
+                if (res.status == 200) {
+                  Notification.customSuccess("Address Updated Successfull");
+                  if (_this6.$route.query.redirect) {
+                    _this6.$router.push({
+                      name: 'checkout'
+                    });
+                  } else {
+                    _this6.getFromDb();
+                  }
+                } else if (res.status == 201) {
+                  Notification.customSuccess("Address added Successfull");
+                  if (_this6.$route.query.redirect) {
+                    _this6.$router.push({
+                      name: 'checkout'
+                    });
+                  } else {
+                    _this6.getFromDb();
+                  }
+                } else {
+                  Notification.customError(res.data.message);
+                  _this6.errors = res.data.errors;
+                }
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
     }
   },
   mounted: function mounted() {
-    this.getFromDb();
+    this.getGeoList();
   }
 });
 
@@ -4142,9 +4223,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         'name': '',
         'email': '',
+        'phone': '',
         'address': '',
         'address2': '',
         'country': '',
+        'user_division': '',
+        'user_district': '',
+        'user_thana': '',
+        'user_union': '',
         'state': '',
         'zip': '',
         'paymentMethod': 'Cash on Delivery'
@@ -4244,38 +4330,55 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getCartFromDb: function getCartFromDb() {
       var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var deli, userRes, res, user, user_addresses;
+        var userRes, res, user, user_addresses, deli;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this4.callApi('get', "/api/delivery-charges", []);
-              case 2:
-                deli = _context.sent;
-                _this4.deliveryCharges = deli.data;
-                _context.next = 6;
                 return _this4.callApi('get', "/api/users/".concat(_this4.$localStorage.getItem('userid')), []);
-              case 6:
+              case 2:
                 userRes = _context.sent;
-                _context.next = 9;
+                _context.next = 5;
                 return _this4.callApi('get', "/api/cart?userid=".concat(_this4.$localStorage.getItem('userid')), []);
-              case 9:
+              case 5:
                 res = _context.sent;
                 _this4.carts = res.data;
                 user = userRes.data;
                 _this4.form.user_id = user.id;
                 _this4.form.name = user.name;
                 _this4.form.email = user.email;
-                if (userRes.data.user_addresses) {
-                  user_addresses = userRes.data.user_addresses;
-                  if (user_addresses.address) _this4.form.address = user_addresses.address;
-                  if (user_addresses.city) _this4.form.city = user_addresses.city;
-                  if (user_addresses.state) _this4.form.state = user_addresses.state;
-                  if (user_addresses.country) _this4.form.country = user_addresses.country;
-                  if (user_addresses.zip) _this4.form.zip = user_addresses.zip;
+                _this4.form.phone = user.phone;
+                if (!userRes.data.user_addresses) {
+                  _context.next = 29;
+                  break;
                 }
-              case 16:
+                user_addresses = userRes.data.user_addresses;
+                if (user_addresses.address) _this4.form.address = user_addresses.address;
+                if (user_addresses.city) _this4.form.city = user_addresses.city;
+                if (user_addresses.state) _this4.form.state = user_addresses.state;
+                if (user_addresses.country) _this4.form.country = user_addresses.country;
+                if (user_addresses.user_division) _this4.form.user_division = user_addresses.user_division.name;
+                if (user_addresses.user_district) _this4.form.user_district = user_addresses.user_district.name;
+                if (user_addresses.user_thana) _this4.form.user_thana = user_addresses.user_thana.name;
+                if (user_addresses.user_union) _this4.form.user_union = user_addresses.user_union.name;
+                if (user_addresses.zip) _this4.form.zip = user_addresses.zip;
+                _context.next = 25;
+                return _this4.callApi('get', "/api/delivery-charges?district=".concat(user_addresses.user_district.name), []);
+              case 25:
+                deli = _context.sent;
+                _this4.deliveryCharges = deli.data;
+                _context.next = 31;
+                break;
+              case 29:
+                alert('Please add a address first');
+                _this4.$router.push({
+                  name: 'accountaddress',
+                  query: {
+                    redirect: window.location.href
+                  }
+                });
+              case 31:
               case "end":
                 return _context.stop();
             }
@@ -7185,6 +7288,150 @@ var render = function render() {
     attrs: {
       "for": ""
     }
+  }, [_vm._v("Divisions")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.division,
+      expression: "form.division"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "division", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.changeDivision]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.divisions, function (division, index) {
+    return _c("option", {
+      key: "division".concat(index),
+      domProps: {
+        value: division.id
+      }
+    }, [_vm._v(_vm._s(division.name))]);
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Districts")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.district,
+      expression: "form.district"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "district", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.changeDistrict]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.districts, function (district, index) {
+    return _c("option", {
+      key: "district".concat(index),
+      domProps: {
+        value: district.id
+      }
+    }, [_vm._v(_vm._s(district.name))]);
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Thanas")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.thana,
+      expression: "form.thana"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "thana", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }, _vm.changeThana]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.thanas, function (thana, index) {
+    return _c("option", {
+      key: "thana".concat(index),
+      domProps: {
+        value: thana.id
+      }
+    }, [_vm._v(_vm._s(thana.name))]);
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Unions")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.union,
+      expression: "form.union"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "union", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Select")]), _vm._v(" "), _vm._l(_vm.unions, function (union, index) {
+    return _c("option", {
+      key: "union".concat(index),
+      domProps: {
+        value: union.id
+      }
+    }, [_vm._v(_vm._s(union.name))]);
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
   }, [_vm._v("Zip")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -9375,6 +9622,20 @@ var render = function render() {
       }
     }
   }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("h4", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.form.name))]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.form.address))]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Division : " + _vm._s(_vm.form.user_division) + ", Distirct: " + _vm._s(_vm.form.user_district) + ", Thana: " + _vm._s(_vm.form.user_thana) + ", Union: " + _vm._s(_vm.form.user_union))]), _vm._v(" "), _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Phone : " + _vm._s(_vm.form.phone))])])]), _vm._v(" "), _c("div", {
+    staticClass: "d-none"
+  }, [_c("div", {
     staticClass: "mb-3"
   }, [_c("label", {
     attrs: {
@@ -9571,7 +9832,7 @@ var render = function render() {
         _vm.$set(_vm.form, "zip", $event.target.value);
       }
     }
-  })])]), _vm._v(" "), _c("hr", {
+  })])])]), _vm._v(" "), _c("hr", {
     staticClass: "mb-4"
   }), _vm._v(" "), _c("h4", {
     staticClass: "mb-3"
@@ -11427,12 +11688,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.callApi('get', "/api/cart/quantity/".concat(_this.$localStorage.getItem('userid')), []);
               case 2:
                 res = _context.sent;
-                console.log(res);
                 fetchedQuantity = res.data.cart_quantity;
                 carts = res.data.carts;
                 _this.$store.commit('setCartQuantity', fetchedQuantity);
                 _this.$store.commit('setCarts', carts);
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }

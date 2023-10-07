@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::with('userAddresses')->find($id);
+        $user = User::with('userAddresses','userAddresses.user_division','userAddresses.user_district','userAddresses.user_thana','userAddresses.user_union')->find($id);
 
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
@@ -280,6 +280,10 @@ public function addUserAddress(Request $request, $user_id)
         'city' => 'required',
         'state' => 'required',
         'country' => 'required',
+        'division' => 'required',
+        'district' => 'required',
+        'thana' => 'required',
+        'union' => 'required',
         'zip' => 'required',
         // Add any other address-related validations you need
     ]);
@@ -300,6 +304,10 @@ public function addUserAddress(Request $request, $user_id)
         'city' => $request->input('city'),
         'state' => $request->input('state'),
         'country' => $request->input('country'),
+        'division' => $request->input('division'),
+        'district' => $request->input('district'),
+        'thana' => $request->input('thana'),
+        'union' => $request->input('union'),
         'zip' => $request->input('zip'),
         // Add any other address-related fields here
     ];

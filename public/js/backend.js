@@ -7480,6 +7480,41 @@ var render = function render() {
     attrs: {
       "for": ""
     }
+  }, [_vm._v("Delivered to")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.distict,
+      expression: "form.distict"
+    }],
+    staticClass: "form-control",
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "distict", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "Dhaka"
+    }
+  }, [_vm._v("Dhaka")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "Others"
+    }
+  }, [_vm._v("Others")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
   }, [_vm._v("Weight From (গ্রাম)")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
@@ -7624,7 +7659,7 @@ var render = function render() {
   }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.items, function (item, index) {
     return _c("tr", {
       key: index
-    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.weight_from))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.weight_to))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.charge))]), _vm._v(" "), _c("th", [_c("button", {
+    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.distict))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.weight_from))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.weight_to))]), _vm._v(" "), _c("th", [_vm._v(_vm._s(item.charge))]), _vm._v(" "), _c("th", [_c("button", {
       staticClass: "btn btn-info",
       on: {
         click: function click($event) {
@@ -7652,7 +7687,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("Serial")]), _vm._v(" "), _c("th", [_vm._v("Weight From")]), _vm._v(" "), _c("th", [_vm._v("Weight To")]), _vm._v(" "), _c("th", [_vm._v("Charge")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("Serial")]), _vm._v(" "), _c("th", [_vm._v("Delivered to")]), _vm._v(" "), _c("th", [_vm._v("Weight From (গ্রাম)")]), _vm._v(" "), _c("th", [_vm._v("Weight To (গ্রাম)")]), _vm._v(" "), _c("th", [_vm._v("Charge")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
 }];
 render._withStripped = true;
 
@@ -14147,12 +14182,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.callApi('get', "/api/cart/quantity/".concat(_this.$localStorage.getItem('userid')), []);
               case 2:
                 res = _context.sent;
-                console.log(res);
                 fetchedQuantity = res.data.cart_quantity;
                 carts = res.data.carts;
                 _this.$store.commit('setCartQuantity', fetchedQuantity);
                 _this.$store.commit('setCarts', carts);
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }

@@ -37,7 +37,6 @@ export default {
 
         async fetchCartQuantity() {
             var res = await this.callApi('get',`/api/cart/quantity/${this.$localStorage.getItem('userid')}`,[])
-            console.log(res)
         const fetchedQuantity = res.data.cart_quantity;
         const carts = res.data.carts;
         this.$store.commit('setCartQuantity', fetchedQuantity)

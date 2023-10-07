@@ -15,6 +15,7 @@ class CreateDeliveryChargesTable extends Migration
     {
         Schema::create('delivery_charges', function (Blueprint $table) {
             $table->id();
+            $table->string('distict')->nullable();
             $table->decimal('weight_from', 65, 2);
             $table->decimal('weight_to', 65, 2);
             $table->decimal('charge', 65, 2);

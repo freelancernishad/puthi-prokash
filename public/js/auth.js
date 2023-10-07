@@ -2188,12 +2188,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.callApi('get', "/api/cart/quantity/".concat(_this.$localStorage.getItem('userid')), []);
               case 2:
                 res = _context.sent;
-                console.log(res);
                 fetchedQuantity = res.data.cart_quantity;
                 carts = res.data.carts;
                 _this.$store.commit('setCartQuantity', fetchedQuantity);
                 _this.$store.commit('setCarts', carts);
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }

@@ -10,6 +10,16 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label for="">Delivered to</label>
+                        <select class="form-control" v-model="form.distict">
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="">Weight From (গ্রাম)</label>
                         <input type="text" v-model="form.weight_from" class="form-control">
                     </div>

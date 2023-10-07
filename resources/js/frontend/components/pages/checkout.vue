@@ -13,6 +13,20 @@
           <form  @submit.stop.prevent="onSubmit">
 
 
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="mb-0">{{ form.name }}</h4>
+                    <p class="mb-0">{{ form.address }}</p>
+                    <p class="mb-0">Division : {{ form.user_division }}, Distirct: {{ form.user_district }}, Thana: {{ form.user_thana }}, Union: {{ form.user_union }}</p>
+                    <p class="mb-0">Phone : {{ form.phone }}</p>
+
+                </div>
+            </div>
+
+<div class="d-none">
+
+
               <div class="mb-3">
                 <label for="firstName">Name</label>
                 <input type="text" class="form-control" v-model="form.name" id="name" placeholder="" required >
@@ -62,6 +76,10 @@
                 <input type="text" class="form-control" v-model="form.zip" id="zip" placeholder="" required >
               </div>
             </div>
+
+
+        </div>
+
             <hr class="mb-4">
 
 
@@ -169,9 +187,14 @@ export default {
             form:{
                 'name':'',
                 'email':'',
+                'phone':'',
                 'address':'',
                 'address2':'',
                 'country':'',
+                'user_division':'',
+                'user_district':'',
+                'user_thana':'',
+                'user_union':'',
                 'state':'',
                 'zip':'',
                 'paymentMethod':'Cash on Delivery',
@@ -277,8 +300,7 @@ export default {
 
         async getCartFromDb(){
 
-            var deli = await this.callApi('get',`/api/delivery-charges`,[]);
-            this.deliveryCharges = deli.data
+
 
             var userRes = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}`,[]);
 
@@ -292,6 +314,7 @@ export default {
             this.form.user_id = user.id
             this.form.name = user.name
             this.form.email = user.email
+            this.form.phone = user.phone
 
 
 
@@ -303,7 +326,20 @@ export default {
                 if(user_addresses.city) this.form.city = user_addresses.city
                 if(user_addresses.state) this.form.state = user_addresses.state
                 if(user_addresses.country) this.form.country = user_addresses.country
+                if(user_addresses.user_division) this.form.user_division = user_addresses.user_division.name
+                if(user_addresses.user_district) this.form.user_district = user_addresses.user_district.name
+                if(user_addresses.user_thana) this.form.user_thana = user_addresses.user_thana.name
+                if(user_addresses.user_union) this.form.user_union = user_addresses.user_union.name
                 if(user_addresses.zip) this.form.zip = user_addresses.zip
+
+
+                var deli = await this.callApi('get',`/api/delivery-charges?district=${user_addresses.user_district.name}`,[]);
+                this.deliveryCharges = deli.data
+
+            }else{
+
+                alert('Please add a address first');
+                this.$router.push({name:'accountaddress',query:{redirect: window.location.href}});
             }
 
 

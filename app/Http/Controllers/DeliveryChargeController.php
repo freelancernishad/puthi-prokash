@@ -7,9 +7,24 @@ use App\Models\DeliveryCharge;
 
 class DeliveryChargeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $deliveryCharges = DeliveryCharge::all();
+        if($request->district){
+
+
+            $district = $request->district;
+            if($district=='Dhaka'){
+                $deliveryCharges = DeliveryCharge::where('distict',$district)->get();
+            }else{
+                $deliveryCharges = DeliveryCharge::where('distict','Others')->get();
+            }
+
+
+        }else{
+            $deliveryCharges = DeliveryCharge::all();
+
+        }
+
         return response()->json($deliveryCharges, 200);
     }
 

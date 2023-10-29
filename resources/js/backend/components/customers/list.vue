@@ -17,6 +17,22 @@
 
         <div class="card">
             <div class="card-header">
+
+
+                <div class="d-flex justify-content-between" @submit.stop.prevent="sonodname">
+                    <div></div>
+                    <form class="d-flex">
+
+                        <select class="form-control" placeholder="Search district" v-model="search">
+                            <option value="">Select</option>
+                            <option v-for="(district,dIn) in districts" :key="`dIn${dIn}`" :value="district.name">{{ district.name }}</option>
+                        </select>
+
+                        <input type="text" class="form-control" placeholder="Search district" v-model="search">
+                        <button type="submit" class="btn btn-danger">Search</button>
+                    </form>
+                </div>
+
             </div>
         <div class="card-body">
 
@@ -29,6 +45,7 @@
 
                     <th>ইমেইল</th>
                     <th>মোবাইল</th>
+                    <th>District</th>
                     <th>Action</th>
                 </tr>
 
@@ -39,10 +56,12 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.phone }}</td>
-
-
                     <td>
-
+                        <span v-if="item.user_addresses">
+                            <span v-if="item.user_addresses.user_district">{{ item.user_addresses.user_district.name }}</span>
+                        </span>
+                    </td>
+                    <td>
                         <router-link size="sm" :to="{ name: 'ordersCustomer', params: { customer: item.id } }" class="btn btn-info mr-1 mt-1"> orders </router-link>
                     </td>
 
@@ -74,9 +93,8 @@ export default {
     },
     data() {
         return {
-
+            search:'',
             preLooding:true,
-
             access:'',
             sortstatus:false,
             Filter:true,
@@ -96,6 +114,7 @@ export default {
             TotalRows:'1',
             Type:'',
             items: [],
+            districts: {},
 
 
 
@@ -121,10 +140,24 @@ export default {
     methods: {
 
 
+
+        async getDistrict(){
+            var res = await this.callApi('get',`/api/districts`);
+            this.districts = res.data;
+        },
+
+
+
         sonodname(){
             var position = this.Users.position
             var thana = this.Users.thana
-              axios.get(`/api/users/position/user`)
+            var s = '';
+            if(this.search){
+                s = `?district=${this.search}`;
+            }
+
+
+              axios.get(`/api/users/position/user${s}`)
                 .then(({ data }) => {
                   this.items = data.data
                   this.TotalRows = `${this.items.length}`;
@@ -169,6 +202,10 @@ export default {
 
             this.sonodname();
         }, 2000);
+
+
+        this.getDistrict();
+
 
 
     }

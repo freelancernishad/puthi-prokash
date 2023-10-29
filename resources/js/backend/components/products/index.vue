@@ -19,6 +19,7 @@
                                 <th>Price</th>
                                 <th>Stock</th>
                                 <th>Categories</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                 <td>
                                     <span v-for="(categorie,indexSL) in list.categories" :key="categorie.id">{{ categorie.name }}<span v-if="indexSL != Object.keys(list.categories).length - 1">, </span> </span>
                                 </td>
+                                <td>{{ list.release_date }}</td>
                                 <td>
 
 

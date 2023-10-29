@@ -136,7 +136,16 @@ class UserController extends Controller
         $userType =$request->userType;
         $name =$request->name;
         $search =$request->search;
-        $query = User::where('position', $position);
+        $query = User::where('position', $position)->with(['userAddresses','userAddresses.user_district']);
+
+
+        if($request->district){
+            $district = $request->district;
+            $query->whereHas('userAddresses.user_district', function ($query) use ($district) {
+                $query->where('name', $district);
+            });
+        }
+
 
         if ($userType) {
             $query->where('type', $userType);

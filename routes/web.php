@@ -55,7 +55,7 @@ Route::get('/books/{slug}/{id}', function ($slug,$id) {
 
 Route::get('/invoice/{id}', function ($id) {
 
-    $order = Order::with(['user','orderProducts.product'])->find($id);
+    $order = Order::with(['user','user.userAddresses','user.userAddresses.user_division','user.userAddresses.user_district','user.userAddresses.user_thana','user.userAddresses.user_union','orderProducts.product'])->find($id);
     if($order){
         return view('invoice',compact('order'));
     }else{

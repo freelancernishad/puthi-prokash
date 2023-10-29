@@ -12,8 +12,8 @@
                     <div class="form-group">
                         <label for="">Delivered to</label>
                         <select class="form-control" v-model="form.distict">
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Others">Others</option>
+                            <option value="In Dhaka">In Dhaka</option>
+                            <option value="Out of Dhaka">Out of Dhaka</option>
                         </select>
                     </div>
                 </div>

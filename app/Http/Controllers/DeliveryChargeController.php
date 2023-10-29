@@ -14,9 +14,9 @@ class DeliveryChargeController extends Controller
 
             $district = $request->district;
             if($district=='Dhaka'){
-                $deliveryCharges = DeliveryCharge::where('distict',$district)->get();
+                $deliveryCharges = DeliveryCharge::where('distict','In Dhaka')->get();
             }else{
-                $deliveryCharges = DeliveryCharge::where('distict','Others')->get();
+                $deliveryCharges = DeliveryCharge::where('distict','Out of Dhaka')->get();
             }
 
 

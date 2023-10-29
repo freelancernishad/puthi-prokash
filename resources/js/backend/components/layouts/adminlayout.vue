@@ -230,7 +230,7 @@
                             <transition name="slide">
                                 <ul class="nav sub-group-menu menu-open child" v-if="selected == 106"
                                     style="display:block">
-                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'admin'">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'admin'">
                                         <router-link :to="{ name: 'multimediaAdd' }" class="nav-link"><i
                                                 class="fas fa-angle-right"></i> New Multimedia </router-link>
                                     </li>

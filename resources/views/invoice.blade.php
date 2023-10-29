@@ -161,17 +161,18 @@ table.invoice tr.totals table tr.total td:last-child {
 
               <tr class="intro">
                 <td class="">
-                  Hello, Philip Brooks.<br>
+                  Hello, {{ $order->user->name }}<br>
                   Thank you for your order.
 
                   <section class="additional-info">
                     <div class="row">
                       <div class="columns">
                         <h5>Billing Information</h5>
-                        <p>Philip Brooks<br>
-                          134 Madison Ave.<br>
-                          New York NY 00102<br>
-                          United States</p>
+                        <p>{{ $order->user->name }}<br>
+                          {{ $order->address }}<br>
+                          {{ $order->user_thana }}, {{ $order->user_district }}<br>
+                          {{ $order->country }}<br>
+                          {{ $order->phone }}</p>
                       </div>
                     </div>
                   </section>
@@ -179,8 +180,8 @@ table.invoice tr.totals table tr.total td:last-child {
 
                 </td>
                 <td class="text-right">
-                  <span class="num">Order #00302</span><br>
-                  October 18, 2017
+                  <span class="num">Order #{{ $order->orderId }}</span><br>
+                  {{ date("M d, Y", strtotime($order->created_at)) }}
                 </td>
               </tr>
               <tr class="details">

@@ -129,7 +129,7 @@
                         <router-link :to="{name:'login'}" v-else-if="!$localStorage.getItem('token')" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Login or Create an account First </router-link>
 
 
-                        <router-link :to="{name:'home'}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</router-link>
+                        <router-link :to="{name:'writer'}" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</router-link>
                     </div>
                 </div>
             </aside>

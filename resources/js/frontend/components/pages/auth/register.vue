@@ -26,7 +26,7 @@
 
 
                     <div class="col-12 defaultColor">
-                      <label>Phone Number<span class="text-danger">*</span></label>
+                      <label>Phone Number<span class="text-danger">*</span> <span>(মোবাইল নং টি প্রদান করে পাশের বাটনটিতে ক্লিক করুন)</span> </label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
                         <input type="tel" name="phone" minlength="11" maxlength="11"  class="form-control" v-model="form.phone" placeholder="Enter Phone Number" required>
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col-12 defaultColor">
-                      <label>OTP<span class="text-danger">*</span></label>
+                      <label>OTP<span class="text-danger">*</span><span>(SMS এ প্রদানকৃত কোডটি প্রদান করুন)</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="fa-thin fa-lock-hashtag"></i></div>
                         <input type="text" class="form-control" v-model="form.otp" placeholder="Enter Otp" required>
@@ -49,7 +49,7 @@
 
 
                     <div class="col-12 defaultColor">
-                      <label>Email<span class="text-danger">*</span></label>
+                      <label>Email<span class="text-danger">(Optional)</span></label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
                         <input type="email" name="email" class="form-control" v-model="form.email" placeholder="Enter Email">

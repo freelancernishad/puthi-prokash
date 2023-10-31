@@ -48,12 +48,33 @@ class GalleryController extends Controller
         return response()->json($gallery, 201);
     }
 
+
+
     public function show(Gallery $gallery)
     {
         $gallery->load('images');
 
         return response()->json($gallery);
     }
+
+
+
+    public function showFront(Request $request)
+    {
+        $id = $request->id;
+        if($id){
+            $galleryItems = GalleryImage::with('gallery')->where('gallery_id',$id)->orderBy('id','desc')->paginate(20);
+        }else{
+            $galleryItems = GalleryImage::with('gallery')->orderBy('id','desc')->paginate(20);
+        }
+
+        $gallery = Gallery::all();
+
+        return response()->json(['galleryItems'=>$galleryItems,'gallery'=>$gallery]);
+    }
+
+
+
 
     public function update(Request $request, Gallery $gallery)
     {

@@ -29,10 +29,12 @@
                       <label>Phone Number<span class="text-danger">*</span> <span>(মোবাইল নং টি প্রদান করে পাশের বাটনটিতে ক্লিক করুন)</span> </label>
                       <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
-                        <input type="tel" name="phone" minlength="11" maxlength="11"  class="form-control" v-model="form.phone" placeholder="Enter Phone Number" required>
+                        <input type="tel" name="phone" minlength="11" maxlength="11" @keyup="phoneNumberValidate"  class="form-control" v-model="form.phone" placeholder="Enter Phone Number" required>
 
 
                         <div class="input-group-text" style="cursor: pointer;" v-if="otpSent">{{countdown}}s</div>
+
+                        <div class="input-group-text" style="cursor: not-allowed;color: #dfb9b9;" v-else-if='isDisabled'><i class="fa-solid fa-paper-plane"></i></div>
 
                         <div class="input-group-text" style="cursor: pointer;" v-else @click="otpSentFunction"><i class="fa-solid fa-paper-plane"></i></div>
 
@@ -136,12 +138,32 @@ export default {
             },
 			errors: {},
             otpSent:false,
+            isDisabled:true,
             loadLogin:false,
             countdown: 60,
             timerInterval: null
 		}
 	},
 	methods:{
+
+
+
+
+        phoneNumberValidate(){
+            const phoneNumber = this.form.phone;
+                const regex = /^(01[3-9])\d{8}$/;
+                var check =  regex.test(phoneNumber);
+                if (check) {
+                    this.isDisabled = false
+                } else {
+                    this.isDisabled = true
+                }
+
+
+        },
+
+
+
         startTimer() {
             this.timerInterval = setInterval(() => {
                 if (this.countdown > 0) {
@@ -162,7 +184,7 @@ export default {
 
 
         async otpSentFunction(){
-
+            this.otpSent = true;
 
 
             this.startTimer();

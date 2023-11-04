@@ -48,8 +48,7 @@ class authController extends Controller
 
         $otp = rand(1000, 9999);
         $phone = $request->phone;
-        SmsBdsmsportal("পুথিপ্রকাশ- আপনার ভেরিফিকেশন কোড OTP :
-        $otp",$phone);
+        SmsBdsmsportal("পুথিপ্রকাশ- আপনার ভেরিফিকেশন কোড OTP : $otp",$phone);
 
         OTPVerification::create([
             'phone_number' => $phone,

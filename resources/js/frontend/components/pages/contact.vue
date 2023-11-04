@@ -14,25 +14,25 @@
                 <form>
                     <div class="form-group">
                         <label for="name">আপনার নাম *</label>
-                        <input type="text" class="form-control my-1" id="name" required>
+                        <input type="text" class="form-control my-1" id="name" v-model="form.name" required>
                     </div>
                     <div class="d-flex flex-wrap justify-content-between my-2">
                         <div class="form-group">
                             <label for="email">আপনার ইমেল *</label>
-                            <input type="email" class="form-control my-1" id="email" required>
+                            <input type="email" class="form-control my-1" id="email"  v-model="form.email" required>
                         </div>
                         <div class="form-group">
                             <label for="contact">যোগাযোগ নম্বর *</label>
-                            <input type="text" class="form-control my-1" id="contact" required>
+                            <input type="text" class="form-control my-1" id="contact" v-model="form.contact" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="subject">বিষয় *</label>
-                        <input type="text" class="form-control my-1" id="subject" required>
+                        <input type="text" class="form-control my-1" id="subject"  v-model="form.subject" required>
                     </div>
                     <div class="form-group">
                         <label for="message">আপনার বার্তা *</label>
-                        <textarea class="form-control my-1" id="message" rows="3" required></textarea>
+                        <textarea class="form-control my-1" id="message" rows="3"  v-model="form.message" required></textarea>
                     </div>
                     <button type="submit" style="background-color: #ced9df;" class="btn  mt-2 w-100">পাঠান</button>
                 </form>
@@ -69,6 +69,23 @@
     </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            form:{
+                name:'',
+                email:'',
+                contact:'',
+                subject:'',
+                message:'',
+            }
+        }
+    },
+}
+</script>
+
 
 <style>
 .googleMapIframe iframe {

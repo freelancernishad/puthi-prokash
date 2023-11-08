@@ -175,7 +175,7 @@ export default {
             if(status){
               var  query = `?status=${status}`;
             }else{
-              var query = '';
+              var query = '?status=pending';
             }
             var res = await this.callApi('get',`/api/users/${this.$localStorage.getItem('userid')}/orders${query}`);
             this.orders = res.data

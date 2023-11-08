@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\OTPVerification;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Notifications\EmailVerification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
+
+
 
 
 class authController extends Controller
@@ -327,5 +330,17 @@ if($roles>0){
     }
 
 
+    function contactForm(Request $request) {
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ];
+
+      return  Mail::to(env('ADMIN_EMAIL'))->send(new ContactMail($data));
+    }
 
 }

@@ -89,6 +89,9 @@ return $data = $analytics->fetchVisitorsAndPageViews();
 
 
 
+Route::post('sent/contact/mail', [authController::class,'contactForm']);
+
+
 Route::post('send-email-verification', [authController::class,'sendEmailVerification']);
 Route::post('verify-email', [authController::class,'verifyEmail']);
 

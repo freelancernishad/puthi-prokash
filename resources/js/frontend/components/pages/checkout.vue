@@ -405,13 +405,13 @@ export default {
 
                 //   console.log(res)
 
-                // if(res.status==201){
-                //     Notification.customSuccess(`${res.data.message}`);
-                //     this.$router.push({ name: "home" });
-                // }else{
-                //     Notification.customError(`${res.data.message}`);
-                //     this.$router.push({ name: "home" });
-                // }
+                if(res.status==201){
+                    Notification.customSuccess(`${res.data.message}`);
+                    this.$router.push({ name: "home" });
+                }else{
+                    Notification.customError(`${res.data.message}`);
+                    this.$router.push({ name: "home" });
+                }
             }else{
                 Notification.customError("Login or Create an account First");
             }

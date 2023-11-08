@@ -34,7 +34,7 @@ class CreateOrdersTable extends Migration
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('paymentMethod')->nullable();
-            $table->enum('status', ['pending', 'processing', 'completed', 'canceled'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'shipped', 'completed', 'canceled'])->default('pending');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

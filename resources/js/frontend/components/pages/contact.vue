@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-md-6" style="padding: 0 50px;">
-                <form>
+                <form @submit.stop.prevent="sentMail">
                     <div class="form-group">
                         <label for="name">আপনার নাম *</label>
                         <input type="text" class="form-control my-1" id="name" v-model="form.name" required>
@@ -83,6 +83,14 @@ export default {
             }
         }
     },
+
+    methods: {
+        async sentMail(){
+            var res = await this.callApi('post',`/api/sent/contact/mail`,this.form);
+            console.log(res)
+        }
+    },
+
 }
 </script>
 

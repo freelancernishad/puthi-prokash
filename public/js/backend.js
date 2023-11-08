@@ -9667,6 +9667,10 @@ var render = function render() {
     }
   }, [_vm._v("Processing")]), _vm._v(" "), _c("option", {
     attrs: {
+      value: "shipped"
+    }
+  }, [_vm._v("Shipped")]), _vm._v(" "), _c("option", {
+    attrs: {
       value: "completed"
     }
   }, [_vm._v("Completed")]), _vm._v(" "), _c("option", {

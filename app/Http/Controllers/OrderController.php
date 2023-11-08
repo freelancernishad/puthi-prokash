@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CancelOrderMail;
+use App\Mail\NewOrderMail;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -168,10 +171,21 @@ class OrderController extends Controller
         Cart::where('user_id', $userId)->delete();
         $order->load(['orderProducts.product','user']);
 
-        return $order;
+        // return $order;
 
-        $message = "Dear ".$order->user->name.", Your Order $order->orderId has been confirmed";
+
+        // $message = "Dear ".$order->name.", Your Order $order->orderId has been confirmed";
+        $message = "পুথিপ্রকাশ: $order->name, আপনার অর্ডারের জন্য ধন্যবাদ!";
         SmsBdsmsportal($message,$order->user->phone);
+
+        $data = [
+            'name' => $order->name,
+            'email' => $order->email,
+            'contact' => $order->phone,
+            'subject' => 'New Order Alert!',
+            'message' => $order,
+        ];
+        Mail::to(env('ADMIN_EMAIL'))->send(new NewOrderMail($data));
 
         return response()->json([
             'message'=>'Order Complete'
@@ -216,10 +230,37 @@ class OrderController extends Controller
         $user = $order->user;
 
         $order->status = $request->input('status');
-        $message = "Dear $user->name, Your Order $order->orderId status updated.Your order status is $order->status";
-        SmsBdsmsportal($message,$order->user->phone);
+
 
         $order->save();
+
+        $order->load(['orderProducts.product','user']);
+
+
+
+        // $message = "Dear $user->name, Your Order $order->orderId status updated.Your order status is $order->status";
+
+        if($request->status=='processing'){
+            $message = "পুথিপ্রকাশ: $user->name, আপনার অর্ডার প্রক্রিয়াধীণ রয়েছে।";
+        }elseif($request->status=='shipped'){
+            $message = "পুথিপ্রকাশ: $user->name, আপনার অর্ডারটি ডেলিভারির ব্যবস্থা করা হয়েছে।";
+        }elseif($request->status=='completed'){
+            $message = "পুথিপ্রকাশ: $user->name, আপনার অর্ডারটির ডেলিভারি সম্পন্ন হয়েছে, পরবর্তী অর্ডারের অপেক্ষায় আমরা আছি আপনার পাশে।";
+        }elseif($request->status=='canceled'){
+            $message = "পুথিপ্রকাশ: $user->name, আপনার অর্ডারটির বাতিল করা হয়েছে। যে কোন প্রয়োজনে কল করুন- ০১৭৪৫-১৬৬৬৬২।";
+            $data = [
+                'name' => $order->name,
+                'email' => $order->email,
+                'contact' => $order->phone,
+                'subject' => 'Order cancel Alert!',
+                'message' => $order,
+            ];
+            Mail::to(env('ADMIN_EMAIL'))->send(new CancelOrderMail($data));
+        }
+        SmsBdsmsportal($message,$order->user->phone);
+
+
+
 
 
 

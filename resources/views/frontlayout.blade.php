@@ -2,47 +2,47 @@
 <html lang="en-US">
 
 <head>
+
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="content-language" content="en">
+    <title>{{ $web_details->name }}</title>
+
+    <meta name="keywords" content="পুথিপ্রকাশ, Puthiprokash,website, blog, publication, book shop">
+    <meta name="author" content="forhadlabs.com">
+    <meta name="publisher" content="puthiprokash">
+    <meta name="copyright" content="puthiprokash">
+    <meta name="description" content="ক'জন উদ্যমী লেখক ও চিত্রশিল্পীর হাত ধরে  শুরু পুথিপ্রকাশের পথ চলা। প্রথম থেকেই শিক্ষার্থী ও সাধারণ পাঠকদের জন্য মানসম্পন্ন বই রচনায় মনোনিবেশ করে পুথিপ্রকাশ। পান্ডুলিপিকে বইয়ের পর্যায়ে উন্নীত করার লক্ষ্যে বিভিন্ন ধাপের গবেষণাসম কাজগুলো সূক্ষ্মভাবে সম্পন্ন করতে পুথিপ্রকাশ গ্রহণ করে  "ধীরে চলো নীতি"। আমাদের কাছে বইপ্রকাশের অন্যতম প্রধান উদ্দেশ্য হলো- পাঠককে তার আত্মস্থ জ্ঞানমূলের খোঁজ পেতে উৎসাহ দেওয়া।">
+    <meta name="page-topic" content="book shop">
+    <meta name="page-type" content="shop">
+    <meta name="audience" content="Everyone">
+    <meta name="robots" content="index, follow">
+
+    <meta name="title" content="{{ $web_details->name }}" />
+    <meta name="description" content="{{ $web_details->short_description }}" />
+    {{-- <meta name="keywords" content="{{ $web_details->slug }}" /> --}}
+
+    <meta name="news_keywords" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $web_details->name }}" />
+    <meta property="og:description" content="{{ $web_details->short_description }}" />
+    <meta property="og:image" content="{{ $web_details->fiture }}" />
+    <meta property="og:image:width" content="1200px" />
+    <meta name="brand_name" content="পুথিপ্রকাশ" />
+
+    <meta property="fb:app_id" content="863998424666012"/>
 
 
 
-  <meta http-equiv="content-language" content="en">
-  <title>{{ $web_details->name }}</title>
-
-  <meta name="publisher" content="John Doe">
-  <meta name="copyright" content="John Doe">
-
-  <meta name="page-topic" content="Media">
-  <meta name="page-type" content="Blogging">
-  <meta name="audience" content="Everyone">
-  <meta name="robots" content="index, follow">
-
-
-  <meta name="title" content="{{ $web_details->name }}" />
-  <meta name="description" content="{{ $web_details->short_description }}" />
-  <meta name="keywords" content="{{ $web_details->slug }}" />
-  <meta name="author" content="পুথিপ্রকাশ" />
-  <meta name="news_keywords" content="" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{ $web_details->name }}" />
-  <meta property="og:description" content="{{ $web_details->short_description }}" />
-  <meta property="og:image" content="{{ $web_details->fiture }}" />
-  <meta property="og:image:width" content="1200px" />
-  <meta name="brand_name" content="পুথিপ্রকাশ" />
-
-  <meta property="fb:app_id" content="863998424666012"/>
 
 
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
 
-  <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-
-
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">

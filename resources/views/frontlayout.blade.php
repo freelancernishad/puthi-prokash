@@ -20,13 +20,12 @@
     <meta name="robots" content="index, follow">
 
     <meta name="title" content="{{ $web_details->name }}" />
-    <meta name="description" content="{{ $web_details->short_description }}" />
+    {{-- <meta name="description" content="{{ $web_details->short_description }}" /> --}}
     {{-- <meta name="keywords" content="{{ $web_details->slug }}" /> --}}
 
-    <meta name="news_keywords" content="" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ $web_details->name }}" />
-    <meta property="og:description" content="{{ $web_details->short_description }}" />
+    {{-- <meta property="og:description" content="{{ $web_details->short_description }}" /> --}}
     <meta property="og:image" content="{{ $web_details->fiture }}" />
     <meta property="og:image:width" content="1200px" />
     <meta name="brand_name" content="পুথিপ্রকাশ" />

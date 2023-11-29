@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\TheBookOfPuthiprakash;
@@ -26,6 +28,31 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 
+Route::get('genrate-sitemap', function () {
+    // create new sitemap object
+    $sitemap = App::make("sitemap");
+    // add items to the sitemap (url, date, priority, freq)
+    $sitemap->add(URL::to('categories'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+    $sitemap->add(URL::to('products'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('cart'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('checkout'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('multimedia'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('gallery'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('writer'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+    $sitemap->add(URL::to('contact-us'), '2012-08-26T12:30:00+02:00', '0.9', 'daily');
+
+    // // get all posts from db
+    // $categories = Category::all();
+    // // add every post to the sitemap
+    // foreach ($categories as $category)
+    // {
+    //     $sitemap->add(URL::to('categories/'.$category->id.'/edit'), $category->updated_at, '1.0', 'daily');
+    // }
+    // generate your sitemap (format, filename)
+    $sitemap->store('xml', 'sitemap');
+    // this will generate file mysitemap.xml to your public folder
+    return redirect(url('sitemap.xml'));
+});
 
 
 

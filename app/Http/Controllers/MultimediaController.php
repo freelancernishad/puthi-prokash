@@ -10,7 +10,7 @@ class MultimediaController extends Controller
 {
     public function index()
     {
-        $multimedia = Multimedia::paginate(20);
+        $multimedia = Multimedia::with('category')->paginate(20);
         return response()->json($multimedia);
     }
 
@@ -19,6 +19,7 @@ class MultimediaController extends Controller
         // return $request->all();
 
         $data = [
+            'multimedia_categories_id'=>$request->multimedia_categories_id,
             'title'=>$request->title,
             'media_type'=>$request->media_type,
         ];
@@ -53,6 +54,7 @@ class MultimediaController extends Controller
             // 'media_url' => 'required_if:media_type,video|url',
         ]);
         $data = [
+            'multimedia_categories_id'=>$request->multimedia_categories_id,
             'title'=>$request->title,
             'media_type'=>$request->media_type,
         ];

@@ -29,6 +29,9 @@ let galleryForm = require('./components/gallery/form.vue').default;
 let galleryimages = require('./components/gallery/images.vue').default;
 
 
+let multimedia_categoriesIndex = require('./components/multimedia_categories/index.vue').default;
+let multimedia_categoriesForm = require('./components/multimedia_categories/form.vue').default;
+
 let multimediaIndex = require('./components/multimedia/index.vue').default;
 let multimediaForm = require('./components/multimedia/form.vue').default;
 
@@ -136,6 +139,12 @@ export const routes = [
   { path:  `${prefix}/gallery/add`, component: galleryForm, name:'galleryAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/gallery/edit/:id`, component: galleryForm, name:'galleryEdit',meta: { layout: adminlayout } },
   { path:  `${prefix}/gallery/images/:id`, component: galleryimages, name:'galleryimages',meta: { layout: adminlayout } },
+
+
+
+  { path:  `${prefix}/multimedia_categories/list`, component: multimedia_categoriesIndex, name:'multimedia_categoriesIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/multimedia_categories/add`, component: multimedia_categoriesForm, name:'multimedia_categoriesAdd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/multimedia_categories/edit/:id`, component: multimedia_categoriesForm, name:'multimedia_categoriesEdit',meta: { layout: adminlayout } },
 
 
 

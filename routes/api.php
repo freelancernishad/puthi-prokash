@@ -31,6 +31,7 @@ use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\FeatureCategoryController;
+use App\Http\Controllers\MultimediaCategoryController;
 use App\Http\Controllers\TheBookOfPuthiprakashController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -232,6 +233,18 @@ Route::apiResource('feature-categories', FeatureCategoryController::class);
 Route::resource('the-book-of-puthiprakashes', TheBookOfPuthiprakashController::class);
 Route::apiResource('pages', PageController::class);
 // Route::apiResource('multimedia', MultimediaController::class);
+
+
+Route::prefix('multimedia_categories')->group(function () {
+    Route::get('/', [MultimediaCategoryController::class, 'index']);
+    Route::get('{id}', [MultimediaCategoryController::class, 'show']);
+    Route::post('/', [MultimediaCategoryController::class, 'store']);
+    Route::put('{id}', [MultimediaCategoryController::class, 'update']);
+    Route::delete('{id}', [MultimediaCategoryController::class, 'destroy']);
+});
+
+Route::get('multimedia_categories/all/data', [MultimediaCategoryController::class,'indexAll']);
+
 
 
 Route::get('multimedia', [MultimediaController::class,'index']);

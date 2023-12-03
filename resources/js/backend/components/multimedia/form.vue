@@ -10,10 +10,22 @@
         </div>
 
         <div class="form-group">
+          <label for="multimedia_categories_id">Media Category:</label>
+          <select v-model="form.multimedia_categories_id" id="multimedia_categories_id" class="form-control" required>
+            <option value="">Select</option>
+            <option v-for="(media_cat,indexList) in media_cat_list" :key="indexList" :value="media_cat.id">{{ media_cat.name }}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
           <label for="media_type">Media Type:</label>
           <select v-model="form.media_type" id="media_type" class="form-control" required>
+
             <option value="video">Video</option>
             <option value="youtube">YouTube</option>
+
+
           </select>
         </div>
 
@@ -37,10 +49,12 @@
   export default {
     data() {
       return {
+        media_cat_list:{},
         form: {
           title: '',
           media_type: 'video',
           media_url: '',
+          multimedia_categories_id: '',
         },
         preLooding:false,
       };
@@ -62,6 +76,7 @@
 
         if(this.form.media_type=='video'){
             const formData = new FormData();
+            formData.append('title', this.form.multimedia_categories_id);
             formData.append('title', this.form.title);
             formData.append('media_type', this.form.media_type);
             formData.append('media_url', this.form.media_url);
@@ -97,6 +112,10 @@
             this.preLooding = false
         },
 
+        async getMediaCategory(){
+            var res = await this.callApi('get',`/api/multimedia_categories/all/data`,[]);
+            this.media_cat_list = res.data;
+        }
 
 
 
@@ -105,6 +124,7 @@
         if(this.$route.params.id){
             this.getItems();
         }
+        this.getMediaCategory();
     },
   };
   </script>

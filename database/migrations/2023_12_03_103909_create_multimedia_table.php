@@ -15,6 +15,7 @@ class CreateMultimediaTable extends Migration
     {
         Schema::create('multimedia', function (Blueprint $table) {
             $table->id();
+            $table->string('multimedia_categories_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('media_type')->default('video'); // 'video' or 'youtube'

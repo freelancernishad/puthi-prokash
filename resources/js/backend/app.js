@@ -22,6 +22,10 @@ import Breadcrumbs from './components/breadcrumbs.vue'
 Vue.component('Breadcrumbs', Breadcrumbs)
 
 
+import preloader from './components/preloader.vue'
+Vue.component('preloader', preloader)
+
+
 import Paginate from './components/paginate.vue'
 Vue.component('Paginate', Paginate)
 

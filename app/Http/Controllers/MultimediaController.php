@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Multimedia;
+use App\Models\MultimediaCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +14,23 @@ class MultimediaController extends Controller
         $multimedia = Multimedia::with('category')->paginate(20);
         return response()->json($multimedia);
     }
+
+
+
+    public function showFront(Request $request)
+    {
+        $id = $request->id;
+        if($id){
+            $galleryItems = Multimedia::with('category')->where('multimedia_categories_id',$id)->orderBy('id','desc')->paginate(20);
+        }else{
+            $galleryItems = Multimedia::with('category')->orderBy('id','desc')->paginate(20);
+        }
+
+        $gallery = MultimediaCategory::all();
+
+        return response()->json(['items'=>$galleryItems,'category'=>$gallery]);
+    }
+
 
     public function store(Request $request)
     {

@@ -34,7 +34,32 @@
     </section>
 
 
+
+
+
+
+
+
     <section class="container">
+
+
+
+
+<div class="container px-0 py-4">
+  <div class="pp-category-filter">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <button :class="queryId=='' ? 'btn-primary text-white' : 'btn-outline-primary'"  class="btn pp-filter-button" @click="getItems()" href="#" >All</button>
+        <button v-for="(gallery,indexG) in categoris" :key="`indexG${indexG}`" :class="queryId==gallery.id ? 'btn-primary  text-white' : 'btn-outline-primary'" @click="getItems(gallery.id)" class="btn pp-filter-button" style="margin-right: 5px;">{{ gallery.name }}</button>
+
+
+    </div>
+    </div>
+  </div>
+</div>
+
+
         <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-2 multimediaContainer">
 
 
@@ -79,6 +104,7 @@ export default {
                 search:''
             },
             items:{},
+            categoris:{},
 
 
             totalItems: 0,
@@ -91,22 +117,48 @@ export default {
     },
     methods: {
 
-        async getItems(){
+        async getItems(id=''){
+            this.queryId = id
             var page = 1;
             if(this.$route.query.page){
                 page = this.$route.query.page;
             }
-            var res = await this.callApi('get',`/api/multimedia?page=${page}`,[]);
 
 
-            this.items = res.data.data
-            this.totalItems = res.data.total
+            var queryId = '';
+            if(this.queryId){
+                queryId = `&id=${id}`
+
+            }
+
+            var res = await this.callApi('get',`/api/multimedia/front/images?page=${page}${queryId}`,[]);
 
 
-            this.per_page = res.data.per_page
-            this.totalitems = res.data.total
-            this.Totalpageprops = res.data.links
+
+            var galleryItems = res.data.items
+
+            this.categoris = res.data.category
+
+            this.items = galleryItems.data
+            this.totalItems = galleryItems.total
+
+
+            this.per_page = galleryItems.per_page
+            this.totalitems = galleryItems.total
+            this.Totalpageprops = galleryItems.links
             this.Routenameprops = 'multimedia'
+
+
+
+
+            // this.items = res.data.data
+            // this.totalItems = res.data.total
+
+
+            // this.per_page = res.data.per_page
+            // this.totalitems = res.data.total
+            // this.Totalpageprops = res.data.links
+            // this.Routenameprops = 'multimedia'
 
         }
     },
@@ -116,7 +168,7 @@ export default {
     },
 }
 </script>
-<style >
+<style scoped>
 
 
 .iframeContainer iframe {
@@ -126,5 +178,17 @@ export default {
 
 .multimediaContainer .col .card{
     height: 100% !important;
+}
+
+
+
+.btn-primary {
+    background: var(--defaultColor);
+    border: 1px solid var(--defaultColor);
+}
+
+.btn-outline-primary {
+    border: 1px solid var(--defaultColor);
+    color: var(--defaultColor);
 }
 </style>

@@ -219,6 +219,8 @@ Route::get('galleries/{gallery}', [GalleryController::class, 'show']);
 
 Route::get('galleries/front/images', [GalleryController::class, 'showFront']);
 
+
+
 Route::put('galleries/{gallery}', [GalleryController::class, 'update']);
 Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy']);
 Route::get('galleries/{gallery}/images', [GalleryController::class,'getImages']);
@@ -246,6 +248,7 @@ Route::prefix('multimedia_categories')->group(function () {
 Route::get('multimedia_categories/all/data', [MultimediaCategoryController::class,'indexAll']);
 
 
+Route::get('multimedia/front/images', [MultimediaController::class, 'showFront']);
 
 Route::get('multimedia', [MultimediaController::class,'index']);
 Route::get('multimedia/{id}', [MultimediaController::class,'show']);

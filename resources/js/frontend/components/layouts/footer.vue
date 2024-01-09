@@ -93,7 +93,8 @@
                   <router-link :to="{name:'contact'}" class="linkHover">যোগাযোগ</router-link>
                 </div>
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                  <h2 class="linkHover">ডাউনলোড</h2>
+                    <router-link :to="{name:'download'}" class="linkHover">ডাউনলোড</router-link>
+                  <!-- <h2 class="linkHover">ডাউনলোড</h2> -->
                 </div>
               </div>
             </div>

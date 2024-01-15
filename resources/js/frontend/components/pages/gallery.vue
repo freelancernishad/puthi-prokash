@@ -41,13 +41,18 @@
 <div class="container px-0 py-4">
   <div class="pp-category-filter">
     <div class="row">
-      <div class="col-sm-12">
 
-        <button :class="queryId=='' ? 'btn-primary text-white' : 'btn-outline-primary'"  class="btn pp-filter-button" @click="getItems()" href="#" >All</button>
-        <button v-for="(gallery,indexG) in galleris" :key="`indexG${indexG}`" :class="queryId==gallery.id ? 'btn-primary  text-white' : 'btn-outline-primary'" @click="getItems(gallery.id)" class="btn pp-filter-button" style="margin-right: 5px;">{{ gallery.title }}</button>
+        <p @click="previous" class="prev col-sm-1 text-center">
+            <i class="fas fa-chevron-left fa-fw"></i>
+        </p>
+        <div class="col-sm-10" id="slide">
+            <button :class="queryId=='' ? 'btn-primary text-white' : 'btn-outline-primary'"  class="btn pp-filter-button catitems mr-2" @click="getItems()" href="#" style="margin-right: 6px;" >All</button>
+            <button v-for="(gallery,indexG) in galleris" :key="`indexG${indexG}`" :class="queryId==gallery.id ? 'btn-primary  text-white' : 'btn-outline-primary'" @click="getItems(gallery.id)" class="btn pp-filter-button catitems" style="margin-right: 5px;">{{ gallery.title }}</button>
+        </div>
+        <P @click="next" class="next col-sm-1 text-center">
+            <i class="fas fa-chevron-right fa-fw"></i>
+        </P>
 
-
-    </div>
     </div>
   </div>
 </div>
@@ -103,6 +108,11 @@
 export default {
     data() {
         return {
+
+        count: 0,
+    direction: 'forward',
+    frame: 2,
+
             form:{
                 search:''
             },
@@ -158,7 +168,75 @@ export default {
             this.Totalpageprops = galleryItems.links
             this.Routenameprops = 'gallery'
 
+        },
+        previous() {
+     this.count--
+      this.scroll("previous")
+  },
+    next() {
+        this.count++
+      this.scroll("next")
+    },
+    scroll(position) {
+     let el = document.getElementById("slide")
+      let pos = 0;
+      let id = setInterval(frame, 5);
+      let num = this.items.length - this.frame
+      let width = 250;
+      let resize = num * width
+      let check = position == "reset" ? resize : width
+          function frame() {
+            if (pos == check) {
+              clearInterval(id);
+            } else {
+              pos += 5;
+              if(position == 'next'){
+               el.scrollLeft += 5
+              }else{
+               el.scrollLeft -= 5
+              }
+            }
+          }
+    },
+
+    slideLoop(pass) {
+     let steps = this.items.length - this.frame
+     if(this.count >= steps & pass == "forward"){
+       this.direction = "backward"
+        this.previous()
+        return
+      }
+      if(this.count <= steps & pass == "backward"){
+       if(this.count <= 0){
+         this.count = 0
+         this.direction = "forward"
+          this.next();
+          return
         }
+       this.previous()
+        return
+      }
+      if(this.count < steps & pass == "forward"){
+       if(this.count < 0){
+         this.resetScroll()
+          return
+        } else if(this.count == 0){
+         this.next()
+          return
+        }
+       this.next()
+        return
+      }
+      this.resetScroll()
+    },
+    resetScroll(){
+     this.count = 0
+      this.direction = "forward"
+      this.scroll("reset")
+    }
+
+
+
     },
     mounted() {
 
@@ -484,5 +562,33 @@ body {
     border: 1px solid var(--defaultColor);
     color: var(--defaultColor);
 }
+
+
+
+
+
+
+
+
+
+#slide {
+  display: flex;
+  overflow: hidden;
+  /* align-items: flex-start; */
+  align-items: center;
+}
+.catitems{
+    flex: 0 0 auto;
+}
+
+.prev, .next {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+    color: var(--defaultColor);
+}
+
 
 </style>

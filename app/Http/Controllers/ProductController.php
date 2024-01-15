@@ -143,6 +143,23 @@ class ProductController extends Controller
         return response()->json($product);
     }
 
+    public function showBySlug($slug)
+    {
+        $product = Product::where('slug',$slug)->first();
+        $product->load([
+            'categories',
+            'category',
+            'images',
+            'author',
+            'flippingBooks' => function ($query) {
+            $query->take(4);
+            }
+        ]);
+
+        $product->image = asset($product->image);
+        return response()->json($product);
+    }
+
     public function store(Request $request)
     {
 

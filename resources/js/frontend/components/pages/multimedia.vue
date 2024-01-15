@@ -12,15 +12,15 @@
     <div class="align-items-center col-md-6 d-flex justify-content-between">
         <img :src="$asseturl+'assets/image/lore-bg.png'" alt="" srcset="" width="50px">
     <p class="d-inline fs-2 fw-normal mb-0 me-auto ps-4">মাল্টিমিডিয়া</p>
-    <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">0</p>
+    <!-- <p  class="border-3 border-bottom border-top d-inline fs-4 mb-0 px-4">0</p> -->
     </div>
 
-    <div class="col-md-6 d-flex gap-5 py-2">
-
+    <div class="col-md-6 d-flex gap-5 py-2" style="flex-direction: row-reverse;">
+<!--
         <form class="d-flex" style="width: 90%;" @submit.stop.prevent="searchItem">
           <input type="text" placeholder="আপনার কাঙ্খিত বই খুঁজুন" v-model="form.search" class="form-control writer-search-input">
           <button type="submit" class="writer-search-button" ><i class="fa-regular fa-magnifying-glass"></i></button>
-        </form>
+        </form> -->
 
 
 

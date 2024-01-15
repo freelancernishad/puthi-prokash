@@ -117,7 +117,7 @@ Route::get('/{vue_capture?}', function ($vue_capture='') {
             $productId = $urldata[2];
             $web_details =  Product::find($productId);
 
-            if($web_details->image){
+            if(file_exists($web_details->image)){
                 $fiture =  base64Withsize("Product-$productId",$web_details->image);
             }else{
 
@@ -128,7 +128,12 @@ Route::get('/{vue_capture?}', function ($vue_capture='') {
 
 
         }else{
-            $fiture =  base64Withsize('Product-main',settings()->header_logo);
+
+            if(file_exists(settings()->header_logo)){
+                $fiture =  base64Withsize('Product-main',settings()->header_logo);
+            }else{
+                $fiture =  '';
+            }
             $web_details = [
                 "name"=> "পুথিপ্রকাশ",
                 "short_description"=> 'পুথিপ্রকাশ',
@@ -140,7 +145,14 @@ Route::get('/{vue_capture?}', function ($vue_capture='') {
         }
 
     }else{
-        $fiture =  base64Withsize('Product-main',settings()->header_logo);
+
+
+        if(file_exists(settings()->header_logo)){
+            $fiture =  base64Withsize('Product-main',settings()->header_logo);
+        }else{
+            $fiture =  '';
+        }
+        // $fiture =  base64Withsize('Product-main',settings()->header_logo);
         $web_details = [
             "name"=> "পুথিপ্রকাশ",
             "short_description"=> 'পুথিপ্রকাশ',

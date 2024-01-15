@@ -222,7 +222,7 @@ export default {
         },
 
     async getItem(){
-        var res = await this.callApi('get',`/api/products/${this.$route.params.id}`,[]);
+        var res = await this.callApi('get',`/api/products/single/${this.$route.params.id}`,[]);
         this.Breadcrumb = [{'route':'home','params':{},'text':'হোম'}];
         this.item = res.data;
         this.Breadcrumb.push(

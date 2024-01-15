@@ -34,7 +34,7 @@
         <span>যোগাযোগঃ</span>
         <div class="d-flex fs-5 gap-3 text-secondary">
             <a :href="'mailto:'+preload_data.settings.mail" style="color:#6C757D;"><i class="fa-sharp fa-solid fa-envelope linkHover"></i></a>
-            <a :href="preload_data.settings.whatsapp" style="color:#6C757D;"><i class="fa-brands fa-square-whatsapp linkHover"></i></a>
+            <a :href="`https://wa.me/${preload_data.settings.whatsapp}`" target="_blank" style="color:#6C757D;"><i class="fa-brands fa-square-whatsapp linkHover"></i></a>
         </div>
       </div>
       <div>

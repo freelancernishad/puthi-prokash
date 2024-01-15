@@ -168,6 +168,7 @@ Route::get('/products', [ProductController::class,'index']);
 
 
 Route::get('/products/{product}', [ProductController::class,'show']);
+Route::get('/products/single/{slug}', [ProductController::class,'showBySlug']);
 Route::post('/products', [ProductController::class,'store']);
 Route::put('/products/{product}', [ProductController::class,'update']);
 Route::delete('/products/{product}', [ProductController::class,'destroy']);

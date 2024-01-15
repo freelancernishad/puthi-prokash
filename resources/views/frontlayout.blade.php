@@ -100,7 +100,15 @@ ol#carousel-1___BV_indicators_ li {
     background: #F05D41;
 }
 
+li.page-item a {
+    color: var(--defaultColor) !important;
+}
 
+li.page-item.active a {
+    background: var(--defaultColor);
+    color: white !important;
+    border: var(--defaultColor);
+}
 
 </style>
 <style>

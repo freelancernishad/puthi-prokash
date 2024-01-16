@@ -24,6 +24,7 @@ let Products = require('./components/pages/Products.vue').default;
 let productSingle = require('./components/pages/productSingle.vue').default;
 
 let multimedia = require('./components/pages/multimedia.vue').default;
+let video = require('./components/pages/video.vue').default;
 let download = require('./components/pages/download.vue').default;
 let gallery = require('./components/pages/gallery.vue').default;
 
@@ -82,6 +83,7 @@ export const routes = [
     { path:  `${prefix}cart`, component: cart, name:'cart',meta: { layout: layout } },
     { path:  `${prefix}checkout`, component: checkout, name:'checkout',meta: { layout: layout } },
 
+    { path:  `${prefix}video`, component: video, name:'video',meta: { layout: layout } },
     { path:  `${prefix}multimedia`, component: multimedia, name:'multimedia',meta: { layout: layout } },
     { path:  `${prefix}download`, component: download, name:'download',meta: { layout: layout } },
 

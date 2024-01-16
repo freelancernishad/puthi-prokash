@@ -265,7 +265,7 @@
     <a href="javascript:void(0)" class="border-3 border-start border-white text-dark">মাল্টিমিডিয়া <i class="fa-light fa-arrow-down-long"></i></a>
 
     <ul class="DownItems list-unstyled " style="list-style: inside;left: 13px;width: 100%;">
-        <li><router-link :to="{name:'multimedia'}" style="display: contents;" href="#" class="text-dark">Video</router-link></li>
+        <li><router-link :to="{name:'video'}" style="display: contents;" href="#" class="text-dark">Video</router-link></li>
         <li><router-link :to="{name:'gallery'}" style="display: contents;" href="#" class="text-dark">Image</router-link></li>
     </ul>
 </li>

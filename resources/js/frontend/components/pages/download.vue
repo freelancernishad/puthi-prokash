@@ -71,19 +71,19 @@
 
                             <div class="col-3 contentItem">
                                 <h4>Published Date</h4>
-                                <p>18-12-23</p>
+                                <p>{{ item.published_date }}</p>
                             </div>
 
                             <div class="col-7 contentItem">
                                 <h4>Document Title</h4>
-                                <p>পুথিপ্রকাশের সমগ্র বই সমূহের তালিকা</p>
+                                <p>{{ item.title }}</p>
                             </div>
 
                             <div class="col-2 contentItem">
                                 <h4>Action</h4>
                                 <div class="d-flex justify-content-between downloadActionButtons">
                                     <a href="#">View</a>
-                                    <a href="#">Download</a>
+                                    <a :href="$asseturl+item.file">Download</a>
                                 </div>
                             </div>
 
@@ -125,12 +125,7 @@ export default {
             form:{
                 search:''
             },
-            items:{
-                0:{},
-                1:{},
-                2:{},
-                3:{},
-            },
+            items:{},
             categoris:{},
 
 
@@ -158,22 +153,22 @@ export default {
 
             }
 
-            var res = await this.callApi('get',`/api/multimedia/front/images?page=${page}${queryId}`,[]);
+            var res = await this.callApi('get',`/api/downloads?page=${page}${queryId}`,[]);
+
+            var galleryItems = res.data
+
+
+            this.items = galleryItems.data
 
 
 
-            var galleryItems = res.data.items
-
-            this.categoris = res.data.category
-
-            // this.items = galleryItems.data
             this.totalItems = galleryItems.total
 
 
             this.per_page = galleryItems.per_page
             this.totalitems = galleryItems.total
             this.Totalpageprops = galleryItems.links
-            this.Routenameprops = 'multimedia'
+            this.Routenameprops = 'download'
 
 
 

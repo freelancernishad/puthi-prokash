@@ -36,6 +36,10 @@ let multimediaIndex = require('./components/multimedia/index.vue').default;
 let multimediaForm = require('./components/multimedia/form.vue').default;
 
 
+let downloadIndex = require('./components/download/index.vue').default;
+let downloadForm = require('./components/download/form.vue').default;
+
+
 let pagesIndex = require('./components/pages/index.vue').default;
 let pagesForm = require('./components/pages/form.vue').default;
 
@@ -151,6 +155,11 @@ export const routes = [
   { path:  `${prefix}/multimedia/list`, component: multimediaIndex, name:'multimediaIndex',meta: { layout: adminlayout } },
   { path:  `${prefix}/multimedia/add`, component: multimediaForm, name:'multimediaAdd',meta: { layout: adminlayout } },
   { path:  `${prefix}/multimedia/edit/:id`, component: multimediaForm, name:'multimediaEdit',meta: { layout: adminlayout } },
+
+
+  { path:  `${prefix}/download/list`, component: downloadIndex, name:'downloadIndex',meta: { layout: adminlayout } },
+  { path:  `${prefix}/download/add`, component: downloadForm, name:'downloadAdd',meta: { layout: adminlayout } },
+  { path:  `${prefix}/download/edit/:id`, component: downloadForm, name:'downloadEdit',meta: { layout: adminlayout } },
 
 
 

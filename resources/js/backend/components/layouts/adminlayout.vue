@@ -264,6 +264,26 @@
                         </li>
 
 
+                        <li class="nav-item sidebar-nav-item" :class="{ active: selected == 10601 }" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Media Manager'">
+                            <a href="javascript:void(0)" class="nav-link" @click="submenu(10601)"><i
+                                    class="flaticon-technological"></i><span>Download</span>
+                            </a>
+                            <transition name="slide">
+                                <ul class="nav sub-group-menu menu-open child" v-if="selected == 10601"
+                                    style="display:block">
+                                    <li class="nav-item" v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'admin'">
+                                        <router-link :to="{ name: 'downloadAdd' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> New Download </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'downloadIndex' }" class="nav-link"><i
+                                                class="fas fa-angle-right"></i> Download List </router-link>
+                                    </li>
+                                </ul>
+                            </transition>
+                        </li>
+
+
 
 
                         <li class="nav-item sidebar-nav-item" :class="{ active: selected == 107 }"  v-if="this.$localStorage.getItem('position') == 'Super Admin' || this.$localStorage.getItem('position') == 'Admin' || this.$localStorage.getItem('position') == 'Sales Manager'">

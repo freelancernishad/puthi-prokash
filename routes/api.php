@@ -26,6 +26,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\api\authController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MultimediaController;
 use App\Http\Controllers\ProductImageController;
@@ -98,6 +99,14 @@ Route::post('verify-email', [authController::class,'verifyEmail']);
 
 Route::post('send-phone-verification', [authController::class,'sendPhoneVerification']);
 
+
+
+// Create a new download
+Route::post('/downloads', [DownloadController::class, 'createDownload']);
+Route::put('/downloads/{id}', [DownloadController::class, 'updateDownload']);
+Route::delete('/downloads/{id}', [DownloadController::class, 'deleteDownload']);
+Route::get('/downloads/{id}', [DownloadController::class, 'getDownload']);
+Route::get('/downloads', [DownloadController::class, 'getAllDownloads']);
 
 
 

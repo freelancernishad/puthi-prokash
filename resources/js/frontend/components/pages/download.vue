@@ -37,15 +37,15 @@
         <h2 class="text-center text-white">Search your Document</h2>
         <div class="row">
             <div class="col-md-7">
-                <form class="d-flex downloadSearchBox">
-                    <input type="text" placeholder="Title Name" class="downloadTitleSearch">
+                <form class="d-flex downloadSearchBox" @submit.prevent="SearchTitle">
+                    <input type="text" placeholder="Title Name" v-model="title" class="downloadTitleSearch">
                     <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
             </div>
             <div class="col-md-5">
 
-                <form class="d-flex downloadSearchBox">
-                    <input type="date" placeholder="Title Name" class="downloadTitleSearch">
+                <form class="d-flex downloadSearchBox" @submit.prevent="SearchDate">
+                    <input type="date" placeholder="Title Name" v-model="published_date" class="downloadTitleSearch">
                     <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
 
@@ -135,9 +135,22 @@ export default {
             Totalpageprops:[],
             Routenameprops:'',
             Routeparamsprops:{},
+            title:'',
+            published_date:'',
         }
     },
     methods: {
+
+
+        SearchTitle(){
+            this.getItems();
+        },
+
+
+        SearchDate(){
+            this.getItems();
+        },
+
 
         async getItems(id=''){
             this.queryId = id
@@ -146,41 +159,29 @@ export default {
                 page = this.$route.query.page;
             }
 
+            var title = '';
+            if(this.title){
+                title = `&title=${this.title}`
+            }
+
+            var published_date = '';
+            if(this.published_date){
+                published_date = `&published_date=${this.published_date}`
+            }
 
             var queryId = '';
             if(this.queryId){
                 queryId = `&id=${id}`
 
             }
-
-            var res = await this.callApi('get',`/api/downloads?page=${page}${queryId}`,[]);
-
+            var res = await this.callApi('get',`/api/downloads?page=${page}${queryId}${title}${published_date}`,[]);
             var galleryItems = res.data
-
-
             this.items = galleryItems.data
-
-
-
             this.totalItems = galleryItems.total
-
-
             this.per_page = galleryItems.per_page
             this.totalitems = galleryItems.total
             this.Totalpageprops = galleryItems.links
             this.Routenameprops = 'download'
-
-
-
-
-            // this.items = res.data.data
-            // this.totalItems = res.data.total
-
-
-            // this.per_page = res.data.per_page
-            // this.totalitems = res.data.total
-            // this.Totalpageprops = res.data.links
-            // this.Routenameprops = 'multimedia'
 
         }
     },

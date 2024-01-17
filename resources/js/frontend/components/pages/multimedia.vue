@@ -28,9 +28,9 @@
     </section>
 
     <div class="multimidiaContainer position-relative">
-        <div class="multimidiaHero text-center" :style="'background: linear-gradient(rgb(0 0 0) 0%, rgb(0 0 0 / 33%) 59%, rgb(0 0 0 / 61%) 100%), url('+$asseturl+'assets/image/beautiful-forest.jpg) no-repeat;background-size: cover;background-attachment: fixed;padding: 91px 0px;'">
-            <h3 class="heroTitle text-white">The Page Header</h3>
-            <p class="hereDescription text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius quisquam doloremque, culpa nihil deleniti,</p>
+        <div class="multimidiaHero text-center" :style="'background: linear-gradient(rgb(0 0 0) 0%, rgb(0 0 0 / 33%) 59%, rgb(0 0 0 / 61%) 100%), url('+$asseturl+'assets/image/multimedia_page_banner.jpg) no-repeat;background-size: cover;background-attachment: fixed;padding: 91px 0px;'">
+            <h3 class="heroTitle text-white">Multimedia</h3>
+            <p class="hereDescription text-white">"In multimedia, images, words, and film all come together. It makes us think about how we can make our lives more beautiful by watching and experiencing it." - George Lucas</p>
         </div>
 
         <div class="container boxContainer">
@@ -122,16 +122,17 @@ p.hereDescription {
     box-shadow: 0px 0px 29px 0px #00000069;
     width: 75%;
     margin: 0 auto;
+    background: var(--defaultColor);
 }
 
 .cardContainer .icon {
     font-size: 50px;
     margin-bottom: 21px;
-    color: var(--defaultColor);
+    color: white;
 }
 
 .cardContainer .cardHeader {
-    color: var(--defaultColor);
+    color: white;
 }
 
 .boxContainer {

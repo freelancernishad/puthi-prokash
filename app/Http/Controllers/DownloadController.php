@@ -25,10 +25,32 @@ class DownloadController extends Controller
         // $fileName = $file->getClientOriginalName();
         // $file->storeAs('downloads', $fileName, 'public');
 
+
+
+
+
+
+
+
+
         $fileName='';
         if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $fileName = $file->store('downloads', 'public');
+
+
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $Y = date('Y');
+            $m = date('m');
+            $d = date('d');
+            $path = "uploaded/download/"."$Y/$m/$d";
+            $file->move(public_path($path), $fileName);
+            $fileName =   "$path/$fileName";
+
+
+
+
+                // $file = $request->file('file');
+                // $fileName = $file->store('downloads', 'public');
         }
 
 
@@ -75,9 +97,22 @@ class DownloadController extends Controller
         return response()->json($download, 200);
     }
 
-    public function getAllDownloads()
+    public function getAllDownloads(Request $request)
     {
-        $downloads = Download::paginate(20);
+        $downloadsQuery = Download::orderBy('id', 'desc');
+
+        if ($request->has('title')) {
+            $title = $request->title;
+            $downloadsQuery->where('title', 'like', '%' . $title . '%');
+        }
+
+        if ($request->has('published_date')) {
+            $published_date = $request->published_date;
+            $downloadsQuery->where('published_date', 'like', '%' . $published_date . '%');
+        }
+
+        $downloads = $downloadsQuery->paginate(20);
+
         return response()->json($downloads, 200);
     }
 }

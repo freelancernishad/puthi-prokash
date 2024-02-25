@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Headercomponent/>
-            <slot></slot>
+        <Headercomponent @wheel.prevent="onWheel"/>
+            <slot ></slot>
         <Footercomponent/>
 
 
@@ -50,7 +50,12 @@ export default {
         }
     },
     methods: {
-
+        onWheel(event) {
+                    const content = this.$refs.content;
+                    const scrollSpeed = 50;
+                    const deltaY = Math.sign(event.deltaY) * scrollSpeed;
+                    content.scrollTop += deltaY;
+                }
 
 
 

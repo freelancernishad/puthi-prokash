@@ -9,7 +9,7 @@
 
 
 
-        <div class="row gutters-20">
+                <div class="row gutters-20">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="card dashboard-card-seven">
                             <div class="social-media bg-fb hover-fb">

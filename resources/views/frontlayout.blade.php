@@ -70,6 +70,10 @@
 	{{-- <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet"> --}}
 
 <style>
+
+
+
+
 *{
     --defaultColor: #F15C46;
     --defaultBg: #AEBFC9;
@@ -146,11 +150,19 @@ li.page-item.active a {
 div#overlay-circular {
     z-index: 999999999 !important;
 }
+
+             /* Style for content animation */
+             .content {
+            transition: transform 0.5s ease;
+            overflow-y: auto; /* Enable vertical scrolling */
+            height: 100%; /* Ensure content fills the container */
+        }
+
   </style>
 
 </head>
 
-<body style="font-family: 'Tiro Bangla', serif !important;">
+<body style="font-family: 'Tiro Bangla', serif !important;" >
 
     <div class="preloader" id="preloader">
         <div class="loader"></div>
@@ -171,9 +183,12 @@ div#overlay-circular {
        @endphp
 
 
-        <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  :categories="{{$categories}}"  :sliders="{{$sliders}}" :settings="{{$settings}}" :web_details="{{$web_details}}"  >
-            <router-view />
-          </component>
+
+
+     <component :is="$route.meta.layout || 'div'"  :user="{{$users}}"  :categories="{{$categories}}"  :sliders="{{$sliders}}" :settings="{{$settings}}" :web_details="{{$web_details}}"  >
+        <router-view />
+    </component>
+
 
     </div>
 
@@ -183,7 +198,7 @@ div#overlay-circular {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.1.19') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.1.20') }}" async ></script>
 
 <script>
 

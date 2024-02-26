@@ -133,7 +133,7 @@ li.page-item.active a {
 
 
 .loader {
-    background-image: url(/assets/image/load-min.gif);
+    background-image: url(/assets/image/logo-animation.gif);
     /* border: 14px solid #f3f3f3; */
     /* border-top: 14px solid #F15C46; */
     /* border-radius: 50%; */

@@ -335,7 +335,7 @@ if ("{{ Auth::user() }}") {
 
 <script>
   var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "115295298247240");
+  chatbox.setAttribute("page_id", "111380527893647");
   chatbox.setAttribute("attribution", "biz_inbox");
 </script>
 

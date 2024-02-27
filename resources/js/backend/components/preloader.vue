@@ -1,6 +1,6 @@
 <template>
     <div class="Preloader_own">
-        <img :src="$asseturl+'assets/image/load-min.gif'" alt="">
+        <img :src="$asseturl+'assets/image/logo-animation.gif'" alt="">
     </div>
 </template>
 

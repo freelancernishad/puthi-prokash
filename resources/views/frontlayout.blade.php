@@ -158,6 +158,10 @@ div#overlay-circular {
             height: 100%; /* Ensure content fills the container */
         }
 
+.card-body.iframeContainer iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
   </style>
 
 </head>
@@ -198,7 +202,7 @@ div#overlay-circular {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.1.21') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.1.22') }}" async ></script>
 
 <script>
 

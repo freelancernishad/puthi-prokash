@@ -91,6 +91,8 @@ export default {
             var res = await this.callApi('post', '/api/users/register-writer', this.form);
             this.close();
             this.$emit('call_writer')
+            this.$router.go();
+            console.log(this.$router.go())
 
         },
         close(){

@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <label for="">Description</label>
                                         <vue-editor v-model="form.description"    api-key="nhnny39zzu3w0euy077ojdf9gk1n3mjpkobk25i228rt3qkz" :init="tinyInt"></vue-editor>
-                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('short_description')" v-for="name in errors.short_description" :key="name">{{ name }}</span>
+                                        <span class="text-danger font-weight-bold" v-if="errorHandleing('description')" v-for="name in errors.description" :key="name">{{ name }}</span>
                                     </div>
                                 </div>
 

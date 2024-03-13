@@ -41,7 +41,7 @@
 
 
 
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.jpg') }}" />
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -202,7 +202,7 @@ div#overlay-circular {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.1.22') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.1.23') }}" async ></script>
 
 <script>
 

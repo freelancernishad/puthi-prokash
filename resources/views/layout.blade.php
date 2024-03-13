@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Welcome to PuthiProkash</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/only_Logo.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.jpg') }}" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -90,7 +90,7 @@ li.page-item.active button {
 
 
 
-<script src="{{ asset('js/backend.js?ver=1.1.22') }}"></script>
+<script src="{{ asset('js/backend.js?ver=1.1.23') }}"></script>
 
 
 

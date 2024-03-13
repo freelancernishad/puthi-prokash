@@ -35,6 +35,7 @@
 
     <div class="downloadHeadHero">
         <h2 class="text-center text-white">Search your Document</h2>
+        <div class="container">
         <div class="row">
             <div class="col-md-7">
                 <form class="d-flex downloadSearchBox" @submit.prevent="SearchTitle">
@@ -50,6 +51,7 @@
                 </form>
 
             </div>
+        </div>
         </div>
     </div>
 

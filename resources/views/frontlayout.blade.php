@@ -69,6 +69,12 @@
 <meta name="csrf-token"             ="{{ csrf_token() }}" />
 	{{-- <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet"> --}}
 
+    <!-- Add SmoothScrollbar CSS -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smooth-scrollbar/dist/smooth-scrollbar.css"> --}}
+
+    <!-- Your other CSS links -->
+
+
 <style>
 
 
@@ -162,6 +168,11 @@ div#overlay-circular {
     width: 100% !important;
     height: 100% !important;
 }
+#app {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
   </style>
 
 </head>
@@ -201,8 +212,13 @@ div#overlay-circular {
 
 
 
+<script src="{{ asset('js/frontend.js?ver=1.1.24') }}" async ></script>
 
-    <script src="{{ asset('js/frontend.js?ver=1.1.23') }}" async ></script>
+
+
+
+
+
 
 <script>
 
@@ -382,6 +398,15 @@ setTimeout(() => {
 
   gtag('config', 'G-FB1NM172LT');
 </script>
+
+
+    <!-- Add SmoothScrollbar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar" defer></script>
+    <!-- Initialize SmoothScrollbar after document loaded -->
+    <script>
+
+      </script>
+
 
 
 </body>

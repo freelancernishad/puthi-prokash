@@ -347,6 +347,52 @@ export default {
 
 
 
+var options = {
+    damping: 0.05,
+    thumbMinSize: 20,
+    renderByPixels: true,
+    alwaysShowTracks: false,
+    continuousScrolling: true,
+    overscrollEffect: 'auto',
+    overscrollEffectColor: '#87ceeb',
+    overscrollDamping: 0.2,
+    plugins: {
+        overflow: 'scroll' // Can be 'auto', 'scroll', 'hide', or 'visible'
+    }
+};
+
+window.onload = () => {
+    var scrollbar = document.querySelector('#app');
+    var smoothScrollbar = Scrollbar.init(scrollbar, options);
+
+    smoothScrollbar.addListener((status) => {
+
+        const mainHeadSlider = document.querySelector('.mainHeadSlider');
+        const header = document.querySelector('.header');
+
+        const mainHeadSliderRect = mainHeadSlider.getBoundingClientRect();
+        const headerRect = header.getBoundingClientRect();
+
+        const mainHeadSliderOffsetTop = mainHeadSliderRect.bottom;
+        const headerOffsetTop = headerRect.top + status.offset.y;
+
+        const scrollPosition = status.offset.y;
+
+        if (mainHeadSliderOffsetTop > 0) {
+            this.isFixed = false;
+        } else if (scrollPosition >= headerOffsetTop) {
+            this.isFixed = true;
+        } else {
+            this.isFixed = false;
+        }
+
+
+
+
+    });
+};
+
+
 
 
 
@@ -647,7 +693,7 @@ this.srjnshiilBi();
 }
 </script>
 
-style
+
 
 <style >
 

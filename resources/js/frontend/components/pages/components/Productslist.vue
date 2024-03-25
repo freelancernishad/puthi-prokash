@@ -25,7 +25,7 @@
 
             <Product v-for="(product,index) in products" :key="'product'+index" :product="product" @show_details="showDetialsFun(1,product.id,product)"/>
 
-            <Productdetails v-if="showDetials==1" @close_detials="closeDetialsFun" :product="showDetialsProduct" />
+        <Productdetails v-if="showDetials==1" @close_detials="closeDetialsFun" class="target-section"  :product="showDetialsProduct" />
 
 
 
@@ -92,6 +92,9 @@ export default {
     methods: {
 
         showDetialsFun(id,productid,showDetialsProduct){
+
+
+     
             const windowWidth = window.innerWidth;
             if (windowWidth <= 991) {
 
@@ -105,7 +108,6 @@ export default {
                     this.showDetials = id;
                     this.productId = productid;
                     this.showDetialsProduct = showDetialsProduct
-
                 }
             }
 
@@ -115,7 +117,12 @@ export default {
 
 
         },
-
+        scrollToSection() {
+      const section = this.$el.querySelector('.target-section'); // Adjust the class name accordingly
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    },
         closeDetialsFun(){
             this.showDetials = 0;
                 this.productId = 0;

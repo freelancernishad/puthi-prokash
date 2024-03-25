@@ -38,7 +38,7 @@
         </div>
       </div>
       <div>
-        <span class="fs-5">আমাদের অন্যান্য প্রতিষ্ঠানঃ  <a href="#" style="color:#6C757D;"> <img :src="$asseturl+'assets/image/poyor.jpg'" class="linkHover" style="    width: 48px;" alt="">
+        <span class="fs-5">আমাদের অন্যান্য প্রতিষ্ঠানঃ  <a href="#" style="color:#6C757D;"> <img :src="$asseturl+'assets/image/poyor.jpg'" class="linkHover" style="    width: 90px;" alt="">
           <!-- <i class="fa-brands fa-youtube linkHover"></i> --></a></span>
       </div>
     </div>
@@ -135,7 +135,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Rights Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt=""> @develoved by codecursor -(www.codecursor.com)
+        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Rights Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt=""> <span style="color:white"> @develoved by <a href="www.codecursor.com" target="_blank" rel="noopener noreferrer" style="color:white">codecursor</a></span> 
       </div>
     </div>
   </div>

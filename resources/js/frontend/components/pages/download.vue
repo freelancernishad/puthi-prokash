@@ -84,7 +84,7 @@
                             <div class="col-2 contentItem">
                                 <h4>Action</h4>
                                 <div class="d-flex justify-content-between downloadActionButtons">
-                                    <a href="#">View</a>
+                                    <router-link :to="{name:'downloadView',params:{id:item.id}}">View</router-link>
                                     <a :href="$asseturl+item.file">Download</a>
                                 </div>
                             </div>

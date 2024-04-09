@@ -135,7 +135,7 @@
   <div class="container">
     <div class="row">
       <div class="title_footer pb-2">
-        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Rights Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt=""> <span style="color:white"> @develoved by <a href="www.codecursor.com" target="_blank" rel="noopener noreferrer" style="color:white">codecursor</a></span> 
+        <h5 class="mb-0" style="font-size: 14px;color:white">copyright@2023 puthiprokash. All Rights Reserved </h5> <img width="200px" :src="$asseturl+'assets/image/paymentFooter.jpg'" alt=""> <span style="color:white"> @develoved by <a href="https://www.codecursor.com" target="_blank" rel="noopener noreferrer" style="color:white">codecursor</a></span>
       </div>
     </div>
   </div>

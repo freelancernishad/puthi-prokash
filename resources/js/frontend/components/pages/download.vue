@@ -37,13 +37,13 @@
         <h2 class="text-center text-white">Search your Document</h2>
         <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 mt-3">
                 <form class="d-flex downloadSearchBox" @submit.prevent="SearchTitle">
                     <input type="text" placeholder="Title Name" v-model="title" class="downloadTitleSearch">
                     <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 mt-3">
 
                 <form class="d-flex downloadSearchBox" @submit.prevent="SearchDate">
                     <input type="date" placeholder="Title Name" v-model="published_date" class="downloadTitleSearch">

@@ -48,7 +48,10 @@
 
 
                 <div class="col-md-12">
-                <button class="btn btn-info" type="submit">Submit</button>
+
+                <button class="btn btn-info" type="button" v-if="submitclick">Please wait...</button>
+                <button class="btn btn-info" type="submit" v-else>Submit</button>
+
                 </div>
                 </form>
         </div>
@@ -69,6 +72,7 @@ export default {
                 position:'',
                 image:'',
             },
+            submitclick:false,
         }
     },
     methods: {
@@ -88,11 +92,13 @@ export default {
             //   console.log($event.target.result);
         },
         async onSubmit() {
+            this.submitclick = true
             var res = await this.callApi('post', '/api/users/register-writer', this.form);
             this.close();
             this.$emit('call_writer')
-            this.$router.go();
-            console.log(this.$router.go())
+            this.submitclick = false
+            // this.$router.go();
+
 
         },
         close(){

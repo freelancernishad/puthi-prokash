@@ -8,7 +8,7 @@
                 Writer form
             </h2>
 
-            <form class="row" @submit.stop.prevent="onSubmit">
+            <form class="row" @submit.stop.prevent="onSubmitWriter">
 
 
                 <div class="form-group col-md-6">
@@ -85,18 +85,25 @@ export default {
                 let reader = new FileReader;
                 reader.onload = event => {
                     this.form[parent_index] = event.target.result
-                    // console.log(event.target.result);
+                  
                 };
                 reader.readAsDataURL(file)
             }
-            //   console.log($event.target.result);
+            
         },
-        async onSubmit() {
+        async onSubmitWriter() {
             this.submitclick = true
             var res = await this.callApi('post', '/api/users/register-writer', this.form);
+            localStorage.setItem('newWriter', JSON.stringify(res.data))
             this.close();
-            this.$emit('call_writer')
             this.submitclick = false
+            Notification.customSuccess(`Writer Added Successfull`);
+
+            // setTimeout(() => {
+
+                this.$emit('call_writer')
+            // }, 1000);
+
             // this.$router.go();
 
 

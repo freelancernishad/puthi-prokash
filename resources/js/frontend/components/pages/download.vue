@@ -44,7 +44,6 @@
                 </form>
             </div>
             <div class="col-md-5 mt-3">
-
                 <form class="d-flex downloadSearchBox" @submit.prevent="SearchDate">
                     <input type="date" placeholder="Title Name" v-model="published_date" class="downloadTitleSearch">
                     <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
@@ -73,17 +72,17 @@
 
                             <div class="col-3 contentItem">
                                 <h4>Published Date</h4>
-                                <p>{{ item.published_date }}</p>
+                                <p class="vertical-align-bottom">{{ item.published_date }}</p>
                             </div>
 
                             <div class="col-7 contentItem">
                                 <h4>Document Title</h4>
-                                <p>{{ item.title }}</p>
+                                <p class="vertical-align-bottom">{{ item.title }}</p>
                             </div>
 
                             <div class="col-2 contentItem">
                                 <h4>Action</h4>
-                                <div class="d-flex justify-content-between downloadActionButtons">
+                                <div class="d-flex justify-content-between flex-wrap downloadActionButtons">
                                     <router-link :to="{name:'downloadView',params:{id:item.id}}">View</router-link>
                                     <a :href="$asseturl+item.file">Download</a>
                                 </div>
@@ -195,6 +194,15 @@ export default {
 </script>
 <style scoped>
 
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.contentItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .contentItem h4 {
     color: var(--defaultColor);

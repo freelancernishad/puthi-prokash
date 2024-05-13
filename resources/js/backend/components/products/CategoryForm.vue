@@ -43,7 +43,9 @@
 
                             </div>
 
-                            <button class="btn btn-info">Submit</button>
+                            
+                <button class="btn btn-info" type="button" v-if="submitclick">Please wait...</button>
+                <button class="btn btn-info" type="submit" v-else>Submit</button>
                         </form>
         </div>
     </div>
@@ -60,6 +62,7 @@ export default {
                 parent_id:'',
                 icon:`${this.$asseturl}assets/image/image.png`,
             },
+            submitclick:false,
         }
     },
     methods: {
@@ -96,6 +99,7 @@ export default {
             //   console.log($event.target.result);
         },
         async onSubmit() {
+            this.submitclick = true
             var res = await this.callApi('post', '/api/categories', this.form);
 
             if(res.status==200){
@@ -115,6 +119,7 @@ export default {
                 Notification.customError(`Something want wrong!`);
                 this.errors = res.data.errors
             }
+            this.submitclick = false
 
 
 

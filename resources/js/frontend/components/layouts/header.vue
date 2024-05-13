@@ -258,7 +258,7 @@
  -->
 
 
- <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'categories'}" class="border-3 border-start border-white text-dark">মাল্টিমিডিয়া </router-link></li>
+ <li v-if="mobileMenu" class="nav-item  col submenu1 submenuhave"><router-link :to="{name:'multimedia'}" class="border-3 border-start border-white text-dark">মাল্টিমিডিয়া </router-link></li>
 
 <li v-else class="nav-item  col submenu1 submenuhave position-relative DropItem">
 

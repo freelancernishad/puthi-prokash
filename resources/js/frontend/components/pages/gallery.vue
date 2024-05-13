@@ -42,14 +42,14 @@
   <div class="pp-category-filter">
     <div class="row">
 
-        <p @click="previous" class="prev col-sm-1 text-center">
+        <p @click="previous" class="prev col-1 text-center">
             <i class="fas fa-chevron-left fa-fw"></i>
         </p>
-        <div class="col-sm-10" id="slide">
+        <div class="col-10" id="slide">
             <button :class="queryId=='' ? 'btn-primary text-white' : 'btn-outline-primary'"  class="btn pp-filter-button catitems mr-2" @click="getItems()" href="#" style="margin-right: 6px;" >All</button>
             <button v-for="(gallery,indexG) in galleris" :key="`indexG${indexG}`" :class="queryId==gallery.id ? 'btn-primary  text-white' : 'btn-outline-primary'" @click="getItems(gallery.id)" class="btn pp-filter-button catitems" style="margin-right: 5px;">{{ gallery.title }}</button>
         </div>
-        <P @click="next" class="next col-sm-1 text-center">
+        <P @click="next" class="next col-1 text-center">
             <i class="fas fa-chevron-right fa-fw"></i>
         </P>
 
@@ -245,6 +245,12 @@ export default {
 }
 </script>
 <style scoped>
+
+.catitems:hover {
+    background: var(--defaultColor) !important;
+    border: 1px solid var(--defaultColor) !important;
+}
+
 body {
   background: #ffffff;
   min-height: 900px;

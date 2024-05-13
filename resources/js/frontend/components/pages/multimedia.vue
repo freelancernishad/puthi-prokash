@@ -37,7 +37,7 @@
             <div class="row">
 
 
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center mb-5">
                     <router-link :to="{name:'gallery'}" class="card cardContainer">
                         <div class="icon">
                             <i class="fas fa-images fa-fw"></i>
@@ -49,7 +49,7 @@
                 </div>
 
 
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center mb-5">
                     <router-link :to="{name:'video'}" class="card cardContainer">
                         <div class="icon">
                             <i class="fas fa-video"></i>
@@ -61,7 +61,7 @@
                 </div>
 
 
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center mb-5">
                     <router-link :to="{name:'download'}" class="card cardContainer">
                         <div class="icon">
                             <i class="fas fa-download"></i>

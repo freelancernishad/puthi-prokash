@@ -139,7 +139,7 @@
 
                                         <div class="form-group" style="width:90%">
                                             <label for="">লেখক</label>
-                                            <select class="form-control" v-model="form.author_id">
+                                            <select class="form-control"  v-model="form.author_id">
                                                 <option value="">লেখক নির্বাচন করুন</option>
                                                 <option v-for="(writer,index) in writers" :key="'writer'+index" :value="writer.id">{{ writer.name }}</option>
                                             </select>
@@ -287,6 +287,7 @@ export default {
             Method:'post',
             triggerRerender: false,
             writers:{},
+            writersNew:{},
             isPopupOpen: false,
             isCPopupOpen: false,
             preLooding:false
@@ -317,11 +318,40 @@ export default {
     }
     },
     methods: {
-        async getWriters(){
+
+
+
+        async getWritersNew(){
             this.preLooding = true
             var res = await this.callApi('get',`/api/users/position/writer?type=all`,[]);
             this.writers = res.data
             this.preLooding = false
+        },
+
+
+        async getWriters(){
+
+            
+
+            if (localStorage.getItem("newWriter") !== null) {
+                // Convert the object in localStorage to an object
+const newWriter = JSON.parse(localStorage.getItem("newWriter"));
+
+// Check if the newWriter exists in this.writers
+const writerExists = this.writers.some(writer => {
+  return writer.id === newWriter.id;
+});
+
+if (!writerExists) {
+  // Add newWriter to this.writers if it doesn't exist
+  this.writers.push(newWriter);
+  this.writers.sort((a, b) => b.id - a.id);
+} 
+
+
+
+            }
+
         },
 
 
@@ -350,7 +380,6 @@ export default {
             let file = $event.target.files[0];
                 let reader = new FileReader;
                 reader.onload = event => {
-                    // console.log(event.target.result)
                     this.form[parent_index] = event.target.result
                 };
                 reader.readAsDataURL(file)
@@ -409,7 +438,7 @@ export default {
     },
     mounted(){
         this.getList();
-        this.getWriters();
+        this.getWritersNew();
         if(this.$route.params.id){
             this.getItems();
             this.updateInsertApi = `/api/products/${this.$route.params.id}`;

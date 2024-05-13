@@ -212,7 +212,7 @@ div#overlay-circular {
 
 
 
-<script src="{{ asset('js/frontend.js?ver=1.1.28') }}" async ></script>
+<script src="{{ asset('js/frontend.js?ver=1.1.29') }}" async ></script>
 
 
 

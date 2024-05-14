@@ -63,6 +63,13 @@ Route::post('auth/login',[LoginController::class,'userLogin']);
 Route::post('login',[LoginController::class,'login']);
 Route::post('logout',[LoginController::class,'logout']);
 
+Route::get('callback/success', function (Request $request) {
+
+
+    return $request->all();
+});
+
+
 Route::get('/books/{slug}/{id}', function ($slug,$id) {
 
     $BooksCount =  Product::with('flippingBooks')->where(['slug'=>$slug,'id'=>$id])->count();

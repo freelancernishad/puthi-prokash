@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
 use Spatie\Analytics\Analytics;
 use App\Http\Controllers\GeoCode;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
@@ -78,7 +79,7 @@ Route::group([
 
 Route::post('/callback/ekpay/ipn', function (Request $request) {
 
-    log::info($request->all());
+    Log::info($request->all());
 
 
 });

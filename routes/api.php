@@ -76,6 +76,14 @@ Route::group([
 
 
 
+Route::post('/callback/ekpay/ipn', function (Request $request) {
+
+    log::info($request->all());
+
+
+});
+
+
 Route::get('/test/visitor', function (Request $request) {
 
 
